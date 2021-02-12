@@ -1,0 +1,6 @@
+1 Atlantic_Provinces
+2 Ontario_and_Quebec
+3 Western_Provinces-South
+4 Western_Provinces-North
+5 Nunavut
+6 Northwestern_Territories
