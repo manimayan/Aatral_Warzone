@@ -10,6 +10,7 @@ import org.springframework.util.StringUtils;
 import aatral.warzone.model.Borders;
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Country;
+import aatral.warzone.utilities.ContinentMapReader;
 import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
 import aatral.warzone.utilities.Graph;
@@ -29,13 +30,19 @@ public class ComposeGraph {
 	 * @param continentData contains continent coordinates fetched from text file
 	 * @return constructed continent map
 	 */
-	public HashMap<String, List<Country>> getContinentMap(List<Continent> continentData) {
+	public HashMap<String, List<Country>> getContinentMap() {
 
+		//read continent data from text file
+		ContinentMapReader comr =  new ContinentMapReader();
+		List<Continent> continentData =  new ArrayList<>(); 
+		continentData = comr.readContinentFile();
+		
 		HashMap<String, List<Country>> continentMap =  new HashMap<>();
 		for (Continent continent : continentData) {
 			continentMap.put(continent.getContinentId()+"_"+continent.getContinentName(), new ArrayList<Country>());
 		}
 
+		//read country data from text file
 		CountryMapreader cmr =  new CountryMapreader();
 		List<Country> countryDataList =  new ArrayList<>(); 
 		countryDataList = cmr.readCountryMap();
