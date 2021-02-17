@@ -15,17 +15,19 @@ import aatral.warzone.model.Country;
  */
 
 public class Graph {
-	
+
 	public Map<String, List<Country>> adjVertices =  new HashMap<>();
-	
+
 	/**
 	 * addVertex method is used 
 	 * to create a node/vertex in a graph
 	 * @param countryId country Id
+	 * @return 
 	 */
-	
-	public void addVertex(String countryId) {
+
+	public Map<String, List<Country>> addVertex(String countryId) {
 		adjVertices.put(countryId, new ArrayList<>());
+		return adjVertices;
 	}
 
 	/**
@@ -33,7 +35,7 @@ public class Graph {
 	 * to remove a node.vertex from a graph
 	 * @param countryId country Id
 	 */
-	
+
 	public void removeVertex(String countryId) {
 		adjVertices.values().stream().forEach(e -> e.remove(countryId));
 		adjVertices.remove(countryId);
@@ -44,10 +46,12 @@ public class Graph {
 	 * to add an edge to a graph
 	 * @param sourceCountryId source country
 	 * @param destinationCountry  destination country
+	 * @return 
 	 */
-	
-	public void addEdge(String sourceCountryId, Country destinationCountry) { 
+
+	public Map<String, List<Country>> addEdge(String sourceCountryId, Country destinationCountry) { 
 		adjVertices.get(sourceCountryId).add(destinationCountry);
+		return adjVertices;
 	}
 
 	/**
@@ -56,7 +60,7 @@ public class Graph {
 	 * @param sourceCountryId source country
 	 * @param destinationCountry  destination country
 	 */
-	
+
 	public void removeEdge(String sourceCountryId, String destinationCountryId) { 
 		List<Country> eV1 = adjVertices.get(sourceCountryId); 
 		List<Country> eV2 = adjVertices.get(destinationCountryId); 
@@ -65,16 +69,4 @@ public class Graph {
 		if (eV2 != null) 
 			eV2.remove(sourceCountryId);
 	}
-
-	/**
-	 * getCountryMap method is used 
-	 * to get Country details and Border details of Country
-	 * @param countryId country Id
-	 */
-	
-	public List<Country> getCountryMap(String countryId) {
-		return adjVertices.get(countryId);
-	}
-
-
 }

@@ -10,9 +10,7 @@ import org.beanio.StreamFactory;
 import org.beanio.builder.DelimitedParserBuilder;
 import org.beanio.builder.StreamBuilder;
 
-import aatral.warzone.implementation.ComposeBorders;
 import aatral.warzone.model.Borders;
-import aatral.warzone.model.Country;
 
 /**
  * <h1>CountryBorderReader Class to read countries border</h1>
@@ -33,30 +31,32 @@ public class CountryBorderReader {
 			.ignoreUnidentifiedRecords();
 
 	/**
-	 * CountryBorderReader constructor is used 
+	 * mapCountryBorderReader method is used 
 	 * to get countries border coordinates from input file
+	 * @return list of border data
 	 */
-	
-	public CountryBorderReader(List<Country> countryDataList) {
+	public List<Borders> mapCountryBorderReader() {
 
 		StreamFactory factory = StreamFactory.newInstance();
 		factory.define(this.borderStream);
+		List<Borders> borderInputData = new ArrayList<>();
 
 		try {
 			InputStream input = this.getClass().getResourceAsStream("/canada-borders.txt");
 			BeanReader inputReader = factory.createReader("borders", new InputStreamReader(input));
 			Object record = null;
-			List<Borders> borderInputData = new ArrayList<>();
+
 			while ((record = inputReader.read()) != null) {
 				Borders borderData = (Borders) record;
 				borderInputData.add(borderData);
 			}
-			new ComposeBorders(countryDataList, borderInputData);
+
 		} 
 		catch (IllegalArgumentException ie) {
 			System.out.println("Error in parsing input txt file. Manually check if the file format is correct");
 		} catch(Exception ex) {
 			System.out.println("Error reading file from input folder");
 		}
+		return borderInputData;
 	}
 }

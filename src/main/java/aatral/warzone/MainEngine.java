@@ -3,7 +3,7 @@ package aatral.warzone;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import aatral.warzone.utilities.MapReader;
+import aatral.warzone.implementation.ComposeGraph;
 
 /**
  * <h1>Game Input Data </h1>
@@ -14,11 +14,11 @@ import aatral.warzone.utilities.MapReader;
  */
 public class MainEngine {
 
-	   /**
-	   * Main method to get GameMap Data
-	   * @param args Unused.
-	   * @return Nothing.
-	   */
+	/**
+	 * Main method to get GameMap Data
+	 * @param args Unused.
+	 * @return Nothing.
+	 */
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
@@ -32,10 +32,11 @@ public class MainEngine {
 				switch (option) {
 				case 1:
 					System.out.println("Show Map");
-					MapReader mp = new MapReader();
-					mp.readContinentFile();
+					ComposeGraph getGraph =  new ComposeGraph();
+					getGraph.printCountries();
+					getGraph.printBorders();
 					break;
-
+					
 				case 2:
 					System.out.println("Save Map");
 					break;
