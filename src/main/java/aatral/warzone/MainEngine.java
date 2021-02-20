@@ -4,6 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import aatral.warzone.implementation.ComposeGraph;
+import aatral.warzone.utilities.EditMap;
+import aatral.warzone.utilities.ValidateMap;
 
 /**
  * <h1>Game Input Data </h1>
@@ -42,37 +44,12 @@ public class MainEngine {
 					break;
 
 				case 3:
-					boolean flag = true;
-					while (flag) {
-						System.out.println("\nChoose which one to edit \n1.Continent\n2.Country\n3.Neighbour\n4.None");
-						int editOption = input.nextInt();
-						switch (editOption) {
-
-						case 1:
-							System.out.println("Edit continent");
-							flag = false;
-							break;
-						case 2:
-							System.out.println("Edit Country");
-							flag = false;
-							break;
-						case 3:
-							System.out.println("Edit Neighbour");
-							flag = false;
-							break;
-						case 4:
-							System.out.println("None is selected");
-							flag = false;
-							break;
-						default:
-							System.out.println("Invalid option entered.Try again!!");
-							break;
-						}
-					}
+					EditMap emEditMap = new EditMap();
 					break;
-
 				case 4:
 					System.out.println("Validate Map");
+					ValidateMap validate = new ValidateMap();
+					System.out.println("Validate - "+validate.validateFullMap());
 					break;
 
 				case 5:
@@ -89,6 +66,7 @@ public class MainEngine {
 				input.nextLine();
 			}
 		}
+		System.out.println("System terminated!");
 		input.close();
 	}
 }
