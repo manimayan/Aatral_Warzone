@@ -12,34 +12,30 @@ import aatral.warzone.model.Country;
 import aatral.warzone.utilities.Graph;
 
 public class GraphTest {
-	static Graph gr=new Graph();
-	static HashMap <String, List<Country>> hm  = new HashMap<>(); 
-	
-@Test
-	public void addVertexTest()
-	{
-		hm.put("1",new ArrayList());
-		assertEquals(hm, gr.addVertex("1"));
-		System.out.println(hm);
+	static Graph d_Gr = new Graph();
+	static HashMap<String, List<Country>> d_Hm = new HashMap<>();
+
+	@Test
+	public void addVertexTest() {
+		d_Hm.put("1", new ArrayList());
+		assertEquals(d_Hm, d_Gr.addVertex("1"));
+		System.out.println(d_Hm);
 	}
 
-@Test
-	public void addEdgeTest()
-	{
-	Country Test = new Country("1","Afganistan","1",null,0);
-	hm.get("1").add(Test);
-	assertEquals(hm,gr.addEdge("1",Test));
-	System.out.println(hm);
+	@Test
+	public void addEdgeTest() {
+		Country Test = new Country("1", "Afganistan", "1", null, 0);
+		d_Hm.get("1").add(Test);
+		assertEquals(d_Hm, d_Gr.addEdge("1", Test));
+		System.out.println(d_Hm);
 	}
 
-@Test
-	public void removeVertexTest() 
-	{
-		hm.remove("1");
-		gr.removeVertex("1");
-		assertEquals(hm,gr.adjVertices);
-		System.out.println(hm);
+	@Test
+	public void removeVertexTest() {
+		d_Hm.remove("1");
+		d_Gr.removeVertex("1");
+		assertEquals(d_Hm, d_Gr.l_adjVertices);
+		System.out.println(d_Hm);
 	}
-
 
 }

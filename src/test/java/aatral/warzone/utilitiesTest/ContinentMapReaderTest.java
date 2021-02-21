@@ -16,32 +16,31 @@ import aatral.warzone.model.Continent;
 import aatral.warzone.utilities.ContinentMapReader;
 
 public class ContinentMapReaderTest {
-	@Test	
-	public void continentMapReader()
-	{
-		int actual = 0;
+	@Test
+	public void continentMapReader() {
+		int l_actual = 0;
 
 		try {
 
 			File file = new File("src/main/resources/canada-continents.txt");
 
 			Scanner sc = new Scanner(file);
-			while(sc.hasNextLine()) {
+			while (sc.hasNextLine()) {
 				sc.nextLine();
-				actual++;
+				l_actual++;
 			}
-			
+
 			sc.close();
 		} catch (Exception e) {
 			e.getStackTrace();
 		}
-	
-	ContinentMapReader cmr=new ContinentMapReader();
-	List<Continent> ls = cmr.readContinentFile();
-	int expected = ls.size();
-	//assertThat(actual, hasSize(3));
-	System.out.println(actual+""+expected);
-	 assertEquals(expected,actual);
-	 
 
-}}
+		ContinentMapReader l_cmr = new ContinentMapReader();
+		List<Continent> ls = l_cmr.readContinentFile();
+		int expected = ls.size();
+		// assertThat(actual, hasSize(3));
+		System.out.println(l_actual + "" + expected);
+		assertEquals(expected, l_actual);
+
+	}
+}

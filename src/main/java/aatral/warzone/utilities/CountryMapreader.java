@@ -13,49 +13,45 @@ import org.beanio.builder.StreamBuilder;
 import aatral.warzone.model.Country;
 
 /**
- * <h1>CountryMapreader Class to read Countries</h1>
- * MapReader implements beanReader methods to reads the input file.
+ * <h1>CountryMapreader Class to read Countries</h1> MapReader implements
+ * beanReader methods to reads the input file.
  *
- * @author  Manimaran Palani
+ * @author Manimaran Palani
  * @version 1.0
- * @since   2021-02-12
+ * @since 2021-02-12
  */
 
 public class CountryMapreader {
 
-	private StreamBuilder countryStream = new StreamBuilder("countries")
-			.format("delimited")
-			.parser(new DelimitedParserBuilder(' '))
-			.addRecord(Country.class)
-			.ignoreUnidentifiedRecords();
+	private StreamBuilder countryStream = new StreamBuilder("countries").format("delimited")
+			.parser(new DelimitedParserBuilder(' ')).addRecord(Country.class).ignoreUnidentifiedRecords();
 
 	/**
-	 * readCountryMap method is used 
-	 * to get country coordinates from input file
+	 * readCountryMap method is used to get country coordinates from input file
+	 * 
 	 * @return list of country
 	 */
 
 	public List<Country> readCountryMap() {
 
-		StreamFactory factory = StreamFactory.newInstance();
-		factory.define(this.countryStream);
-		List<Country> countryDataList =  new ArrayList<>(); 
+		StreamFactory l_factory = StreamFactory.newInstance();
+		l_factory.define(this.countryStream);
+		List<Country> l_countryDataList = new ArrayList<>();
 
 		try {
 			InputStream input = this.getClass().getResourceAsStream("/canada-countries.txt");
-			BeanReader inputReader = factory.createReader("countries", new InputStreamReader(input));
-			Object record = null;	
+			BeanReader l_inputReader = l_factory.createReader("countries", new InputStreamReader(input));
+			Object record = null;
 
-			while ((record = inputReader.read()) != null) {
+			while ((record = l_inputReader.read()) != null) {
 				Country countryData = (Country) record;
-				countryDataList.add(countryData);
+				l_countryDataList.add(countryData);
 			}
-		} 
-		catch (IllegalArgumentException ie) {
+		} catch (IllegalArgumentException ie) {
 			System.out.println("Error in parsing input txt file. Manually check if the file format is correct");
-		} catch(Exception ex) {
+		} catch (Exception ex) {
 			System.out.println("Error reading file from input folder");
 		}
-		return countryDataList;
+		return l_countryDataList;
 	}
 }

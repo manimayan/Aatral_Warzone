@@ -18,17 +18,18 @@ import lombok.Setter;
 
 /**
  * <h1>Border POJO</h1>
- * @author  Manimaran Palani
+ * 
+ * @author Manimaran Palani
  * @version 1.0
- * @since   2021-02-12
+ * @since 2021-02-12
  */
 
 public class Borders {
 
-	@Field(maxOccurs = 1,minOccurs = 0)
+	@Field(maxOccurs = 1, minOccurs = 0)
 	private String countryId;
 
-	@Field(collection = List.class, maxOccurs=-1)
+	@Field(collection = List.class, maxOccurs = -1)
 	List<String> adjacentCountries;
 
 }

@@ -15,19 +15,18 @@ import aatral.warzone.utilities.CountryMapreader;
 
 public class CountryMapReaderTest {
 	@Test
-	public void countryMapReader()
-	{
+	public void countryMapReader() {
 
-		int actual = 0;
+		int l_actual = 0;
 
 		try {
 
 			File file = new File("src/main/resources/canada-countries.txt");
 
 			Scanner sc = new Scanner(file);
-			while(sc.hasNextLine()) {
+			while (sc.hasNextLine()) {
 				sc.nextLine();
-				actual++;
+				l_actual++;
 			}
 
 			sc.close();
@@ -35,12 +34,12 @@ public class CountryMapReaderTest {
 			e.getStackTrace();
 		}
 
-		CountryMapreader comr=new CountryMapreader();
-		List<Country> ls = comr.readCountryMap();
+		CountryMapreader l_comr = new CountryMapreader();
+		List<Country> ls = l_comr.readCountryMap();
 		int expected = ls.size();
-		//assertThat(actual, hasSize(3));
-		System.out.println(actual+""+expected);
-		assertEquals(expected,actual);
+		// assertThat(actual, hasSize(3));
+		System.out.println(l_actual + "" + expected);
+		assertEquals(expected, l_actual);
 	}
 
 }

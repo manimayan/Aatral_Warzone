@@ -16,24 +16,25 @@ import lombok.Setter;
 
 /**
  * <h1>Country POJO</h1>
- * @author  Manimaran Palani
+ * 
+ * @author Manimaran Palani
  * @version 1.0
- * @since   2021-02-12
+ * @since 2021-02-12
  */
 
 public class Country {
-	
+
 	@Field
 	private String countryId;
-	
+
 	@Field
 	private String countryName;
-	
+
 	@Field
 	private String continentId;
-	
+
 	private String continentName;
-	
-	private int armies;	
+
+	private int armies;
 
 }

@@ -13,50 +13,46 @@ import org.beanio.builder.StreamBuilder;
 import aatral.warzone.model.Borders;
 
 /**
- * <h1>CountryBorderReader Class to read countries border</h1>
- * MapReader implements beanReader methods to reads the input file.
+ * <h1>CountryBorderReader Class to read countries border</h1> MapReader
+ * implements beanReader methods to reads the input file.
  *
- * @author  Manimaran Palani
+ * @author Manimaran Palani
  * @version 1.0
- * @since   2021-02-12
+ * @since 2021-02-12
  */
-
 
 public class CountryBorderReader {
 
-	private StreamBuilder borderStream = new StreamBuilder("borders")
-			.format("delimited")
-			.parser(new DelimitedParserBuilder(' '))
-			.addRecord(Borders.class)
-			.ignoreUnidentifiedRecords();
+	private StreamBuilder borderStream = new StreamBuilder("borders").format("delimited")
+			.parser(new DelimitedParserBuilder(' ')).addRecord(Borders.class).ignoreUnidentifiedRecords();
 
 	/**
-	 * mapCountryBorderReader method is used 
-	 * to get countries border coordinates from input file
+	 * mapCountryBorderReader method is used to get countries border coordinates
+	 * from input file
+	 * 
 	 * @return list of border data
 	 */
 	public List<Borders> mapCountryBorderReader() {
 
-		StreamFactory factory = StreamFactory.newInstance();
-		factory.define(this.borderStream);
-		List<Borders> borderInputData = new ArrayList<>();
+		StreamFactory l_factory = StreamFactory.newInstance();
+		l_factory.define(this.borderStream);
+		List<Borders> l_borderInputData = new ArrayList<>();
 
 		try {
-			InputStream input = this.getClass().getResourceAsStream("/canada-borders.txt");
-			BeanReader inputReader = factory.createReader("borders", new InputStreamReader(input));
-			Object record = null;
+			InputStream l_input = this.getClass().getResourceAsStream("/canada-borders.txt");
+			BeanReader inputReader = l_factory.createReader("borders", new InputStreamReader(l_input));
+			Object l_record = null;
 
-			while ((record = inputReader.read()) != null) {
-				Borders borderData = (Borders) record;
-				borderInputData.add(borderData);
+			while ((l_record = inputReader.read()) != null) {
+				Borders borderData = (Borders) l_record;
+				l_borderInputData.add(borderData);
 			}
 
-		} 
-		catch (IllegalArgumentException ie) {
+		} catch (IllegalArgumentException ie) {
 			System.out.println("Error in parsing input txt file. Manually check if the file format is correct");
-		} catch(Exception ex) {
+		} catch (Exception ex) {
 			System.out.println("Error reading file from input folder");
 		}
-		return borderInputData;
+		return l_borderInputData;
 	}
 }

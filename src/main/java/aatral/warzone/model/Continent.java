@@ -16,18 +16,17 @@ import lombok.Setter;
 
 /**
  * <h1>Continent POJO</h1>
- * @author  Manimaran Palani
+ * 
+ * @author Manimaran Palani
  * @version 1.0
- * @since   2021-02-12
+ * @since 2021-02-12
  */
 
 public class Continent {
 
-		@Field
-		private String ContinentId;
+	@Field
+	private String ContinentId;
 
-		@Field
-		private String ContinentName;
-	}
-	
-
+	@Field
+	private String ContinentName;
+}

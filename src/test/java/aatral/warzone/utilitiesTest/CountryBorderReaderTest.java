@@ -16,19 +16,18 @@ import aatral.warzone.utilities.CountryMapreader;
 
 public class CountryBorderReaderTest {
 	@Test
-	public void countryBorderReader()
-	{
+	public void countryBorderReader() {
 
-		int actual = 0;
+		int l_actual = 0;
 
 		try {
 
 			File file = new File("src/main/resources/canada-borders.txt");
 
 			Scanner sc = new Scanner(file);
-			while(sc.hasNextLine()) {
+			while (sc.hasNextLine()) {
 				sc.nextLine();
-				actual++;
+				l_actual++;
 			}
 
 			sc.close();
@@ -36,12 +35,12 @@ public class CountryBorderReaderTest {
 			e.getStackTrace();
 		}
 
-		CountryBorderReader cbr=new CountryBorderReader();
-		List<Borders> ls = cbr.mapCountryBorderReader();
+		CountryBorderReader l_cbr = new CountryBorderReader();
+		List<Borders> ls = l_cbr.mapCountryBorderReader();
 		int expected = ls.size();
-		//assertThat(actual, hasSize(3));
-		System.out.println(actual+""+expected);
-		assertEquals(expected,actual);
+		// assertThat(actual, hasSize(3));
+		System.out.println(l_actual + "" + expected);
+		assertEquals(expected, l_actual);
 	}
 
 }

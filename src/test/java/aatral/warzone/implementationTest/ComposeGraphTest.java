@@ -17,54 +17,50 @@ import aatral.warzone.utilities.CountryMapreader;
 public class ComposeGraphTest {
 
 	@Ignore
-	public HashMap<String, List<Country>> getContinentMap(List<Continent> continentData) {
+	public HashMap<String, List<Country>> getContinentMap(List<Continent> p_continentData) {
 
-		HashMap<String, List<Country>> continentMap =  new HashMap<>();
-		for (Continent continent : continentData) {
-			continentMap.put(continent.getContinentId()+"_"+continent.getContinentName(), new ArrayList<Country>());
+		HashMap<String, List<Country>> l_continentMap = new HashMap<>();
+		for (Continent continent : p_continentData) {
+			l_continentMap.put(continent.getContinentId() + "_" + continent.getContinentName(), new ArrayList<Country>());
 		}
 
-		CountryMapreader cmr =  new CountryMapreader();
-		List<Country> countryDataList =  new ArrayList<>(); 
-		countryDataList = cmr.readCountryMap();
+		CountryMapreader l_cmr = new CountryMapreader();
+		List<Country> l_countryDataList = new ArrayList<>();
+		l_countryDataList = l_cmr.readCountryMap();
 
-		for(String continent : continentMap.keySet()) {
+		for (String continent : l_continentMap.keySet()) {
 
-			List<Country> addAgainstContinent =  new ArrayList<>();
+			List<Country> l_addAgainstContinent = new ArrayList<>();
 
-			for (Country country : countryDataList) {
+			for (Country country : l_countryDataList) {
 
 				String[] continentId = continent.split("_");
 
-				if(continentId[0].equalsIgnoreCase(country.getContinentId())){
-					addAgainstContinent.add(country);
+				if (continentId[0].equalsIgnoreCase(country.getContinentId())) {
+					l_addAgainstContinent.add(country);
 				}
 			}
-			continentMap.put(continent, addAgainstContinent);
+			l_continentMap.put(continent, l_addAgainstContinent);
 		}
-		return continentMap;
+		return l_continentMap;
 	}
-	
+
 	@Test
-	public void composeGraphtest()
-	{
-		ComposeGraph cg=new ComposeGraph();
+	public void composeGraphtest() {
+		ComposeGraph l_cg = new ComposeGraph();
 
-		List<aatral.warzone.model.Continent> lc = new ContinentMapReader().readContinentFile();
-		
-		HashMap<String,List<Country>> actual = cg.getContinentMap(lc);	
-		HashMap<String,List<Country>> expected = getContinentMap(lc);
-		
-	/*	System.out.println (actual.keySet());
-		System.out.println (expected.keySet());
-		if(getContinentMap(lc).equals(cg.getContinentMap(lc))) {
-			System.out.println("Equals");
-		}else {
-			System.out.println("Not Equals");
-		}*/
-		assertEquals(expected.keySet(),actual.keySet());
+		List<aatral.warzone.model.Continent> l_lc = new ContinentMapReader().readContinentFile();
+
+		HashMap<String, List<Country>> actual = l_cg.getContinentMap(l_lc);
+		HashMap<String, List<Country>> expected = getContinentMap(l_lc);
+
+		/*
+		 * System.out.println (actual.keySet()); System.out.println (expected.keySet());
+		 * if(getContinentMap(lc).equals(cg.getContinentMap(lc))) {
+		 * System.out.println("Equals"); }else { System.out.println("Not Equals"); }
+		 */
+		assertEquals(expected.keySet(), actual.keySet());
 
 	}
-	
 
 }
