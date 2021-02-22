@@ -51,7 +51,7 @@ public class ComposeGraphTest {
 
 		List<aatral.warzone.model.Continent> l_lc = new ContinentMapReader().readContinentFile();
 
-		HashMap<String, List<Country>> actual = l_cg.getContinentMap(l_lc);
+		HashMap<String, List<Country>> actual = l_cg.getContinentMap();
 		HashMap<String, List<Country>> expected = getContinentMap(l_lc);
 
 		/*
