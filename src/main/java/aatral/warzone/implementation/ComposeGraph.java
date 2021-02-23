@@ -32,12 +32,12 @@ public class ComposeGraph {
 	 * @param continentData contains continent coordinates fetched from text file
 	 * @return constructed continent map
 	 */
-	public HashMap<String, List<Country>> getContinentMap() {
+	public HashMap<String, List<Country>> getContinentMap(String p_map) {
 
 		// read continent data from text file
 		ContinentMapReader l_comr = new ContinentMapReader();
 		List<Continent> l_continentData = new ArrayList<>();
-		l_continentData = l_comr.readContinentFile();
+		l_continentData = l_comr.readContinentFile(p_map);
 
 		HashMap<String, List<Country>> l_continentMap = new HashMap<>();
 		for (Continent continent : l_continentData) {
@@ -45,23 +45,23 @@ public class ComposeGraph {
 		}
 
 		// read country data from text file
-		CountryMapreader cmr = new CountryMapreader();
-		List<Country> countryDataList = new ArrayList<>();
-		countryDataList = cmr.readCountryMap();
+		CountryMapreader l_cmr = new CountryMapreader();
+		List<Country> l_countryDataList = new ArrayList<>();
+		l_countryDataList = l_cmr.readCountryMap(p_map);
 
-		for (String continent : l_continentMap.keySet()) {
+		for (String l_continent : l_continentMap.keySet()) {
 
-			List<Country> addAgainstContinent = new ArrayList<>();
+			List<Country> l_addAgainstContinent = new ArrayList<>();
 
-			for (Country country : countryDataList) {
+			for (Country country : l_countryDataList) {
 
-				String[] continentId = continent.split("_");
+				String[] continentId = l_continent.split("_");
 
 				if (continentId[0].equalsIgnoreCase(country.getContinentId())) {
-					addAgainstContinent.add(country);
+					l_addAgainstContinent.add(country);
 				}
 			}
-			l_continentMap.put(continent, addAgainstContinent);
+			l_continentMap.put(l_continent, l_addAgainstContinent);
 		}
 		return l_continentMap;
 	}
@@ -69,86 +69,89 @@ public class ComposeGraph {
 	/**
 	 * getBorderMap method is used to get a map of country and its respective
 	 * adjacent countries
+	 * @param map 
 	 * 
 	 * @return Map of Country Id and its adjacent countries
 	 */
-	public Map<String, List<Country>> getBorderMap() {
+	public Map<String, List<Country>> getBorderMap(String p_map) {
 
 		// compose borders of countries
 		Graph borderGraph = new Graph();
-		Map<String, List<Country>> mappedBorders = new HashMap<>();
-		HashMap<String, Country> countryMap = new HashMap<>();
+		Map<String, List<Country>> l_mappedBorders = new HashMap<>();
+		HashMap<String, Country> l_countryMap = new HashMap<>();
 
 		// get country data
-		CountryMapreader cmr = new CountryMapreader();
-		List<Country> countryDataList = new ArrayList<>();
-		countryDataList = cmr.readCountryMap();
+		CountryMapreader l_cmr = new CountryMapreader();
+		List<Country> l_countryDataList = new ArrayList<>();
+		l_countryDataList = l_cmr.readCountryMap(p_map);
 
 		// get border data
-		CountryBorderReader cbr = new CountryBorderReader();
-		List<Borders> borderDataList = new ArrayList<>();
-		borderDataList = cbr.mapCountryBorderReader();
+		CountryBorderReader l_cbr = new CountryBorderReader();
+		List<Borders> l_borderDataList = new ArrayList<>();
+		l_borderDataList = l_cbr.mapCountryBorderReader(p_map);
 
-		for (Country country : countryDataList) {
-			countryMap.put(country.getCountryId(), country);
+		for (Country l_country : l_countryDataList) {
+			l_countryMap.put(l_country.getCountryId(), l_country);
 		}
 
-		for (Borders borders : borderDataList) {
-			borderGraph.addVertex(borders.getCountryId());
-			for (String adjacent : borders.getAdjacentCountries()) {
-				mappedBorders = borderGraph.addEdge(borders.getCountryId(), countryMap.get(adjacent));
+		for (Borders l_borders : l_borderDataList) {
+			borderGraph.addVertex(l_borders.getCountryId());
+			for (String adjacent : l_borders.getAdjacentCountries()) {
+				l_mappedBorders = borderGraph.addEdge(l_borders.getCountryId(), l_countryMap.get(adjacent));
 			}
 		}
-		return mappedBorders;
+		return l_mappedBorders;
 	}
 
 	/**
 	 * printCountries method is used to print list countries in the console
+	 * @param map 
 	 * 
 	 * @return
 	 */
-	public void printCountries() {
+	public void printCountries(String p_map) {
 
 		// get country data
-		CountryMapreader cmr = new CountryMapreader();
-		List<Country> countryDataList = new ArrayList<>();
-		countryDataList = cmr.readCountryMap();
+		CountryMapreader l_cmr = new CountryMapreader();
+		List<Country> l_countryDataList = new ArrayList<>();
+		l_countryDataList = l_cmr.readCountryMap(p_map);
 
 		// print countries in console
 		System.out.println("\nCOUNTRIES\n");
-		for (Country country : countryDataList) {
-			System.out.println("Country_Id:" + country.getCountryId() + " || " + "Country_Name: "
-					+ country.getCountryName() + " || " + "Continent_Id:" + country.getContinentId());
+		for (Country l_country : l_countryDataList) {
+			System.out.println("Country_Id:" + l_country.getCountryId() + " || " + "Country_Name: "
+					+ l_country.getCountryName() + " || " + "Continent_Id:" + l_country.getContinentId());
 		}
 	}
 
 	/**
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
+	 * @param map 
 	 * 
 	 * @return
 	 */
-	public void printBorders() {
+	public void printBorders(String p_map) {
 
 		// get border data
-		CountryBorderReader cbr = new CountryBorderReader();
-		List<Borders> borderDataList = new ArrayList<>();
-		borderDataList = cbr.mapCountryBorderReader();
+		CountryBorderReader l_cbr = new CountryBorderReader();
+		List<Borders> l_borderDataList = new ArrayList<>();
+		l_borderDataList = l_cbr.mapCountryBorderReader(p_map);
 
 		// getting mappedborders object
-		Map<String, List<Country>> countryMap = getBorderMap();
+		Map<String, List<Country>> l_countryMap = getBorderMap(p_map);
 
 		// print borders in console
 		System.out.println("\nBORDERS\n");
-		for (Borders borders : borderDataList) {
-			List<String> printCountryId = new ArrayList<>();
-			List<Country> printCountry = countryMap.get(borders.getCountryId());
+		for (Borders borders : l_borderDataList) {
+			List<String> l_printCountryId = new ArrayList<>();
+			List<Country> l_printCountry = l_countryMap.get(borders.getCountryId());
 
 			System.out.println(borders.getCountryId() + " => ");
-			for (Country count : printCountry) {
-				printCountryId.add(count.getCountryName());
+			for (Country l_count : l_printCountry) {
+				l_printCountryId.add(l_count.getCountryName());
 			}
-			System.out.println(StringUtils.collectionToDelimitedString(printCountryId, ", "));
+			System.out.println(StringUtils.collectionToDelimitedString(l_printCountryId, ", "));
 		}
 	}
 }

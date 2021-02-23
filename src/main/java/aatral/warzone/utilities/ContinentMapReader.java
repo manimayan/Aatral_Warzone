@@ -22,7 +22,7 @@ import aatral.warzone.model.Continent;
  */
 
 public class ContinentMapReader {
-	private static String URL = "/canada-continents.txt";
+
 	private StreamBuilder continentStream = new StreamBuilder("continents").format("delimited")
 			.parser(new DelimitedParserBuilder(' ')).addRecord(Continent.class).ignoreUnidentifiedRecords();
 
@@ -31,15 +31,15 @@ public class ContinentMapReader {
 	 * 
 	 * @return list of continents
 	 */
-	public List<Continent> readContinentFile() {
+	public List<Continent> readContinentFile(String p_map) {
 
 		StreamFactory factory = StreamFactory.newInstance();
 		factory.define(this.continentStream);
 
 		List<Continent> l_continentDataList = new ArrayList<>();
-
+		String url = "/map/"+p_map+"/"+p_map+"-continents.txt";
 		try {
-			InputStream l_input = this.getClass().getResourceAsStream(URL);
+			InputStream l_input = this.getClass().getResourceAsStream(url);
 			BeanReader inputReader = factory.createReader("continents", new InputStreamReader(l_input));
 			Object l_record = null;
 
@@ -47,6 +47,7 @@ public class ContinentMapReader {
 				Continent continentData = (Continent) l_record;
 				l_continentDataList.add(continentData);
 			}
+			l_input.close();
 
 		} catch (IllegalArgumentException ie) {
 			System.out.println("Error in parsing input text file. Manually check if the file format is correct");

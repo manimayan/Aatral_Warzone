@@ -36,5 +36,19 @@ public class Country {
 	private String continentName;
 
 	private int armies;
+	
+
+	public Country(String countryId, String continentId) {
+		this.countryId = countryId;
+		this.continentId = continentId;
+	}
+
+
+	public Country(String countryId, String countryName, String continentId) {
+		this.countryId = countryId;
+		this.countryName = countryName;
+		this.continentId = continentId;
+	}
+
 
 }

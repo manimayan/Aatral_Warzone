@@ -26,7 +26,7 @@ import lombok.Setter;
 
 public class Borders {
 
-	@Field(maxOccurs = 1, minOccurs = 0)
+	@Field
 	private String countryId;
 
 	@Field(collection = List.class, maxOccurs = -1)

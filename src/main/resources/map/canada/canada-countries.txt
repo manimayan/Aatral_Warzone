@@ -14,14 +14,14 @@
 14 Alberta-South 3
 15 British_Columbia-South 3
 16 BC-Vancouver_Island 3
-17 British_Columbia-North 4 
+17 British_Columbia-North 4
 18 Alberta-North 4
 19 Saskatchewan-North 4
 20 Manitoba-North 4
 21 Nunavut-Continental 5
 22 NU-Southern_Islands 5
 23 NU-Baffin_Island 5
-24 NU-Victoria_Island-East 5 
+24 NU-Victoria_Island-East 5
 25 NU-Northern_Islands 5
 26 NU-Ellesmere_Island 5
 27 NT-Northern_Islands 6

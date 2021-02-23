@@ -29,17 +29,18 @@ public class CountryBorderReader {
 	/**
 	 * mapCountryBorderReader method is used to get countries border coordinates
 	 * from input file
+	 * @param map 
 	 * 
 	 * @return list of border data
 	 */
-	public List<Borders> mapCountryBorderReader() {
+	public List<Borders> mapCountryBorderReader(String p_map) {
 
 		StreamFactory l_factory = StreamFactory.newInstance();
 		l_factory.define(this.borderStream);
 		List<Borders> l_borderInputData = new ArrayList<>();
-
+		String url = "/map/"+p_map+"/"+p_map+"-borders1.txt";
 		try {
-			InputStream l_input = this.getClass().getResourceAsStream("/canada-borders.txt");
+			InputStream l_input = this.getClass().getResourceAsStream(url);
 			BeanReader inputReader = l_factory.createReader("borders", new InputStreamReader(l_input));
 			Object l_record = null;
 
@@ -47,7 +48,7 @@ public class CountryBorderReader {
 				Borders borderData = (Borders) l_record;
 				l_borderInputData.add(borderData);
 			}
-
+			l_input.close();
 		} catch (IllegalArgumentException ie) {
 			System.out.println("Error in parsing input txt file. Manually check if the file format is correct");
 		} catch (Exception ex) {

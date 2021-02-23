@@ -28,25 +28,27 @@ public class CountryMapreader {
 
 	/**
 	 * readCountryMap method is used to get country coordinates from input file
+	 * @param map 
 	 * 
 	 * @return list of country
 	 */
 
-	public List<Country> readCountryMap() {
+	public List<Country> readCountryMap(String p_map) {
 
 		StreamFactory l_factory = StreamFactory.newInstance();
 		l_factory.define(this.countryStream);
 		List<Country> l_countryDataList = new ArrayList<>();
-
+		String url = "/map/"+p_map+"/"+p_map+"-countries.txt";
 		try {
-			InputStream input = this.getClass().getResourceAsStream("/canada-countries.txt");
-			BeanReader l_inputReader = l_factory.createReader("countries", new InputStreamReader(input));
+			InputStream l_input = this.getClass().getResourceAsStream(url);
+			BeanReader l_inputReader = l_factory.createReader("countries", new InputStreamReader(l_input));
 			Object record = null;
 
 			while ((record = l_inputReader.read()) != null) {
 				Country countryData = (Country) record;
 				l_countryDataList.add(countryData);
 			}
+			l_input.close();
 		} catch (IllegalArgumentException ie) {
 			System.out.println("Error in parsing input txt file. Manually check if the file format is correct");
 		} catch (Exception ex) {
