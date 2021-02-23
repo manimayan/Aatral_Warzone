@@ -22,11 +22,10 @@ import aatral.warzone.utilities.CountryMapreader;
 public class ValidateMap {
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
-	 * 
-	 * @return
+	 * validateContinentIDis used to validate the continent ID
+	 * @param warZoneMap
+	 * @param continentID
+	 * @return This return either true or false which indicates whether the continentID is valid or not
 	 */
 	public boolean validateContinentID(String warZoneMap, String continentID) {
 		List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
@@ -38,11 +37,10 @@ public class ValidateMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
-	 * 
-	 * @return
+	 * validateContinentName method is used to validate the continent name 
+	 * @param warZoneMap
+	 * @param continentName
+	 * @return This return either true or false which indicates whether the continentName is valid or not
 	 */
 	public boolean validateContinentName(String warZoneMap, String continentName) {
 		List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
@@ -54,11 +52,10 @@ public class ValidateMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
-	 * 
-	 * @return
+	 * validateCountryID method is used to validate the country id
+	 * @param warZoneMap
+	 * @param countryId
+	 * @return This return either true or false which indicates whether the country id is valid or not
 	 */
 	public boolean validateCountryID(String warZoneMap, String countryId) {
 		List<Country> countryList = new CountryMapreader().readCountryMap(warZoneMap);
@@ -70,11 +67,9 @@ public class ValidateMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
-	 * 
-	 * @return
+	 * validateFullMap method is used to validate the whole map
+	 * @param warZoneMap
+	 * @return This return either true or false which indicates whether the whole map is valid or not
 	 */
 	public boolean validateFullMap(String warZoneMap) {
 		List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);

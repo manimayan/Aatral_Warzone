@@ -22,8 +22,7 @@ import aatral.warzone.utilities.InputProcessor;
 /**
  * <h1>EditMap</h1> The Class edits the selected map
  * 
- * @author William Moses
- * * @version 1.0
+ * @author William Moses * @version 1.0
  * @since 2021-02-23
  */
 public class EditMap {
@@ -32,11 +31,11 @@ public class EditMap {
 	InputProcessor inputProcessor = new InputProcessor();
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * startEditMap method is used to get the user's input for editing the map
+	 * options
 	 * 
-	 * @return
+	 * @param p_warZoneMap
+	 * 
 	 */
 	public void startEditMap(String p_warZoneMap) {
 		boolean l_flag = true;
@@ -54,22 +53,22 @@ public class EditMap {
 			} else if (editCommand.startsWith("editcountry")) {
 				String l_countryString = inputProcessor.getString(editCommand);
 				editCountryMap(p_warZoneMap, l_countryString);
-			} else 	if (editCommand.startsWith("editneighbor")) {
+			} else if (editCommand.startsWith("editneighbor")) {
 				String l_neighborString = inputProcessor.getString(editCommand);
 				editNeighbourMap(p_warZoneMap, l_neighborString);
-			} else if (editCommand.startsWith("1")){
+			} else if (editCommand.startsWith("1")) {
 				System.out.println("Edit Aborted");
-				l_flag=false;
+				l_flag = false;
 			}
 		}
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * editContinentMap method is used to add or delete the continent
 	 * 
-	 * @return
+	 * @param p_warZoneMap
+	 * @param p_continentCommand
+	 * 
 	 */
 	public void editContinentMap(String p_warZoneMap, String p_continentCommand) {
 		String l_listContinentCommand[] = p_continentCommand.split("-");
@@ -80,9 +79,8 @@ public class EditMap {
 					List<Continent> l_addContinentList = inputProcessor.getAddContinentInput(l_editContinentCommand);
 					addContinent(p_warZoneMap, l_addContinentList);
 				} else if (l_editContinentCommand.startsWith("remove")) {
-					 List<String> l_deleteContinentList =
-					 inputProcessor.getDeleteContinentInput(l_editContinentCommand);
-					 removeContinent(p_warZoneMap, l_deleteContinentList);
+					List<String> l_deleteContinentList = inputProcessor.getDeleteContinentInput(l_editContinentCommand);
+					removeContinent(p_warZoneMap, l_deleteContinentList);
 				} else {
 					System.out.println(l_editContinentCommand + " is not a valid command");
 				}
@@ -91,11 +89,10 @@ public class EditMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * addContinent is used to add teh continent based on user preference
 	 * 
-	 * @return
+	 * @param p_warZoneMap
+	 * @param p_addContinentList
 	 */
 	public void addContinent(String p_warZoneMap, List<Continent> p_addContinentList) {
 		List<Continent> vaildContinentList = new ArrayList<>();
@@ -119,11 +116,11 @@ public class EditMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * removeContinent method is used to remove the continent based on user
+	 * preference
 	 * 
-	 * @return
+	 * @param warZoneMap
+	 * @param deleteContinentList
 	 */
 	public void removeContinent(String warZoneMap, List<String> deleteContinentList) {
 
@@ -151,11 +148,10 @@ public class EditMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * editCountryMap method is edit the country like add or remove the country
 	 * 
-	 * @return
+	 * @param warZoneMap
+	 * @param countryString
 	 */
 	public void editCountryMap(String warZoneMap, String countryString) {
 		String listCountryCommand[] = countryString.split("-");
@@ -178,11 +174,11 @@ public class EditMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * addCountry method is used to add the country if the country not listed in
+	 * input file
 	 * 
-	 * @return
+	 * @param warZoneMap
+	 * @param addCountryList
 	 */
 	public void addCountry(String warZoneMap, List<Country> addCountryList) {
 		List<Country> vaildCountryList = new ArrayList<>();
@@ -192,7 +188,7 @@ public class EditMap {
 					|| !validateOb.validateContinentID(warZoneMap, addCountry.getContinentId())) {
 
 				System.out.println("The Entered country " + addCountry.getCountryId()
-				+ " is already present or continentId" + addCountry.getContinentId() + " is not present");
+						+ " is already present or continentId" + addCountry.getContinentId() + " is not present");
 			} else {
 				vaildCountryList.add(addCountry);
 			}
@@ -209,11 +205,10 @@ public class EditMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * removeCountry method is used remove the country using country ID
 	 * 
-	 * @return
+	 * @param warZoneMap
+	 * @param removeCountryList
 	 */
 	public void removeCountry(String warZoneMap, List<Country> removeCountryList) {
 		// if (!validateOb.validateCountryID(countryID)) {
@@ -227,11 +222,10 @@ public class EditMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * editNeighboutMap method is used to add or remove the neighbour
 	 * 
-	 * @return
+	 * @param warZoneMap
+	 * @param neighborString
 	 */
 	public void editNeighbourMap(String warZoneMap, String neighborString) {
 		String listNeighborCommand[] = neighborString.split("-");
@@ -251,21 +245,23 @@ public class EditMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * addNeighbours method is used for adding neighbours based on countryId and
+	 * neighbourCountryID
 	 * 
-	 * @return
+	 * @param warZoneMap
+	 * @param countryId
+	 * @param neighborCountryID
 	 */
 	public void addNeighbours(String warZoneMap, String countryId, String neighborCountryID) {
 
-		if (validateOb.validateCountryID(warZoneMap,countryId) && (validateOb.validateCountryID(warZoneMap, neighborCountryID))) {
+		if (validateOb.validateCountryID(warZoneMap, countryId)
+				&& (validateOb.validateCountryID(warZoneMap, neighborCountryID))) {
 			List<Borders> bordersList = new CountryBorderReader().mapCountryBorderReader(warZoneMap);
 			int count = 0;
 			for (Borders borderObject : bordersList) {
 				if (borderObject.getCountryId().equalsIgnoreCase(countryId + "")) {
 					bordersList.get(bordersList.indexOf(borderObject)).getAdjacentCountries()
-					.add(neighborCountryID + "");
+							.add(neighborCountryID + "");
 					count++;
 				} else if (borderObject.getCountryId().equalsIgnoreCase(neighborCountryID + "")) {
 					bordersList.get(bordersList.indexOf(borderObject)).getAdjacentCountries().add(countryId + "");
@@ -283,11 +279,9 @@ public class EditMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * removeNeighbours is used to remove the neighbour from warzone map
 	 * 
-	 * @return
+	 * @param warZoneMap
 	 */
 	public void removeNeighbours(String warZoneMap) {
 		//
@@ -317,11 +311,11 @@ public class EditMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * removeAllCountry method is used to remove all countries in warzone map based
+	 * on countryID
 	 * 
-	 * @return
+	 * @param warZoneMap
+	 * @param countryID
 	 */
 	public void removeAllCountry(String warZoneMap, int countryID) {
 		List<Country> countryList = new CountryMapreader().readCountryMap(warZoneMap);
@@ -363,14 +357,13 @@ public class EditMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * writeCountryFile is used to update the country details in warzone map
 	 * 
-	 * @return
+	 * @param warZoneMap
+	 * @param updateCountry
 	 */
 	public void writeCountryFile(String warZoneMap, List<Country> updateCountry) {
-		String FILE_NAME = "src/main/resources/map/"+warZoneMap+"/"+warZoneMap+"-countries.txt";
+		String FILE_NAME = "src/main/resources/map/" + warZoneMap + "/" + warZoneMap + "-countries.txt";
 		StreamFactory factory = StreamFactory.newInstance();
 		StreamBuilder builderCSV = new StreamBuilder("countryWrite").format("delimited")
 				.parser(new DelimitedParserBuilder(' ')).addRecord(Country.class);
@@ -389,14 +382,13 @@ public class EditMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * writeContinentFile is used to update the list of continents in continent file
 	 * 
-	 * @return
+	 * @param warZoneMap
+	 * @param updateContinent
 	 */
 	public void writeContinentFile(String warZoneMap, List<Continent> updateContinent) {
-		String FILE_NAME = "src/main/resources/map/"+warZoneMap+"/"+warZoneMap+"-continents.txt";
+		String FILE_NAME = "src/main/resources/map/" + warZoneMap + "/" + warZoneMap + "-continents.txt";
 		StreamFactory factory = StreamFactory.newInstance();
 		StreamBuilder builderCSV = new StreamBuilder("continentWrite").format("delimited")
 				.parser(new DelimitedParserBuilder(' ')).addRecord(Continent.class);
@@ -415,14 +407,13 @@ public class EditMap {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
-	 * @param map 
+	 * writeBordersFile method is used to write the updated borders text file
 	 * 
-	 * @return
+	 * @param warZoneMap
+	 * @param updateBorder
 	 */
 	public void writeBordersFile(String warZoneMap, List<Borders> updateBorder) {
-		String FILE_NAME = "src/main/resources/map/"+warZoneMap+"/"+warZoneMap+"-borders1.txt";
+		String FILE_NAME = "src/main/resources/map/" + warZoneMap + "/" + warZoneMap + "-borders1.txt";
 		StreamFactory factory = StreamFactory.newInstance();
 		StreamBuilder builderCSV = new StreamBuilder("continentWrite").format("delimited")
 				.parser(new DelimitedParserBuilder(' ')).addRecord(Borders.class);

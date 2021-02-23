@@ -15,12 +15,9 @@ import aatral.warzone.utilities.InputProcessor;
 public class MapEditor {
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
+	 * showMap method is used to print the countries and borders
 	 * 
-	 * @param map
-	 * 
-	 * @return
+	 * @param warZoneMap
 	 */
 	public void showMap(String warZoneMap) {
 		ComposeGraph getGraph = new ComposeGraph();
@@ -29,12 +26,10 @@ public class MapEditor {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
+	 * saveMap method is called once the country given in editMap is not in the list
 	 * 
-	 * @param map
-	 * 
-	 * @return
+	 * @param mapEditorCommand
+	 * @param warZoneMap
 	 */
 	public void saveMap(String mapEditorCommand, String warZoneMap) {
 		String getmapSaveCommand[] = mapEditorCommand.split(" ");
@@ -55,12 +50,11 @@ public class MapEditor {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
+	 * editMap method is used to edit continent, neighbour, country based on user's
+	 * input If entered country is not present, then it will add the country in the
+	 * list and then it will edit
 	 * 
-	 * @param map
-	 * 
-	 * @return
+	 * @param mapEditorCommand
 	 */
 	public void editMap(String mapEditorCommand) {
 		String getEditmapName[] = mapEditorCommand.split(" ");
@@ -73,7 +67,7 @@ public class MapEditor {
 			EditMap editMap = new EditMap();
 			editMap.startEditMap(editWarZoneMap);
 		} else {
-			System.out.println("No such map exists, PLease create one");
+			System.out.println("No such map exists, Please create one");
 			System.out.println("Enter the below command to save a map\n Format: \n savemap filename");
 			Scanner map = new Scanner(System.in);
 			String mapSaveCommand = map.nextLine();
@@ -82,12 +76,9 @@ public class MapEditor {
 	}
 
 	/**
-	 * printBorders method is used to print list of countries and its borders in the
-	 * console
+	 * validateMap method is used to validate the whole map
 	 * 
-	 * @param map
-	 * 
-	 * @return
+	 * @param warZoneMap
 	 */
 	public void validateMap(String warZoneMap) {
 		ValidateMap validate = new ValidateMap();

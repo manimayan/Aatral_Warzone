@@ -19,7 +19,11 @@ import aatral.warzone.model.Country;
  */
 public class InputProcessor {
 
-
+/**
+ * getAddContinentInput method is used to add the continent given by user's input into continent list
+ * @param continentCommand
+ * @return inputContinentList
+ */
 	public List<Continent> getAddContinentInput(String continentCommand) {
 		String[] splitBySpace = continentCommand.split(" ");
 		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
@@ -41,7 +45,11 @@ public class InputProcessor {
 		}
 		return inputContinentList;
 	}
-
+/**
+ * getDeleteContinentInput method is used to delete the continent based on user's input
+ * @param editContinentCommand
+ * @return deleteContinentList
+ */
 	public List<String> getDeleteContinentInput(String editContinentCommand) {
 		String[] splitBySpace = editContinentCommand.split(" ");
 		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
@@ -53,7 +61,11 @@ public class InputProcessor {
 		List<String> deleteContinentList = new ArrayList<>(Arrays.asList(result.split(",")));
 		return deleteContinentList;
 	}
-
+/**
+ * getAddCountryInput method is used to add user's input country to country list 
+ * @param editCountryCommand
+ * @return inputCountryList
+ */
 	public List<Country> getAddCountryInput(String editCountryCommand) {
 		String[] splitBySpace = editCountryCommand.split(" ");
 		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
@@ -75,12 +87,20 @@ public class InputProcessor {
 		}
 		return inputCountryList;
 	}
-
+/**
+ * 
+ * @param getRemoveCountryInput method is used to remove user's input country to country list
+ * @return null
+ */
 	public List<Country> getremoveCountryInput(String editCountryCommand) {
 		// yet to code
 		return null;
 	}
-
+/**
+ * getAddNeighbourInput method is used to parse the input command and creates the input to add the neighbour
+ * @param warZoneMap
+ * @param editNeighborCommand
+ */
 	public void getAddNeighborInput(String warZoneMap, String editNeighborCommand) {
 		String[] splitBySpace = editNeighborCommand.split(" ");
 		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
@@ -100,13 +120,22 @@ public class InputProcessor {
 		}
 
 	}
-
+/**
+ * getRemoveNeighbourInput method is used to parse the input command and creates the input to remove the neighbour
+ * @param warZoneMap
+ * @param editNeighborCommand
+ */
 	public void getremoveNeighborInput(String warZoneMap, String editNeighborCommand) {
 		// yet to code
 		new EditMap().removeNeighbours(warZoneMap);
 
 	}
 
+/**
+ * getString method is used to parse the input command
+ * @param editCommand
+ * @return result
+ */
 	public String getString(String editCommand) {
 		String[] splitBySpace = editCommand.split(" ");
 		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
@@ -118,7 +147,10 @@ public class InputProcessor {
 		String result = sb.toString(); 
 		return result;
 	}
-
+/**
+ * getstartupPhase method is used to identify the correct map which is loaded in the application
+ * @return folder
+ */ 
 	public List<String> getstartupPhase() {
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
 		URL url = loader.getResource("map");
