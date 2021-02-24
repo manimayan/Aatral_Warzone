@@ -233,19 +233,21 @@ public class GameEngine {
 		System.out.print("\nCountry ID\t\tCountry Name\t\t\t\tArmies\t\tOwner");
 		for (Country l_co : p_gamePlayer.getListOfCountries()) {
 			System.out.print("\n" + l_co.getCountryId() + "\t\t" + l_co.getCountryName() + "\t\t\t\t" + l_co.getArmies()
-					+ "\t\t" + p_gamePlayer.getPlayerName());
-
-			System.out.println();
+					+ "\t\t" + p_gamePlayer.getPlayerName()+"\n");
 		}
 	}
 
 	public void showMap() {
-		System.out.print("\nCountry ID\t\tCountry Name\t\t\t\tArmies\t\tOwner");
-		for (Map.Entry l_gamePlayer : l_playerObjectList.entrySet()) {
-			for (Country l_co : ((GamePlayer) l_gamePlayer.getValue()).getListOfCountries()) {
-				System.out.print("\n" + l_co.getCountryId() + "\t\t" + l_co.getCountryName() + "\t\t\t\t"
-						+ l_co.getArmies() + "\t\t" + l_gamePlayer.getKey());
-				System.out.println();
+		if(l_playerObjectList.isEmpty()) {
+			System.out.println("\nNo player has been created to show the map\n");
+		}else {
+			System.out.print("\nCountry ID\t\tCountry Name\t\t\t\tArmies\t\tOwner");
+			for (Map.Entry l_gamePlayer : l_playerObjectList.entrySet()) {
+				for (Country l_co : ((GamePlayer) l_gamePlayer.getValue()).getListOfCountries()) {
+					System.out.print("\n" + l_co.getCountryId() + "\t\t" + l_co.getCountryName() + "\t\t\t\t"
+							+ l_co.getArmies() + "\t\t" + l_gamePlayer.getKey());
+					System.out.println();
+				}
 			}
 		}
 	}
