@@ -125,7 +125,7 @@ public class GameEngine {
 	public void GameUserMenu() {
 		boolean l_gamePlayFlag = true;
 		while (l_gamePlayFlag) {
-			System.out.println("Gameplay Format : " + "\n showmap"
+			System.out.println("\n\nGameplay Format : " + "\n showmap"
 					+ "\n gameplayer -add playerName1,playerName2 -remove playerName" + "\n startgame" + "\n exitgame");
 			String l_playOption = l_input.nextLine();
 			switch (l_playOption.split(" ")[0]) {
@@ -184,9 +184,18 @@ public class GameEngine {
 						break;
 					case "remove":
 						l_playerNames = l_option.substring(6).split(",");
+						String l_removeName = "";
 						for (String l_playerName : l_playerNames) {
 							l_playerName = l_playerName.trim();
-							l_playerObListTempRem.add(l_playerName);
+							if(!l_playerObjectList.containsKey(l_playerName)) {
+								l_removeName+=", "+l_playerName;
+								l_flag = false;
+							}
+							if(!l_flag) {
+								System.out.println("Player names "+l_removeName.substring(1)+" doesn't exist/nTry again with valid player names to remove");
+							}else {
+								l_playerObListTempRem.add(l_playerName);
+							}
 						}
 						break;
 					default:
