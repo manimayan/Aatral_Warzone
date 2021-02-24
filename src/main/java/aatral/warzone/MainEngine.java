@@ -3,6 +3,7 @@ package aatral.warzone;
 import java.util.List;
 import java.util.Scanner;
 
+import aatral.warzone.implementation.EditMap;
 import aatral.warzone.implementation.MapEditor;
 import aatral.warzone.utilities.InputProcessor;
 
@@ -37,7 +38,7 @@ public class MainEngine {
 			for (String l_folderName : l_folder) {
 				System.out.println(l_folderName);
 			}
-
+			
 			// type the map name to load
 			System.out.println("\nPlease type in the map name to load the map");
 			Scanner map = new Scanner(System.in);
@@ -46,7 +47,7 @@ public class MainEngine {
 			if (l_folder.contains(warZoneMap)) {
 				// type the below commands to run map editor
 				System.out.println("\nType the below command to edit the loaded map"
-						+ "\n showmap \n savemap filename \n editmap filename \n validatemap");
+						+ "\n showmap \n savemap filename \n editmap filename \n validatemap \n loadmap filename");
 				Scanner l_input = new Scanner(System.in);
 				String mapEditorCommand = l_input.nextLine().trim();
 
@@ -61,7 +62,15 @@ public class MainEngine {
 
 				} else if (mapEditorCommand.startsWith("validatemap")) {
 					mapEditor.validateMap(warZoneMap);
-				} else {
+				} else if(mapEditorCommand.startsWith("loadmap")){
+					String l_warZoneMap = mapEditorCommand.split(" ")[1];
+					if(l_folder.contains(l_warZoneMap)) {
+						GameEngine gameEngine = new GameEngine(l_warZoneMap);
+						gameEngine.GameUserMenu();
+					}else {
+						System.out.println("No such map exists, Please create a new one");
+					}
+				}else {
 					System.out.println("Invalid command");
 					proceed = false;
 					System.out.println("Editor closed");

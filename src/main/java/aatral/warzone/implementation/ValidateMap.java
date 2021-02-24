@@ -22,25 +22,27 @@ import aatral.warzone.utilities.CountryMapreader;
 public class ValidateMap {
 
 	/**
-	 * validateContinentIDis used to validate the continent ID
-	 * @param warZoneMap
-	 * @param continentID
-	 * @return This return either true or false which indicates whether the continentID is valid or not
+	 * printBorders method is used to print list of countries and its borders in the
+	 * console
+	 * @param map 
+	 * 
+	 * @return
 	 */
 	public boolean validateContinentID(String warZoneMap, String continentID) {
 		List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
 		for (Continent continentIDSearch : continentList)
-			if (continentIDSearch.getContinentId().equalsIgnoreCase(continentID + "")) {
+			if (continentIDSearch.getContinentId().equalsIgnoreCase(continentID)) {
 				return true;
 			}
 		return false;
 	}
 
 	/**
-	 * validateContinentName method is used to validate the continent name 
-	 * @param warZoneMap
-	 * @param continentName
-	 * @return This return either true or false which indicates whether the continentName is valid or not
+	 * printBorders method is used to print list of countries and its borders in the
+	 * console
+	 * @param map 
+	 * 
+	 * @return
 	 */
 	public boolean validateContinentName(String warZoneMap, String continentName) {
 		List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
@@ -52,24 +54,27 @@ public class ValidateMap {
 	}
 
 	/**
-	 * validateCountryID method is used to validate the country id
-	 * @param warZoneMap
-	 * @param countryId
-	 * @return This return either true or false which indicates whether the country id is valid or not
+	 * printBorders method is used to print list of countries and its borders in the
+	 * console
+	 * @param map 
+	 * 
+	 * @return
 	 */
 	public boolean validateCountryID(String warZoneMap, String countryId) {
 		List<Country> countryList = new CountryMapreader().readCountryMap(warZoneMap);
 		for (Country countryIDSearch : countryList)
-			if (countryIDSearch.getCountryId().equalsIgnoreCase(countryId + "")) {
+			if (countryIDSearch.getCountryId().equalsIgnoreCase(countryId)) {
 				return true;
 			}
 		return false;
 	}
 
 	/**
-	 * validateFullMap method is used to validate the whole map
-	 * @param warZoneMap
-	 * @return This return either true or false which indicates whether the whole map is valid or not
+	 * printBorders method is used to print list of countries and its borders in the
+	 * console
+	 * @param map 
+	 * 
+	 * @return
 	 */
 	public boolean validateFullMap(String warZoneMap) {
 		List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
@@ -86,6 +91,7 @@ public class ValidateMap {
 
 		for (Country countryObject : countryList) {
 			if (!continentID.contains(countryObject.getContinentId())) {
+				System.err.println("Invalid Continent ID - "+countryObject.getContinentId()+" exist in "+warZoneMap+" country map");
 				return false;
 			}
 			countryID.add(countryObject.getCountryId());
@@ -97,10 +103,15 @@ public class ValidateMap {
 
 		for (Entry<String, List<String>> m : borderHashMap.entrySet()) {
 			if (!countryID.contains(m.getKey())) {
+				System.err.println("Invalid Country ID - "+m.getKey()+" exist in "+warZoneMap+" border map");
 				return false;
-			}
+			}System.out.print(m.getKey()+", ");
 			for (String adjEdge : (List<String>) m.getValue()) {
-				if (!borderHashMap.containsKey(adjEdge) || !borderHashMap.get(adjEdge).contains(m.getKey())) {
+				if (!borderHashMap.containsKey(adjEdge)) {
+					System.err.println("Country ID - "+adjEdge+" is not adjacent for the Country ID - "+m.getKey()+" in "+warZoneMap+" border map");
+					return false;
+				}else if(!borderHashMap.get(adjEdge).contains(m.getKey())) {
+					System.err.println("Country ID - "+m.getKey()+" is not adjacent for the Country ID - "+adjEdge+" in "+warZoneMap+" border map");
 					return false;
 				}
 			}
