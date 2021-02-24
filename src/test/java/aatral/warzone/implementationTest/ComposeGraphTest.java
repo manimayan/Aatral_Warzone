@@ -12,6 +12,7 @@ import aatral.warzone.implementation.ComposeGraph;
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Country;
 import aatral.warzone.utilities.ContinentMapReader;
+import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
 
 public class ComposeGraphTest {
@@ -26,7 +27,7 @@ public class ComposeGraphTest {
 
 		CountryMapreader l_cmr = new CountryMapreader();
 		List<Country> l_countryDataList = new ArrayList<>();
-		l_countryDataList = l_cmr.readCountryMap();
+		l_countryDataList = l_cmr.readCountryMap("canada");
 
 		for (String continent : l_continentMap.keySet()) {
 
@@ -46,12 +47,13 @@ public class ComposeGraphTest {
 	}
 
 	@Test
-	public void composeGraphtest() {
+	public void composeGraphgetContinentMap() {
 		ComposeGraph l_cg = new ComposeGraph();
 
-		List<aatral.warzone.model.Continent> l_lc = new ContinentMapReader().readContinentFile();
+		List<aatral.warzone.model.Continent> l_lc = new ContinentMapReader().readContinentFile("canada");
+		
 
-		HashMap<String, List<Country>> actual = l_cg.getContinentMap();
+		HashMap<String, List<Country>> actual = l_cg.getContinentMap("canada");
 		HashMap<String, List<Country>> expected = getContinentMap(l_lc);
 
 		/*
@@ -62,5 +64,22 @@ public class ComposeGraphTest {
 		assertEquals(expected.keySet(), actual.keySet());
 
 	}
+	/*@Test
+	public void composeGraphgetBorderMap() {
+		ComposeGraph l_cgbm = new ComposeGraph();
+
+		List<aatral.warzone.model.Borders> l_lc = new CountryBorderReader().mapCountryBorderReader("canada");
+		
+
+		HashMap<String, List<Country>> actual = (HashMap<String, List<Country>>) l_cgbm.getBorderMap("canada");
+		HashMap<String, List<Country>> expected = getBorderMap(l_lc);
+
+		
+		 * System.out.println (actual.keySet()); System.out.println (expected.keySet());
+		 * if(getContinentMap(lc).equals(cg.getContinentMap(lc))) {
+		 * System.out.println("Equals"); }else { System.out.println("Not Equals"); }
+		 
+		assertEquals(expected.keySet(), actual.keySet());*/
 
 }
+	

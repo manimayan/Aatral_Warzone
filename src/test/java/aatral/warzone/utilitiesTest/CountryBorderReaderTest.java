@@ -18,16 +18,16 @@ public class CountryBorderReaderTest {
 	@Test
 	public void countryBorderReader() {
 
-		int l_actual = 0;
+		int l_expected = 0;
 
 		try {
 
-			File file = new File("src/main/resources/canada-borders.txt");
+			File file = new File("src/main/resources/map/canada/canada-borders1.txt");
 
 			Scanner sc = new Scanner(file);
 			while (sc.hasNextLine()) {
 				sc.nextLine();
-				l_actual++;
+				l_expected++;
 			}
 
 			sc.close();
@@ -36,11 +36,11 @@ public class CountryBorderReaderTest {
 		}
 
 		CountryBorderReader l_cbr = new CountryBorderReader();
-		List<Borders> ls = l_cbr.mapCountryBorderReader();
-		int expected = ls.size();
+		List<Borders> ls = l_cbr.mapCountryBorderReader("canada");
+		int l_actual = ls.size();
 		// assertThat(actual, hasSize(3));
-		System.out.println(l_actual + "" + expected);
-		assertEquals(expected, l_actual);
+		System.out.println(l_expected + "" + l_actual);
+		assertEquals(l_expected, l_actual);
 	}
 
 }
