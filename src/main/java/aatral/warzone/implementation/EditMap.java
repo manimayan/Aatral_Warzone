@@ -170,7 +170,7 @@ public class EditMap {
 					List<Country> addCountryList = inputProcessor.getAddCountryInput(editCountryCommand);
 					addCountry(warZoneMap, addCountryList);
 				} else if (editCountryCommand.startsWith("remove")) {
-					List<Country> removeCountryList = inputProcessor.getremoveCountryInput(editCountryCommand);
+					List<String> removeCountryList = inputProcessor.getremoveCountryInput(editCountryCommand);
 					removeCountry(warZoneMap, removeCountryList);
 				} else {
 					System.out.println(editCountryCommand + " is not a valid command");
@@ -351,10 +351,10 @@ public class EditMap {
 			if(borderObject.getCountryId().equalsIgnoreCase(countryID)) {
 				toRemove.add(borderObject);
 			} else {
-				List<String> borderList = borderObject.getAdjacentCountries();
+				List<String> borderList = (List<String>) borderObject.getAdjacentCountries();
 				if(borderList.contains(countryID)) {
 					borderList.remove(countryID);
-					borderObject.setAdjacentCountries(borderList);
+					borderObject.setAdjacentCountries((Set<String>) borderList);
 				}
 			}
 		}
