@@ -105,6 +105,8 @@ public class MapEditor {
 	 */
 	public void validateMap(String warZoneMap) {
 		ValidateMap validate = new ValidateMap();
-		System.out.println("Validate - " + validate.validateFullMap(warZoneMap));
+		if(validate.validateFullMap(warZoneMap)){
+			System.out.println("\n"+warZoneMap+ " map is valid");
+		}
 	}
 }

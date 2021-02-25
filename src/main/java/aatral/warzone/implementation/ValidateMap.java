@@ -2,6 +2,7 @@ package aatral.warzone.implementation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -89,14 +90,41 @@ public class ValidateMap {
 		List<String> continentID = new ArrayList<>();
 		List<String> countryID = new ArrayList<>();
 		HashMap<String, Set<String>> borderHashMap = new HashMap<>();
-
+		HashSet<String> validateID = new HashSet<>();
+		for (Continent continentObject : continentList) {
+			if(validateID.contains(continentObject.getContinentId())){
+				System.out.println("Duplicate Continent ID - " + continentObject.getContinentId() + " exist in "+ warZoneMap + " continent map");
+				return false;
+			}else {
+				validateID.add(continentObject.getContinentId());
+			}
+		}
+		validateID.clear();
+		for (Country countryObject : countryList) {
+			if(validateID.contains(countryObject.getCountryId())){
+				System.out.println("Duplicate Country ID - " + countryObject.getCountryId() + " exist in "+ warZoneMap + " country map");
+				return false;
+			}else {
+				validateID.add(countryObject.getCountryId());
+			}
+		}
+		validateID.clear();
+		for (Borders borderObject : bordersList) {
+			if(validateID.contains(borderObject.getCountryId())){
+				System.out.println("Duplicate Country ID - " + borderObject.getCountryId() + " exist in "+ warZoneMap + " border map");
+				return false;
+			}else {
+				validateID.add(borderObject.getCountryId());
+			}
+		}
+		validateID.clear();
 		for (Continent continentObject : continentList) {
 			continentID.add(continentObject.getContinentId());
 		}
 
 		for (Country countryObject : countryList) {
 			if (!continentID.contains(countryObject.getContinentId())) {
-				System.err.println("Invalid Continent ID - " + countryObject.getContinentId() + " exist in "
+				System.out.println("Invalid Continent ID - " + countryObject.getContinentId() + " exist in "
 						+ warZoneMap + " country map");
 				return false;
 			}
@@ -109,23 +137,21 @@ public class ValidateMap {
 
 		for (Entry<String, Set<String>> m : borderHashMap.entrySet()) {
 			if (!countryID.contains(m.getKey())) {
-				System.err.println("Invalid Country ID - " + m.getKey() + " exist in " + warZoneMap + " border map");
+				System.out.println("Invalid Country ID - " + m.getKey() + " exist in " + warZoneMap + " border map");
 				return false;
 			}
-			System.out.print(m.getKey() + ", ");
 			for (String adjEdge : (Set<String>) m.getValue()) {
 				if (!borderHashMap.containsKey(adjEdge)) {
-					System.err.println("Country ID - " + adjEdge + " is not adjacent for the Country ID - " + m.getKey()
+					System.out.println("Country ID - " + adjEdge + " is not adjacent for the Country ID - " + m.getKey()
 							+ " in " + warZoneMap + " border map");
 					return false;
 				} else if (!borderHashMap.get(adjEdge).contains(m.getKey())) {
-					System.err.println("Country ID - " + m.getKey() + " is not adjacent for the Country ID - " + adjEdge
+					System.out.println("Country ID - " + m.getKey() + " is not adjacent for the Country ID - " + adjEdge
 							+ " in " + warZoneMap + " border map");
 					return false;
 				}
 			}
 		}
-		System.out.println(continentID);
 		return true;
 	}
 }

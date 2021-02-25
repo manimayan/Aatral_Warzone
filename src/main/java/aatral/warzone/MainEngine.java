@@ -53,13 +53,11 @@ public class MainEngine {
 
 				if (mapEditorCommand.startsWith("showmap")) {
 					mapEditor.showMap(warZoneMap);
-
 				} else if (mapEditorCommand.startsWith("savemap")) {
 					mapEditor.saveMap(mapEditorCommand);
 					proceed = false;
 				} else if (mapEditorCommand.startsWith("editmap")) {
 					mapEditor.editMap(mapEditorCommand);
-
 				} else if (mapEditorCommand.startsWith("validatemap")) {
 					mapEditor.validateMap(warZoneMap);
 				} else if (mapEditorCommand.startsWith("loadmap")) {

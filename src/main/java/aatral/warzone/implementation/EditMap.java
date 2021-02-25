@@ -194,7 +194,7 @@ public class EditMap {
 					|| !validateOb.validateContinentID(warZoneMap, addCountry.getContinentId())) {
 
 				System.out.println("The Entered country " + addCountry.getCountryId()
-				+ " is already present or continentId" + addCountry.getContinentId() + " is not present");
+				+ " is already present or continent Id " + addCountry.getContinentId() + " is not present");
 			} else {
 				vaildCountryList.add(addCountry);
 			}
@@ -308,9 +308,9 @@ public class EditMap {
 		for(String borderOb : removeBorder) {
 			String countryID = borderOb.split(" ")[0].trim();
 			String adjacentCountryID = borderOb.split(" ")[1].trim();
+			int count = 0;
 			if (validateOb.validateCountryID(warZoneMap, countryID) && validateOb.validateCountryID(warZoneMap, adjacentCountryID)) {
 				List<Borders> bordersList = new CountryBorderReader().mapCountryBorderReader(warZoneMap);
-				int count = 0;
 				for (Borders borderObject : bordersList) {
 					if (borderObject.getCountryId().equalsIgnoreCase(countryID)) {
 						bordersList.get(bordersList.indexOf(borderObject)).getAdjacentCountries()
@@ -323,9 +323,12 @@ public class EditMap {
 					if (count == 2)
 						break;
 				}
-				writeBordersFile(warZoneMap, bordersList);
-				System.out.println("Border File Successfuly updated");
-
+				if(count==2) {
+					writeBordersFile(warZoneMap, bordersList);
+					System.out.println("Border File Successfuly updated");
+				}else {
+					System.out.println("The countryId or Neighboring countryId is invalid");
+				}
 			} else {
 				System.out.println("The countryId or Neighboring countryId is invalid");
 			}
@@ -351,10 +354,10 @@ public class EditMap {
 			if(borderObject.getCountryId().equalsIgnoreCase(countryID)) {
 				toRemove.add(borderObject);
 			} else {
-				List<String> borderList = (List<String>) borderObject.getAdjacentCountries();
+				Set<String> borderList = borderObject.getAdjacentCountries();
 				if(borderList.contains(countryID)) {
 					borderList.remove(countryID);
-					borderObject.setAdjacentCountries((Set<String>) borderList);
+					borderObject.setAdjacentCountries(borderList);
 				}
 			}
 		}

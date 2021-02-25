@@ -51,7 +51,7 @@ public class GameEngine {
 	 */
 	public void assignReinforcements(GamePlayer p_object, int p_armies) {
 		p_object.setArmies(p_armies);
-		System.out.println("The player " + p_object.getPlayerName() + " has been reinforced with " + p_armies);
+		System.out.println("The player " + p_object.getPlayerName() + " has been reinforced with " + p_armies+" armies");
 	}
 
 	/**
@@ -149,7 +149,7 @@ public class GameEngine {
 			}
 			l_innerLoopflag = true;
 			while (l_innerLoopflag) {
-				System.out.println("Enter continue or back");
+				System.out.println("Give any of the following command to proceed the gamePlay \n continue \n back");
 				l_readInput = l_input.nextLine();
 				switch (l_readInput) {
 				case "continue":
@@ -305,8 +305,8 @@ public class GameEngine {
 
 	public String[] validateDeployInput(String p_issueCommand) {
 		while (!p_issueCommand.split(" ")[0].equalsIgnoreCase("deploy")) {
-			System.out.println("\n\nEnter input type is not deploy...try again");
-			System.out.println("\nDeploy Format : deploy countryID1 numArmies, countryID2 numArmies");
+			System.out.println("\n\nYour entered input type is invalid...try again");
+			System.out.println("\nDeploy Format : deploy countryID1 numArmies, countryID2 numArmies\n");
 			p_issueCommand = l_input.nextLine();
 		}
 		return p_issueCommand.substring(6).split(",");
