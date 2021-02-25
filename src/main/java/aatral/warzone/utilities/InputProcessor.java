@@ -101,9 +101,18 @@ public class InputProcessor {
 	 *                              country list
 	 * @return null
 	 */
-	public List<Country> getremoveCountryInput(String editCountryCommand) {
-		// yet to code
-		return null;
+	public List<String> getremoveCountryInput(String editCountryCommand) {
+		String[] splitBySpace = editCountryCommand.split(" ");
+		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
+		StringBuilder sb = new StringBuilder();
+		for (String s : yourArray) {
+			sb.append(s);
+			sb.append(" ");
+		}
+		String result = sb.toString();
+		List<String> processedInput = new ArrayList<>(Arrays.asList(result.split(",")));
+		
+		return processedInput;
 	}
 
 	/**
@@ -140,10 +149,17 @@ public class InputProcessor {
 	 * @param warZoneMap
 	 * @param editNeighborCommand
 	 */
-	public void getremoveNeighborInput(String warZoneMap, String editNeighborCommand) {
-		// yet to code
-		new EditMap().removeNeighbours(warZoneMap);
-
+	public List<String> getremoveNeighborInput(String warZoneMap, String editNeighborCommand) {
+		String[] splitBySpace = editNeighborCommand.split(" ");
+		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
+		StringBuilder sb = new StringBuilder();
+		for (String s : yourArray) {
+			sb.append(s);
+			sb.append(" ");
+		}
+		String result = sb.toString();
+		List<String> processedInput = new ArrayList<>(Arrays.asList(result.split(",")));
+		return processedInput;
 	}
 
 	/**
