@@ -3,7 +3,6 @@ package aatral.warzone;
 import java.util.List;
 import java.util.Scanner;
 
-import aatral.warzone.implementation.EditMap;
 import aatral.warzone.implementation.MapEditor;
 import aatral.warzone.utilities.InputProcessor;
 
@@ -30,7 +29,7 @@ public class MainEngine {
 		// Main running block of game
 		while (proceed) {
 
-			MapEditor mapEditor = new MapEditor();
+			MapEditor l_mapEditor = new MapEditor();
 			// showing the available maps
 			System.out.println("\nThe below are the available maps\n");
 			InputProcessor l_ip = new InputProcessor();
@@ -42,9 +41,9 @@ public class MainEngine {
 			// type the map name to load
 			System.out.println("\nPlease type in the map name to load the map or type newmap to create a Map");
 			Scanner map = new Scanner(System.in);
-			String warZoneMap = map.nextLine().toString();
+			String l_warZoneMap = map.nextLine().toString();
 
-			if (l_folder.contains(warZoneMap)) {
+			if (l_folder.contains(l_warZoneMap)) {
 				// type the below commands to run map editor
 				System.out.println("\nType the below command to edit the loaded map"
 						+ "\n showmap \n savemap filename \n editmap filename \n validatemap \n loadmap filename");
@@ -52,18 +51,18 @@ public class MainEngine {
 				String mapEditorCommand = l_input.nextLine().trim();
 
 				if (mapEditorCommand.startsWith("showmap")) {
-					mapEditor.showMap(warZoneMap);
+					l_mapEditor.showMap(l_warZoneMap);
 				} else if (mapEditorCommand.startsWith("savemap")) {
-					mapEditor.saveMap(mapEditorCommand);
+					l_mapEditor.saveMap(mapEditorCommand);
 					proceed = false;
 				} else if (mapEditorCommand.startsWith("editmap")) {
-					mapEditor.editMap(mapEditorCommand);
+					l_mapEditor.editMap(mapEditorCommand);
 				} else if (mapEditorCommand.startsWith("validatemap")) {
-					mapEditor.validateMap(warZoneMap);
+					l_mapEditor.validateMap(l_warZoneMap);
 				} else if (mapEditorCommand.startsWith("loadmap")) {
-					String l_warZoneMap = mapEditorCommand.split(" ")[1];
-					if (l_folder.contains(l_warZoneMap)) {
-						GameEngine gameEngine = new GameEngine(l_warZoneMap);
+					String l_warZoneMaps = mapEditorCommand.split(" ")[1];
+					if (l_folder.contains(l_warZoneMaps)) {
+						GameEngine gameEngine = new GameEngine(l_warZoneMaps);
 						gameEngine.gameUserMenu();
 					} else {
 						System.out.println("No such map exists, Please create a new one");
@@ -73,12 +72,12 @@ public class MainEngine {
 					proceed = false;
 					System.out.println("Editor closed");
 				}
-			} else if (warZoneMap.startsWith("newmap")) {
+			} else if (l_warZoneMap.startsWith("newmap")) {
 				System.out.println("Enter the below command to save a map\n Format: \n savemap filename");
 				Scanner saveMap = new Scanner(System.in);
 				String mapSaveCommand = saveMap.nextLine();
 				if (mapSaveCommand.startsWith("savemap")) {
-					mapEditor.saveMap(mapSaveCommand);
+					l_mapEditor.saveMap(mapSaveCommand);
 					proceed = false;
 				} else {
 					System.out.println("Invalid command");
