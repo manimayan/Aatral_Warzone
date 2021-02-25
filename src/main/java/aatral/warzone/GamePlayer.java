@@ -22,16 +22,22 @@ import lombok.Setter;
  * @version 1.0
  * @since 24-02-2021
  */
-public class GamePlayer{
-	
+public class GamePlayer {
+
 	public String playerName;
-	
+
 	public List<Country> listOfCountries;
-	
+
 	public int armies;
-	
-	public List<Country> ownedCountries(){
+
+	/**
+	 * ownedCountries method is used to get the list of countries owned by the
+	 * player
+	 * 
+	 * @return getListOfCountries
+	 */
+	public List<Country> ownedCountries() {
 		return getListOfCountries();
 	}
-	
+
 }

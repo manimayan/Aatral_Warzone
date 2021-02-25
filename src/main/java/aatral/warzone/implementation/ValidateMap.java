@@ -24,7 +24,8 @@ public class ValidateMap {
 	/**
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
-	 * @param map 
+	 * 
+	 * @param map
 	 * 
 	 * @return
 	 */
@@ -40,7 +41,8 @@ public class ValidateMap {
 	/**
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
-	 * @param map 
+	 * 
+	 * @param map
 	 * 
 	 * @return
 	 */
@@ -56,7 +58,8 @@ public class ValidateMap {
 	/**
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
-	 * @param map 
+	 * 
+	 * @param map
 	 * 
 	 * @return
 	 */
@@ -72,7 +75,8 @@ public class ValidateMap {
 	/**
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
-	 * @param map 
+	 * 
+	 * @param map
 	 * 
 	 * @return
 	 */
@@ -91,7 +95,8 @@ public class ValidateMap {
 
 		for (Country countryObject : countryList) {
 			if (!continentID.contains(countryObject.getContinentId())) {
-				System.err.println("Invalid Continent ID - "+countryObject.getContinentId()+" exist in "+warZoneMap+" country map");
+				System.err.println("Invalid Continent ID - " + countryObject.getContinentId() + " exist in "
+						+ warZoneMap + " country map");
 				return false;
 			}
 			countryID.add(countryObject.getCountryId());
@@ -103,15 +108,18 @@ public class ValidateMap {
 
 		for (Entry<String, List<String>> m : borderHashMap.entrySet()) {
 			if (!countryID.contains(m.getKey())) {
-				System.err.println("Invalid Country ID - "+m.getKey()+" exist in "+warZoneMap+" border map");
+				System.err.println("Invalid Country ID - " + m.getKey() + " exist in " + warZoneMap + " border map");
 				return false;
-			}System.out.print(m.getKey()+", ");
+			}
+			System.out.print(m.getKey() + ", ");
 			for (String adjEdge : (List<String>) m.getValue()) {
 				if (!borderHashMap.containsKey(adjEdge)) {
-					System.err.println("Country ID - "+adjEdge+" is not adjacent for the Country ID - "+m.getKey()+" in "+warZoneMap+" border map");
+					System.err.println("Country ID - " + adjEdge + " is not adjacent for the Country ID - " + m.getKey()
+							+ " in " + warZoneMap + " border map");
 					return false;
-				}else if(!borderHashMap.get(adjEdge).contains(m.getKey())) {
-					System.err.println("Country ID - "+m.getKey()+" is not adjacent for the Country ID - "+adjEdge+" in "+warZoneMap+" border map");
+				} else if (!borderHashMap.get(adjEdge).contains(m.getKey())) {
+					System.err.println("Country ID - " + m.getKey() + " is not adjacent for the Country ID - " + adjEdge
+							+ " in " + warZoneMap + " border map");
 					return false;
 				}
 			}

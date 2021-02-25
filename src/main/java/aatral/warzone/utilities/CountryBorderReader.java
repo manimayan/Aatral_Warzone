@@ -29,7 +29,8 @@ public class CountryBorderReader {
 	/**
 	 * mapCountryBorderReader method is used to get countries border coordinates
 	 * from input file
-	 * @param map 
+	 * 
+	 * @param map
 	 * 
 	 * @return list of border data
 	 */
@@ -38,7 +39,7 @@ public class CountryBorderReader {
 		StreamFactory l_factory = StreamFactory.newInstance();
 		l_factory.define(this.borderStream);
 		List<Borders> l_borderInputData = new ArrayList<>();
-		String url = "/map/"+p_map+"/"+p_map+"-borders1.txt";
+		String url = "/map/" + p_map + "/" + p_map + "-borders1.txt";
 		try {
 			InputStream l_input = this.getClass().getResourceAsStream(url);
 			BeanReader inputReader = l_factory.createReader("borders", new InputStreamReader(l_input));

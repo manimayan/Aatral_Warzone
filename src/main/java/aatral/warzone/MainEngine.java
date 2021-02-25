@@ -38,7 +38,7 @@ public class MainEngine {
 			for (String l_folderName : l_folder) {
 				System.out.println(l_folderName);
 			}
-			
+
 			// type the map name to load
 			System.out.println("\nPlease type in the map name to load the map");
 			Scanner map = new Scanner(System.in);
@@ -62,15 +62,15 @@ public class MainEngine {
 
 				} else if (mapEditorCommand.startsWith("validatemap")) {
 					mapEditor.validateMap(warZoneMap);
-				} else if(mapEditorCommand.startsWith("loadmap")){
+				} else if (mapEditorCommand.startsWith("loadmap")) {
 					String l_warZoneMap = mapEditorCommand.split(" ")[1];
-					if(l_folder.contains(l_warZoneMap)) {
+					if (l_folder.contains(l_warZoneMap)) {
 						GameEngine gameEngine = new GameEngine(l_warZoneMap);
-						gameEngine.GameUserMenu();
-					}else {
+						gameEngine.gameUserMenu();
+					} else {
 						System.out.println("No such map exists, Please create a new one");
 					}
-				}else {
+				} else {
 					System.out.println("Invalid command");
 					proceed = false;
 					System.out.println("Editor closed");

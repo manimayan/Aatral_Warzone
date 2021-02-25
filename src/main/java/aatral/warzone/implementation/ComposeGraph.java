@@ -24,7 +24,6 @@ import aatral.warzone.utilities.Graph;
  */
 
 public class ComposeGraph {
-
 	/**
 	 * getContinentMap method is used to get a map of continent and its respective
 	 * countries
@@ -41,7 +40,8 @@ public class ComposeGraph {
 
 		HashMap<String, List<Country>> l_continentMap = new HashMap<>();
 		for (Continent continent : l_continentData) {
-			l_continentMap.put(continent.getContinentId() + "_" + continent.getContinentName(), new ArrayList<Country>());
+			l_continentMap.put(continent.getContinentId() + "_" + continent.getContinentName(),
+					new ArrayList<Country>());
 		}
 
 		// read country data from text file
@@ -69,7 +69,8 @@ public class ComposeGraph {
 	/**
 	 * getBorderMap method is used to get a map of country and its respective
 	 * adjacent countries
-	 * @param map 
+	 * 
+	 * @param map
 	 * 
 	 * @return Map of Country Id and its adjacent countries
 	 */
@@ -105,7 +106,8 @@ public class ComposeGraph {
 
 	/**
 	 * printCountries method is used to print list countries in the console
-	 * @param map 
+	 * 
+	 * @param map
 	 * 
 	 * @return
 	 */
@@ -127,7 +129,8 @@ public class ComposeGraph {
 	/**
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
-	 * @param map 
+	 * 
+	 * @param map
 	 * 
 	 * @return
 	 */
