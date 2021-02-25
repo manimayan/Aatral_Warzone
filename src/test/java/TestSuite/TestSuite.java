@@ -12,6 +12,7 @@ import aatral.warzone.utilitiesTest.ContinentMapReaderTest;
 import aatral.warzone.utilitiesTest.CountryBorderReaderTest;
 import aatral.warzone.utilitiesTest.GraphTest;
 import aatral.warzone.utilitiesTest.InputProcessorTest;
+import aatral.warzoneTest.GameEngineTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({ComposeGraphTest.class,
@@ -21,6 +22,7 @@ import aatral.warzone.utilitiesTest.InputProcessorTest;
 	ContinentMapReaderTest.class,
 	CountryBorderReaderTest.class,
 	GraphTest.class,
+	GameEngineTest.class,
 	//InputProcessorTest.class,
 	
 	

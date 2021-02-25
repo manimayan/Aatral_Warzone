@@ -51,7 +51,7 @@ public class ComposeGraphTest {
 		ComposeGraph l_cg = new ComposeGraph();
 
 		List<aatral.warzone.model.Continent> l_lc = new ContinentMapReader().readContinentFile("canada");
-		
+
 
 		HashMap<String, List<Country>> actual = l_cg.getContinentMap("canada");
 		HashMap<String, List<Country>> expected = getContinentMap(l_lc);
@@ -69,17 +69,16 @@ public class ComposeGraphTest {
 		ComposeGraph l_cgbm = new ComposeGraph();
 
 		List<aatral.warzone.model.Borders> l_lc = new CountryBorderReader().mapCountryBorderReader("canada");
-		
+
 
 		HashMap<String, List<Country>> actual = (HashMap<String, List<Country>>) l_cgbm.getBorderMap("canada");
 		HashMap<String, List<Country>> expected = getBorderMap(l_lc);
 
-		
-		 * System.out.println (actual.keySet()); System.out.println (expected.keySet());
-		 * if(getContinentMap(lc).equals(cg.getContinentMap(lc))) {
-		 * System.out.println("Equals"); }else { System.out.println("Not Equals"); }
-		 
+
+	 * System.out.println (actual.keySet()); System.out.println (expected.keySet());
+	 * if(getContinentMap(lc).equals(cg.getContinentMap(lc))) {
+	 * System.out.println("Equals"); }else { System.out.println("Not Equals"); }
+
 		assertEquals(expected.keySet(), actual.keySet());*/
 
 }
-	

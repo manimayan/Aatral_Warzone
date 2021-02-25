@@ -107,9 +107,9 @@ public class ValidateMapTest {
 
 	}
 
-/**
- * The test method used to test the continent name.
- */
+	/**
+	 * The test method used to test the continent name.
+	 */
 	@Test
 	public void validateContinentNameTest()
 	{
@@ -164,7 +164,7 @@ public class ValidateMapTest {
 		String l_coid="29";
 		File file = new File("src/main/resources/map/canada/canada-countries.txt");
 		List<String> l_countryid = new  ArrayList<String>();
-		
+
 		List<String> list = new  ArrayList<String>();
 		try { 
 			list = Files.readAllLines(file.toPath(),Charset.defaultCharset());
@@ -178,7 +178,7 @@ public class ValidateMapTest {
 			String [] res = line.split(" ");
 
 			l_countryid.add(res[0]);
-			
+
 
 			for(String i : l_countryid )
 			{
