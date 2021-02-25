@@ -36,11 +36,11 @@ public class InputProcessor {
 		}
 		String result = sb.toString();
 		List<String> processedInput = new ArrayList<>(Arrays.asList(result.split(",")));
-		System.out.println(processedInput);
+
 		List<Continent> inputContinentList = new ArrayList<>();
 		for (String processedInputIterate : processedInput) {
 
-			String[] splitProcessedInput = processedInputIterate.split(" ");
+			String[] splitProcessedInput = processedInputIterate.trim().split(" ");
 			Continent inputContinent = new Continent(splitProcessedInput[0], splitProcessedInput[1]);
 			inputContinentList.add(inputContinent);
 
@@ -83,11 +83,11 @@ public class InputProcessor {
 		}
 		String result = sb.toString();
 		List<String> processedInput = new ArrayList<>(Arrays.asList(result.split(",")));
-		System.out.println(processedInput);
+
 		List<Country> inputCountryList = new ArrayList<>();
 		for (String processedInputIterate : processedInput) {
 
-			String[] splitProcessedInput = processedInputIterate.split(" ");
+			String[] splitProcessedInput = processedInputIterate.trim().split(" ");
 			Country inputCountry = new Country(splitProcessedInput[0], splitProcessedInput[1]);
 			inputCountryList.add(inputCountry);
 
@@ -123,7 +123,7 @@ public class InputProcessor {
 		}
 		String result = sb.toString();
 		List<String> processedInput = new ArrayList<>(Arrays.asList(result.split(",")));
-		System.out.println(processedInput);
+
 		for (String processedInputIterate : processedInput) {
 
 			String[] splitProcessedInput = processedInputIterate.split(" ");
@@ -135,7 +135,7 @@ public class InputProcessor {
 
 	/**
 	 * getRemoveNeighbourInput method is used to parse the input command and creates
-	 * the input to remove the neighbour
+	 * the input to remove the neighbor
 	 * 
 	 * @param warZoneMap
 	 * @param editNeighborCommand
@@ -167,7 +167,7 @@ public class InputProcessor {
 	/**
 	 * getstartupPhase method is used to identify the correct map which is loaded in
 	 * the application
-	 * 
+	 *  
 	 * @return folder
 	 */
 	public List<String> getstartupPhase() {

@@ -1,6 +1,6 @@
 package aatral.warzone.model;
 
-import java.util.List;
+import java.util.Set;
 
 import org.beanio.annotation.Field;
 import org.beanio.annotation.Record;
@@ -29,7 +29,7 @@ public class Borders {
 	@Field
 	private String countryId;
 
-	@Field(collection = List.class, maxOccurs = -1)
-	List<String> adjacentCountries;
+	@Field(collection = Set.class, maxOccurs = -1,trim = true)
+	 Set<String> adjacentCountries;
 
 }

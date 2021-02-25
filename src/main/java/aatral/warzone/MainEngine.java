@@ -40,7 +40,7 @@ public class MainEngine {
 			}
 
 			// type the map name to load
-			System.out.println("\nPlease type in the map name to load the map");
+			System.out.println("\nPlease type in the map name to load the map or type newmap to create a Map");
 			Scanner map = new Scanner(System.in);
 			String warZoneMap = map.nextLine().toString();
 
@@ -55,8 +55,8 @@ public class MainEngine {
 					mapEditor.showMap(warZoneMap);
 
 				} else if (mapEditorCommand.startsWith("savemap")) {
-					mapEditor.saveMap(mapEditorCommand, warZoneMap);
-
+					mapEditor.saveMap(mapEditorCommand);
+					proceed = false;
 				} else if (mapEditorCommand.startsWith("editmap")) {
 					mapEditor.editMap(mapEditorCommand);
 
@@ -75,10 +75,20 @@ public class MainEngine {
 					proceed = false;
 					System.out.println("Editor closed");
 				}
+			} else if (warZoneMap.startsWith("newmap")) {
+				System.out.println("Enter the below command to save a map\n Format: \n savemap filename");
+				Scanner saveMap = new Scanner(System.in);
+				String mapSaveCommand = saveMap.nextLine();
+				if (mapSaveCommand.startsWith("savemap")) {
+					mapEditor.saveMap(mapSaveCommand);
+					proceed = false;
+				} else {
+					System.out.println("Invalid command");
+					proceed = false;
+					System.out.println("Editor closed");
+				}
 			} else {
 				System.out.println("No such map exists");
-				proceed = false;
-				System.out.println("Editor closed");
 			}
 
 		}

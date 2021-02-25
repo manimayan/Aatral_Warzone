@@ -1,5 +1,14 @@
 package aatral.warzone.implementation;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -31,7 +40,7 @@ public class MapEditor {
 	 * @param mapEditorCommand
 	 * @param warZoneMap
 	 */
-	public void saveMap(String mapEditorCommand, String warZoneMap) {
+	public void saveMap(String mapEditorCommand) {
 		String getmapSaveCommand[] = mapEditorCommand.split(" ");
 		if (mapEditorCommand.startsWith("savemap")) {
 			String saveWarZoneMap = getmapSaveCommand[1];
@@ -39,14 +48,28 @@ public class MapEditor {
 			List<String> saveFolder = saveIp.getstartupPhase();
 
 			if (!saveFolder.contains(saveWarZoneMap)) {
-
+				//Externalize the property later by converting into spring application
+				String mapUrl = "C:\\Users\\manimaran.palani\\git\\Aatral-Warzone\\src\\main\\resources\\map\\"
+						+ saveWarZoneMap;
+				Path path = Paths.get(mapUrl);
+				try {
+					Files.createDirectory(path);
+					List<String> newMapFiles = new ArrayList<>();
+					newMapFiles.add(mapUrl+"\\"+saveWarZoneMap+"-continents.txt");
+					newMapFiles.add(mapUrl+"\\"+saveWarZoneMap+"-countries.txt");
+					newMapFiles.add(mapUrl+"\\"+saveWarZoneMap+"-borders1.txt");
+					for (String newFiles : newMapFiles) {
+					    Path newFilePath = Paths.get(newFiles);
+					    Files.createFile(newFilePath);
+					}
+				
+				} catch (IOException e) {
+				}
+				System.out.println("Map created");
 			} else {
-				System.out.println("The map already exists");
+				System.out.println("map already exists");
 			}
-		} else {
-			System.out.println("Savemap command is invalid");
 		}
-
 	}
 
 	/**
@@ -71,7 +94,7 @@ public class MapEditor {
 			System.out.println("Enter the below command to save a map\n Format: \n savemap filename");
 			Scanner map = new Scanner(System.in);
 			String mapSaveCommand = map.nextLine();
-			saveMap(mapSaveCommand, editWarZoneMap);
+			saveMap(mapSaveCommand);
 		}
 	}
 

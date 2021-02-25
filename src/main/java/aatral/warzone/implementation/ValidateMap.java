@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import aatral.warzone.model.Borders;
 import aatral.warzone.model.Continent;
@@ -87,7 +88,7 @@ public class ValidateMap {
 
 		List<String> continentID = new ArrayList<>();
 		List<String> countryID = new ArrayList<>();
-		HashMap<String, List<String>> borderHashMap = new HashMap<>();
+		HashMap<String, Set<String>> borderHashMap = new HashMap<>();
 
 		for (Continent continentObject : continentList) {
 			continentID.add(continentObject.getContinentId());
@@ -106,13 +107,13 @@ public class ValidateMap {
 			borderHashMap.put(borderObject.getCountryId(), borderObject.getAdjacentCountries());
 		}
 
-		for (Entry<String, List<String>> m : borderHashMap.entrySet()) {
+		for (Entry<String, Set<String>> m : borderHashMap.entrySet()) {
 			if (!countryID.contains(m.getKey())) {
 				System.err.println("Invalid Country ID - " + m.getKey() + " exist in " + warZoneMap + " border map");
 				return false;
 			}
 			System.out.print(m.getKey() + ", ");
-			for (String adjEdge : (List<String>) m.getValue()) {
+			for (String adjEdge : (Set<String>) m.getValue()) {
 				if (!borderHashMap.containsKey(adjEdge)) {
 					System.err.println("Country ID - " + adjEdge + " is not adjacent for the Country ID - " + m.getKey()
 							+ " in " + warZoneMap + " border map");

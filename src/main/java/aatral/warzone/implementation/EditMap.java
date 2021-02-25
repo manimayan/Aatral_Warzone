@@ -2,9 +2,11 @@ package aatral.warzone.implementation;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 import org.beanio.BeanWriter;
 import org.beanio.StreamFactory;
@@ -22,7 +24,8 @@ import aatral.warzone.utilities.InputProcessor;
 /**
  * <h1>EditMap</h1> The Class edits the selected map
  * 
- * @author William Moses * @version 1.0
+ * @author William Moses 
+ * @version 1.0
  * @since 2021-02-23
  */
 public class EditMap {
@@ -57,7 +60,11 @@ public class EditMap {
 				String l_neighborString = inputProcessor.getString(editCommand);
 				editNeighbourMap(p_warZoneMap, l_neighborString);
 			} else if (editCommand.startsWith("1")) {
-				System.out.println("Edit Aborted");
+				System.out.println("Map Editor Aborted");
+				l_flag = false;
+			} else {
+				System.out.println("Invalid commmand");
+				System.out.println("Map Editor Aborted");
 				l_flag = false;
 			}
 		}
@@ -89,7 +96,7 @@ public class EditMap {
 	}
 
 	/**
-	 * addContinent is used to add teh continent based on user preference
+	 * addContinent is used to add the continent based on user preference
 	 * 
 	 * @param p_warZoneMap
 	 * @param p_addContinentList
@@ -170,7 +177,6 @@ public class EditMap {
 				}
 			}
 		}
-
 	}
 
 	/**
@@ -188,17 +194,20 @@ public class EditMap {
 					|| !validateOb.validateContinentID(warZoneMap, addCountry.getContinentId())) {
 
 				System.out.println("The Entered country " + addCountry.getCountryId()
-						+ " is already present or continentId" + addCountry.getContinentId() + " is not present");
+				+ " is already present or continentId" + addCountry.getContinentId() + " is not present");
 			} else {
 				vaildCountryList.add(addCountry);
 			}
 		}
 		List<Country> sourceCountryList = new CountryMapreader().readCountryMap(warZoneMap);
+		List<Borders> bordersList = new CountryBorderReader().mapCountryBorderReader(warZoneMap);
 		for (Country country : vaildCountryList) {
-			sourceCountryList.add(new Country(country.getCountryId(), "addedCountry", country.getContinentId()));
+			sourceCountryList.add(new Country(country.getCountryId(),"addedCountry",country.getContinentId()));
+			bordersList.add(new Borders(country.getCountryId(), new HashSet<String>()));
 		}
 
 		writeCountryFile(warZoneMap, sourceCountryList);
+		writeBordersFile(warZoneMap, bordersList);
 		System.out.println("Country File Successfuly updated");
 		addCountryList.clear();
 		vaildCountryList.clear();
@@ -259,12 +268,12 @@ public class EditMap {
 			List<Borders> bordersList = new CountryBorderReader().mapCountryBorderReader(warZoneMap);
 			int count = 0;
 			for (Borders borderObject : bordersList) {
-				if (borderObject.getCountryId().equalsIgnoreCase(countryId + "")) {
+				if (borderObject.getCountryId().equalsIgnoreCase(countryId)) {
 					bordersList.get(bordersList.indexOf(borderObject)).getAdjacentCountries()
-							.add(neighborCountryID + "");
+					.add(neighborCountryID.trim());
 					count++;
-				} else if (borderObject.getCountryId().equalsIgnoreCase(neighborCountryID + "")) {
-					bordersList.get(bordersList.indexOf(borderObject)).getAdjacentCountries().add(countryId + "");
+				} else if (borderObject.getCountryId().equalsIgnoreCase(neighborCountryID)) {
+					bordersList.get(bordersList.indexOf(borderObject)).getAdjacentCountries().add(countryId.trim());
 					count++;
 				}
 				if (count == 2)
@@ -329,7 +338,7 @@ public class EditMap {
 				borderLineObject.remove();
 			}
 
-			List<String> adjacentCountries = borObj.getAdjacentCountries();
+			Set<String> adjacentCountries = borObj.getAdjacentCountries();
 			Iterator<String> borderInLineObject = adjacentCountries.iterator();
 			while (borderInLineObject.hasNext()) {
 				String name = borderInLineObject.next();
@@ -425,6 +434,13 @@ public class EditMap {
 		BeanWriter out = factory.createWriter("continentWrite", new File(FILE_NAME));
 
 		for (Borders borders : updateBorder) {
+			Set<String> ignoreNull = borders.getAdjacentCountries();
+			for (Iterator<String> iterator = ignoreNull.iterator(); iterator.hasNext();) {
+				if(iterator.next().toString().isEmpty()) {
+					iterator.remove();
+				}
+			}
+			borders.setAdjacentCountries(ignoreNull);
 			out.write(borders);
 		}
 		out.flush();
