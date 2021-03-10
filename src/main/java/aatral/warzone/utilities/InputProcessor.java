@@ -23,8 +23,8 @@ public class InputProcessor {
 	 * getAddContinentInput method is used to add the continent given by user's
 	 * input into continent list
 	 * 
-	 * @param continentCommand
-	 * @return inputContinentList
+	 * @param continentCommand continentCommand
+	 * @return inputContinentList 
 	 */
 	public Continent getAddContinentInput(String continentCommand) 
 	{
@@ -41,25 +41,25 @@ public class InputProcessor {
 	 * getDeleteContinentInput method is used to delete the continent based on
 	 * user's input
 	 * 
-	 * @param editContinentCommand
+	 * @param editContinentCommand editContinentCommand
 	 * @return deleteContinentList
 	 */
-//	public List<String> getDeleteContinentInput(String editContinentCommand) {
-//		String[] splitBySpace = editContinentCommand.split(" ");
-//		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
-//		StringBuilder sb = new StringBuilder();
-//		for (String s : yourArray) {
-//			sb.append(s);
-//		}
-//		String result = sb.toString();
-//		List<String> deleteContinentList = new ArrayList<>(Arrays.asList(result.split(",")));
-//		return deleteContinentList;
-//	}
+	public List<String> getDeleteContinentInput(String editContinentCommand) {
+		String[] splitBySpace = editContinentCommand.split(" ");
+		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
+		StringBuilder sb = new StringBuilder();
+		for (String s : yourArray) {
+			sb.append(s);
+		}
+		String result = sb.toString();
+		List<String> deleteContinentList = new ArrayList<>(Arrays.asList(result.split(",")));
+		return deleteContinentList;
+	}
 
 	/**
 	 * getAddCountryInput method is used to add user's input country to country list
 	 * 
-	 * @param editCountryCommand
+	 * @param editCountryCommand editCountryCommand
 	 * @return inputCountryList
 	 */
 	public Country getAddCountryInput(String editCountryCommand) {
@@ -74,75 +74,74 @@ public class InputProcessor {
 
 	/**
 	 * 
-	 * @param getRemoveCountryInput method is used to remove user's input country to
-	 *                              country list
-	 * @return null
+	 * @param editCountryCommand method is used to remove user's input country to country list
+	 * @return String
 	 */
-//	public List<String> getremoveCountryInput(String editCountryCommand) {
-//		String[] splitBySpace = editCountryCommand.split(" ");
-//		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
-//		StringBuilder sb = new StringBuilder();
-//		for (String s : yourArray) {
-//			sb.append(s);
-//			sb.append(" ");
-//		}
-//		String result = sb.toString();
-//		List<String> processedInput = new ArrayList<>(Arrays.asList(result.split(",")));
-//		
-//		return processedInput;
-//	}
+	public List<String> getremoveCountryInput(String editCountryCommand) {
+		String[] splitBySpace = editCountryCommand.split(" ");
+		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
+		StringBuilder sb = new StringBuilder();
+		for (String s : yourArray) {
+			sb.append(s);
+			sb.append(" ");
+		}
+		String result = sb.toString();
+		List<String> processedInput = new ArrayList<>(Arrays.asList(result.split(",")));
+		
+		return processedInput;
+	}
 
 	/**
 	 * getAddNeighbourInput method is used to parse the input command and creates
 	 * the input to add the neighbour
 	 * 
-	 * @param warZoneMap
-	 * @param editNeighborCommand
+	 * @param warZoneMap warZoneMap
+	 * @param editNeighborCommand editNeighborCommand
 	 */
-//	public void getAddNeighborInput(String warZoneMap, String editNeighborCommand) {
-//		String[] splitBySpace = editNeighborCommand.split(" ");
-//		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
-//		StringBuilder sb = new StringBuilder();
-//		for (String s : yourArray) {
-//			sb.append(s);
-//			sb.append(" ");
-//		}
-//		String result = sb.toString();
-//		List<String> processedInput = new ArrayList<>(Arrays.asList(result.split(",")));
-//
-//		for (String processedInputIterate : processedInput) {
-//
-//			String[] splitProcessedInput = processedInputIterate.split(" ");
-//			EditMap ed = new EditMap();
-//			ed.addNeighbours(warZoneMap, splitProcessedInput[0], splitProcessedInput[1]);
-//		}
-//
-//	}
+	public void getAddNeighborInput(String warZoneMap, String editNeighborCommand) {
+		String[] splitBySpace = editNeighborCommand.split(" ");
+		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
+		StringBuilder sb = new StringBuilder();
+		for (String s : yourArray) {
+			sb.append(s);
+			sb.append(" ");
+		}
+		String result = sb.toString();
+		List<String> processedInput = new ArrayList<>(Arrays.asList(result.split(",")));
+
+		for (String processedInputIterate : processedInput) {
+
+			String[] splitProcessedInput = processedInputIterate.split(" ");
+			EditMap ed = new EditMap();
+			ed.addNeighbours(warZoneMap, splitProcessedInput[0], splitProcessedInput[1]);
+		}
+
+	}
 
 	/**
 	 * getRemoveNeighbourInput method is used to parse the input command and creates
 	 * the input to remove the neighbor
 	 * 
-	 * @param warZoneMap
-	 * @param editNeighborCommand
+	 * @param warZoneMap warZoneMap
+	 * @param editNeighborCommand editNeighborCommand
 	 */
-//	public List<String> getremoveNeighborInput(String warZoneMap, String editNeighborCommand) {
-//		String[] splitBySpace = editNeighborCommand.split(" ");
-//		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
-//		StringBuilder sb = new StringBuilder();
-//		for (String s : yourArray) {
-//			sb.append(s);
-//			sb.append(" ");
-//		}
-//		String result = sb.toString();
-//		List<String> processedInput = new ArrayList<>(Arrays.asList(result.split(",")));
-//		return processedInput;
-//	}
+	public List<String> getremoveNeighborInput(String warZoneMap, String editNeighborCommand) {
+		String[] splitBySpace = editNeighborCommand.split(" ");
+		String[] yourArray = Arrays.copyOfRange(splitBySpace, 1, splitBySpace.length);
+		StringBuilder sb = new StringBuilder();
+		for (String s : yourArray) {
+			sb.append(s);
+			sb.append(" ");
+		}
+		String result = sb.toString();
+		List<String> processedInput = new ArrayList<>(Arrays.asList(result.split(",")));
+		return processedInput;
+	}
 
 	/**
 	 * getString method is used to parse the input command
 	 * 
-	 * @param editCommand
+	 * @param editCommand editCommand
 	 * @return result
 	 */
 	public String getString(String editCommand) {

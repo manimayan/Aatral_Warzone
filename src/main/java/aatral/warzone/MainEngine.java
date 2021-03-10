@@ -20,7 +20,6 @@ public class MainEngine {
 	 * Main method to get GameMap Data
 	 * 
 	 * @param args Unused.
-	 * @return Nothing.
 	 */
 	public static void main(String[] args) {
 		System.out.println("Welome to Warzone");

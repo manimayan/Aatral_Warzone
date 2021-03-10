@@ -37,7 +37,7 @@ public class EditMap {
 	 * startEditMap method is used to get the user's input for editing the map
 	 * options
 	 * 
-	 * @param p_warZoneMap
+	 * @param p_warZoneMap warZoneMap
 	 * 
 	 */
 	public void startEditMap(String p_warZoneMap) {
@@ -73,8 +73,8 @@ public class EditMap {
 	/**
 	 * editContinentMap method is used to add or delete the continent
 	 * 
-	 * @param p_warZoneMap
-	 * @param p_continentCommand
+	 * @param p_warZoneMap warZoneMap
+	 * @param p_continentCommand continentCommand
 	 * 
 	 */
 	public void editContinentMap(String p_warZoneMap, String p_continentCommand) {
@@ -103,8 +103,8 @@ public class EditMap {
 	/**
 	 * addContinent is used to add the continent based on user preference
 	 * 
-	 * @param p_warZoneMap
-	 * @param p_addContinentList
+	 * @param p_warZoneMap warZoneMap
+	 * @param l_addContinent addContinentList
 	 */
 	public void addContinent(String p_warZoneMap, Continent l_addContinent) {
 
@@ -126,8 +126,8 @@ public class EditMap {
 	 * removeContinent method is used to remove the continent based on user
 	 * preference
 	 * 
-	 * @param warZoneMap
-	 * @param deleteContinentList
+	 * @param warZoneMap warZoneMap
+	 * @param deleteContinentList deleteContinentList
 	 */
 	public void removeContinent(String warZoneMap, String deleteContinent) {
 
@@ -155,8 +155,8 @@ public class EditMap {
 	/**
 	 * editCountryMap method is edit the country like add or remove the country
 	 * 
-	 * @param warZoneMap
-	 * @param countryString
+	 * @param warZoneMap warZoneMap
+	 * @param countryString countryString
 	 */
 	public void editCountryMap(String warZoneMap, String countryString) {
 		String listCountryCommand[] = countryString.split("-");
@@ -184,9 +184,9 @@ public class EditMap {
 	 * addCountry method is used to add the country if the country not listed in
 	 * input file
 	 * 
-	 * @param warZoneMap
-	 * @param addCountryList
-	 */
+	 * @param warZoneMap warZoneMap
+	 * @param addCountry addCountry
+ 	 */
 	public void addCountry(String warZoneMap, Country addCountry) {
 
 		if (validateOb.validateCountryID(warZoneMap, addCountry.getCountryId())
@@ -213,8 +213,8 @@ public class EditMap {
 	/**
 	 * removeCountry method is used remove the country using country ID
 	 * 
-	 * @param warZoneMap
-	 * @param removeCountryList
+	 * @param warZoneMap warZoneMap
+	 * @param removeCountryList removeCountryList
 	 */
 	public void removeCountry(String warZoneMap, String removeCountryList) {
 		boolean flag = true;
@@ -247,8 +247,8 @@ public class EditMap {
 	/**
 	 * editNeighboutMap method is used to add or remove the neighbour
 	 * 
-	 * @param warZoneMap
-	 * @param neighborString
+	 * @param warZoneMap warZoneMap
+	 * @param neighborString neighborString
 	 */
 	public void editNeighbourMap(String warZoneMap, String neighborString) {
 		String listNeighborCommand[] = neighborString.split("-");
@@ -286,9 +286,9 @@ public class EditMap {
 	 * addNeighbours method is used for adding neighbours based on countryId and
 	 * neighbourCountryID
 	 * 
-	 * @param warZoneMap
-	 * @param countryId
-	 * @param neighborCountryID
+	 * @param warZoneMap warZoneMap
+	 * @param countryId countryId
+	 * @param neighborCountryID neighborCountryID
 	 */
 	public void addNeighbours(String warZoneMap, String countryId, String neighborCountryID) {
 
@@ -319,7 +319,9 @@ public class EditMap {
 	/**
 	 * removeNeighbour is used to remove the neighbour from warzone map
 	 * 
-	 * @param warZoneMap
+	 * @param warZoneMap warZoneMap
+	 * @param countryId countryId
+	 * @param adjacentCountryID adjacentCountryID
 	 */
 	public void removeNeighbour(String warZoneMap, String countryID, String adjacentCountryID) 
 	{
@@ -360,8 +362,8 @@ public class EditMap {
 	 * removeAllCountry method is used to remove all countries in warzone map based
 	 * on countryID
 	 * 
-	 * @param warZoneMap
-	 * @param countryID
+	 * @param warZoneMap warZoneMap
+	 * @param countryID countryID
 	 */
 	public void removeAllCountry(String warZoneMap, String countryID) {
 		List<Country> countryList = new CountryMapreader().readCountryMap(warZoneMap);
@@ -413,8 +415,8 @@ public class EditMap {
 	/**
 	 * writeCountryFile is used to update the country details in warzone map
 	 * 
-	 * @param warZoneMap
-	 * @param updateCountry
+	 * @param warZoneMap warZoneMap
+	 * @param updateCountry updateCountry
 	 */
 	public void writeCountryFile(String warZoneMap, List<Country> updateCountry) {
 		String FILE_NAME = "src/main/resources/map/" + warZoneMap + "/" + warZoneMap + "-countries.txt";
@@ -438,8 +440,8 @@ public class EditMap {
 	/**
 	 * writeContinentFile is used to update the list of continents in continent file
 	 * 
-	 * @param warZoneMap
-	 * @param updateContinent
+	 * @param warZoneMap warZoneMap
+	 * @param updateContinent updateContinent
 	 */
 	public void writeContinentFile(String warZoneMap, List<Continent> updateContinent) {
 		String FILE_NAME = "src/main/resources/map/" + warZoneMap + "/" + warZoneMap + "-continents.txt";
@@ -463,8 +465,8 @@ public class EditMap {
 	/**
 	 * writeBordersFile method is used to write the updated borders text file
 	 * 
-	 * @param warZoneMap
-	 * @param updateBorder
+	 * @param warZoneMap warZoneMap
+	 * @param updateBorder updateBorder
 	 */
 	public void writeBordersFile(String warZoneMap, List<Borders> updateBorder) {
 		String FILE_NAME = "src/main/resources/map/" + warZoneMap + "/" + warZoneMap + "-borders1.txt";
