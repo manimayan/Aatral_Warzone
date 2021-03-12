@@ -59,7 +59,6 @@ public class GameEngine {
 	 * issueOrders method is used to deploy the armies from player to the designated
 	 * countries
 	 * 
-	 * @param p_object object of gameplayer class
 	 */
 	public void IssueOrders() { 
 		boolean flag = true;
