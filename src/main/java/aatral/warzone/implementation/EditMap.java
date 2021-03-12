@@ -117,7 +117,7 @@ public class EditMap {
 	 * addContinent is used to add the continent based on user preference
 	 * 
 	 * @param p_warZoneMap map of warzone.
-	 * @param p_addContinentList list of added continents.
+	 * @param l_addContinent added continent object.
 	 */
 	public void addContinent(String p_warZoneMap, Continent l_addContinent) {
 
@@ -136,7 +136,7 @@ public class EditMap {
 	 * preference
 	 * 
 	 * @param warZoneMap map of warzone.
-	 * @param deleteContinentList list of delete continents.
+	 * @param deleteContinent delete continents object.
 	 */
 	public void removeContinent(String warZoneMap, String deleteContinent) {
 
@@ -192,19 +192,19 @@ public class EditMap {
 	 * input file
 	 * 
 	 * @param warZoneMap map of warzone.
-	 * @param addCountryList list of add country.
+	 * @param p_addCountry add country object.
 	 */
-	public void addCountry(String warZoneMap, Country addCountry) {
+	public void addCountry(String warZoneMap, Country p_addCountry) {
 
-		if (validateOb.validateCountryID(warZoneMap, addCountry.getCountryId())
-				|| !validateOb.validateContinentID(warZoneMap, addCountry.getContinentId())) {
+		if (validateOb.validateCountryID(warZoneMap, p_addCountry.getCountryId())
+				|| !validateOb.validateContinentID(warZoneMap, p_addCountry.getContinentId())) {
 
-			System.out.println("The Entered country " + addCountry.getCountryId()
-					+ " is already present or continent Id " + addCountry.getContinentId() + " is not present");
+			System.out.println("The Entered country " + p_addCountry.getCountryId()
+					+ " is already present or continent Id " + p_addCountry.getContinentId() + " is not present");
 		} else {
 
-			this.countryList.add(new Country(addCountry.getCountryId(), "addedCountry", addCountry.getContinentId()));
-			this.bordersList.add(new Borders(addCountry.getCountryId(), new HashSet<String>()));
+			this.countryList.add(new Country(p_addCountry.getCountryId(), "addedCountry", p_addCountry.getContinentId()));
+			this.bordersList.add(new Borders(p_addCountry.getCountryId(), new HashSet<String>()));
 
 		}
 

@@ -27,7 +27,7 @@ public class ValidateMap {
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
 	 * 
-	 * @param warzonemap map of warzone.
+	 * @param warZoneMap map of warzone.
 	 * @param continentID continent id.
 	 * 
 	 * @return false.
@@ -62,8 +62,8 @@ public class ValidateMap {
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
 	 * 
-	 * @param warZonwMap map of warzone.
-	 * @param countryID countryid.
+	 * @param warZoneMap map of warzone.
+	 * @param countryId countryid value.
 	 * @return true.
 	 */
 	public boolean validateCountryID(String warZoneMap, String countryId) {
