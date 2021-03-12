@@ -1,7 +1,10 @@
 package aatral.warzone.implementation;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -33,11 +36,21 @@ public class EditMap {
 	private ValidateMap validateOb = new ValidateMap();
 	InputProcessor inputProcessor = new InputProcessor();
 
+	List<Continent> continentList;
+	List<Country> countryList;
+	List<Borders> bordersList;
+
+	public EditMap(String p_warZoneMap) {
+		this.continentList = new ContinentMapReader().readContinentFile(p_warZoneMap);
+		this.countryList = new CountryMapreader().readCountryMap(p_warZoneMap);
+		this.bordersList = new CountryBorderReader().mapCountryBorderReader(p_warZoneMap);
+	}
+
 	/**
 	 * startEditMap method is used to get the user's input for editing the map
 	 * options
 	 * 
-	 * @param p_warZoneMap warZoneMap
+	 * @param p_warZoneMap
 	 * 
 	 */
 	public void startEditMap(String p_warZoneMap) {
@@ -67,14 +80,19 @@ public class EditMap {
 				System.out.println("Map Editor Aborted");
 				l_flag = false;
 			}
+
+			writeContinentFile(p_warZoneMap, this.continentList);
+			writeCountryFile(p_warZoneMap, this.countryList);
+			writeBordersFile(p_warZoneMap, this.bordersList);
+			System.out.println("Files updated");
 		}
 	}
 
 	/**
 	 * editContinentMap method is used to add or delete the continent
 	 * 
-	 * @param p_warZoneMap warZoneMap
-	 * @param p_continentCommand continentCommand
+	 * @param p_warZoneMap
+	 * @param p_continentCommand
 	 * 
 	 */
 	public void editContinentMap(String p_warZoneMap, String p_continentCommand) {
@@ -85,13 +103,8 @@ public class EditMap {
 				if (l_editContinentCommand.startsWith("add")) {
 					Continent l_addContinentList = inputProcessor.getAddContinentInput(l_editContinentCommand);
 					addContinent(p_warZoneMap, l_addContinentList);
-				}
-
-				else if (l_editContinentCommand.startsWith("remove"))
-
-				{
+				} else if (l_editContinentCommand.startsWith("remove")) {
 					String removeContinentID = l_editContinentCommand.split(" ")[1];
-
 					removeContinent(p_warZoneMap, removeContinentID);
 				} else {
 					System.out.println(l_editContinentCommand + " is not a valid command");
@@ -103,8 +116,8 @@ public class EditMap {
 	/**
 	 * addContinent is used to add the continent based on user preference
 	 * 
-	 * @param p_warZoneMap warZoneMap
-	 * @param l_addContinent addContinentList
+	 * @param p_warZoneMap
+	 * @param p_addContinentList
 	 */
 	public void addContinent(String p_warZoneMap, Continent l_addContinent) {
 
@@ -114,11 +127,7 @@ public class EditMap {
 			System.out.println("The Entered continent " + l_addContinent.getContinentId() + " "
 					+ l_addContinent.getContinentName() + " is already present");
 		} else {
-
-			List<Continent> l_sourceContinentList = new ContinentMapReader().readContinentFile(p_warZoneMap);
-			l_sourceContinentList.add(l_addContinent);
-			writeContinentFile(p_warZoneMap, l_sourceContinentList);
-			System.out.println("Successfully Entered...");
+			this.continentList.add(l_addContinent);
 		}
 	}
 
@@ -126,20 +135,21 @@ public class EditMap {
 	 * removeContinent method is used to remove the continent based on user
 	 * preference
 	 * 
-	 * @param warZoneMap warZoneMap
-	 * @param deleteContinentList deleteContinentList
+	 * @param warZoneMap
+	 * @param deleteContinentList
 	 */
 	public void removeContinent(String warZoneMap, String deleteContinent) {
 
 		if (!validateOb.validateContinentID(warZoneMap, deleteContinent)) {
 			System.out.println(deleteContinent + " is not available in the map to delete");
 		} else {
-			List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
-			for (Iterator<Continent> continentIterator = continentList.iterator(); continentIterator.hasNext();) {
+		
+			for (Iterator<Continent> continentIterator = this.continentList.iterator(); continentIterator.hasNext();) {
 				Continent continentObject = continentIterator.next();
 				if (continentObject.getContinentId().equalsIgnoreCase(deleteContinent)) {
-					List<Country> countryList = new CountryMapreader().readCountryMap(warZoneMap);
-					for (Country countryObject : countryList) {
+					List<Country> tempCountryObject = new ArrayList<Country>();
+					tempCountryObject.addAll(this.countryList);
+					for (Country countryObject : tempCountryObject) {
 						if (countryObject.getContinentId().equalsIgnoreCase(deleteContinent)) {
 							removeAllCountry(warZoneMap, countryObject.getCountryId());
 						}
@@ -147,7 +157,6 @@ public class EditMap {
 					continentIterator.remove();
 				}
 			}
-			writeContinentFile(warZoneMap, continentList);
 			System.out.println("Successfully removed the Continent ID - " + deleteContinent);
 		}
 	}
@@ -155,8 +164,8 @@ public class EditMap {
 	/**
 	 * editCountryMap method is edit the country like add or remove the country
 	 * 
-	 * @param warZoneMap warZoneMap
-	 * @param countryString countryString
+	 * @param warZoneMap
+	 * @param countryString
 	 */
 	public void editCountryMap(String warZoneMap, String countryString) {
 		String listCountryCommand[] = countryString.split("-");
@@ -167,11 +176,8 @@ public class EditMap {
 				if (editCountryCommand.startsWith("add")) {
 					Country addCountryList = inputProcessor.getAddCountryInput(editCountryCommand);
 					addCountry(warZoneMap, addCountryList);
-				} 
-				else if (editCountryCommand.startsWith("remove")) 
-				{
+				} else if (editCountryCommand.startsWith("remove")) {
 					String countryRemove = editCountryCommand.split(" ")[1];
-					List<String> removeCountryList = inputProcessor.getremoveCountryInput(editCountryCommand);
 					removeCountry(warZoneMap, countryRemove);
 				} else {
 					System.out.println(editCountryCommand + " is not a valid command");
@@ -184,28 +190,21 @@ public class EditMap {
 	 * addCountry method is used to add the country if the country not listed in
 	 * input file
 	 * 
-	 * @param warZoneMap warZoneMap
-	 * @param addCountry addCountry
- 	 */
+	 * @param warZoneMap
+	 * @param addCountryList
+	 */
 	public void addCountry(String warZoneMap, Country addCountry) {
 
 		if (validateOb.validateCountryID(warZoneMap, addCountry.getCountryId())
-				|| !validateOb.validateContinentID(warZoneMap, addCountry.getContinentId())) 
-		{
+				|| !validateOb.validateContinentID(warZoneMap, addCountry.getContinentId())) {
 
 			System.out.println("The Entered country " + addCountry.getCountryId()
 					+ " is already present or continent Id " + addCountry.getContinentId() + " is not present");
-		} else 
-		{
-			List<Country> sourceCountryList = new CountryMapreader().readCountryMap(warZoneMap);
-			List<Borders> bordersList = new CountryBorderReader().mapCountryBorderReader(warZoneMap);
+		} else {
 
-			sourceCountryList.add(new Country(addCountry.getCountryId(), "addedCountry", addCountry.getContinentId()));
-			bordersList.add(new Borders(addCountry.getCountryId(), new HashSet<String>()));
+			this.countryList.add(new Country(addCountry.getCountryId(), "addedCountry", addCountry.getContinentId()));
+			this.bordersList.add(new Borders(addCountry.getCountryId(), new HashSet<String>()));
 
-			writeCountryFile(warZoneMap, sourceCountryList);
-			writeBordersFile(warZoneMap, bordersList);
-			System.out.println("Country File Successfuly updated");
 		}
 
 	}
@@ -213,69 +212,53 @@ public class EditMap {
 	/**
 	 * removeCountry method is used remove the country using country ID
 	 * 
-	 * @param warZoneMap warZoneMap
-	 * @param removeCountryList removeCountryList
+	 * @param warZoneMap
+	 * @param removeCountryList
 	 */
 	public void removeCountry(String warZoneMap, String removeCountryList) {
 		boolean flag = true;
 		String removeName = "";
-		
-			String countryID = removeCountryList.trim();
-			if (!validateOb.validateCountryID(warZoneMap, countryID)) 
-			{
-				flag = false;
-				removeName = countryID;
+
+		String countryID = removeCountryList.trim();
+		if (!validateOb.validateCountryID(warZoneMap, countryID)) {
+			flag = false;
+			removeName = countryID;
+		}
+
+		if (flag) {
+
+			if (validateOb.validateCountryID(warZoneMap, countryID)) {
+				removeAllCountry(warZoneMap, countryID);
 			}
-		
-		if (flag) 
-		{
-			 
-				
-				if (validateOb.validateCountryID(warZoneMap, countryID)) 
-				{
-					removeAllCountry(warZoneMap, countryID);
-				}
-			
-		} 
-		else 
-		{
-			System.out.println("The Entered country ID -" + removeName
-					+ " is not present, kindly enter an existing ID");
+
+		} else {
+			System.out.println("The Entered country ID -" + removeName + " is not present, kindly enter an existing ID");
 		}
 	}
 
 	/**
 	 * editNeighboutMap method is used to add or remove the neighbour
 	 * 
-	 * @param warZoneMap warZoneMap
-	 * @param neighborString neighborString
+	 * @param warZoneMap
+	 * @param neighborString
 	 */
 	public void editNeighbourMap(String warZoneMap, String neighborString) {
 		String listNeighborCommand[] = neighborString.split("-");
 
 		for (String editNeighborCommand : listNeighborCommand) {
-			if ((editNeighborCommand).isEmpty()) 
-			{
-				
-			} 
-			else 
-			{
-				if (editNeighborCommand.startsWith("add")) 
-				{
+			if ((editNeighborCommand).isEmpty()) {
+
+			} else {
+				if (editNeighborCommand.startsWith("add")) {
 					String countryID = editNeighborCommand.split(" ")[1];
 					String neighborID = editNeighborCommand.split(" ")[2];
-					
+
 					addNeighbours(warZoneMap, countryID, neighborID);
-				} 
-				else if (editNeighborCommand.startsWith("remove")) 
-				{
+				} else if (editNeighborCommand.startsWith("remove")) {
 					String countryID = editNeighborCommand.split(" ")[1];
-					String removeNeighborID = editNeighborCommand.split(" ")[2]; 
-					List<String> removeCountryList = inputProcessor.getremoveNeighborInput(warZoneMap,editNeighborCommand);
-					removeNeighbour(warZoneMap, countryID,removeNeighborID);
-				} 
-				else 
-				{
+					String removeNeighborID = editNeighborCommand.split(" ")[2];
+					removeNeighbour(warZoneMap, countryID, removeNeighborID);
+				} else {
 					System.out.println(editNeighborCommand + " is not a valid command");
 				}
 			}
@@ -286,30 +269,31 @@ public class EditMap {
 	 * addNeighbours method is used for adding neighbours based on countryId and
 	 * neighbourCountryID
 	 * 
-	 * @param warZoneMap warZoneMap
-	 * @param countryId countryId
-	 * @param neighborCountryID neighborCountryID
+	 * @param warZoneMap
+	 * @param countryId
+	 * @param neighborCountryID
 	 */
 	public void addNeighbours(String warZoneMap, String countryId, String neighborCountryID) {
 
 		if (validateOb.validateCountryID(warZoneMap, countryId)
 				&& (validateOb.validateCountryID(warZoneMap, neighborCountryID))) {
-			List<Borders> bordersList = new CountryBorderReader().mapCountryBorderReader(warZoneMap);
 			int count = 0;
-			for (Borders borderObject : bordersList) {
+			List<Borders> tempBorderObject = new ArrayList<Borders>();
+			tempBorderObject.addAll(this.bordersList);
+			for (Borders borderObject : this.bordersList) {
 				if (borderObject.getCountryId().equalsIgnoreCase(countryId)) {
-					bordersList.get(bordersList.indexOf(borderObject)).getAdjacentCountries()
+					this.bordersList.get(this.bordersList.indexOf(borderObject)).getAdjacentCountries()
 							.add(neighborCountryID.trim());
 					count++;
 				} else if (borderObject.getCountryId().equalsIgnoreCase(neighborCountryID)) {
-					bordersList.get(bordersList.indexOf(borderObject)).getAdjacentCountries().add(countryId.trim());
+					this.bordersList.get(this.bordersList.indexOf(borderObject)).getAdjacentCountries()
+							.add(countryId.trim());
 					count++;
 				}
 				if (count == 2)
-					continue;
+					break;
 			}
-			writeBordersFile(warZoneMap, bordersList);
-			System.out.println("Border File Successfuly updated");
+			this.bordersList=tempBorderObject;
 
 		} else {
 			System.out.println("The countryId or Neighboring countryId is invalid");
@@ -319,57 +303,49 @@ public class EditMap {
 	/**
 	 * removeNeighbour is used to remove the neighbour from warzone map
 	 * 
-	 * @param warZoneMap warZoneMap
-	 * @param countryId countryId
-	 * @param adjacentCountryID adjacentCountryID
+	 * @param warZoneMap
 	 */
-	public void removeNeighbour(String warZoneMap, String countryID, String adjacentCountryID) 
-	{
-		
+	public void removeNeighbour(String warZoneMap, String countryID, String adjacentCountryID) {
+
 		countryID = countryID.trim();
 		adjacentCountryID = adjacentCountryID.trim();
-			int count = 0;
-			if (validateOb.validateCountryID(warZoneMap, countryID)
-					&& validateOb.validateCountryID(warZoneMap, adjacentCountryID)) {
-				List<Borders> bordersList = new CountryBorderReader().mapCountryBorderReader(warZoneMap);
-				for (Borders borderObject : bordersList) {
-					if (borderObject.getCountryId().equalsIgnoreCase(countryID)) {
-						bordersList.get(bordersList.indexOf(borderObject)).getAdjacentCountries()
-								.remove(adjacentCountryID);
-						count++;
-					} else if (borderObject.getCountryId().equalsIgnoreCase(adjacentCountryID)) {
-						bordersList.get(bordersList.indexOf(borderObject)).getAdjacentCountries().remove(countryID);
-						count++;
-					}
-					if (count == 2)
-						break;
+		int count = 0;
+		if (validateOb.validateCountryID(warZoneMap, countryID)	&& validateOb.validateCountryID(warZoneMap, adjacentCountryID)) {
+			List<Borders> tempBorderList = new ArrayList<Borders>();
+			tempBorderList.addAll(this.bordersList);
+			for (Borders borderObject : this.bordersList) {
+				if (borderObject.getCountryId().equalsIgnoreCase(countryID)) {
+					tempBorderList.get(tempBorderList.indexOf(borderObject)).getAdjacentCountries()
+							.remove(adjacentCountryID);
+					count++;
+				} else if (borderObject.getCountryId().equalsIgnoreCase(adjacentCountryID)) {
+					tempBorderList.get(tempBorderList.indexOf(borderObject)).getAdjacentCountries()
+							.remove(countryID);
+					count++;
 				}
-				if (count == 2) {
-					writeBordersFile(warZoneMap, bordersList);
-					System.out.println("Border File Successfuly updated");
-				} else {
-					System.out.println("The countryId or Neighboring countryId is invalid");
-				}
-			} 
-			else 
-			{
+				if (count == 2)
+					break;
+			}
+			if (count == 2) {
+				this.bordersList=tempBorderList;
+			} else {
 				System.out.println("The countryId or Neighboring countryId is invalid");
 			}
+		} else {
+			System.out.println("The countryId or Neighboring countryId is invalid");
 		}
-
+	}
 
 	/**
 	 * removeAllCountry method is used to remove all countries in warzone map based
 	 * on countryID
 	 * 
-	 * @param warZoneMap warZoneMap
-	 * @param countryID countryID
+	 * @param warZoneMap
+	 * @param countryID
 	 */
 	public void removeAllCountry(String warZoneMap, String countryID) {
-		List<Country> countryList = new CountryMapreader().readCountryMap(warZoneMap);
-		List<Borders> bordersList = new CountryBorderReader().mapCountryBorderReader(warZoneMap);
 		List<Borders> toRemove = new ArrayList<Borders>();
-		Iterator<Borders> borderLineObject = bordersList.iterator();
+		Iterator<Borders> borderLineObject = this.bordersList.iterator();
 
 		while (borderLineObject.hasNext()) {
 			Borders borderObject = borderLineObject.next();
@@ -384,12 +360,10 @@ public class EditMap {
 			}
 		}
 
-		bordersList.removeAll(toRemove);
+		this.bordersList.removeAll(toRemove);
 
-		writeBordersFile(warZoneMap, bordersList);
-		System.out.println("Borders File Successfully updated");
 
-		Iterator<Country> countryObject = countryList.iterator();
+		Iterator<Country> countryObject = this.countryList.iterator();
 		Country countryRemoveObject = null;
 		while (countryObject.hasNext()) {
 			Country couObj = countryObject.next();
@@ -399,24 +373,15 @@ public class EditMap {
 			}
 		}
 		if (countryRemoveObject != null)
-			countryList.remove(countryRemoveObject);
-
-		writeCountryFile(warZoneMap, countryList);
-		System.out.println("Country File Successfully updated");
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			this.countryList.remove(countryRemoveObject);
 
 	}
 
 	/**
 	 * writeCountryFile is used to update the country details in warzone map
 	 * 
-	 * @param warZoneMap warZoneMap
-	 * @param updateCountry updateCountry
+	 * @param warZoneMap
+	 * @param updateCountry
 	 */
 	public void writeCountryFile(String warZoneMap, List<Country> updateCountry) {
 		String FILE_NAME = "src/main/resources/map/" + warZoneMap + "/" + warZoneMap + "-countries.txt";
@@ -435,16 +400,20 @@ public class EditMap {
 		}
 		out.flush();
 		out.close();
+
 	}
 
 	/**
 	 * writeContinentFile is used to update the list of continents in continent file
 	 * 
-	 * @param warZoneMap warZoneMap
-	 * @param updateContinent updateContinent
+	 * @param warZoneMap
+	 * @param updateContinent
 	 */
 	public void writeContinentFile(String warZoneMap, List<Continent> updateContinent) {
+		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+		Date date = new Date();
 		String FILE_NAME = "src/main/resources/map/" + warZoneMap + "/" + warZoneMap + "-continents.txt";
+		String FILE_NAME1 = "src/main/resources/" + warZoneMap + formatter.format(date) + "-continents.txt";
 		StreamFactory factory = StreamFactory.newInstance();
 		StreamBuilder builderCSV = new StreamBuilder("continentWrite").format("delimited")
 				.parser(new DelimitedParserBuilder(' ')).addRecord(Continent.class);
@@ -460,13 +429,14 @@ public class EditMap {
 		}
 		out.flush();
 		out.close();
+
 	}
 
 	/**
 	 * writeBordersFile method is used to write the updated borders text file
 	 * 
-	 * @param warZoneMap warZoneMap
-	 * @param updateBorder updateBorder
+	 * @param warZoneMap
+	 * @param updateBorder
 	 */
 	public void writeBordersFile(String warZoneMap, List<Borders> updateBorder) {
 		String FILE_NAME = "src/main/resources/map/" + warZoneMap + "/" + warZoneMap + "-borders1.txt";
@@ -492,6 +462,7 @@ public class EditMap {
 		}
 		out.flush();
 		out.close();
+
 	}
 
 }

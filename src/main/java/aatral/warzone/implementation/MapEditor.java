@@ -1,10 +1,6 @@
 package aatral.warzone.implementation;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,7 +22,7 @@ public class MapEditor {
 	/**
 	 * showMap method is used to print the countries and borders
 	 * 
-	 * @param warZoneMap
+	 * @param warZoneMap map of warzone.
 	 */
 	public void showMap(String warZoneMap) {
 		ComposeGraph getGraph = new ComposeGraph();
@@ -37,8 +33,8 @@ public class MapEditor {
 	/**
 	 * saveMap method is called once the country given in editMap is not in the list
 	 * 
-	 * @param mapEditorCommand
-	 * @param warZoneMap
+	 * @param mapEditorCommand command for map editor.
+	 
 	 */
 	public void saveMap(String mapEditorCommand) {
 		String getmapSaveCommand[] = mapEditorCommand.split(" ");
@@ -77,7 +73,7 @@ public class MapEditor {
 	 * input If entered country is not present, then it will add the country in the
 	 * list and then it will edit
 	 * 
-	 * @param mapEditorCommand
+	 * @param mapEditorCommand command for map edit.
 	 */
 	public void editMap(String mapEditorCommand) {
 		String getEditmapName[] = mapEditorCommand.split(" ");
@@ -87,7 +83,7 @@ public class MapEditor {
 		List<String> editfolder = editIp.getstartupPhase();
 
 		if (editfolder.contains(editWarZoneMap)) {
-			EditMap editMap = new EditMap();
+			EditMap editMap = new EditMap(editWarZoneMap);
 			editMap.startEditMap(editWarZoneMap);
 		} else {
 			System.out.println("No such map exists, Please create one");
@@ -101,7 +97,7 @@ public class MapEditor {
 	/**
 	 * validateMap method is used to validate the whole map
 	 * 
-	 * @param warZoneMap
+	 * @param warZoneMap map of warzone.
 	 */
 	public void validateMap(String warZoneMap) {
 		ValidateMap validate = new ValidateMap();
