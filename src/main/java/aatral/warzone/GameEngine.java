@@ -187,43 +187,39 @@ public class GameEngine {
 				HashMap<String, GamePlayer> l_playerObListTempAdd = new HashMap<>();
 				List<String> l_playerObListTempRem = new ArrayList<>();
 				String l_playerNames[];
-				
+				String l_playerName;
 				for (String l_option : l_playerOption) {
 					if (l_option.isEmpty())
 						continue;
 					switch (l_option.split(" ")[0]) {
 					case "add":
-						l_playerNames = l_option.substring(3).trim().split(",");
-						for (String l_playerName : l_playerNames) {
-							l_playerName = l_playerName.trim();
-							if (l_playerName.isEmpty())
-								continue;
-							int l_continentID = getContinentID(l_playerUsedContinent);
-							l_playerUsedContinent.put(l_continentID, l_playerName);
-							String continentName = getContinentName(l_continentMap.keySet(), l_continentID + "");
-							if(l_playerObListTempAdd.containsKey(l_playerName)) {
-								  System.out.println("Player name "+l_playerName+" already existing...try this alone again...");
-							}else {
-								l_playerObListTempAdd.put(l_playerName, new GamePlayer(l_playerName,
-										l_continentMap.get(l_continentID + "_" + continentName), 0));
-							}
+						l_playerName =l_option.substring(3).trim();
+						l_playerName = l_playerName.trim();
+						if (l_playerName.isEmpty())
+							continue;
+						int l_continentID = getContinentID(l_playerUsedContinent);
+						l_playerUsedContinent.put(l_continentID, l_playerName);
+						String continentName = getContinentName(l_continentMap.keySet(), l_continentID + "");
+						if(l_playerObListTempAdd.containsKey(l_playerName)) {
+							  System.out.println("Player name "+l_playerName+" already existing...try this alone again...");
+						}else {
+							l_playerObListTempAdd.put(l_playerName, new GamePlayer(l_playerName,
+									l_continentMap.get(l_continentID + "_" + continentName), 0));
 						}
 						break;
 					case "remove":
-						l_playerNames = l_option.substring(6).split(",");
 						String l_removeName = "";
-						for (String l_playerName : l_playerNames) {
-							l_playerName = l_playerName.trim();
-							if (!l_playerObjectList.containsKey(l_playerName)) {
-								l_removeName += ", " + l_playerName;
-								l_flag = false;
-							}
-							if (!l_flag) {
-								System.out.println("Player names " + l_removeName.substring(1)
-										+ " doesn't exist/nTry again with valid player names to remove");
-							} else {
-								l_playerObListTempRem.add(l_playerName);
-							}
+						l_playerName =l_option.substring(6).trim();
+						l_playerName = l_playerName.trim();
+						if (!l_playerObjectList.containsKey(l_playerName)) {
+							l_removeName += ", " + l_playerName;
+							l_flag = false;
+						}
+						if (!l_flag) {
+							System.out.println("Player names " + l_removeName.substring(1)
+									+ " doesn't exist/nTry again with valid player names to remove");
+						} else {
+							l_playerObListTempRem.add(l_playerName);
 						}
 						break;
 					default:
