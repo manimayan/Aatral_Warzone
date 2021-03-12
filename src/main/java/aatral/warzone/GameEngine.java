@@ -41,6 +41,7 @@ public class GameEngine {
 		this.l_mapName = fileName;
 		l_continentMap = new ComposeGraph().getContinentMap(fileName);
 		l_borderMap = new ComposeGraph().getBorderMap(fileName);
+		l_playerUsedContinent.put(0, "nothing");
 	}
 
 	/**
@@ -60,50 +61,53 @@ public class GameEngine {
 	 * 
 	 * @param p_object object of gameplayer class
 	 */
-	public void IssueOrders(GamePlayer p_object) {
-		String l_issueCommand;
-		String l_deployInput[];
-		int l_index = 0;
-		int l_armies = 0;
+	public void IssueOrders() { 
+		boolean flag = true;
 		do {
-			if (l_index == 0)
-				System.out.print("\nInitial ");
-			else
-				System.out.print("\nRemaining ");
-			System.out.println("number of armies in hand for the player " + p_object.getPlayerName() + " is "
-					+ p_object.getArmies() + "\n\nDeploy Format : deploy countryID1 numArmies, countryID2 numArmies");
-			l_issueCommand = l_input.nextLine();
-			l_deployInput = validateDeployInput(l_issueCommand);
-			l_armies = calculateInputArmies(l_deployInput);
-			if (validateInputArmies(l_armies, p_object.getArmies())) {
-				l_armies = 0;
-				String l_countryNorPresent = validateCountryInput(l_deployInput, p_object);
-
-				if (validateCountryValue(l_countryNorPresent)) {
-					for (int i = 0; i < l_deployInput.length; i++) {
-						String l_countryID = l_deployInput[i].trim().split(" ")[0];
-						String l_armyCount = l_deployInput[i].trim().split(" ")[1];
-						int l_deployableArmies = Integer.parseInt(l_armyCount);
-						List<Country> l_list = p_object.getListOfCountries();
-						for (Country l_con : p_object.getListOfCountries()) {
-							if (l_con.getCountryId().equalsIgnoreCase(l_countryID)) {
-								l_list.get(l_list.indexOf(l_con)).setArmies(l_con.getArmies() + l_deployableArmies);
-								p_object.setArmies(p_object.getArmies() - l_deployableArmies);
-								p_object.setListOfCountries(l_list);
-								l_index = 1;
-								break;
+			GamePlayer l_gameplayerObj;
+			flag = false;
+			String l_issueCommand;
+			String l_deployInput[];
+			int l_armies = 0;
+			for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
+				l_gameplayerObj = (GamePlayer) l_gameplayObject.getValue();
+				if(l_gameplayerObj.getArmies()>0) {
+					flag=true;  
+					System.out.println("\nRemaining number of armies in hand for the player " + l_gameplayerObj.getPlayerName() + " is "
+							+ l_gameplayerObj.getArmies() + "\n\nDeploy Format : deploy countryID1 numArmies, countryID2 numArmies");
+					l_issueCommand = l_input.nextLine();
+					l_deployInput = validateDeployInput(l_issueCommand);
+					l_armies = calculateInputArmies(l_deployInput);
+					if (validateInputArmies(l_armies, l_gameplayerObj.getArmies())) {
+						l_armies = 0;
+						String l_countryNorPresent = validateCountryInput(l_deployInput, l_gameplayerObj);
+						if (validateCountryValue(l_countryNorPresent)) {
+							for (int i = 0; i < l_deployInput.length; i++) {
+								String l_countryID = l_deployInput[i].trim().split(" ")[0];
+								String l_armyCount = l_deployInput[i].trim().split(" ")[1];
+								int l_deployableArmies = Integer.parseInt(l_armyCount);
+								List<Country> l_list = l_gameplayerObj.getListOfCountries();
+								for (Country l_con : l_gameplayerObj.getListOfCountries()) {
+									if (l_con.getCountryId().equalsIgnoreCase(l_countryID)) {
+										l_list.get(l_list.indexOf(l_con)).setArmies(l_con.getArmies() + l_deployableArmies);
+										l_gameplayerObj.setArmies(l_gameplayerObj.getArmies() - l_deployableArmies);
+										l_gameplayerObj.setListOfCountries(l_list);
+										break;
+									}
+								}
 							}
+						} else {
+							System.out.println("The countries entered " + l_countryNorPresent.substring(1)
+									+ " are not under player " + l_gameplayerObj.playerName);
 						}
+					} else {
+						System.out.println("Can't deploy " + l_armies + " armies by the player - " + l_gameplayerObj.getPlayerName()
+								+ " as he has only " + l_gameplayerObj.getArmies());
 					}
-				} else {
-					System.out.println("The countries entered " + l_countryNorPresent.substring(1)
-							+ " are not under player " + p_object.playerName);
 				}
-			} else {
-				System.out.println("Can't deploy " + l_armies + " armies by the player - " + p_object.getPlayerName()
-						+ " as he has only " + p_object.getArmies());
 			}
-		} while (l_armies > p_object.getArmies() || p_object.getArmies() != 0);
+		}while(flag);
+		
 	}
 
 	/**
@@ -137,11 +141,7 @@ public class GameEngine {
 				assignReinforcements(l_gameplayerObj, 5);
 				showMapPlayer(l_gameplayerObj);
 			}
-			for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
-				l_gameplayerObj = (GamePlayer) l_gameplayObject.getValue();
-				System.out.println("\n\nIssue Orders for the player " + l_gameplayerObj.getPlayerName());
-				IssueOrders(l_gameplayerObj);
-			}
+			IssueOrders();
 			for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
 				l_gameplayerObj = (GamePlayer) l_gameplayObject.getValue();
 				System.out.println("\n\nExecueting Orders for the player " + l_gameplayerObj.getPlayerName());
@@ -188,6 +188,7 @@ public class GameEngine {
 				HashMap<String, GamePlayer> l_playerObListTempAdd = new HashMap<>();
 				List<String> l_playerObListTempRem = new ArrayList<>();
 				String l_playerNames[];
+				
 				for (String l_option : l_playerOption) {
 					if (l_option.isEmpty())
 						continue;
@@ -196,15 +197,17 @@ public class GameEngine {
 						l_playerNames = l_option.substring(3).trim().split(",");
 						for (String l_playerName : l_playerNames) {
 							l_playerName = l_playerName.trim();
-							l_playerUsedContinent.put(0, "nothing");
 							if (l_playerName.isEmpty())
 								continue;
 							int l_continentID = getContinentID(l_playerUsedContinent);
 							l_playerUsedContinent.put(l_continentID, l_playerName);
 							String continentName = getContinentName(l_continentMap.keySet(), l_continentID + "");
-
-							l_playerObListTempAdd.put(l_playerName, new GamePlayer(l_playerName,
-									l_continentMap.get(l_continentID + "_" + continentName), 0));
+							if(l_playerObListTempAdd.containsKey(l_playerName)) {
+								  System.out.println("Player name "+l_playerName+" already existing...try this alone again...");
+							}else {
+								l_playerObListTempAdd.put(l_playerName, new GamePlayer(l_playerName,
+										l_continentMap.get(l_continentID + "_" + continentName), 0));
+							}
 						}
 						break;
 					case "remove":
