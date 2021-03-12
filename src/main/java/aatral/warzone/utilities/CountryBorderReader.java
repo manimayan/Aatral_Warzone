@@ -30,7 +30,7 @@ public class CountryBorderReader {
 	 * mapCountryBorderReader method is used to get countries border coordinates
 	 * from input file
 	 * 
-	 * @param map
+	 * @param p_map string format map.
 	 * 
 	 * @return list of border data
 	 */

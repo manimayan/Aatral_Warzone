@@ -18,7 +18,7 @@ import aatral.warzone.utilities.InputProcessor;
  * @since 2021-02-23
  */
 public class MapEditor {
-
+	
 	/**
 	 * showMap method is used to print the countries and borders
 	 * 

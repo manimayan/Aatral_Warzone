@@ -28,8 +28,8 @@ public class ContinentMapReader {
 
 	/**
 	 * readContinentFile method is used to get continent coordinates from input file
-	 * 
-	 * @return list of continents
+	 * @param p_map map as string.
+	 * @return list of continents.
 	 */
 	public List<Continent> readContinentFile(String p_map) {
 

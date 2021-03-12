@@ -27,9 +27,10 @@ public class ValidateMap {
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
 	 * 
-	 * @param warZoneMap map
-	 * @param continentID continentID
-	 * @return  false
+	 * @param warzonemap map of warzone.
+	 * @param continentID continent id.
+	 * 
+	 * @return false.
 	 */
 	public boolean validateContinentID(String warZoneMap, String continentID) {
 		List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
@@ -44,9 +45,9 @@ public class ValidateMap {
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
 	 * 
-	 * @param warZoneMap map
-	 * @param continentName continentName
-	 * @return  false
+	 * @param warZoneMap map of warzone.
+	 * @param continentName continentname.
+	 * @return false.
 	 */
 	public boolean validateContinentName(String warZoneMap, String continentName) {
 		List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
@@ -61,9 +62,9 @@ public class ValidateMap {
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
 	 * 
-	 * @param warZoneMap map
-	 * @param countryId countryId
-	 * @return  false
+	 * @param warZonwMap map of warzone.
+	 * @param countryID countryid.
+	 * @return true.
 	 */
 	public boolean validateCountryID(String warZoneMap, String countryId) {
 		List<Country> countryList = new CountryMapreader().readCountryMap(warZoneMap);
@@ -78,9 +79,9 @@ public class ValidateMap {
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
 	 * 
-	 * @param warZoneMap map
+	 * @param warZoneMap map of warzone.
 	 * 
-	 * @return
+	 * @return true.
 	 */
 	public boolean validateFullMap(String warZoneMap) {
 		List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);

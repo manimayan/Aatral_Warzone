@@ -2,6 +2,7 @@ package aatral.warzone;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -11,8 +12,11 @@ import java.util.Set;
 import org.beanio.annotation.Record;
 
 import aatral.warzone.implementation.ComposeGraph;
+import aatral.warzone.model.Borders;
 import aatral.warzone.model.Country;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
@@ -47,8 +51,7 @@ public class GameEngine {
 	 */
 	public void assignReinforcements(GamePlayer p_object, int p_armies) {
 		p_object.setArmies(p_armies);
-		System.out.println(
-				"The player " + p_object.getPlayerName() + " has been reinforced with " + p_armies + " armies");
+		System.out.println("The player " + p_object.getPlayerName() + " has been reinforced with " + p_armies+" armies");
 	}
 
 	/**
@@ -184,42 +187,41 @@ public class GameEngine {
 				String l_playerOption[] = l_playOption.substring(11).split("-");
 				HashMap<String, GamePlayer> l_playerObListTempAdd = new HashMap<>();
 				List<String> l_playerObListTempRem = new ArrayList<>();
-				String l_playerName;
+				String l_playerNames[];
 				for (String l_option : l_playerOption) {
 					if (l_option.isEmpty())
 						continue;
 					switch (l_option.split(" ")[0]) {
 					case "add":
-						l_playerName = l_option.substring(3);
-						l_playerName = l_playerName.trim();
-						if(l_playerObjectList.containsKey(l_playerName) || l_playerObListTempAdd.containsKey(l_playerName)) {
-							System.out.println("PlayerName already exists...");
-							break;
+						l_playerNames = l_option.substring(3).trim().split(",");
+						for (String l_playerName : l_playerNames) {
+							l_playerName = l_playerName.trim();
+							l_playerUsedContinent.put(0, "nothing");
+							if (l_playerName.isEmpty())
+								continue;
+							int l_continentID = getContinentID(l_playerUsedContinent);
+							l_playerUsedContinent.put(l_continentID, l_playerName);
+							String continentName = getContinentName(l_continentMap.keySet(), l_continentID + "");
+
+							l_playerObListTempAdd.put(l_playerName, new GamePlayer(l_playerName,
+									l_continentMap.get(l_continentID + "_" + continentName), 0));
 						}
-						l_playerUsedContinent.put(0, "nothing");
-						if (l_playerName.isEmpty())
-							break;
-						int l_continentID = getContinentID(l_playerUsedContinent);
-						l_playerUsedContinent.put(l_continentID, l_playerName);
-						String continentName = getContinentName(l_continentMap.keySet(), l_continentID + "");
-
-						l_playerObListTempAdd.put(l_playerName, new GamePlayer(l_playerName,
-								l_continentMap.get(l_continentID + "_" + continentName), 0));
-
 						break;
 					case "remove":
-						l_playerName = l_option.substring(6);
+						l_playerNames = l_option.substring(6).split(",");
 						String l_removeName = "";
-						l_playerName = l_playerName.trim();
-						if (!l_playerObjectList.containsKey(l_playerName)) {
-							l_removeName = l_playerName;
-							l_flag = false;
-						}
-						if (!l_flag) {
-							System.out.println("Player names " + l_removeName
-									+ " doesn't exist/nTry again with valid player names to remove");
-						} else {
-							l_playerObListTempRem.add(l_playerName);
+						for (String l_playerName : l_playerNames) {
+							l_playerName = l_playerName.trim();
+							if (!l_playerObjectList.containsKey(l_playerName)) {
+								l_removeName += ", " + l_playerName;
+								l_flag = false;
+							}
+							if (!l_flag) {
+								System.out.println("Player names " + l_removeName.substring(1)
+										+ " doesn't exist/nTry again with valid player names to remove");
+							} else {
+								l_playerObListTempRem.add(l_playerName);
+							}
 						}
 						break;
 					default:
@@ -237,6 +239,12 @@ public class GameEngine {
 						l_playerObjectList.putAll(l_playerObListTempAdd);
 						for (String l_removeName : l_playerObListTempRem) {
 							l_playerObjectList.remove(l_removeName);
+							for (Map.Entry l_mapObject : l_playerUsedContinent.entrySet()) {
+								if (l_mapObject.getValue().equals(l_removeName)) {
+									l_playerUsedContinent.remove(l_mapObject.getKey());
+									break;
+								}
+							}
 						}
 						l_flag = false;
 						break;
@@ -281,7 +289,7 @@ public class GameEngine {
 	 * getContinentName method is used to get the continent name using continent id
 	 * 
 	 * @param p_continentMapKeySet Set of continent map key.
-	 * @param p_continentID        Continent id.
+	 * @param p_continentID Continent id.
 	 * @return continent name.
 	 */
 	public String getContinentName(Set<String> p_continentMapKeySet, String p_continentID) {
@@ -328,8 +336,8 @@ public class GameEngine {
 	 * not using country id
 	 * 
 	 * @param p_deployInput Deploy input string.
-	 * @param p_object      object for gameplayer class.
-	 * @return country not present.
+	 * @param p_object object for gameplayer class.
+	 * @return country not present. 
 	 */
 	public String validateCountryInput(String[] p_deployInput, GamePlayer p_object) {
 		String l_countryNorPresent = "";

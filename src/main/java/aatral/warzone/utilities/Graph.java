@@ -22,8 +22,8 @@ public class Graph {
 	/**
 	 * addVertex method is used to create a node/vertex in a graph
 	 * 
-	 * @param countryId country Id
-	 * @return
+	 * @param p_countryId country Id
+	 * @return adjacent vertices.
 	 */
 
 	public Map<String, List<Country>> addVertex(String p_countryId) {
@@ -34,7 +34,7 @@ public class Graph {
 	/**
 	 * removeVertex method is used to remove a node.vertex from a graph
 	 * 
-	 * @param countryId country Id
+	 * @param p_countryId country Id
 	 */
 
 	public void removeVertex(String p_countryId) {
@@ -45,9 +45,9 @@ public class Graph {
 	/**
 	 * addEdge method is used to add an edge to a graph
 	 * 
-	 * @param sourceCountryId    source country
-	 * @param destinationCountry destination country
-	 * @return
+	 * @param p_sourceCountryId    source country
+	 * @param p_destinationCountry destination country
+	 * @return adjacent vertices.
 	 */
 
 	public Map<String, List<Country>> addEdge(String p_sourceCountryId, Country p_destinationCountry) {
@@ -58,8 +58,8 @@ public class Graph {
 	/**
 	 * removeEdge method is used to remove edges from adjacent countries in a graph
 	 * 
-	 * @param sourceCountryId    source country
-	 * @param destinationCountry destination country
+	 * @param p_sourceCountryId    source country
+	 * @param p_destinationCountryId destination country
 	 */
 
 	public void removeEdge(String p_sourceCountryId, String p_destinationCountryId) {

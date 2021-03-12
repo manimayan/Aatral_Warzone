@@ -28,7 +28,7 @@ public class ComposeGraph {
 	 * getContinentMap method is used to get a map of continent and its respective
 	 * countries
 	 * 
-	 * @param continentData contains continent coordinates fetched from text file
+	 * @param p_map contains continent coordinates fetched from text file
 	 * @return constructed continent map
 	 */
 	public HashMap<String, List<Country>> getContinentMap(String p_map) {
@@ -70,7 +70,7 @@ public class ComposeGraph {
 	 * getBorderMap method is used to get a map of country and its respective
 	 * adjacent countries
 	 * 
-	 * @param map
+	 * @param p_map contains continent coordinates fetched from text file
 	 * 
 	 * @return Map of Country Id and its adjacent countries
 	 */
@@ -107,9 +107,9 @@ public class ComposeGraph {
 	/**
 	 * printCountries method is used to print list countries in the console
 	 * 
-	 * @param map
+	 * @param p_map contains continent coordinates fetched from text file
 	 * 
-	 * @return
+	
 	 */
 	public void printCountries(String p_map) {
 
@@ -130,9 +130,9 @@ public class ComposeGraph {
 	 * printBorders method is used to print list of countries and its borders in the
 	 * console
 	 * 
-	 * @param map
+	 * @param p_map contains continent coordinates fetched from text file
 	 * 
-	 * @return
+	
 	 */
 	public void printBorders(String p_map) {
 

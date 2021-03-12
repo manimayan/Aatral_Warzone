@@ -29,7 +29,8 @@ public class CountryMapreader {
 	/**
 	 * readCountryMap method is used to get country coordinates from input file
 	 * 
-	 * @param p_map map
+	 * @param p_map String format map.
+	 * 
 	 * @return list of country
 	 */
 
