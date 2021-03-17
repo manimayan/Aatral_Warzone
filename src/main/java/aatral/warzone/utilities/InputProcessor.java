@@ -7,8 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import aatral.warzone.implementation.EditMap;
-import aatral.warzone.model.Continent;
-import aatral.warzone.model.Country;
+import aatral.warzone.model.Countries;
+import aatral.warzone.model.InputContinent;
+import aatral.warzone.model.InputCountry;
 
 /**
  * <h1>Utility Class to process command line inputs</h1>
@@ -26,12 +27,12 @@ public class InputProcessor {
 	 * @param continentCommand command for continent.
 	 * @return continent object.
 	 */
-	public Continent getAddContinentInput(String continentCommand) 
+	public InputContinent getAddContinentInput(String continentCommand) 
 	{
 	 
 	 String arrSpaceSplit[] = continentCommand.split(" ");
 	 
-	 Continent inputContinent = new Continent(arrSpaceSplit[1], arrSpaceSplit[2]);
+	 InputContinent inputContinent = new InputContinent(arrSpaceSplit[1], arrSpaceSplit[2]);
 	 
 	 return inputContinent;
 	 
@@ -44,11 +45,11 @@ public class InputProcessor {
 	 * @param editCountryCommand command for edit country.
 	 * @return country input list.
 	 */
-	public Country getAddCountryInput(String editCountryCommand) {
+	public Countries getAddCountryInput(String editCountryCommand) {
 		
 		 String arrSpaceSplit[] = editCountryCommand.split(" ");
 		 
-		 Country inputCountry = new Country(arrSpaceSplit[1], arrSpaceSplit[2]);
+		 Countries inputCountry = new Countries(arrSpaceSplit[1], arrSpaceSplit[2]);
 		 
 		 return inputCountry;
 		

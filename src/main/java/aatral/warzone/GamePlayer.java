@@ -5,7 +5,7 @@ import java.util.List;
 import org.beanio.annotation.Field;
 import org.beanio.annotation.Record;
 
-import aatral.warzone.model.Country;
+import aatral.warzone.model.InputCountry;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +26,7 @@ public class GamePlayer {
 
 	public String playerName;
 
-	public List<Country> listOfCountries;
+	public List<InputCountry> listOfCountries;
 
 	public int armies;
 
@@ -36,7 +36,7 @@ public class GamePlayer {
 	 * 
 	 * @return getListOfCountries
 	 */
-	public List<Country> ownedCountries() {
+	public List<InputCountry> ownedCountries() {
 		return getListOfCountries();
 	}
 

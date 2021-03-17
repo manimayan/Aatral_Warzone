@@ -5,9 +5,24 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.Set;
 
+import org.springframework.util.StringUtils;
+
+import aatral.warzone.model.Continent;
+import aatral.warzone.model.Countries;
+import aatral.warzone.model.InputBorders;
+import aatral.warzone.model.InputContinent;
+import aatral.warzone.model.InputCountry;
+import aatral.warzone.utilities.ContinentMapReader;
+import aatral.warzone.utilities.CountryBorderReader;
+import aatral.warzone.utilities.CountryMapreader;
 import aatral.warzone.utilities.InputProcessor;
 
 /**
@@ -18,23 +33,84 @@ import aatral.warzone.utilities.InputProcessor;
  * @since 2021-02-23
  */
 public class MapEditor {
-	
+
 	/**
 	 * showMap method is used to print the countries and borders
 	 * 
 	 * @param warZoneMap map of warzone.
 	 */
 	public void showMap(String warZoneMap) {
-		ComposeGraph getGraph = new ComposeGraph();
-		getGraph.printCountries(warZoneMap);
-		getGraph.printBorders(warZoneMap);
+
+		Map<String, Continent> getMasterMap = loadMap(warZoneMap);
+		System.out.println("\nContinent and its Countries\n");
+		for (Entry<String, Continent> ContinentEntry : getMasterMap.entrySet()) {
+			System.out.println("ContinentId: " + ContinentEntry.getValue().getContinentId() + ", ContinentName: "
+					+ ContinentEntry.getValue().getContinentName() + "-->");
+			for (Countries printCountries : ContinentEntry.getValue().getContinentOwnedCountries()) {
+				System.out.println("CountryId: " + printCountries.getCountryId() + ", CountryName: "
+						+ printCountries.getCountryName());
+
+			}
+			System.out.println("\n");
+		}
+
+		System.out.println("\nCountries and its Borders\n");
+		for (Entry<String, Continent> ContinentEntry : getMasterMap.entrySet()) {
+			for (Countries printCountries : ContinentEntry.getValue().getContinentOwnedCountries()) {
+				System.out.println("\nCountryId: " + printCountries.getCountryId() + ", CountryName: "
+						+ printCountries.getCountryName() + "--->");
+				System.out.println(
+						StringUtils.collectionToDelimitedString(printCountries.getCountryOwnedBorders(), ", "));
+			}
+		}
 	}
+
+
+
+	/**
+	 * LoadMap method is used to Load the map and convert into continent,countries
+	 * and borders
+	 * 
+	 * @param warZoneMap
+	 * @return
+	 */
+	public Map<String, Continent> loadMap(String p_warZoneMap) {
+
+		List<InputContinent> l_inputContinentList = new ContinentMapReader().readContinentFile(p_warZoneMap);
+		List<InputCountry> l_inputCountryList = new CountryMapreader().readCountryMap(p_warZoneMap);
+		List<InputBorders> l_inputBordersList = new CountryBorderReader().mapCountryBorderReader(p_warZoneMap);
+
+		Map<String, Continent> masterMap = new HashMap<>();
+		for (InputContinent l_continent : l_inputContinentList) {
+
+			Set<Countries> continentOwnedCountries = new HashSet<>();
+			for (InputCountry l_Country : l_inputCountryList) {
+				if (l_continent.getContinentId().equals(l_Country.getContinentId())) {
+
+					Set<String> l_countryOwnedBorders = new HashSet<>();
+					for (InputBorders l_Borders : l_inputBordersList) {
+						if (l_Borders.getCountryId().equals(l_Country.getCountryId())) {
+							l_countryOwnedBorders.addAll(l_Borders.getAdjacentCountries());
+						}
+
+					}
+					Countries addtToCountrySet = new Countries(l_Country, l_countryOwnedBorders);
+					continentOwnedCountries.add(addtToCountrySet);
+				}
+
+			}
+			Continent addToMaster = new Continent(l_continent, continentOwnedCountries);
+			masterMap.put(l_continent.getContinentId(), addToMaster);
+		}
+		return masterMap;
+	}
+
 
 	/**
 	 * saveMap method is called once the country given in editMap is not in the list
 	 * 
 	 * @param mapEditorCommand command for map editor.
-	 
+
 	 */
 	public void saveMap(String mapEditorCommand) {
 		String getmapSaveCommand[] = mapEditorCommand.split(" ");
@@ -54,11 +130,12 @@ public class MapEditor {
 					newMapFiles.add(mapUrl+"\\"+saveWarZoneMap+"-continents.txt");
 					newMapFiles.add(mapUrl+"\\"+saveWarZoneMap+"-countries.txt");
 					newMapFiles.add(mapUrl+"\\"+saveWarZoneMap+"-borders1.txt");
+					newMapFiles.add(mapUrl + "\\" + saveWarZoneMap + ".map");
 					for (String newFiles : newMapFiles) {
-					    Path newFilePath = Paths.get(newFiles);
-					    Files.createFile(newFilePath);
+						Path newFilePath = Paths.get(newFiles);
+						Files.createFile(newFilePath);
 					}
-				
+
 				} catch (IOException e) {
 				}
 				System.out.println("Map created");

@@ -10,7 +10,7 @@ import org.beanio.StreamFactory;
 import org.beanio.builder.DelimitedParserBuilder;
 import org.beanio.builder.StreamBuilder;
 
-import aatral.warzone.model.Borders;
+import aatral.warzone.model.InputBorders;
 
 /**
  * <h1>CountryBorderReader Class to read countries border</h1> MapReader
@@ -24,7 +24,7 @@ import aatral.warzone.model.Borders;
 public class CountryBorderReader {
 
 	private StreamBuilder borderStream = new StreamBuilder("borders").format("delimited")
-			.parser(new DelimitedParserBuilder(' ')).addRecord(Borders.class).ignoreUnidentifiedRecords();
+			.parser(new DelimitedParserBuilder(' ')).addRecord(InputBorders.class).ignoreUnidentifiedRecords();
 
 	/**
 	 * mapCountryBorderReader method is used to get countries border coordinates
@@ -34,11 +34,11 @@ public class CountryBorderReader {
 	 * 
 	 * @return list of border data
 	 */
-	public List<Borders> mapCountryBorderReader(String p_map) {
+	public List<InputBorders> mapCountryBorderReader(String p_map) {
 
 		StreamFactory l_factory = StreamFactory.newInstance();
 		l_factory.define(this.borderStream);
-		List<Borders> l_borderInputData = new ArrayList<>();
+		List<InputBorders> l_borderInputData = new ArrayList<>();
 		String url = "/map/" + p_map + "/" + p_map + "-borders1.txt";
 		try {
 			InputStream l_input = this.getClass().getResourceAsStream(url);
@@ -46,7 +46,7 @@ public class CountryBorderReader {
 			Object l_record = null;
 
 			while ((l_record = inputReader.read()) != null) {
-				Borders borderData = (Borders) l_record;
+				InputBorders borderData = (InputBorders) l_record;
 				l_borderInputData.add(borderData);
 			}
 			l_input.close();

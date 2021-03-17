@@ -44,6 +44,7 @@ public class MainEngine {
 			String l_warZoneMap = map.nextLine().toString();
 
 			if (l_folder.contains(l_warZoneMap)) {
+				l_mapEditor.loadMap(l_warZoneMap);
 				// type the below commands to run map editor
 				System.out.println("\nType the below command to edit the loaded map"
 						+ "\n showmap \n savemap filename \n editmap filename \n validatemap \n loadmap filename");

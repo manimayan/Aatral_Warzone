@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-import aatral.warzone.model.Borders;
-import aatral.warzone.model.Country;
+import aatral.warzone.model.InputBorders;
+import aatral.warzone.model.InputCountry;
 import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
 
@@ -36,7 +36,7 @@ public class CountryBorderReaderTest {
 		}
 
 		CountryBorderReader l_cbr = new CountryBorderReader();
-		List<Borders> ls = l_cbr.mapCountryBorderReader("canada");
+		List<InputBorders> ls = l_cbr.mapCountryBorderReader("canada");
 		int l_actual = ls.size();
 		// assertThat(actual, hasSize(3));
 		System.out.println(l_expected + "" + l_actual);

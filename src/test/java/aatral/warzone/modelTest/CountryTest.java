@@ -1,10 +1,10 @@
 package aatral.warzone.modelTest;
 
-import aatral.warzone.model.Country;
+import aatral.warzone.model.InputCountry;
 
 public class CountryTest {
 	public void countryTest() {
-		Country l_co = new Country();
+		InputCountry l_co = new InputCountry();
 
 	}
 }

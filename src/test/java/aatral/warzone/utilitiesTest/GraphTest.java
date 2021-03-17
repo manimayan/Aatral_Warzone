@@ -8,12 +8,12 @@ import java.util.List;
 
 import org.junit.Test;
 
-import aatral.warzone.model.Country;
+import aatral.warzone.model.InputCountry;
 import aatral.warzone.utilities.Graph;
 
 public class GraphTest {
 	static Graph d_Gr = new Graph();
-	static HashMap<String, List<Country>> d_Hm = new HashMap<>();
+	static HashMap<String, List<InputCountry>> d_Hm = new HashMap<>();
 
 	@Test
 	public void addVertexTest() {
@@ -24,7 +24,7 @@ public class GraphTest {
 
 	@Test
 	public void addEdgeTest() {
-		Country Test = new Country("1", "Afganistan", "1", null, 0);
+		InputCountry Test = new InputCountry("1", "Afganistan", "1", null, 0);
 		d_Hm.get("1").add(Test);
 		assertEquals(d_Hm, d_Gr.addEdge("1", Test));
 		System.out.println(d_Hm);

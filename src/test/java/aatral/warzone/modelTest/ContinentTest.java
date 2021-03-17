@@ -1,11 +1,11 @@
 package aatral.warzone.modelTest;
 
-import aatral.warzone.model.Continent;
+import aatral.warzone.model.InputContinent;
 
 public class ContinentTest {
 	public void continentTest() {
 
-		Continent l_ct = new Continent();
+		InputContinent l_ct = new InputContinent();
 
 	}
 }

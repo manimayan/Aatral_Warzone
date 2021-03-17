@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import aatral.warzone.model.Borders;
-import aatral.warzone.model.Continent;
-import aatral.warzone.model.Country;
+import aatral.warzone.model.InputBorders;
+import aatral.warzone.model.InputContinent;
+import aatral.warzone.model.InputCountry;
 import aatral.warzone.utilities.ContinentMapReader;
 import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
@@ -33,8 +33,8 @@ public class ValidateMap {
 	 * @return false.
 	 */
 	public boolean validateContinentID(String warZoneMap, String continentID) {
-		List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
-		for (Continent continentIDSearch : continentList)
+		List<InputContinent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
+		for (InputContinent continentIDSearch : continentList)
 			if (continentIDSearch.getContinentId().equalsIgnoreCase(continentID)) {
 				return true;
 			}
@@ -50,8 +50,8 @@ public class ValidateMap {
 	 * @return false.
 	 */
 	public boolean validateContinentName(String warZoneMap, String continentName) {
-		List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
-		for (Continent continentNameSearch : continentList)
+		List<InputContinent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
+		for (InputContinent continentNameSearch : continentList)
 			if (continentNameSearch.getContinentName().equalsIgnoreCase(continentName)) {
 				return true;
 			}
@@ -67,8 +67,8 @@ public class ValidateMap {
 	 * @return true.
 	 */
 	public boolean validateCountryID(String warZoneMap, String countryId) {
-		List<Country> countryList = new CountryMapreader().readCountryMap(warZoneMap);
-		for (Country countryIDSearch : countryList)
+		List<InputCountry> countryList = new CountryMapreader().readCountryMap(warZoneMap);
+		for (InputCountry countryIDSearch : countryList)
 			if (countryIDSearch.getCountryId().equalsIgnoreCase(countryId)) {
 				return true;
 			}
@@ -84,15 +84,15 @@ public class ValidateMap {
 	 * @return true.
 	 */
 	public boolean validateFullMap(String warZoneMap) {
-		List<Continent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
-		List<Borders> bordersList = new CountryBorderReader().mapCountryBorderReader(warZoneMap);
-		List<Country> countryList = new CountryMapreader().readCountryMap(warZoneMap);
+		List<InputContinent> continentList = new ContinentMapReader().readContinentFile(warZoneMap);
+		List<InputBorders> bordersList = new CountryBorderReader().mapCountryBorderReader(warZoneMap);
+		List<InputCountry> countryList = new CountryMapreader().readCountryMap(warZoneMap);
 
 		List<String> continentID = new ArrayList<>();
 		List<String> countryID = new ArrayList<>();
 		HashMap<String, Set<String>> borderHashMap = new HashMap<>();
 		HashSet<String> validateID = new HashSet<>();
-		for (Continent continentObject : continentList) {
+		for (InputContinent continentObject : continentList) {
 			if(validateID.contains(continentObject.getContinentId())){
 				System.out.println("Duplicate Continent ID - " + continentObject.getContinentId() + " exist in "+ warZoneMap + " continent map");
 				return false;
@@ -101,7 +101,7 @@ public class ValidateMap {
 			}
 		}
 		validateID.clear();
-		for (Country countryObject : countryList) {
+		for (InputCountry countryObject : countryList) {
 			if(validateID.contains(countryObject.getCountryId())){
 				System.out.println("Duplicate Country ID - " + countryObject.getCountryId() + " exist in "+ warZoneMap + " country map");
 				return false;
@@ -110,7 +110,7 @@ public class ValidateMap {
 			}
 		}
 		validateID.clear();
-		for (Borders borderObject : bordersList) {
+		for (InputBorders borderObject : bordersList) {
 			if(validateID.contains(borderObject.getCountryId())){
 				System.out.println("Duplicate Country ID - " + borderObject.getCountryId() + " exist in "+ warZoneMap + " border map");
 				return false;
@@ -119,11 +119,11 @@ public class ValidateMap {
 			}
 		}
 		validateID.clear();
-		for (Continent continentObject : continentList) {
+		for (InputContinent continentObject : continentList) {
 			continentID.add(continentObject.getContinentId());
 		}
 
-		for (Country countryObject : countryList) {
+		for (InputCountry countryObject : countryList) {
 			if (!continentID.contains(countryObject.getContinentId())) {
 				System.out.println("Invalid Continent ID - " + countryObject.getContinentId() + " exist in "
 						+ warZoneMap + " country map");
@@ -132,7 +132,7 @@ public class ValidateMap {
 			countryID.add(countryObject.getCountryId());
 		}
 
-		for (Borders borderObject : bordersList) {
+		for (InputBorders borderObject : bordersList) {
 			borderHashMap.put(borderObject.getCountryId(), borderObject.getAdjacentCountries());
 		}
 

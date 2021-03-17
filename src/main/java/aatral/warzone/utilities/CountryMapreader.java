@@ -10,7 +10,7 @@ import org.beanio.StreamFactory;
 import org.beanio.builder.DelimitedParserBuilder;
 import org.beanio.builder.StreamBuilder;
 
-import aatral.warzone.model.Country;
+import aatral.warzone.model.InputCountry;
 
 /**
  * <h1>CountryMapreader Class to read Countries</h1> MapReader implements
@@ -24,7 +24,7 @@ import aatral.warzone.model.Country;
 public class CountryMapreader {
 
 	private StreamBuilder countryStream = new StreamBuilder("countries").format("delimited")
-			.parser(new DelimitedParserBuilder(' ')).addRecord(Country.class).ignoreUnidentifiedRecords();
+			.parser(new DelimitedParserBuilder(' ')).addRecord(InputCountry.class).ignoreUnidentifiedRecords();
 
 	/**
 	 * readCountryMap method is used to get country coordinates from input file
@@ -34,11 +34,11 @@ public class CountryMapreader {
 	 * @return list of country
 	 */
 
-	public List<Country> readCountryMap(String p_map) {
+	public List<InputCountry> readCountryMap(String p_map) {
 
 		StreamFactory l_factory = StreamFactory.newInstance();
 		l_factory.define(this.countryStream);
-		List<Country> l_countryDataList = new ArrayList<>();
+		List<InputCountry> l_countryDataList = new ArrayList<>();
 		String url = "/map/" + p_map + "/" + p_map + "-countries.txt";
 		try {
 			InputStream l_input = this.getClass().getResourceAsStream(url);
@@ -46,7 +46,7 @@ public class CountryMapreader {
 			Object record = null;
 
 			while ((record = l_inputReader.read()) != null) {
-				Country countryData = (Country) record;
+				InputCountry countryData = (InputCountry) record;
 				l_countryDataList.add(countryData);
 			}
 			l_input.close();

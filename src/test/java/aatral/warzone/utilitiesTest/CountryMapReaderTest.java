@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-import aatral.warzone.model.Continent;
-import aatral.warzone.model.Country;
+import aatral.warzone.model.InputContinent;
+import aatral.warzone.model.InputCountry;
 import aatral.warzone.utilities.ContinentMapReader;
 import aatral.warzone.utilities.CountryMapreader;
 
@@ -35,7 +35,7 @@ public class CountryMapReaderTest {
 		}
 
 		CountryMapreader l_comr = new CountryMapreader();
-		List<Country> ls = l_comr.readCountryMap("canada");
+		List<InputCountry> ls = l_comr.readCountryMap("canada");
 		int l_actual = ls.size();
 		// assertThat(actual, hasSize(3));
 		System.out.println(l_expected + "" + l_actual);

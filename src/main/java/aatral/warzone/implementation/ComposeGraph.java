@@ -7,9 +7,9 @@ import java.util.Map;
 
 import org.springframework.util.StringUtils;
 
-import aatral.warzone.model.Borders;
-import aatral.warzone.model.Continent;
-import aatral.warzone.model.Country;
+import aatral.warzone.model.InputBorders;
+import aatral.warzone.model.InputContinent;
+import aatral.warzone.model.InputCountry;
 import aatral.warzone.utilities.ContinentMapReader;
 import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
@@ -31,29 +31,29 @@ public class ComposeGraph {
 	 * @param p_map contains continent coordinates fetched from text file
 	 * @return constructed continent map
 	 */
-	public HashMap<String, List<Country>> getContinentMap(String p_map) {
+	public HashMap<String, List<InputCountry>> getContinentMap(String p_map) {
 
 		// read continent data from text file
 		ContinentMapReader l_comr = new ContinentMapReader();
-		List<Continent> l_continentData = new ArrayList<>();
+		List<InputContinent> l_continentData = new ArrayList<>();
 		l_continentData = l_comr.readContinentFile(p_map);
 
-		HashMap<String, List<Country>> l_continentMap = new HashMap<>();
-		for (Continent continent : l_continentData) {
+		HashMap<String, List<InputCountry>> l_continentMap = new HashMap<>();
+		for (InputContinent continent : l_continentData) {
 			l_continentMap.put(continent.getContinentId() + "_" + continent.getContinentName(),
-					new ArrayList<Country>());
+					new ArrayList<InputCountry>());
 		}
 
 		// read country data from text file
 		CountryMapreader l_cmr = new CountryMapreader();
-		List<Country> l_countryDataList = new ArrayList<>();
+		List<InputCountry> l_countryDataList = new ArrayList<>();
 		l_countryDataList = l_cmr.readCountryMap(p_map);
 
 		for (String l_continent : l_continentMap.keySet()) {
 
-			List<Country> l_addAgainstContinent = new ArrayList<>();
+			List<InputCountry> l_addAgainstContinent = new ArrayList<>();
 
-			for (Country country : l_countryDataList) {
+			for (InputCountry country : l_countryDataList) {
 
 				String[] continentId = l_continent.split("_");
 
@@ -74,28 +74,28 @@ public class ComposeGraph {
 	 * 
 	 * @return Map of Country Id and its adjacent countries
 	 */
-	public Map<String, List<Country>> getBorderMap(String p_map) {
+	public Map<String, List<InputCountry>> getBorderMap(String p_map) {
 
 		// compose borders of countries
 		Graph borderGraph = new Graph();
-		Map<String, List<Country>> l_mappedBorders = new HashMap<>();
-		HashMap<String, Country> l_countryMap = new HashMap<>();
+		Map<String, List<InputCountry>> l_mappedBorders = new HashMap<>();
+		HashMap<String, InputCountry> l_countryMap = new HashMap<>();
 
 		// get country data
 		CountryMapreader l_cmr = new CountryMapreader();
-		List<Country> l_countryDataList = new ArrayList<>();
+		List<InputCountry> l_countryDataList = new ArrayList<>();
 		l_countryDataList = l_cmr.readCountryMap(p_map);
 
 		// get border data
 		CountryBorderReader l_cbr = new CountryBorderReader();
-		List<Borders> l_borderDataList = new ArrayList<>();
+		List<InputBorders> l_borderDataList = new ArrayList<>();
 		l_borderDataList = l_cbr.mapCountryBorderReader(p_map);
 
-		for (Country l_country : l_countryDataList) {
+		for (InputCountry l_country : l_countryDataList) {
 			l_countryMap.put(l_country.getCountryId(), l_country);
 		}
 
-		for (Borders l_borders : l_borderDataList) {
+		for (InputBorders l_borders : l_borderDataList) {
 			borderGraph.addVertex(l_borders.getCountryId());
 			for (String adjacent : l_borders.getAdjacentCountries()) {
 				l_mappedBorders = borderGraph.addEdge(l_borders.getCountryId(), l_countryMap.get(adjacent));
@@ -115,12 +115,12 @@ public class ComposeGraph {
 
 		// get country data
 		CountryMapreader l_cmr = new CountryMapreader();
-		List<Country> l_countryDataList = new ArrayList<>();
+		List<InputCountry> l_countryDataList = new ArrayList<>();
 		l_countryDataList = l_cmr.readCountryMap(p_map);
 
 		// print countries in console
 		System.out.println("\nCOUNTRIES\n");
-		for (Country l_country : l_countryDataList) {
+		for (InputCountry l_country : l_countryDataList) {
 			System.out.println("Country_Id:" + l_country.getCountryId() + " || " + "Country_Name: "
 					+ l_country.getCountryName() + " || " + "Continent_Id:" + l_country.getContinentId());
 		}
@@ -138,20 +138,20 @@ public class ComposeGraph {
 
 		// get border data
 		CountryBorderReader l_cbr = new CountryBorderReader();
-		List<Borders> l_borderDataList = new ArrayList<>();
+		List<InputBorders> l_borderDataList = new ArrayList<>();
 		l_borderDataList = l_cbr.mapCountryBorderReader(p_map);
 
 		// getting mappedborders object
-		Map<String, List<Country>> l_countryMap = getBorderMap(p_map);
+		Map<String, List<InputCountry>> l_countryMap = getBorderMap(p_map);
 
 		// print borders in console
 		System.out.println("\nBORDERS\n");
-		for (Borders borders : l_borderDataList) {
+		for (InputBorders borders : l_borderDataList) {
 			List<String> l_printCountryId = new ArrayList<>();
-			List<Country> l_printCountry = l_countryMap.get(borders.getCountryId());
+			List<InputCountry> l_printCountry = l_countryMap.get(borders.getCountryId());
 
 			System.out.println(borders.getCountryId() + " => ");
-			for (Country l_count : l_printCountry) {
+			for (InputCountry l_count : l_printCountry) {
 				l_printCountryId.add(l_count.getCountryName());
 			}
 			System.out.println(StringUtils.collectionToDelimitedString(l_printCountryId, ", "));

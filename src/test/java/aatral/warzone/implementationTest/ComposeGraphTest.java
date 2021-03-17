@@ -9,8 +9,8 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import aatral.warzone.implementation.ComposeGraph;
-import aatral.warzone.model.Continent;
-import aatral.warzone.model.Country;
+import aatral.warzone.model.InputContinent;
+import aatral.warzone.model.InputCountry;
 import aatral.warzone.utilities.ContinentMapReader;
 import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
@@ -18,22 +18,22 @@ import aatral.warzone.utilities.CountryMapreader;
 public class ComposeGraphTest {
 
 	@Ignore
-	public HashMap<String, List<Country>> getContinentMap(List<Continent> p_continentData) {
+	public HashMap<String, List<InputCountry>> getContinentMap(List<InputContinent> p_continentData) {
 
-		HashMap<String, List<Country>> l_continentMap = new HashMap<>();
-		for (Continent continent : p_continentData) {
-			l_continentMap.put(continent.getContinentId() + "_" + continent.getContinentName(), new ArrayList<Country>());
+		HashMap<String, List<InputCountry>> l_continentMap = new HashMap<>();
+		for (InputContinent continent : p_continentData) {
+			l_continentMap.put(continent.getContinentId() + "_" + continent.getContinentName(), new ArrayList<InputCountry>());
 		}
 
 		CountryMapreader l_cmr = new CountryMapreader();
-		List<Country> l_countryDataList = new ArrayList<>();
+		List<InputCountry> l_countryDataList = new ArrayList<>();
 		l_countryDataList = l_cmr.readCountryMap("canada");
 
 		for (String continent : l_continentMap.keySet()) {
 
-			List<Country> l_addAgainstContinent = new ArrayList<>();
+			List<InputCountry> l_addAgainstContinent = new ArrayList<>();
 
-			for (Country country : l_countryDataList) {
+			for (InputCountry country : l_countryDataList) {
 
 				String[] continentId = continent.split("_");
 
@@ -50,11 +50,11 @@ public class ComposeGraphTest {
 	public void composeGraphgetContinentMap() {
 		ComposeGraph l_cg = new ComposeGraph();
 
-		List<aatral.warzone.model.Continent> l_lc = new ContinentMapReader().readContinentFile("canada");
+		List<aatral.warzone.model.InputContinent> l_lc = new ContinentMapReader().readContinentFile("canada");
 
 
-		HashMap<String, List<Country>> actual = l_cg.getContinentMap("canada");
-		HashMap<String, List<Country>> expected = getContinentMap(l_lc);
+		HashMap<String, List<InputCountry>> actual = l_cg.getContinentMap("canada");
+		HashMap<String, List<InputCountry>> expected = getContinentMap(l_lc);
 
 		/*
 		 * System.out.println (actual.keySet()); System.out.println (expected.keySet());

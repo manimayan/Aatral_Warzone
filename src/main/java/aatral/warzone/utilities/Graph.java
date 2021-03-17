@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import aatral.warzone.model.Country;
+import aatral.warzone.model.InputCountry;
 
 /**
  * <h1>Utility Class to create Graph</h1>
@@ -17,7 +17,7 @@ import aatral.warzone.model.Country;
 
 public class Graph {
 
-	public Map<String, List<Country>> l_adjVertices = new HashMap<>();
+	public Map<String, List<InputCountry>> l_adjVertices = new HashMap<>();
 
 	/**
 	 * addVertex method is used to create a node/vertex in a graph
@@ -26,7 +26,7 @@ public class Graph {
 	 * @return adjacent vertices.
 	 */
 
-	public Map<String, List<Country>> addVertex(String p_countryId) {
+	public Map<String, List<InputCountry>> addVertex(String p_countryId) {
 		l_adjVertices.put(p_countryId, new ArrayList<>());
 		return l_adjVertices;
 	}
@@ -50,7 +50,7 @@ public class Graph {
 	 * @return adjacent vertices.
 	 */
 
-	public Map<String, List<Country>> addEdge(String p_sourceCountryId, Country p_destinationCountry) {
+	public Map<String, List<InputCountry>> addEdge(String p_sourceCountryId, InputCountry p_destinationCountry) {
 		l_adjVertices.get(p_sourceCountryId).add(p_destinationCountry);
 		return l_adjVertices;
 	}
@@ -63,8 +63,8 @@ public class Graph {
 	 */
 
 	public void removeEdge(String p_sourceCountryId, String p_destinationCountryId) {
-		List<Country> eV1 = l_adjVertices.get(p_sourceCountryId);
-		List<Country> eV2 = l_adjVertices.get(p_destinationCountryId);
+		List<InputCountry> eV1 = l_adjVertices.get(p_sourceCountryId);
+		List<InputCountry> eV2 = l_adjVertices.get(p_destinationCountryId);
 		if (eV1 != null)
 			eV1.remove(p_destinationCountryId);
 		if (eV2 != null)

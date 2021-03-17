@@ -1,10 +1,10 @@
 package aatral.warzone.modelTest;
 
-import aatral.warzone.model.Borders;
+import aatral.warzone.model.InputBorders;
 
 public class BordersTest {
 	public void bordersTest() {
-		Borders l_br = new Borders();
+		InputBorders l_br = new InputBorders();
 
 	}
 

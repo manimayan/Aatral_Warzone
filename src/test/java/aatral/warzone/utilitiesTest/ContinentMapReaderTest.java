@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-import aatral.warzone.model.Continent;
+import aatral.warzone.model.InputContinent;
 import aatral.warzone.utilities.ContinentMapReader;
 
 public class ContinentMapReaderTest {
@@ -37,7 +37,7 @@ public class ContinentMapReaderTest {
 		}
 
 		ContinentMapReader l_cmr = new ContinentMapReader();
-		List<Continent> ls = l_cmr.readContinentFile("canada");
+		List<InputContinent> ls = l_cmr.readContinentFile("canada");
 		int l_actual = ls.size();
 		// assertThat(actual, hasSize(3));
 		System.out.println(l_expected + "" + l_actual);
@@ -64,7 +64,7 @@ public class ContinentMapReaderTest {
 		}
 
 		ContinentMapReader l_cmr = new ContinentMapReader();
-		List<Continent> ls = l_cmr.readContinentFile("india");
+		List<InputContinent> ls = l_cmr.readContinentFile("india");
 		int l_actual = ls.size();
 		// assertThat(actual, hasSize(3));
 		System.out.println(l_expected + "" + l_actual);

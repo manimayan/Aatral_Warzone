@@ -1,32 +1,30 @@
 package aatral.warzone.model;
 
-import org.beanio.annotation.Field;
-import org.beanio.annotation.Record;
+import java.util.HashSet;
+import java.util.Set;
 
-import lombok.AllArgsConstructor;
+import org.beanio.annotation.Field;
+
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Record
-
-/**
- * <h1>Continent POJO</h1>
- * 
- * @author Manimaran Palani
- * @version 1.0
- * @since 2021-02-12
- */
-
 public class Continent {
+	
+	public Continent(InputContinent l_continent, Set<Countries> continentOwnedCountries) {
+		
+		this.ContinentId = l_continent.getContinentId();
+		this.ContinentName = l_continent.getContinentName();
+		this.ContinentValue = l_continent.getContinentValue();
+		this.continentOwnedCountries= continentOwnedCountries;
+	}
 
-	@Field
 	private String ContinentId;
 
-	@Field
 	private String ContinentName;
+
+	private String ContinentValue;
+	
+    Set<Countries> continentOwnedCountries =  new HashSet<>();
 }

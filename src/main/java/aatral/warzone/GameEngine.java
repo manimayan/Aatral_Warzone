@@ -12,8 +12,8 @@ import java.util.Set;
 import org.beanio.annotation.Record;
 
 import aatral.warzone.implementation.ComposeGraph;
-import aatral.warzone.model.Borders;
-import aatral.warzone.model.Country;
+import aatral.warzone.model.InputBorders;
+import aatral.warzone.model.InputCountry;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,8 +32,8 @@ import lombok.Setter;
 public class GameEngine {
 	private Scanner l_input = new Scanner(System.in);
 	private HashMap<String, GamePlayer> l_playerObjectList = new HashMap<>();
-	private HashMap<String, List<Country>> l_continentMap;
-	private Map<String, List<Country>> l_borderMap;
+	private HashMap<String, List<InputCountry>> l_continentMap;
+	private Map<String, List<InputCountry>> l_borderMap;
 	private HashMap<Integer, String> l_playerUsedContinent = new HashMap<>();
 	private String l_mapName;
 
@@ -85,8 +85,8 @@ public class GameEngine {
 								String l_countryID = l_deployInput[i].trim().split(" ")[0];
 								String l_armyCount = l_deployInput[i].trim().split(" ")[1];
 								int l_deployableArmies = Integer.parseInt(l_armyCount);
-								List<Country> l_list = l_gameplayerObj.getListOfCountries();
-								for (Country l_con : l_gameplayerObj.getListOfCountries()) {
+								List<InputCountry> l_list = l_gameplayerObj.getListOfCountries();
+								for (InputCountry l_con : l_gameplayerObj.getListOfCountries()) {
 									if (l_con.getCountryId().equalsIgnoreCase(l_countryID)) {
 										l_list.get(l_list.indexOf(l_con)).setArmies(l_con.getArmies() + l_deployableArmies);
 										l_gameplayerObj.setArmies(l_gameplayerObj.getArmies() - l_deployableArmies);
@@ -342,7 +342,7 @@ public class GameEngine {
 		for (int i = 0; i < p_deployInput.length; i++) {
 			String l_countryID = p_deployInput[i].trim().split(" ")[0];
 			boolean flag = true;
-			for (Country con : p_object.getListOfCountries()) {
+			for (InputCountry con : p_object.getListOfCountries()) {
 				if (con.getCountryId().equalsIgnoreCase(l_countryID)) {
 					flag = false;
 					break;
@@ -366,7 +366,7 @@ public class GameEngine {
 	 */
 	public void showMapPlayer(GamePlayer p_gamePlayer) {
 		System.out.print("\nCountry ID\t\tCountry Name\t\t\t\tArmies\t\tOwner");
-		for (Country l_co : p_gamePlayer.getListOfCountries()) {
+		for (InputCountry l_co : p_gamePlayer.getListOfCountries()) {
 			System.out.print("\n" + l_co.getCountryId() + "\t\t" + l_co.getCountryName() + "\t\t\t\t" + l_co.getArmies()
 					+ "\t\t" + p_gamePlayer.getPlayerName() + "\n");
 		}
@@ -381,7 +381,7 @@ public class GameEngine {
 		} else {
 			System.out.print("\nCountry ID\t\tCountry Name\t\t\t\tArmies\t\tOwner");
 			for (Map.Entry l_gamePlayer : l_playerObjectList.entrySet()) {
-				for (Country l_co : ((GamePlayer) l_gamePlayer.getValue()).getListOfCountries()) {
+				for (InputCountry l_co : ((GamePlayer) l_gamePlayer.getValue()).getListOfCountries()) {
 					System.out.print("\n" + l_co.getCountryId() + "\t\t" + l_co.getCountryName() + "\t\t\t\t"
 							+ l_co.getArmies() + "\t\t" + l_gamePlayer.getKey());
 					System.out.println();

@@ -10,7 +10,7 @@ import org.beanio.StreamFactory;
 import org.beanio.builder.DelimitedParserBuilder;
 import org.beanio.builder.StreamBuilder;
 
-import aatral.warzone.model.Continent;
+import aatral.warzone.model.InputContinent;
 
 /**
  * <h1>MapReader Class to read Continents</h1> MapReader implements beanReader
@@ -24,19 +24,19 @@ import aatral.warzone.model.Continent;
 public class ContinentMapReader {
 
 	private StreamBuilder continentStream = new StreamBuilder("continents").format("delimited")
-			.parser(new DelimitedParserBuilder(' ')).addRecord(Continent.class).ignoreUnidentifiedRecords();
+			.parser(new DelimitedParserBuilder(' ')).addRecord(InputContinent.class).ignoreUnidentifiedRecords();
 
 	/**
 	 * readContinentFile method is used to get continent coordinates from input file
 	 * @param p_map map as string.
 	 * @return list of continents.
 	 */
-	public List<Continent> readContinentFile(String p_map) {
+	public List<InputContinent> readContinentFile(String p_map) {
 
 		StreamFactory factory = StreamFactory.newInstance();
 		factory.define(this.continentStream);
 
-		List<Continent> l_continentDataList = new ArrayList<>();
+		List<InputContinent> l_continentDataList = new ArrayList<>();
 		String url = "/map/" + p_map + "/" + p_map + "-continents.txt";
 		try {
 			InputStream l_input = this.getClass().getResourceAsStream(url);
@@ -44,7 +44,7 @@ public class ContinentMapReader {
 			Object l_record = null;
 
 			while ((l_record = inputReader.read()) != null) {
-				Continent continentData = (Continent) l_record;
+				InputContinent continentData = (InputContinent) l_record;
 				l_continentDataList.add(continentData);
 			}
 			l_input.close();
