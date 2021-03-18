@@ -104,66 +104,70 @@ public class GameEngine {
 	 * startGame method is used to start the game with user's input choice
 	 */
 	public void startGame() {
-		boolean l_flag = true, l_innerLoopflag = true;
-		String l_readInput;
-		if(l_playerObjectList==null) {
-			startNewGame();
-		}else {
-			while (l_innerLoopflag) {
-				System.out.println("Give any of the following command to proceed the gamePlay \n startnewgame \n continue");
-				l_readInput = l_input.nextLine();
-				switch (l_readInput) {
-				case "startnewgame":
-					startNewGame();
-					l_innerLoopflag = false;
-					break;
-				case "continue":
-					l_innerLoopflag = false;
-					break;
-				default:
-					System.out.println("Input is mismatching...Kindly Try again...");
-					break;
+		if (l_playerList.isEmpty()) {
+			System.out.println("\nNo player has been created to start the game\n");
+		} else {
+			boolean l_flag = true, l_innerLoopflag = true;
+			String l_readInput;
+			if(l_playerObjectList==null) {
+				startNewGame();
+			}else {
+				while (l_innerLoopflag) {
+					System.out.println("Give any of the following command to proceed the gamePlay \n startnewgame \n continue");
+					l_readInput = l_input.nextLine();
+					switch (l_readInput) {
+					case "startnewgame":
+						startNewGame();
+						l_innerLoopflag = false;
+						break;
+					case "continue":
+						l_innerLoopflag = false;
+						break;
+					default:
+						System.out.println("Input is mismatching...Kindly Try again...");
+						break;
+					}
 				}
+				l_innerLoopflag = true;
 			}
-			l_innerLoopflag = true;
-		}
-		do {
-			GamePlayer l_gameplayerObj;
-			for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
-				l_gameplayerObj = (GamePlayer) l_gameplayObject.getValue();
-				System.out.println("\n\nAssinging reinforcement for the Player " + l_gameplayObject.getKey());
-				l_gamePlayerObject.assignReinforcements(l_gameplayerObj, 5);
-				showMapPlayer(l_gameplayerObj);
-			}
-			boolean flag = true;
 			do {
+				GamePlayer l_gameplayerObj;
 				for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
-					flag=l_gamePlayerObject.IssueOrders((GamePlayer) l_gameplayObject.getValue());
+					l_gameplayerObj = (GamePlayer) l_gameplayObject.getValue();
+					System.out.println("\n\nAssinging reinforcement for the Player " + l_gameplayObject.getKey());
+					l_gamePlayerObject.assignReinforcements(l_gameplayerObj, 5);
+					showMapPlayer(l_gameplayerObj);
 				}
-			}while(flag);
-			for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
-				l_gameplayerObj = (GamePlayer) l_gameplayObject.getValue();
-				System.out.println("\n\nExecueting Orders for the player " + l_gameplayerObj.getPlayerName());
-				l_gamePlayerObject.executeOrders(l_gameplayerObj);
-			}
-			l_innerLoopflag = true;
-			while (l_innerLoopflag) {
-				System.out.println("Give any of the following command to proceed the gamePlay \n continue \n back");
-				l_readInput = l_input.nextLine();
-				switch (l_readInput) {
-				case "continue":
-					l_innerLoopflag = false;
-					break;
-				case "back":
-					l_innerLoopflag = false;
-					l_flag = false;
-					break;
-				default:
-					System.out.println("Input is mismatching...Kindly Try again...");
-					break;
+				boolean flag = true;
+				do {
+					for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
+						flag=l_gamePlayerObject.IssueOrders((GamePlayer) l_gameplayObject.getValue());
+					}
+				}while(flag);
+				for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
+					l_gameplayerObj = (GamePlayer) l_gameplayObject.getValue();
+					System.out.println("\n\nExecueting Orders for the player " + l_gameplayerObj.getPlayerName());
+					l_gamePlayerObject.executeOrders(l_gameplayerObj);
 				}
-			}
-		} while (l_flag);
+				l_innerLoopflag = true;
+				while (l_innerLoopflag) {
+					System.out.println("Give any of the following command to proceed the gamePlay \n continue \n back");
+					l_readInput = l_input.nextLine();
+					switch (l_readInput) {
+					case "continue":
+						l_innerLoopflag = false;
+						break;
+					case "back":
+						l_innerLoopflag = false;
+						l_flag = false;
+						break;
+					default:
+						System.out.println("Input is mismatching...Kindly Try again...");
+						break;
+					}
+				}
+			} while (l_flag);
+		}
 	}
 
 	/**
@@ -208,7 +212,7 @@ public class GameEngine {
 						l_playerName =l_option.substring(6).trim();
 						l_playerName = l_playerName.trim();
 						if (!l_playerList.contains(l_playerName)) {
-							l_removeName += ", " + l_playerName;
+							l_removeName = l_playerName;
 							l_flag = false;
 						}
 						if (!l_flag) {
@@ -260,9 +264,9 @@ public class GameEngine {
 
 	
 	public int getCountryID(int p_totalCountryNumber, List<Integer> p_usedCountries) {
-		int l_countryID = new Random().nextInt(p_totalCountryNumber);
+		int l_countryID = new Random().nextInt(p_totalCountryNumber)+1;
 		while (p_usedCountries.contains(l_countryID)) {
-			l_countryID = new Random().nextInt(p_totalCountryNumber);
+			l_countryID = new Random().nextInt(p_totalCountryNumber)+1;
 		}
 		return l_countryID;
 	}
