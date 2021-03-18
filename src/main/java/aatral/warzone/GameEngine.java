@@ -46,20 +46,19 @@ public class GameEngine {
 		l_masterMap = new MapEditor().loadMap(fileName);
 	}
 
-	
 	public int totalCountries() {
 		int count = 0;
-		for(Map.Entry mapEntry : l_masterMap.entrySet()) {
-			Set<Countries> set = ((Continent)mapEntry.getValue()).getContinentOwnedCountries();
-			count+=set.size();
+		for (Map.Entry mapEntry : l_masterMap.entrySet()) {
+			Set<Countries> set = ((Continent) mapEntry.getValue()).getContinentOwnedCountries();
+			count += set.size();
 		}
 		return count;
 	}
-	
-	public List<Countries> listOfCountries(){
+
+	public List<Countries> listOfCountries() {
 		List<Countries> tempCountries = new ArrayList<>();
-		for(Map.Entry mapEntry : l_masterMap.entrySet()) {
-			tempCountries.addAll(((Continent)mapEntry.getValue()).getContinentOwnedCountries());
+		for (Map.Entry mapEntry : l_masterMap.entrySet()) {
+			tempCountries.addAll(((Continent) mapEntry.getValue()).getContinentOwnedCountries());
 		}
 		return tempCountries;
 	}
@@ -67,19 +66,20 @@ public class GameEngine {
 	public void startNewGame() {
 		l_playerObjectList = new HashMap<>();
 		int totalNoOfCountry = totalCountries();
-		int countriesForEachPlayer = totalNoOfCountry/l_playerList.size();
+		int countriesForEachPlayer = totalNoOfCountry / l_playerList.size();
 		List<Countries> totalCountries = listOfCountries();
 		List<Integer> usedCountries = new ArrayList<>();
 		usedCountries.add(0);
-		for(int j=0;j<l_playerList.size();j++) {
-			if(!l_playerObjectList.containsKey(l_playerList.get(j))) {
-				l_playerObjectList.put(l_playerList.get(j), new GamePlayer(l_playerList.get(j), new ArrayList<Countries>(),0));
+		for (int j = 0; j < l_playerList.size(); j++) {
+			if (!l_playerObjectList.containsKey(l_playerList.get(j))) {
+				l_playerObjectList.put(l_playerList.get(j),
+						new GamePlayer(l_playerList.get(j), new ArrayList<Countries>(), 0));
 			}
-			for(int i=0;i<countriesForEachPlayer;i++) {
+			for (int i = 0; i < countriesForEachPlayer; i++) {
 				int countryID = getCountryID(totalNoOfCountry, usedCountries);
 				Countries toAdd = new Countries();
-				for(Countries country : totalCountries) {
-					if(country.getCountryId().equalsIgnoreCase(countryID+"")) {
+				for (Countries country : totalCountries) {
+					if (country.getCountryId().equalsIgnoreCase(countryID + "")) {
 						l_playerObjectList.get(l_playerList.get(j)).getListOfCountries().add(country);
 						usedCountries.add(countryID);
 						break;
@@ -87,19 +87,19 @@ public class GameEngine {
 				}
 			}
 		}
-		if(totalNoOfCountry%l_playerList.size()!=0) {
+		if (totalNoOfCountry % l_playerList.size() != 0) {
 			int countryID = getCountryID(totalNoOfCountry, usedCountries);
 			Countries toAdd = new Countries();
-			for(Countries country : totalCountries) {
-				if(country.getCountryId().equalsIgnoreCase(countryID+"")) {
-					l_playerObjectList.get(l_playerList.get(l_playerList.size()-1)).getListOfCountries().add(country);
+			for (Countries country : totalCountries) {
+				if (country.getCountryId().equalsIgnoreCase(countryID + "")) {
+					l_playerObjectList.get(l_playerList.get(l_playerList.size() - 1)).getListOfCountries().add(country);
 					usedCountries.add(countryID);
 					break;
 				}
 			}
 		}
 	}
-	
+
 	/**
 	 * startGame method is used to start the game with user's input choice
 	 */
@@ -109,11 +109,12 @@ public class GameEngine {
 		} else {
 			boolean l_flag = true, l_innerLoopflag = true;
 			String l_readInput;
-			if(l_playerObjectList==null) {
+			if (l_playerObjectList == null) {
 				startNewGame();
-			}else {
+			} else {
 				while (l_innerLoopflag) {
-					System.out.println("Give any of the following command to proceed the gamePlay \n startnewgame \n continue");
+					System.out.println(
+							"Give any of the following command to proceed the gamePlay \n startnewgame \n continue");
 					l_readInput = l_input.nextLine();
 					switch (l_readInput) {
 					case "startnewgame":
@@ -130,20 +131,26 @@ public class GameEngine {
 				}
 				l_innerLoopflag = true;
 			}
+			boolean l_isFirst = true;
 			do {
 				GamePlayer l_gameplayerObj;
 				for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
 					l_gameplayerObj = (GamePlayer) l_gameplayObject.getValue();
 					System.out.println("\n\nAssinging reinforcement for the Player " + l_gameplayObject.getKey());
-					l_gamePlayerObject.assignReinforcements(l_gameplayerObj, 5);
+					if(l_isFirst)
+						l_gamePlayerObject.assignReinforcements(l_gameplayerObj, 5);
+					else
+						l_gamePlayerObject.assignReinforcements(l_gameplayerObj, calAssignReinforcements(l_gameplayerObj));
+					
 					showMapPlayer(l_gameplayerObj);
 				}
+				l_isFirst = false;
 				boolean flag = true;
 				do {
 					for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
-						flag=l_gamePlayerObject.IssueOrders((GamePlayer) l_gameplayObject.getValue());
+						flag = l_gamePlayerObject.IssueOrders((GamePlayer) l_gameplayObject.getValue());
 					}
-				}while(flag);
+				} while (flag);
 				for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
 					l_gameplayerObj = (GamePlayer) l_gameplayObject.getValue();
 					System.out.println("\n\nExecueting Orders for the player " + l_gameplayerObj.getPlayerName());
@@ -197,19 +204,20 @@ public class GameEngine {
 						continue;
 					switch (l_option.split(" ")[0]) {
 					case "add":
-						l_playerName =l_option.substring(3).trim();
+						l_playerName = l_option.substring(3).trim();
 						l_playerName = l_playerName.trim();
 						if (l_playerName.isEmpty())
 							continue;
-						if(l_playerObListTempAdd.contains(l_playerName)) {
-							  System.out.println("Player name "+l_playerName+" already existing...try this alone again...");
+						if (l_playerObListTempAdd.contains(l_playerName)) {
+							System.out.println(
+									"Player name " + l_playerName + " already existing...try this alone again...");
 						} else {
 							l_playerObListTempAdd.add(l_playerName);
 						}
 						break;
 					case "remove":
 						String l_removeName = "";
-						l_playerName =l_option.substring(6).trim();
+						l_playerName = l_option.substring(6).trim();
 						l_playerName = l_playerName.trim();
 						if (!l_playerList.contains(l_playerName)) {
 							l_removeName = l_playerName;
@@ -262,11 +270,10 @@ public class GameEngine {
 		}
 	}
 
-	
 	public int getCountryID(int p_totalCountryNumber, List<Integer> p_usedCountries) {
-		int l_countryID = new Random().nextInt(p_totalCountryNumber)+1;
+		int l_countryID = new Random().nextInt(p_totalCountryNumber) + 1;
 		while (p_usedCountries.contains(l_countryID)) {
-			l_countryID = new Random().nextInt(p_totalCountryNumber)+1;
+			l_countryID = new Random().nextInt(p_totalCountryNumber) + 1;
 		}
 		return l_countryID;
 	}
@@ -275,7 +282,7 @@ public class GameEngine {
 	 * getContinentName method is used to get the continent name using continent id
 	 * 
 	 * @param p_continentMapKeySet Set of continent map key.
-	 * @param p_continentID Continent id.
+	 * @param p_continentID        Continent id.
 	 * @return continent name.
 	 */
 	public String getContinentName(Set<String> p_continentMapKeySet, String p_continentID) {
@@ -290,6 +297,32 @@ public class GameEngine {
 	}
 
 	
+	public int calAssignReinforcements(GamePlayer p_player) {		
+		List<Countries> l_listOfCountries = p_player.getListOfCountries();
+		int l_reinforcementCount = (l_listOfCountries.size())/3;
+		for(Map.Entry continent : l_masterMap.entrySet())
+		{
+			String l_ContinentId = (String) continent.getKey();
+			Continent l_ContObj = (Continent) continent.getValue();
+			Set<Countries> l_CountriesUnderContinent = l_ContObj.getContinentOwnedCountries();
+			List<String> l_CountryIds = new ArrayList<String>();
+			boolean exists_all = true;
+			for(Countries c : l_CountriesUnderContinent)
+			{
+				if(!l_listOfCountries.contains(c.getCountryId()))
+				{
+					exists_all = false;
+					break;
+				}
+			}
+			
+			if(exists_all)
+			{
+				l_reinforcementCount += Integer.parseInt(l_ContObj.getContinentValue());
+			}
+		}
+		return l_reinforcementCount;
+	}
 
 	/**
 	 * showMapPlayer method is used to show the map corresponds to game player name
@@ -312,7 +345,7 @@ public class GameEngine {
 			System.out.println("\nNo player has been created to show the map\n");
 		} else {
 			System.out.print("\nCountry ID\t\tCountry Name\t\t\t\tArmies\t\tOwner");
-			for (Map.Entry l_gamePlayer : 	l_playerObjectList.entrySet()) {
+			for (Map.Entry l_gamePlayer : l_playerObjectList.entrySet()) {
 				for (Countries l_co : ((GamePlayer) l_gamePlayer.getValue()).getListOfCountries()) {
 					System.out.print("\n" + l_co.getCountryId() + "\t\t" + l_co.getCountryName() + "\t\t\t\t"
 							+ l_co.getArmies() + "\t\t" + l_gamePlayer.getKey());
