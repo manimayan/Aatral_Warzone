@@ -234,7 +234,7 @@ public class EditMap {
 	 * addCountry method is used to add the country if the country not listed in
 	 * input file
 	 * 
-	 * @param warZoneMap map of warzone.
+	 * @param p_warZoneMap map of warzone.
 	 * @param p_addCountry add country object.
 	 */
 	public void addCountry(String p_warZoneMap, Countries p_addCountry) {
@@ -314,9 +314,9 @@ public class EditMap {
 	 * addNeighbours method is used for adding neighbours based on countryId and
 	 * neighbourCountryID
 	 * 
-	 * @param warZoneMap map of warzone.
-	 * @param countryId country id.
-	 * @param neighborCountryID neighbour id.
+	 * @param p_warZoneMap map of warzone.
+	 * @param p_countryId country id.
+	 * @param p_neighborCountryID neighbour id.
 	 */
 	public void addNeighbours(String p_warZoneMap, String p_countryId, String p_neighborCountryID) {
 
@@ -512,11 +512,8 @@ public class EditMap {
 
 
 	/**
-	 * writeContinentFile is used to update the list of continents in continent file
-	 * 
-	 * @param getMasterMap
-	 * 
-	 * @param warZoneMap      warZoneMap
+	 * writeMasterFile is used to update the list of continents in continent file
+	 * @param p_warZoneMap      warZoneMap
 	 * @param updateContinent updateContinent
 	 */
 	public void writeMasterFile(String p_warZoneMap, Map<String, Continent> getMasterMap) {

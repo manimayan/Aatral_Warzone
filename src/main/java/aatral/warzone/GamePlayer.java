@@ -55,11 +55,13 @@ public class GamePlayer {
 	}
 
 	/**
-	 * issueOrders method is used to deploy the armies from player to the designated
+	 * IssueOrders method is used to deploy the armies from player to the designated
 	 * countries
 	 * 
+	 * @param p_gameplayerObj object of game player
 	 */
-	public boolean IssueOrders(GamePlayer p_gameplayerObj) { 
+	public boolean IssueOrders(GamePlayer p_gameplayerObj) 
+	{ 
 		Scanner l_input = new Scanner(System.in);
 		boolean flag = false;
 		String l_issueCommand;
