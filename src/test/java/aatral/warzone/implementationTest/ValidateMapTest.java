@@ -51,7 +51,7 @@ public class ValidateMapTest {
 		boolean expected=true;
 
 		ValidateMap l_vci=new ValidateMap();
-		boolean actual = l_vci.validateContinentID("canada","8");
+		boolean actual = l_vci.validateContinentID("canada","88");
 
 		assertNotEquals(expected,actual);
 	}
