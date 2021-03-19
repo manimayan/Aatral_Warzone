@@ -24,7 +24,7 @@ public class GraphTest {
 
 	@Test
 	public void addEdgeTest() {
-		InputCountry Test = new InputCountry("1", "Afganistan", "1", null, 0);
+		InputCountry Test = new InputCountry("1", "Afganistan", "1");
 		d_Hm.get("1").add(Test);
 		assertEquals(d_Hm, d_Gr.addEdge("1", Test));
 		System.out.println(d_Hm);
