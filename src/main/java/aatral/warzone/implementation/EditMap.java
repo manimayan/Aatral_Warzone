@@ -513,8 +513,8 @@ public class EditMap {
 
 	/**
 	 * writeMasterFile is used to update the list of continents in continent file
-	 * @param p_warZoneMap      warZoneMap
-	 * @param updateContinent updateContinent
+	 * @param p_warZoneMap war zone map
+	 * @param getMasterMap master map
 	 */
 	public void writeMasterFile(String p_warZoneMap, Map<String, Continent> getMasterMap) {
 		String FILE_NAME = "src/main/resources/map/" + p_warZoneMap + "/" + p_warZoneMap + ".map";

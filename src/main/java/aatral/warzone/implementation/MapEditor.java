@@ -71,7 +71,7 @@ public class MapEditor {
 	 * LoadMap method is used to Load the map and convert into continent,countries
 	 * and borders
 	 * 
-	 * @param loadMap
+	 * @param p_warZoneMap
 	 * @return masterMap 
 	 */
 	public Map<String, Continent> loadMap(String p_warZoneMap) {
