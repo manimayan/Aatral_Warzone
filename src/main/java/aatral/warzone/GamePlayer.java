@@ -31,15 +31,16 @@ public class GamePlayer {
 
 	public List<Countries> listOfCountries;
 
-	public int armies;
+	public int reinforcementArmies;
 	
-	public List<OrderClass> orderObjects;
+	public List<Order> orderObjects;
+	
 	
 	public GamePlayer(String playerName, List<Countries> listOfCountries, int armies) {
 		this.orderObjects = new ArrayList<>();
 		this.playerName = playerName;
 		this.listOfCountries=listOfCountries;
-		this.armies=armies;
+		this.reinforcementArmies=armies;
 	}
 	
 	/**
@@ -60,7 +61,7 @@ public class GamePlayer {
 	 * @param p_armies integer of armies
 	 */
 	public void assignReinforcements(int p_armies) {
-		this.setArmies(p_armies);
+		this.setReinforcementArmies(p_armies);
 		System.out.println("The player " + this.getPlayerName() + " has been reinforced with " + p_armies+" armies");
 	}
 
@@ -75,29 +76,29 @@ public class GamePlayer {
 		String l_issueCommand;
 		String l_deployInput;
 		int l_armies = 0;
-		if(p_gameplayerObj.getArmies()>0) {
+		if(p_gameplayerObj.getReinforcementArmies()>0) {
 			boolean l_wrongIP = true;
 			while(l_wrongIP) {
 			System.out.println("\nRemaining number of armies in hand for the player " + p_gameplayerObj.getPlayerName() + " is "
-					+ p_gameplayerObj.getArmies() + "\n\nDeploy Format : deploy countryID1 numArmies, countryID2 numArmies");
+					+ p_gameplayerObj.getReinforcementArmies() + "\n\nDeploy Format : deploy countryID1 numArmies, countryID2 numArmies");
 			l_issueCommand = l_input.nextLine();
 			l_deployInput = validateDeployInput(l_issueCommand);
 			l_armies = calculateInputArmies(l_deployInput);
-			if (validateInputArmies(l_armies, p_gameplayerObj.getArmies())) {
+			if (validateInputArmies(l_armies, p_gameplayerObj.getReinforcementArmies())) {
 				l_armies = 0;
 				String l_countryNorPresent = validateCountryInput(l_deployInput, p_gameplayerObj);
 				if (validateCountryValue(l_countryNorPresent)) {
 					l_wrongIP = false;
 					String l_countryID = l_deployInput.trim().split(" ")[0];
 					String l_armyCount = l_deployInput.trim().split(" ")[1];
-					this.orderObjects.add(new OrderClass(l_countryID, l_armyCount));
+					this.orderObjects.add(new DeployOrder(l_countryID, l_armyCount));
 					int l_deployableArmies = Integer.parseInt(l_armyCount);
 					List<Countries> l_list = p_gameplayerObj.getListOfCountries();
 					for (Countries l_con : p_gameplayerObj.getListOfCountries()) {
 						if (l_con.getCountryId().equalsIgnoreCase(l_countryID)) {
-							l_list.get(l_list.indexOf(l_con)).setArmies(l_con.getArmies() + l_deployableArmies);
-							p_gameplayerObj.setArmies(p_gameplayerObj.getArmies() - l_deployableArmies);
-							p_gameplayerObj.setListOfCountries(l_list);
+							//l_list.get(l_list.indexOf(l_con)).setArmies(l_con.getArmies() + l_deployableArmies);
+							p_gameplayerObj.setReinforcementArmies(p_gameplayerObj.getReinforcementArmies() - l_deployableArmies);
+							//p_gameplayerObj.setListOfCountries(l_list);
 							break;
 						}
 					}
@@ -107,7 +108,7 @@ public class GamePlayer {
 				}
 			} else {
 				System.out.println("Can't deploy " + l_armies + " armies by the player - " + p_gameplayerObj.getPlayerName()
-						+ " as he has only " + p_gameplayerObj.getArmies());
+						+ " as he has only " + p_gameplayerObj.getReinforcementArmies());
 			}
 		}
 		}
@@ -116,9 +117,16 @@ public class GamePlayer {
 	/**
 	 * NextOrder method is used to display list of orders will be executed
 	 */
-	public void NextOrder() {
-		System.out.println("Next Order()");
+	public Order NextOrder() {
+		
+		Order orderObj = this.orderObjects.get(0);
+		this.orderObjects.remove(0);
+		return orderObj;
+		
 	}
+	
+
+	
 
 	/**
 	 * executeOrders method is used to decide the country attack order

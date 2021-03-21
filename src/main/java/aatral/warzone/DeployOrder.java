@@ -10,10 +10,16 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class DeployOrderClass {
+public class DeployOrder extends Order{
 	
 	private String CountryID;
 	
 	private String armies;
+	
+	public void execute()
+	{
+		
+		System.out.println(this.CountryID+" "+this.armies);
+	}
 	
 }

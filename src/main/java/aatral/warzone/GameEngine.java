@@ -35,8 +35,8 @@
 	public class GameEngine {
 		private Scanner l_input = new Scanner(System.in);
 		private ArrayList<String> l_playerList = new ArrayList<>();
-		private HashMap<String, GamePlayer> l_playerObjectList;
-		private Map<String, Continent> l_masterMap = new HashMap<>();
+		public static HashMap<String, GamePlayer> l_playerObjectList;
+		public static Map<String, Continent> l_masterMap = new HashMap<>();
 		private String l_mapName;
 		private GamePlayer l_gamePlayerObject;
 		private boolean l_gamePlayPopulateFlag;
@@ -157,15 +157,28 @@
 						flag=false;
 						for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
 							 ((GamePlayer) l_gameplayObject.getValue()).IssueOrders();
-							 if(!flag && ((GamePlayer) l_gameplayObject.getValue()).getArmies()>0) {
+							 if(!flag && ((GamePlayer) l_gameplayObject.getValue()).getReinforcementArmies()>0) {
 								 flag=true;
 							 }
 						}
 					} while (flag);
+					
+					boolean ordersExist = true;
+					while(ordersExist) {
+						ordersExist = false;
 					for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
 						l_gameplayerObj = (GamePlayer) l_gameplayObject.getValue();
+						if(l_gameplayerObj.orderObjects.size() >0) {
 						System.out.println("\n\nExecueting Orders for the player " + l_gameplayerObj.getPlayerName());
-						l_gamePlayerObject.executeOrders(l_gameplayerObj);
+						Order orderObj = l_gameplayerObj.NextOrder();
+						if(orderObj instanceof DeployOrder)
+						{
+							DeployOrder deployOrderObj = (DeployOrder)orderObj;
+							deployOrderObj.execute();
+						}
+						ordersExist = true;
+						}		
+					}
 					}
 					l_innerLoopflag = true;
 					while (l_innerLoopflag) {

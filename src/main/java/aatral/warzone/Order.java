@@ -8,8 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class OrderClass {
-	public void execute() {
-		
-	}
+public class Order {
+	
+    
 }
