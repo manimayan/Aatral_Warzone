@@ -57,7 +57,6 @@ public class GamePlayer {
 	/**
 	 * assignReinforcements method is used to assign the armies to the game player
 	 * 
-	 * @param p_object object of gameplayer class
 	 * @param p_armies integer of armies
 	 */
 	public void assignReinforcements(int p_armies) {
@@ -116,6 +115,7 @@ public class GamePlayer {
 
 	/**
 	 * NextOrder method is used to display list of orders will be executed
+	 * return orderObj
 	 */
 	public Order NextOrder() {
 		

@@ -34,7 +34,7 @@ public class LogWriter implements Observer {
 	/**
 	 * WriteLogFile method is used to write the commands in a text file
 	 * 
-	 * @param Observable o 
+	 * @param o 
 	 */
 	public void WriteLogFile(Observable o) {
 
