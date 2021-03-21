@@ -19,7 +19,6 @@ public class GraphTest {
 	public void addVertexTest() {
 		d_Hm.put("1", new ArrayList<InputCountry>());
 		assertEquals(d_Hm, d_Gr.addVertex("1"));
-		System.out.println(d_Hm);
 	}
 
 	@Test
@@ -27,7 +26,6 @@ public class GraphTest {
 		InputCountry Test = new InputCountry("1", "Afganistan", "1");
 		d_Hm.get("1").add(Test);
 		assertEquals(d_Hm, d_Gr.addEdge("1", Test));
-		System.out.println(d_Hm);
 	}
 
 	@Test
@@ -35,7 +33,6 @@ public class GraphTest {
 		d_Hm.remove("1");
 		d_Gr.removeVertex("1");
 		assertEquals(d_Hm, d_Gr.l_adjVertices);
-		System.out.println(d_Hm);
 	}
 
 }

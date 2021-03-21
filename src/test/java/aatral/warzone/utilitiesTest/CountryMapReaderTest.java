@@ -21,7 +21,7 @@ public class CountryMapReaderTest {
 
 		try {
 
-			File file = new File("src/main/resources/map/canada/canada-countries.txt");
+			File file = new File("src/main/resources/source/canada/canada-countries.txt");
 
 			Scanner sc = new Scanner(file);
 			while (sc.hasNextLine()) {

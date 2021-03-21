@@ -64,7 +64,7 @@ public class ValidateMapTest {
 	{ 
 		boolean expected = false;
 		String l_cid="1";
-		File file = new File("src/main/resources/map/canada/canada-continents.txt");
+		File file = new File("src/main/resources/source/canada/canada-continents.txt");
 		List<String> l_continentid = new  ArrayList<String>();
 		//List<String> l_continentname = new  ArrayList<String>();
 
@@ -116,7 +116,7 @@ public class ValidateMapTest {
 		boolean expected=false;
 
 		String l_cid="Atlantic_Provinces";
-		File file = new File("src/main/resources/map/canada/canada-continents.txt");
+		File file = new File("src/main/resources/source/canada/canada-continents.txt");
 		//List<String> l_continentid = new  ArrayList<String>();
 		List<String> l_continentname = new  ArrayList<String>();
 
@@ -162,7 +162,7 @@ public class ValidateMapTest {
 		boolean expected=false;
 
 		String l_coid="29";
-		File file = new File("src/main/resources/map/canada/canada-countries.txt");
+		File file = new File("src/main/resources/source/canada/canada-countries.txt");
 		List<String> l_countryid = new  ArrayList<String>();
 
 		List<String> list = new  ArrayList<String>();
@@ -203,7 +203,7 @@ public class ValidateMapTest {
 	@Test
 	public void validateFullMapTest()
 	{
-		boolean expected =false;
+		boolean expected =true;
 		ValidateMap l_vfm=new ValidateMap();
 		boolean actual = l_vfm.validateFullMap("canada");
 		assertEquals(expected,actual);

@@ -39,7 +39,6 @@ public class CountryBorderReaderTest {
 		List<InputBorders> ls = l_cbr.mapCountryBorderReader("canada");
 		int l_actual = ls.size();
 		// assertThat(actual, hasSize(3));
-		System.out.println(l_expected + "" + l_actual);
 		assertEquals(l_expected, l_actual);
 	}
 
