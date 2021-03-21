@@ -203,7 +203,7 @@ public class ValidateMapTest {
 	@Test
 	public void validateFullMapTest()
 	{
-		boolean expected =true;
+		boolean expected =false;
 		ValidateMap l_vfm=new ValidateMap();
 		boolean actual = l_vfm.validateFullMap("canada");
 		assertEquals(expected,actual);

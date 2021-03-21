@@ -23,8 +23,8 @@ public class ContinentMapReaderTest {
 
 		try {
 
-			File file = new File("src/main/resources/map/canada/canada-continents.txt");
-
+			File file = new File("src/main/resources/source/canada/canada-continents.txt");
+			///Aatral-Warzone/src/main/resources/source/canada/canada-continents.txt
 			Scanner sc = new Scanner(file);
 			while (sc.hasNextLine()) {
 				sc.nextLine();

@@ -1,5 +1,5 @@
 package aatral.warzone;
 
-public class Test {
+public class OrderTest {
 
 }

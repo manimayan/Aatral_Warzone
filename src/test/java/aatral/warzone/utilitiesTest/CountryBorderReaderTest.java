@@ -22,7 +22,7 @@ public class CountryBorderReaderTest {
 
 		try {
 
-			File file = new File("src/main/resources/map/canada/canada-borders1.txt");
+			File file = new File("src/main/resources/source/canada/canada-borders1.txt");
 
 			Scanner sc = new Scanner(file);
 			while (sc.hasNextLine()) {
