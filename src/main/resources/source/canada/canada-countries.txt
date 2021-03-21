@@ -29,5 +29,3 @@
 29 NT-Victoria_Island-West 6
 30 Northwest_Territories-Continental 6
 31 Yukon_Territory 6
-32 addedCountry 7
-33 addedCountry 5

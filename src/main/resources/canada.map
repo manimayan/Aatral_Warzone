@@ -7,7 +7,6 @@
 5 Nunavut 3
 6 Northwestern_Territories 2
 7 addedContinent 3
-8 addedContinent 2
 
  
  [Countries]
@@ -43,7 +42,6 @@
 30 Northwest_Territories-Continental 6
 31 Yukon_Territory 6
 32 addedCountry 7
-33 addedCountry 5
 
  
  [Borders]
@@ -77,6 +75,5 @@
 28 27 29 30
 29 24 27 28 30
 30 17 28 18 29 19 31 21
-31 17 30
-32 33
-33 32
+31 17 30 32
+32 31

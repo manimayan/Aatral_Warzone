@@ -1,0 +1,23 @@
+
+2021-03-21T15:05:36.228  GamePhase: MapEditor Command: newq Status: No newq map exists
+2021-03-21T15:05:59.469  GamePhase: MapEditor Command: newmap Status: Invalid Command
+2021-03-21T15:06:30.881  GamePhase: MapEditor Command: "savemap fer" Status: fer map saved successfully
+2021-03-21T15:19:49.299  GamePhase: MapEditor Command: show Status: Invalid Command
+2021-03-21T15:19:59.798  GamePhase: MapEditor Command: "showmap canada" Status: canada map has loaded and displayed
+2021-03-21T15:20:05.518  GamePhase: MapEditor Command: newma Status: No newma map exists
+2021-03-21T15:20:13.616  GamePhase: MapEditor Command: "savemap der" Status: der map saved successfully
+2021-03-21T15:20:39.608  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
+2021-03-21T15:20:51.398  GamePhase: MapEditor Command: editcontinent -add 3 3  Status: 3 addedContinent is already present"
+2021-03-21T15:22:23.266  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
+2021-03-21T15:22:34.359  GamePhase: MapEditor Command: editcontinent -add 7 4  Status: 7 addedContinent addedd successfully
+2021-03-21T15:23:01.255  GamePhase: MapEditor Command: "editmap canads" Status: canads map editing has started
+2021-03-21T15:23:01.261  GamePhase: MapEditor Command: "editmap canads" Status: No canads map exists, Please create one
+2021-03-21T15:23:25.196  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
+2021-03-21T15:23:43.046  GamePhase: MapEditor Command: editcountry add 32 7  Status: The Entered country 32 is already present or continent Id 7 is not present
+2021-03-21T15:24:13.211  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
+2021-03-21T15:24:24.079  GamePhase: MapEditor Command: editcountry add 32 7  Status: The Entered country 32 is already present or continent Id 7 is not present
+2021-03-21T15:25:13.533  GamePhase: MapEditor Command: editcontinent -add 7 3  Status: 7 addedContinent addedd successfully
+2021-03-21T15:25:38.234  GamePhase: MapEditor Command: editcountry add 31 7  Status: The Entered country 31 is already present or continent Id 7 is not present
+2021-03-21T15:25:45.418  GamePhase: MapEditor Command: editcountry add 32 7  Status: 32 addedd successfully
+2021-03-21T15:26:06.294  GamePhase: MapEditor Command: editNeighbor add 32 31  Status: borders added successfully
+2021-03-21T15:26:20.999  GamePhase: MapEditor Command: editNeighbor add 32 33  Status: The countryId or Neighboring countryId is invalid

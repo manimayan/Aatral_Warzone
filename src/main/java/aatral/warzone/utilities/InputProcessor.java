@@ -82,7 +82,7 @@ public class InputProcessor {
 	 */
 	public List<String> getstartupPhase() {
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
-		URL url = loader.getResource("map");
+		URL url = loader.getResource("source");
 		String path = url.getPath();
 		File[] file = new File(path).listFiles();
 

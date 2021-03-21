@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import aatral.warzone.implementation.MapEditor;
+import aatral.warzone.observerPattern.LogEntryBuffer;
+import aatral.warzone.observerPattern.LogWriter;
 import aatral.warzone.utilities.InputProcessor;
 
 /**
@@ -19,12 +21,14 @@ public class MainEngine {
 	/**
 	 * Main method to get GameMap Data
 	 * 
-	 * @param args Unused.
-	 .
+	 * @param args Unused. .
 	 */
 	public static void main(String[] args) {
 		System.out.println("Welome to Warzone");
 		boolean proceed = true;
+
+		LogEntryBuffer log = new LogEntryBuffer();
+		LogWriter logWriter = new LogWriter(log);
 
 		// Main running block of game
 		while (proceed) {
@@ -39,7 +43,8 @@ public class MainEngine {
 			}
 
 			// type the map name to load
-			System.out.println("\nPlease type in the map name to load the map or type newmap to create a Map");
+			System.out.println("\nPlease type in the map name to load the map or type " + "\"" + "newmap" + "\""
+					+ " to create a Map");
 			Scanner map = new Scanner(System.in);
 			String l_warZoneMap = map.nextLine().toString();
 
@@ -63,14 +68,18 @@ public class MainEngine {
 				} else if (mapEditorCommand.startsWith("loadmap")) {
 					String l_warZoneMaps = mapEditorCommand.split(" ")[1];
 					if (l_folder.contains(l_warZoneMaps)) {
+						log.info("MapEditor", "\"loadmap " + l_warZoneMaps + "\"", l_warZoneMaps + " map loaded");
 						GameEngine gameEngine = new GameEngine(l_warZoneMaps);
 						gameEngine.gameUserMenu();
+
 					} else {
+						log.info("MapEditor", "\"loadmap " + l_warZoneMaps + "\"",
+								"No " + l_warZoneMaps + " map exists");
 						System.out.println("No such map exists, Please create a new one");
 					}
 				} else {
+					log.info("MapEditor", mapEditorCommand, "Invalid Command");
 					System.out.println("Invalid command");
-					proceed = false;
 					System.out.println("Editor closed");
 				}
 			} else if (l_warZoneMap.startsWith("newmap")) {
@@ -81,11 +90,13 @@ public class MainEngine {
 					l_mapEditor.saveMap(mapSaveCommand);
 					proceed = false;
 				} else {
+					log.info("MapEditor", l_warZoneMap, "Invalid Command");
 					System.out.println("Invalid command");
 					proceed = false;
 					System.out.println("Editor closed");
 				}
 			} else {
+				log.info("MapEditor", l_warZoneMap, "No " + l_warZoneMap + " map exists");
 				System.out.println("No such map exists");
 			}
 

@@ -37,7 +37,7 @@ public class ContinentMapReader {
 		factory.define(this.continentStream);
 
 		List<InputContinent> l_continentDataList = new ArrayList<>();
-		String url = "/map/" + p_map + "/" + p_map + "-continents.txt";
+		String url = "/source/" + p_map + "/" + p_map + "-continents.txt";
 		try {
 			InputStream l_input = this.getClass().getResourceAsStream(url);
 			BeanReader inputReader = factory.createReader("continents", new InputStreamReader(l_input));

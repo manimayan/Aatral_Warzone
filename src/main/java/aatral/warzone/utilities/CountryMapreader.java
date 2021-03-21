@@ -39,7 +39,7 @@ public class CountryMapreader {
 		StreamFactory l_factory = StreamFactory.newInstance();
 		l_factory.define(this.countryStream);
 		List<InputCountry> l_countryDataList = new ArrayList<>();
-		String url = "/map/" + p_map + "/" + p_map + "-countries.txt";
+		String url = "/source/" + p_map + "/" + p_map + "-countries.txt";
 		try {
 			InputStream l_input = this.getClass().getResourceAsStream(url);
 			BeanReader l_inputReader = l_factory.createReader("countries", new InputStreamReader(l_input));

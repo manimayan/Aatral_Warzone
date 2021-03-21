@@ -20,6 +20,8 @@ import aatral.warzone.model.Countries;
 import aatral.warzone.model.InputBorders;
 import aatral.warzone.model.InputContinent;
 import aatral.warzone.model.InputCountry;
+import aatral.warzone.observerPattern.LogEntryBuffer;
+import aatral.warzone.observerPattern.LogWriter;
 import aatral.warzone.utilities.ContinentMapReader;
 import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
@@ -34,13 +36,17 @@ import aatral.warzone.utilities.InputProcessor;
  */
 public class MapEditor {
 
+	LogEntryBuffer log = new LogEntryBuffer();
+	LogWriter logWriter = new LogWriter(log);
+
+
 	/**
 	 * showMap method is used to print the countries and borders
 	 * 
 	 * @param warZoneMap map of warzone.
 	 */
 	public void showMap(String warZoneMap) {
-
+		log.info("MapEditor", "\"showmap "+warZoneMap+"\"", warZoneMap+" map has loaded and displayed");
 		Map<String, Continent> getMasterMap = loadMap(warZoneMap);
 		System.out.println("\nContinent and its Countries\n");
 		for (Entry<String, Continent> ContinentEntry : getMasterMap.entrySet()) {
@@ -71,7 +77,7 @@ public class MapEditor {
 	 * LoadMap method is used to Load the map and convert into continent,countries
 	 * and borders
 	 * 
-	 * @param p_warZoneMap
+	 *@param p_warZoneMap
 	 * @return masterMap 
 	 */
 	public Map<String, Continent> loadMap(String p_warZoneMap) {
@@ -121,8 +127,9 @@ public class MapEditor {
 
 			if (!saveFolder.contains(saveWarZoneMap)) {
 				//Externalize the property later by converting into spring application
-				String mapUrl = "C:\\Users\\manimaran.palani\\git\\Aatral-Warzone\\src\\main\\resources\\map\\"
+				String mapUrl = "C:\\Users\\manimaran.palani\\git\\Aatral-Warzone\\src\\main\\resources\\source\\"
 						+ saveWarZoneMap;
+				String resourceFolder = "C:\\Users\\manimaran.palani\\git\\Aatral-Warzone\\src\\main\\resources\\";
 				Path path = Paths.get(mapUrl);
 				try {
 					Files.createDirectory(path);
@@ -130,16 +137,17 @@ public class MapEditor {
 					newMapFiles.add(mapUrl+"\\"+saveWarZoneMap+"-continents.txt");
 					newMapFiles.add(mapUrl+"\\"+saveWarZoneMap+"-countries.txt");
 					newMapFiles.add(mapUrl+"\\"+saveWarZoneMap+"-borders1.txt");
-					newMapFiles.add(mapUrl + "\\" + saveWarZoneMap + ".map");
+					newMapFiles.add(resourceFolder + saveWarZoneMap + ".map");
 					for (String newFiles : newMapFiles) {
 						Path newFilePath = Paths.get(newFiles);
 						Files.createFile(newFilePath);
 					}
-
+					log.info("MapEditor", "\"savemap "+saveWarZoneMap+"\"", saveWarZoneMap+" map saved successfully");
 				} catch (IOException e) {
 				}
 				System.out.println("Map created");
 			} else {
+				log.info("MapEditor", "\"savemap "+saveWarZoneMap+"\"", saveWarZoneMap+ " map already exists");
 				System.out.println("map already exists");
 			}
 		}
@@ -155,7 +163,7 @@ public class MapEditor {
 	public void editMap(String mapEditorCommand) {
 		String getEditmapName[] = mapEditorCommand.split(" ");
 		String editWarZoneMap = getEditmapName[1];
-
+		log.info("MapEditor", "\"editmap "+editWarZoneMap+"\"", editWarZoneMap+" map editing has started");
 		InputProcessor editIp = new InputProcessor();
 		List<String> editfolder = editIp.getstartupPhase();
 
@@ -163,6 +171,7 @@ public class MapEditor {
 			EditMap editMap = new EditMap(editWarZoneMap);
 			editMap.startEditMap(editWarZoneMap);
 		} else {
+			log.info("MapEditor", "\"editmap "+editWarZoneMap+"\"", "No "+editWarZoneMap+" map exists, Please create one");
 			System.out.println("No such map exists, Please create one");
 			System.out.println("Enter the below command to save a map\n Format: \n savemap filename");
 			Scanner map = new Scanner(System.in);
@@ -177,9 +186,11 @@ public class MapEditor {
 	 * @param warZoneMap map of warzone.
 	 */
 	public void validateMap(String warZoneMap) {
+		///invalid map
 		ValidateMap validate = new ValidateMap();
 		if(validate.validateFullMap(warZoneMap)){
 			System.out.println("\n"+warZoneMap+ " map is valid");
+			log.info("MapEditor", "\"loadMap"+warZoneMap+"\"", warZoneMap+" map is valid");
 		}
 	}
 }
