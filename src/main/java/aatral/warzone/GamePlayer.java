@@ -1,13 +1,17 @@
 package aatral.warzone;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 import org.beanio.annotation.Field;
 import org.beanio.annotation.Record;
 
+import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,7 +29,7 @@ import lombok.Setter;
  * @version 1.0
  * @since 24-02-2021
  */
-public class GamePlayer {
+public class GamePlayer implements Comparator<Countries> {
 
 	public String playerName;
 
@@ -35,12 +39,25 @@ public class GamePlayer {
 	
 	public List<Order> orderObjects;
 	
+	private boolean advanceInput;
 	
 	public GamePlayer(String playerName, List<Countries> listOfCountries, int armies) {
 		this.orderObjects = new ArrayList<>();
 		this.playerName = playerName;
 		this.listOfCountries=listOfCountries;
 		this.reinforcementArmies=armies;
+		Collections.sort(this.listOfCountries, new Comparator<Countries>() {
+			@Override
+			public int compare(Countries o1, Countries o2) {
+				return Integer.parseInt(o1.getCountryId()) - Integer.parseInt(o2.getCountryId());
+			}
+	    });
+	}
+	
+	@Override
+	public int compare(Countries o1, Countries o2) {
+		// TODO Auto-generated method stub
+		return Integer.parseInt(o1.getCountryId()) - Integer.parseInt(o2.getCountryId());
 	}
 	
 	/**
@@ -57,6 +74,7 @@ public class GamePlayer {
 	/**
 	 * assignReinforcements method is used to assign the armies to the game player
 	 * 
+	 * @param p_object object of gameplayer class
 	 * @param p_armies integer of armies
 	 */
 	public void assignReinforcements(int p_armies) {
@@ -64,12 +82,8 @@ public class GamePlayer {
 		System.out.println("The player " + this.getPlayerName() + " has been reinforced with " + p_armies+" armies");
 	}
 
-	/**
-	 * issueOrders method is used to deploy the armies from player to the designated
-	 * countries
-	 * 
-	 */
-	public void IssueOrders() { 
+	
+	public void deployOrder() {
 		GamePlayer p_gameplayerObj = this;
 		Scanner l_input = new Scanner(System.in);
 		String l_issueCommand;
@@ -78,7 +92,7 @@ public class GamePlayer {
 		if(p_gameplayerObj.getReinforcementArmies()>0) {
 			boolean l_wrongIP = true;
 			while(l_wrongIP) {
-			System.out.println("\nRemaining number of armies in hand for the player " + p_gameplayerObj.getPlayerName() + " is "
+			System.out.println("\nPlayer - "+this.playerName+"\nRemaining number of armies in hand is "
 					+ p_gameplayerObj.getReinforcementArmies() + "\n\nDeploy Format : deploy countryID1 numArmies, countryID2 numArmies");
 			l_issueCommand = l_input.nextLine();
 			l_deployInput = validateDeployInput(l_issueCommand);
@@ -113,9 +127,103 @@ public class GamePlayer {
 		}
 	}
 
+	public void setAdvanceInput(boolean value) {
+		this.advanceInput = value;
+	}
+	public boolean getAdvanceInput() {
+		return advanceInput;
+	}
+	
+	public void advanceOrder() {
+		Scanner l_input = new Scanner(System.in);
+		String l_issueCommand;
+		String l_advanceInput;
+		boolean l_wrongIP = true;
+		while(l_wrongIP) {
+			System.out.println("\nPlayer - "+this.playerName+"\nAdvance Order format for attack/transfer or commit : "
+					+ "\n advance countrynamefrom countynameto numarmies"
+					+ "\n commit");
+			l_issueCommand = l_input.nextLine();
+			if(l_issueCommand.equals("commit")) {
+				this.advanceInput=true;
+				break;
+			} else {
+				l_advanceInput = validateAdvanceInput(l_issueCommand);
+				String l_countryFromName = l_advanceInput.split(" ")[0];
+				String l_countryToName = l_advanceInput.split(" ")[1];
+				String l_numArmies = l_advanceInput.split(" ")[2];
+				if(validatefromName(l_countryFromName) && validateToName(l_countryFromName,l_countryToName)) {
+//					if(validateNumArimes(l_countryFromName, l_numArmies)) {
+						this.orderObjects.add(new AdvanceOrder(l_countryFromName, l_countryToName, l_numArmies));
+						l_wrongIP = false;
+//					} else {
+//						System.out.println("The given no.of armies is more than the present army size to perform the action");
+//					}
+				} else {
+					 if(!validatefromName(l_countryFromName)) {
+						 System.out.println("CountryFromName is not under player "+this.playerName);
+					 } else {
+						 System.out.println("CountryToName is not an adjacent country of any countries under the player "+this.playerName);
+					 }
+				}
+			}
+		}
+	}
+	
+	public boolean validatefromName(String p_countryFromName) {
+		for(Countries l_countryObject : this.getListOfCountries()) {
+			if(l_countryObject.getCountryName().equalsIgnoreCase(p_countryFromName.trim())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean validateToName(String countryFromName,String countryToName) {
+		for(Countries country : this.getListOfCountries()) {
+			if(country.getCountryName().equals(countryFromName)) {
+				for(Map.Entry mapEntryObj : GameEngine.l_masterMap.entrySet()) {
+					for(Countries countryMapObj : ((Continent)mapEntryObj.getValue()).getContinentOwnedCountries()) {
+						if(countryMapObj.getCountryName().equals(countryToName) && country.getCountryOwnedBorders().contains(countryMapObj.getCountryId())) {
+							return true;
+						}
+					}
+				}
+				break;
+			}
+		}
+		
+		return false;
+	}
+	
+	public boolean validateNumArimes(String countryFromName, String numArimes) {
+		for(Countries countryObject : this.getListOfCountries()) {
+			if(countryObject.getCountryName().equals(countryFromName) && countryObject.getArmies()>=Integer.parseInt(numArimes)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	/**
+	 * issueOrders method is used to deploy the armies from player to the designated
+	 * countries
+	 * 
+	 */
+	public void IssueOrders() { 
+		switch(GameEngine.l_gamePhase) {
+		case "deploy":
+			deployOrder();
+			break;
+		case "advance":
+			advanceOrder();
+			break;
+		}
+	}
+
 	/**
 	 * NextOrder method is used to display list of orders will be executed
-	 * return orderObj
 	 */
 	public Order NextOrder() {
 		
@@ -146,6 +254,17 @@ public class GamePlayer {
 			p_issueCommand = l_input.nextLine();
 		}
 		return p_issueCommand.substring(6);
+	}
+	
+	public String validateAdvanceInput(String p_issueCommand) {
+		Scanner l_input = new Scanner(System.in);
+		while (!p_issueCommand.split(" ")[0].equalsIgnoreCase("advance")) {
+			System.out.println("\n\nYour entered input type is invalid...try again");
+			System.out.println("Advance Order format for attack/transfer : "
+					+ "\n advance countrynamefrom countynameto numarmies\n");
+			p_issueCommand = l_input.nextLine();
+		}
+		return p_issueCommand.substring(8);
 	}
 
 	/**

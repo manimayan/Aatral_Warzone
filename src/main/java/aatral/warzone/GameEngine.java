@@ -38,11 +38,12 @@
 		public static HashMap<String, GamePlayer> l_playerObjectList;
 		public static Map<String, Continent> l_masterMap = new HashMap<>();
 		private String l_mapName;
-		private GamePlayer l_gamePlayerObject;
+		public static GamePlayer l_gamePlayerObject;
+		public static String l_gamePhase;
 		private boolean l_gamePlayPopulateFlag;
 		public GameEngine(String fileName) {
 			this.l_mapName = fileName;
-			this.l_gamePlayerObject = new GamePlayer();
+			GameEngine.l_gamePlayerObject = new GamePlayer();
 			l_masterMap = new MapEditor().loadMap(fileName);
 		}
 	
@@ -140,45 +141,62 @@
 				
 				boolean l_isFirst = true;
 				do {
-					GamePlayer l_gameplayerObj;
 					for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
-						l_gameplayerObj = (GamePlayer) l_gameplayObject.getValue();
+						l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
 						System.out.println("\n\nAssinging reinforcement for the Player " + l_gameplayObject.getKey());
 						if(l_isFirst)
-							l_gameplayerObj.assignReinforcements(5);
+							l_gamePlayerObject.assignReinforcements(5);
 						else
-							l_gameplayerObj.assignReinforcements(calAssignReinforcements(l_gameplayerObj));
+							l_gamePlayerObject.assignReinforcements(calAssignReinforcements(l_gamePlayerObject));
 						
-						showMapPlayer(l_gameplayerObj);
+						showMapPlayer(l_gamePlayerObject);
 					}
 					l_isFirst = false;
+					
+					l_gamePhase = "deploy";
 					boolean flag = true;
 					do {
 						flag=false;
 						for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
 							 ((GamePlayer) l_gameplayObject.getValue()).IssueOrders();
+							 ((GamePlayer) l_gameplayObject.getValue()).setAdvanceInput(false);
 							 if(!flag && ((GamePlayer) l_gameplayObject.getValue()).getReinforcementArmies()>0) {
 								 flag=true;
 							 }
 						}
 					} while (flag);
 					
+					l_gamePhase = "advance";
+					flag = true;
+					do {
+						flag=false;
+						for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
+							if(!((GamePlayer) l_gameplayObject.getValue()).getAdvanceInput())
+								((GamePlayer) l_gameplayObject.getValue()).IssueOrders();
+							if(!flag && !((GamePlayer) l_gameplayObject.getValue()).getAdvanceInput())
+								flag=true;
+						}
+					} while (flag);
+					
 					boolean ordersExist = true;
 					while(ordersExist) {
 						ordersExist = false;
-					for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
-						l_gameplayerObj = (GamePlayer) l_gameplayObject.getValue();
-						if(l_gameplayerObj.orderObjects.size() >0) {
-						System.out.println("\n\nExecueting Orders for the player " + l_gameplayerObj.getPlayerName());
-						Order orderObj = l_gameplayerObj.NextOrder();
-						if(orderObj instanceof DeployOrder)
-						{
-							DeployOrder deployOrderObj = (DeployOrder)orderObj;
-							deployOrderObj.execute();
+						for (Map.Entry l_gameplayObject : l_playerObjectList.entrySet()) {
+							l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
+							if(l_gamePlayerObject.orderObjects.size() >0) {
+								System.out.println("\n\nExecueting Orders for the player " + l_gamePlayerObject.getPlayerName());
+								Order orderObj = l_gamePlayerObject.NextOrder();
+								if(orderObj instanceof DeployOrder)
+								{
+									DeployOrder deployOrderObj = (DeployOrder)orderObj;
+									deployOrderObj.execute();
+								}else if(orderObj instanceof AdvanceOrder) {
+									AdvanceOrder advanceOrderObj = (AdvanceOrder)orderObj;
+									advanceOrderObj.execute();
+								}
+								ordersExist = true;
+							}		
 						}
-						ordersExist = true;
-						}		
-					}
 					}
 					l_innerLoopflag = true;
 					while (l_innerLoopflag) {
@@ -295,7 +313,6 @@
 			}
 		}
 	
-		
 	
 		/**
 		 * getContinentName method is used to get the continent name using continent id
@@ -334,14 +351,30 @@
 						}
 					}
 				}
-				
-				
 				if(exists_all)
 				{
 					l_reinforcementCount += Integer.parseInt(((Continent) continent.getValue()).getContinentValue());
 				}
 			}
 			return l_reinforcementCount<3?3:l_reinforcementCount;
+		}
+		
+		public String countriesUnderPlayerAsString(Countries p_countryObject) {
+			String borderingCountries = "";
+			if(p_countryObject.getCountryOwnedBorders().size()>0) {
+				for(Countries country : listOfCountries()) {
+					if(p_countryObject.getCountryOwnedBorders().contains(country.getCountryId())) {
+						for(String countryID : p_countryObject.getCountryOwnedBorders()) {
+							if(country.getCountryId().equals(countryID)) {
+								borderingCountries += ", "+country.getCountryName();
+							}
+						}
+					}
+				}
+			}else {
+				borderingCountries = ", No Bordering Countries exist";
+			}
+			return borderingCountries.substring(2);
 		}
 	
 		/**
@@ -350,11 +383,13 @@
 		 * @param p_gamePlayer object for gameplayer class.
 		 */
 		public void showMapPlayer(GamePlayer p_gamePlayer) {
-			System.out.print("\nCountry ID\t\tCountry Name\t\t\t\tArmies\t\tOwner");
+			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+			System.out.printf("%-14s%-40s%-12s%-20s%-100s\n","Country ID","Country Name","Armies","Owner","Bordering Countries");
+			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 			for (Countries l_co : p_gamePlayer.getListOfCountries()) {
-				System.out.print("\n" + l_co.getCountryId() + "\t\t" + l_co.getCountryName() + "\t\t\t\t" + l_co.getArmies()
-						+ "\t\t" + p_gamePlayer.getPlayerName() + "\n");
-			}
+				System.out.printf("%-14s%-40s%-12s%-20s%-100s\n","\n" + l_co.getCountryId(), l_co.getCountryName() ,
+						l_co.getArmies() , p_gamePlayer.getPlayerName(), countriesUnderPlayerAsString(l_co));
+			}System.out.println();
 		}
 	
 		/**
@@ -364,13 +399,13 @@
 			if (l_playerList.isEmpty()) {
 				System.out.println("\nNo player has been created to show the map\n");
 			} else {
-				System.out.print("\nCountry ID\t\tCountry Name\t\t\t\tArmies\t\tOwner");
 				for (Map.Entry l_gamePlayer : l_playerObjectList.entrySet()) {
+					System.out.println("-------------------------------------------------------------------------------");
+					System.out.printf("%-14s%-40s%-12s%-32s\n","Country ID","Country Name","Armies","Owner");
+					System.out.println("-------------------------------------------------------------------------------");
 					for (Countries l_co : ((GamePlayer) l_gamePlayer.getValue()).getListOfCountries()) {
-						System.out.print("\n" + l_co.getCountryId() + "\t\t" + l_co.getCountryName() + "\t\t\t\t"
-								+ l_co.getArmies() + "\t\t" + l_gamePlayer.getKey());
-						System.out.println();
-					}
+						System.out.printf("%-14s%-40s%-12s%-32s\n","\n" + l_co.getCountryId(), l_co.getCountryName() , l_co.getArmies() , l_gamePlayer.getKey());
+					}System.out.println();
 				}
 			}
 		}

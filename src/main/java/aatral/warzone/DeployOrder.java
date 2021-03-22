@@ -23,13 +23,11 @@ public class DeployOrder extends Order{
 	
 	public void execute()
 	{
-		for(Map.Entry m : GameEngine.l_masterMap.entrySet()) {
-			for(Countries country : ((Continent)m.getValue()).getContinentOwnedCountries()) {
-				if(country.getCountryId().equals(this.CountryID)) {
-					country.setArmies(country.getArmies()+Integer.parseInt(this.armies));
-					System.out.println("successfully updated "+ this.CountryID+" "+this.armies);
-					break;
-				}
+		for(Countries country : GameEngine.l_gamePlayerObject.getListOfCountries()) {
+			if(country.getCountryId().equals(this.CountryID)) {
+				country.setArmies(country.getArmies()+Integer.parseInt(this.armies));
+				System.out.println("successfully updated "+ this.CountryID+" "+this.armies);
+				break;
 			}
 		}
 	}
