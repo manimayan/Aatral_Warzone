@@ -1,4 +1,4 @@
-package aatral.warzone.implementation;
+package aatral.warzone.mapeditor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +21,7 @@ import aatral.warzone.utilities.CountryMapreader;
  * @version 1.0
  * @since 2021-02-23
  */
-public class ValidateMap {
+public class ValidateMapImpl {
 
 	/**
 	 * printBorders method is used to print list of countries and its borders in the

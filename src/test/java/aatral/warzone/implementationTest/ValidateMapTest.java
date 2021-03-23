@@ -12,7 +12,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import aatral.warzone.implementation.ValidateMap;
+import aatral.warzone.mapeditor.ValidateMapImpl;
 
 /**
  * Test class name: <b><u>ValidateMapTest</u></b>
@@ -36,7 +36,7 @@ public class ValidateMapTest {
 	{
 		boolean expected=true;
 
-		ValidateMap l_vci=new ValidateMap();
+		ValidateMapImpl l_vci=new ValidateMapImpl();
 		boolean actual = l_vci.validateContinentID("canada","1");
 		assertEquals(expected,actual);
 
@@ -50,7 +50,7 @@ public class ValidateMapTest {
 	{
 		boolean expected=true;
 
-		ValidateMap l_vci=new ValidateMap();
+		ValidateMapImpl l_vci=new ValidateMapImpl();
 		boolean actual = l_vci.validateContinentID("canada","88");
 
 		assertNotEquals(expected,actual);
@@ -101,7 +101,7 @@ public class ValidateMapTest {
 
 
 
-		ValidateMap l_vci=new ValidateMap();
+		ValidateMapImpl l_vci=new ValidateMapImpl();
 		boolean actual = l_vci.validateContinentID("canada",l_cid);
 		assertEquals(expected,actual);
 
@@ -147,7 +147,7 @@ public class ValidateMapTest {
 
 		}
 
-		ValidateMap l_vcn = new ValidateMap();
+		ValidateMapImpl l_vcn = new ValidateMapImpl();
 		boolean actual = l_vcn.validateContinentName("canada",l_cid);
 		assertEquals(expected,actual);
 
@@ -192,7 +192,7 @@ public class ValidateMapTest {
 
 		}
 
-		ValidateMap l_vcoi=new ValidateMap();
+		ValidateMapImpl l_vcoi=new ValidateMapImpl();
 		boolean actual = l_vcoi.validateCountryID("canada",l_coid);
 		assertEquals(expected,actual);
 
@@ -204,7 +204,7 @@ public class ValidateMapTest {
 	public void validateFullMapTest()
 	{
 		boolean expected =true;
-		ValidateMap l_vfm=new ValidateMap();
+		ValidateMapImpl l_vfm=new ValidateMapImpl();
 		boolean actual = l_vfm.validateFullMap("canada");
 		assertEquals(expected,actual);
 

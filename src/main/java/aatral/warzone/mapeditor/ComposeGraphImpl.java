@@ -1,4 +1,4 @@
-package aatral.warzone.implementation;
+package aatral.warzone.mapeditor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ import aatral.warzone.utilities.Graph;
  * @since 2021-02-17
  */
 
-public class ComposeGraph {
+public class ComposeGraphImpl {
 	/**
 	 * getContinentMap method is used to get a map of continent and its respective
 	 * countries

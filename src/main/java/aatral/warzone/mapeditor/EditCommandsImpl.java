@@ -1,4 +1,4 @@
-package aatral.warzone.implementation;
+package aatral.warzone.mapeditor;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -28,6 +28,7 @@ import aatral.warzone.model.InputContinent;
 import aatral.warzone.model.InputCountry;
 import aatral.warzone.observerPattern.LogEntryBuffer;
 import aatral.warzone.observerPattern.LogWriter;
+import aatral.warzone.statePattern.MasterMapEditor;
 import aatral.warzone.utilities.ContinentMapReader;
 import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
@@ -40,19 +41,19 @@ import aatral.warzone.utilities.InputProcessor;
  * @version 1.0
  * @since 2021-02-23
  */
-public class EditMap {
+public class EditCommandsImpl {
 
 	LogEntryBuffer log = new LogEntryBuffer();
 	LogWriter logWriter = new LogWriter(log);
 
-	private ValidateMap validateOb = new ValidateMap();
+	private ValidateMapImpl validateOb = new ValidateMapImpl();
 	InputProcessor inputProcessor = new InputProcessor();
 
 	List<InputContinent> continentList;
 	List<InputCountry> countryList;
 	List<InputBorders> bordersList;
 
-	public EditMap(String p_warZoneMap) {
+	public EditCommandsImpl(String p_warZoneMap) {
 		this.continentList = new ContinentMapReader().readContinentFile(p_warZoneMap);
 		this.countryList = new CountryMapreader().readCountryMap(p_warZoneMap);
 		this.bordersList = new CountryBorderReader().mapCountryBorderReader(p_warZoneMap);
@@ -94,7 +95,7 @@ public class EditMap {
 			}
 
 			writeContinentFile(p_warZoneMap, this.continentList);
-			Map<String, Continent> getMasterMap = new MapEditor().loadMap(p_warZoneMap);
+			Map<String, Continent> getMasterMap = new MasterMapEditor().loadMap(p_warZoneMap);
 			for (InputContinent inputContinent : this.continentList) {
 				Continent addToMaster = new Continent(inputContinent, null);
 				getMasterMap.put(inputContinent.getContinentId(), addToMaster);
@@ -308,7 +309,7 @@ public class EditMap {
 	}
 
 	/**
-	 * editNeighboutMap method is used to add or remove the neighbour
+	 * editNeighboutMap method is used to add or remove the neighbor
 	 * 
 	 * @param warZoneMap:     map of warzone.
 	 * @param neighborString: neighbour.
@@ -339,7 +340,7 @@ public class EditMap {
 	}
 
 	/**
-	 * addNeighbours method is used for adding neighbours based on countryId and
+	 * addNeighbours method is used for adding neighbors based on countryId and
 	 * neighbourCountryID
 	 * @param p_warZoneMap        map of warzone.
 	 * @param p_countryId         country id.
@@ -377,7 +378,7 @@ public class EditMap {
 	}
 
 	/**
-	 * removeNeighbours is used to remove the neighbour from warzone map
+	 * removeNeighbours is used to remove the neighbor from warzone map
 	 * 
 	 * @param warZoneMap        map of warzone.
 	 * @param countryID         country id value.

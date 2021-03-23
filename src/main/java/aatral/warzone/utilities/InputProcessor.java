@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import aatral.warzone.implementation.EditMap;
+import aatral.warzone.mapeditor.EditCommandsImpl;
 import aatral.warzone.model.Countries;
 import aatral.warzone.model.InputContinent;
 import aatral.warzone.model.InputCountry;

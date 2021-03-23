@@ -8,7 +8,8 @@ import java.util.*;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
-import aatral.warzone.implementation.ComposeGraph;
+
+import aatral.warzone.mapeditor.ComposeGraphImpl;
 import aatral.warzone.model.InputContinent;
 import aatral.warzone.model.InputCountry;
 import aatral.warzone.utilities.ContinentMapReader;
@@ -48,7 +49,7 @@ public class ComposeGraphTest {
 
 	@Test
 	public void composeGraphgetContinentMap() {
-		ComposeGraph l_cg = new ComposeGraph();
+		ComposeGraphImpl l_cg = new ComposeGraphImpl();
 
 		List<aatral.warzone.model.InputContinent> l_lc = new ContinentMapReader().readContinentFile("canada");
 		HashMap<String, List<InputCountry>> actual = l_cg.getContinentMap("canada");

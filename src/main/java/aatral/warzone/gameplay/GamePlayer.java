@@ -1,4 +1,4 @@
-package aatral.warzone;
+package aatral.warzone.gameplay;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,11 +36,11 @@ public class GamePlayer implements Comparator<Countries> {
 	public List<Countries> listOfCountries;
 
 	public int reinforcementArmies;
-	
+
 	public List<Order> orderObjects;
-	
+
 	private boolean advanceInput;
-	
+
 	public GamePlayer(String playerName, List<Countries> listOfCountries, int armies) {
 		this.orderObjects = new ArrayList<>();
 		this.playerName = playerName;
@@ -51,15 +51,15 @@ public class GamePlayer implements Comparator<Countries> {
 			public int compare(Countries o1, Countries o2) {
 				return Integer.parseInt(o1.getCountryId()) - Integer.parseInt(o2.getCountryId());
 			}
-	    });
+		});
 	}
-	
+
 	@Override
 	public int compare(Countries o1, Countries o2) {
 		// TODO Auto-generated method stub
 		return Integer.parseInt(o1.getCountryId()) - Integer.parseInt(o2.getCountryId());
 	}
-	
+
 	/**
 	 * ownedCountries method is used to get the list of countries owned by the
 	 * player
@@ -70,19 +70,6 @@ public class GamePlayer implements Comparator<Countries> {
 		return getListOfCountries();
 	}
 
-
-	/**
-	 * assignReinforcements method is used to assign the armies to the game player
-	 * 
-	 * @param p_object object of gameplayer class
-	 * @param p_armies integer of armies
-	 */
-	public void assignReinforcements(int p_armies) {
-		this.setReinforcementArmies(p_armies);
-		System.out.println("The player " + this.getPlayerName() + " has been reinforced with " + p_armies+" armies");
-	}
-
-	
 	public void deployOrder() {
 		GamePlayer p_gameplayerObj = this;
 		Scanner l_input = new Scanner(System.in);
@@ -92,48 +79,49 @@ public class GamePlayer implements Comparator<Countries> {
 		if(p_gameplayerObj.getReinforcementArmies()>0) {
 			boolean l_wrongIP = true;
 			while(l_wrongIP) {
-			System.out.println("\nPlayer - "+this.playerName+"\nRemaining number of armies in hand is "
-					+ p_gameplayerObj.getReinforcementArmies() + "\n\nDeploy Format : deploy countryID1 numArmies, countryID2 numArmies");
-			l_issueCommand = l_input.nextLine();
-			l_deployInput = validateDeployInput(l_issueCommand);
-			l_armies = calculateInputArmies(l_deployInput);
-			if (validateInputArmies(l_armies, p_gameplayerObj.getReinforcementArmies())) {
-				l_armies = 0;
-				String l_countryNorPresent = validateCountryInput(l_deployInput, p_gameplayerObj);
-				if (validateCountryValue(l_countryNorPresent)) {
-					l_wrongIP = false;
-					String l_countryID = l_deployInput.trim().split(" ")[0];
-					String l_armyCount = l_deployInput.trim().split(" ")[1];
-					this.orderObjects.add(new DeployOrder(l_countryID, l_armyCount));
-					int l_deployableArmies = Integer.parseInt(l_armyCount);
-					List<Countries> l_list = p_gameplayerObj.getListOfCountries();
-					for (Countries l_con : p_gameplayerObj.getListOfCountries()) {
-						if (l_con.getCountryId().equalsIgnoreCase(l_countryID)) {
-							//l_list.get(l_list.indexOf(l_con)).setArmies(l_con.getArmies() + l_deployableArmies);
-							p_gameplayerObj.setReinforcementArmies(p_gameplayerObj.getReinforcementArmies() - l_deployableArmies);
-							//p_gameplayerObj.setListOfCountries(l_list);
-							break;
+				System.out.println("\nPlayer - "+this.playerName+"\nRemaining number of armies in hand is "
+						+ p_gameplayerObj.getReinforcementArmies() + "\n\nDeploy Format : deploy countryID1 numArmies, countryID2 numArmies");
+				l_issueCommand = l_input.nextLine();
+				l_deployInput = validateDeployInput(l_issueCommand);
+				l_armies = calculateInputArmies(l_deployInput);
+				if (validateInputArmies(l_armies, p_gameplayerObj.getReinforcementArmies())) {
+					l_armies = 0;
+					String l_countryNorPresent = validateCountryInput(l_deployInput, p_gameplayerObj);
+					if (validateCountryValue(l_countryNorPresent)) {
+						l_wrongIP = false;
+						String l_countryID = l_deployInput.trim().split(" ")[0];
+						String l_armyCount = l_deployInput.trim().split(" ")[1];
+						this.orderObjects.add(new DeployOrder(l_countryID, l_armyCount));
+						int l_deployableArmies = Integer.parseInt(l_armyCount);
+						List<Countries> l_list = p_gameplayerObj.getListOfCountries();
+						for (Countries l_con : p_gameplayerObj.getListOfCountries()) {
+							if (l_con.getCountryId().equalsIgnoreCase(l_countryID)) {
+								//l_list.get(l_list.indexOf(l_con)).setArmies(l_con.getArmies() + l_deployableArmies);
+								p_gameplayerObj.setReinforcementArmies(p_gameplayerObj.getReinforcementArmies() - l_deployableArmies);
+								//p_gameplayerObj.setListOfCountries(l_list);
+								break;
+							}
 						}
+					} else {
+						System.out.println("The countries entered " + l_countryNorPresent
+								+ " are not under player " + p_gameplayerObj.playerName);
 					}
 				} else {
-					System.out.println("The countries entered " + l_countryNorPresent
-							+ " are not under player " + p_gameplayerObj.playerName);
+					System.out.println("Can't deploy " + l_armies + " armies by the player - " + p_gameplayerObj.getPlayerName()
+					+ " as he has only " + p_gameplayerObj.getReinforcementArmies());
 				}
-			} else {
-				System.out.println("Can't deploy " + l_armies + " armies by the player - " + p_gameplayerObj.getPlayerName()
-						+ " as he has only " + p_gameplayerObj.getReinforcementArmies());
 			}
-		}
 		}
 	}
 
 	public void setAdvanceInput(boolean value) {
 		this.advanceInput = value;
 	}
+
 	public boolean getAdvanceInput() {
 		return advanceInput;
 	}
-	
+
 	public void advanceOrder() {
 		Scanner l_input = new Scanner(System.in);
 		String l_issueCommand;
@@ -153,23 +141,23 @@ public class GamePlayer implements Comparator<Countries> {
 				String l_countryToName = l_advanceInput.split(" ")[1];
 				String l_numArmies = l_advanceInput.split(" ")[2];
 				if(validatefromName(l_countryFromName) && validateToName(l_countryFromName,l_countryToName)) {
-//					if(validateNumArimes(l_countryFromName, l_numArmies)) {
-						this.orderObjects.add(new AdvanceOrder(l_countryFromName, l_countryToName, l_numArmies));
-						l_wrongIP = false;
-//					} else {
-//						System.out.println("The given no.of armies is more than the present army size to perform the action");
-//					}
+					//					if(validateNumArimes(l_countryFromName, l_numArmies)) {
+					this.orderObjects.add(new AdvanceOrder(l_countryFromName, l_countryToName, l_numArmies));
+					l_wrongIP = false;
+					//					} else {
+					//						System.out.println("The given no.of armies is more than the present army size to perform the action");
+					//					}
 				} else {
-					 if(!validatefromName(l_countryFromName)) {
-						 System.out.println("CountryFromName is not under player "+this.playerName);
-					 } else {
-						 System.out.println("CountryToName is not an adjacent country of any countries under the player "+this.playerName);
-					 }
+					if(!validatefromName(l_countryFromName)) {
+						System.out.println("CountryFromName is not under player "+this.playerName);
+					} else {
+						System.out.println("CountryToName is not an adjacent country of any countries under the player "+this.playerName);
+					}
 				}
 			}
 		}
 	}
-	
+
 	public boolean validatefromName(String p_countryFromName) {
 		for(Countries l_countryObject : this.getListOfCountries()) {
 			if(l_countryObject.getCountryName().equalsIgnoreCase(p_countryFromName.trim())) {
@@ -178,7 +166,7 @@ public class GamePlayer implements Comparator<Countries> {
 		}
 		return false;
 	}
-	
+
 	public boolean validateToName(String countryFromName,String countryToName) {
 		for(Countries country : this.getListOfCountries()) {
 			if(country.getCountryName().equals(countryFromName)) {
@@ -192,10 +180,10 @@ public class GamePlayer implements Comparator<Countries> {
 				break;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	public boolean validateNumArimes(String countryFromName, String numArimes) {
 		for(Countries countryObject : this.getListOfCountries()) {
 			if(countryObject.getCountryName().equals(countryFromName) && countryObject.getArmies()>=Integer.parseInt(numArimes)) {
@@ -204,8 +192,8 @@ public class GamePlayer implements Comparator<Countries> {
 		}
 		return false;
 	}
-	
-	
+
+
 	/**
 	 * issueOrders method is used to deploy the armies from player to the designated
 	 * countries
@@ -226,15 +214,15 @@ public class GamePlayer implements Comparator<Countries> {
 	 * NextOrder method is used to display list of orders will be executed
 	 */
 	public Order NextOrder() {
-		
+
 		Order orderObj = this.orderObjects.get(0);
 		this.orderObjects.remove(0);
 		return orderObj;
-		
-	}
-	
 
-	
+	}
+
+
+
 
 	/**
 	 * executeOrders method is used to decide the country attack order
@@ -245,7 +233,7 @@ public class GamePlayer implements Comparator<Countries> {
 		NextOrder();
 		System.out.println("Player " + gameplayObject.getPlayerName() + "'s Orders executed !!!");
 	}
-	
+
 	public String validateDeployInput(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!p_issueCommand.split(" ")[0].equalsIgnoreCase("deploy")) {
@@ -255,7 +243,7 @@ public class GamePlayer implements Comparator<Countries> {
 		}
 		return p_issueCommand.substring(6);
 	}
-	
+
 	public String validateAdvanceInput(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!p_issueCommand.split(" ")[0].equalsIgnoreCase("advance")) {
@@ -281,7 +269,7 @@ public class GamePlayer implements Comparator<Countries> {
 	public boolean validateInputArmies(int p_inputArmies, int p_availableArmies) {
 		return p_inputArmies <= p_availableArmies;
 	}
-	
+
 
 	/**
 	 * validateCountryInput method is used to check the country present in list or

@@ -21,3 +21,24 @@
 2021-03-21T15:25:45.418  GamePhase: MapEditor Command: editcountry add 32 7  Status: 32 addedd successfully
 2021-03-21T15:26:06.294  GamePhase: MapEditor Command: editNeighbor add 32 31  Status: borders added successfully
 2021-03-21T15:26:20.999  GamePhase: MapEditor Command: editNeighbor add 32 33  Status: The countryId or Neighboring countryId is invalid
+2021-03-22T20:24:08.235  GamePhase: MapEditor Command: CANADA Status: No CANADA map exists
+2021-03-22T20:24:21.055  GamePhase: MapEditor Command: "showmap canada" Status: canada map has loaded and displayed
+2021-03-22T20:25:02.709  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-22T20:28:24.264  GamePhase: MapEditor Command: loadmpa canada Status: Invalid Command
+2021-03-22T20:28:33.002  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-22T20:30:54.107  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T00:58:52.937  GamePhase: MapEditor Command: "showmap canada" Status: canada map has loaded and displayed
+2021-03-23T00:59:03.296  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T00:59:47.335  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T01:03:00.750  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T01:06:42.268  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T01:12:12.925  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T01:22:22.298  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T01:23:44.566  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T11:57:17.283  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T12:06:13.859  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T12:07:32.077  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T12:11:23.641  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T12:14:48.096  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-23T13:54:10.636  GamePhase: MapEditor Command: "showmap canada" Status: canada map has loaded and displayed
+2021-03-23T13:54:25.842  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded

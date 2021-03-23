@@ -1,4 +1,4 @@
-package aatral.warzone;
+package aatral.warzone.gameplay;
 
 import java.util.Map;
 import java.util.Set;
@@ -21,9 +21,9 @@ public class DeployOrder extends Order{
 	
 	private String armies;
 	
-	public void execute()
+	public void execute(GamePlayer l_gamePlayerObject)
 	{
-		for(Countries country : GameEngine.l_gamePlayerObject.getListOfCountries()) {
+		for(Countries country : l_gamePlayerObject.getListOfCountries()) {
 			if(country.getCountryId().equals(this.CountryID)) {
 				country.setArmies(country.getArmies()+Integer.parseInt(this.armies));
 				System.out.println("successfully updated "+ this.CountryID+" "+this.armies);
