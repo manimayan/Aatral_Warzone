@@ -1,4 +1,4 @@
-package aatral.warzone.implementationTest;
+package aatral.warzone.mapeditorTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -24,7 +24,7 @@ import aatral.warzone.mapeditor.ValidateMapImpl;
 
  *
  */
-public class ValidateMapTest {
+public class ValidateMapImplTest {
 	/**
 	 * The test method used to test the positive test case.
 	 * It is hardcore test method.

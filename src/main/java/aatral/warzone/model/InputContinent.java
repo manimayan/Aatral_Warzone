@@ -37,11 +37,11 @@ public class InputContinent {
 	}
 
 	@Field
-	private String ContinentId;
+	public String ContinentId;
 
 	@Field
 	private String ContinentName;
 
 	@Field
-	private String ContinentValue;
+	public String ContinentValue;
 }
