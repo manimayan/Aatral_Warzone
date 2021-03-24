@@ -1,4 +1,4 @@
-package aatral.warzone.implementationTest;
+package aatral.warzone.mapeditorTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -16,7 +16,7 @@ import aatral.warzone.utilities.ContinentMapReader;
 import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
 
-public class ComposeGraphTest {
+public class ComposeGraphImplTest {
 
 	@Ignore
 	public HashMap<String, List<InputCountry>> getContinentMap(List<InputContinent> p_continentData) {

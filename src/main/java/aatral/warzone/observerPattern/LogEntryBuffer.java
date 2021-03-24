@@ -84,6 +84,9 @@ public class LogEntryBuffer extends Observable implements Serializable {
 	 * @param player :     player
 	 * @param command :    command
 	 * @param status :     status
+	 * 
+	 * @return toGameString
+	 * @return toMapEditorString
 	 */
 	public String returnEntry(String timeStamp, String gamePhase, String player, String command, String status) {
 		this.timeStamp = timeStamp;

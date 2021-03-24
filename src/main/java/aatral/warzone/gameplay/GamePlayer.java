@@ -81,6 +81,8 @@ public class GamePlayer implements Comparator<Countries> {
 
 	/**
 	 * NextOrder method is used to display list of orders will be executed
+	 * 
+	 * @return orderObj
 	 */
 	public Order NextOrder() {
 		Order orderObj = this.orderObjects.get(0);

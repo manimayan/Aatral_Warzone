@@ -57,7 +57,7 @@ public class MasterMapEditor extends MapEditor {
 	/**
 	 * showMap method is used to print the countries and borders
 	 * 
-	 * @param warZoneMap map of warzone.
+	 * @param p_warZoneMap map of warzone.
 	 */
 	@Override
 	public void showMap(String p_warZoneMap) {
@@ -90,7 +90,7 @@ public class MasterMapEditor extends MapEditor {
 	 * LoadMap method is used to Load the map and convert into continent,countries
 	 * and borders
 	 * 
-	 * @param p_warZoneMap
+	 * @param p_warZoneMap has war zone map
 	 * @return masterMap 
 	 */
 	@Override
@@ -128,7 +128,7 @@ public class MasterMapEditor extends MapEditor {
 	/**
 	 * saveMap method is called once the country given in editMap is not in the list
 	 * 
-	 * @param mapEditorCommand command for map editor.
+	 * @param p_mapEditorCommand command for map editor.
 
 	 */
 	@Override	
@@ -172,7 +172,7 @@ public class MasterMapEditor extends MapEditor {
 	 * input If entered country is not present, then it will add the country in the
 	 * list and then it will edit
 	 * 
-	 * @param mapEditorCommand command for map edit.
+	 * @param p_mapEditorCommand command for map edit.
 	 */
 	@Override	
 	public void editMap(String p_mapEditorCommand) {
@@ -198,7 +198,7 @@ public class MasterMapEditor extends MapEditor {
 	/**
 	 * validateMap method is used to validate the whole map
 	 * 
-	 * @param warZoneMap map of warzone.
+	 * @param p_warZoneMap map of warzone.
 	 */
 	@Override	
 	public void validateMap(String p_warZoneMap) {
