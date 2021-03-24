@@ -32,7 +32,7 @@ public class AdvanceOrder extends Order{
 
 			if(attackerCanKill>defenderArmies) {
 				attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
-				defenderArmies = Integer.parseInt(this.numArmies) - attackerCanKill;
+				defenderArmies = defenderArmies==0?Integer.parseInt(this.numArmies):(Integer.parseInt(this.numArmies) - attackerCanKill);
 				boolean flag=true;
 				for(Entry<String, GamePlayer> l_mapEntry : l_playerObjectList.entrySet()) {
 					for(Countries l_countryObject : ((GamePlayer)l_mapEntry.getValue()).getListOfCountries()) {

@@ -223,29 +223,40 @@ public class MasterMapEditor extends MapEditor {
 	}
 
 	@Override
-	public void addGamePlayer(String p_playerName, String p_option, ArrayList<String> p_playerObListTempAdd,
+	public void addGamePlayer(String p_playerName, ArrayList<String> p_playerObListTempAdd,
 			List<String> p_playerList) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void removeGamePlayer(boolean p_flag, String p_playerName, String p_option,
+	public void removeGamePlayer(boolean p_flag, String p_playerName, 
 			List<String> l_playerObListTempRem, List<String> p_playerList) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public HashMap<String, GamePlayer> assignCountries(HashMap<String, GamePlayer> p_playerObjectList,
-			List<String> p_playerList) {
+	public HashMap<String, GamePlayer> assignCountries(List<String> p_playerList) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void assignReinforcements(int p_armies, GamePlayer p_gamePlayerObject) {
+	public void assignReinforcements(int p_armies) {
 		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void issueOrders() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void executeOrders() {
+		// TODO Auto-generated method stub
+		
 	}
 }

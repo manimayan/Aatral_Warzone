@@ -37,11 +37,11 @@ public class GameEngine {
 
 	private Scanner l_input = new Scanner(System.in);
 	public List<String> l_playerList = new ArrayList<>();
-	public HashMap<String, GamePlayer> l_playerObjectList;
+	public HashMap<String, GamePlayer> l_playerObjectList = new HashMap<>();
 	public static Map<String, Continent> l_masterMap = new HashMap<>();
 	private String l_mapName;
 	public GamePlayer l_gamePlayerObject;
-	public static String l_gamePhase;
+	public String l_gameIssueOrder;
 	private boolean l_gamePlayPopulateFlag;
 
 	LogEntryBuffer log = new LogEntryBuffer();
@@ -169,10 +169,12 @@ public class GameEngine {
 						l_playerName = l_playerName.trim();
 						if (l_playerName.isEmpty())
 							continue;
-						gamePhase.addGamePlayer(l_playerName, l_option, l_playerObListTempAdd, l_playerList);
+						gamePhase.addGamePlayer(l_playerName, l_playerObListTempAdd, l_playerList);
 						break;
 					case "remove":
-						gamePhase.removeGamePlayer(l_flag, l_playerName, l_option, l_playerObListTempRem, l_playerList);
+						l_playerName = l_option.substring(6).trim();
+						l_playerName = l_playerName.trim();
+						gamePhase.removeGamePlayer(l_flag, l_playerName, l_playerObListTempRem, l_playerList);
 						break;
 					default:
 						System.out.println("Different input has been read...Try again");
@@ -188,7 +190,7 @@ public class GameEngine {
 					case "assigncountries":
 						l_playerList.addAll(l_playerObListTempAdd);
 						l_playerList.removeAll(l_playerObListTempRem);
-						l_playerObjectList = gamePhase.assignCountries(l_playerObjectList, l_playerList);
+						l_playerObjectList = gamePhase.assignCountries(l_playerList);
 						l_gamePlayPopulateFlag = true;
 						l_flag = false;
 						break;
@@ -228,7 +230,7 @@ public class GameEngine {
 			String l_readInput;
 			if (!l_gamePlayPopulateFlag) {
 				if (l_playerObjectList == null) {
-					gamePhase.assignCountries(l_playerObjectList, l_playerList);
+					l_playerObjectList=gamePhase.assignCountries(l_playerList);
 				} else {
 					while (l_innerLoopflag) {
 						System.out.println(
@@ -236,7 +238,7 @@ public class GameEngine {
 						l_readInput = l_input.nextLine();
 						switch (l_readInput) {
 						case "startnewgame":
-							gamePhase.assignCountries(l_playerObjectList, l_playerList);
+							l_playerObjectList=gamePhase.assignCountries(l_playerList);
 							l_innerLoopflag = false;
 							break;
 						case "continue":
@@ -259,60 +261,47 @@ public class GameEngine {
 					l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
 					System.out.println("\n\nAssinging reinforcement for the Player " + l_gameplayObject.getKey());
 					if (l_isFirst) {
-						gamePhase.assignReinforcements(5, l_gamePlayerObject);
+						gamePhase.assignReinforcements(5);
 					} else {
-						gamePhase.assignReinforcements(calAssignReinforcements(l_gamePlayerObject), l_gamePlayerObject);
+						gamePhase.assignReinforcements(calAssignReinforcements(l_gamePlayerObject));
 					}
-					gamePhase.next();
 					showMapPlayer(l_gamePlayerObject);
 				}
+				gamePhase.next();
 				l_isFirst = false;
 
-				l_gamePhase = "deploy";
+				l_gameIssueOrder = "deploy";
 				boolean flag = true;
 				do {
 					flag = false;
 					for (Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
-						((GamePlayer) l_gameplayObject.getValue()).IssueOrders();
-						((GamePlayer) l_gameplayObject.getValue()).setAdvanceInput(false);
-						if (!flag && ((GamePlayer) l_gameplayObject.getValue()).getReinforcementArmies() > 0) {
+						l_gamePlayerObject= (GamePlayer) l_gameplayObject.getValue(); 
+						gamePhase.issueOrders();
+						l_gamePlayerObject.setAdvanceInput(false);
+						if (!flag && l_gamePlayerObject.getReinforcementArmies() > 0) {
 							flag = true;
 						}
 					}
 				} while (flag);
 
-				l_gamePhase = "advance";
+				l_gameIssueOrder = "advance";
 				flag = true;
 				do {
 					flag = false;
 					for (Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
-						if (!((GamePlayer) l_gameplayObject.getValue()).getAdvanceInput())
-							((GamePlayer) l_gameplayObject.getValue()).IssueOrders();
+						if (!((GamePlayer) l_gameplayObject.getValue()).getAdvanceInput()) {
+							l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
+							gamePhase.issueOrders();
+						}
+							
 						if (!flag && !((GamePlayer) l_gameplayObject.getValue()).getAdvanceInput())
 							flag = true;
 					}
 				} while (flag);
 
-				boolean ordersExist = true;
-				while (ordersExist) {
-					ordersExist = false;
-					for (Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
-						l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
-						if (l_gamePlayerObject.orderObjects.size() > 0) {
-							System.out.println(
-									"\n\nExecueting Orders for the player " + l_gamePlayerObject.getPlayerName());
-							Order orderObj = l_gamePlayerObject.NextOrder();
-							if (orderObj instanceof DeployOrder) {
-								DeployOrder deployOrderObj = (DeployOrder) orderObj;
-								deployOrderObj.execute(l_gamePlayerObject);
-							} else if (orderObj instanceof AdvanceOrder) {
-								AdvanceOrder advanceOrderObj = (AdvanceOrder) orderObj;
-								advanceOrderObj.execute(l_playerObjectList, l_gamePlayerObject);
-							}
-							ordersExist = true;
-						}
-					}
-				}
+				gamePhase.next();
+				gamePhase.executeOrders();
+				
 				l_innerLoopflag = true;
 				while (l_innerLoopflag) {
 					System.out.println("Give any of the following command to proceed the gamePlay \n continue \n back");
@@ -320,10 +309,12 @@ public class GameEngine {
 					switch (l_readInput) {
 					case "continue":
 						l_innerLoopflag = false;
+						gamePhase.next();
 						break;
 					case "back":
 						l_innerLoopflag = false;
 						l_flag = false;
+						gamePhase.next();
 						break;
 					default:
 						System.out.println("Input is mismatching...Kindly Try again...");

@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import aatral.warzone.gameplay.GameEngine;
 import aatral.warzone.gameplay.GamePlayer;
 import aatral.warzone.model.Continent;
+import aatral.warzone.model.Countries;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,15 +36,18 @@ public abstract class Phase {
 	// game play behavior
 	public abstract void gamePlayShowMap();
 
-	public abstract void addGamePlayer(String p_playerName, String p_option, ArrayList<String> p_playerObListTempAdd,
+	public abstract void addGamePlayer(String p_playerName, ArrayList<String> p_playerObListTempAdd,
 			List<String> p_playerList);
 
-	public abstract void removeGamePlayer(boolean p_flag, String p_playerName, String p_option, List<String> l_playerObListTempRem,
+	public abstract void removeGamePlayer(boolean p_flag, String p_playerName, List<String> l_playerObListTempRem,
 			List<String> p_playerList);
 
-	public abstract HashMap<String, GamePlayer> assignCountries(HashMap<String, GamePlayer> p_playerObjectList,
-			List<String> p_playerList);
+	public abstract HashMap<String, GamePlayer> assignCountries(List<String> p_playerList);
 
-	public abstract void assignReinforcements(int p_armies, GamePlayer p_gamePlayerObject);
+	public abstract void assignReinforcements(int p_armies);
+	
+	public abstract void issueOrders();
+	
+	public abstract void executeOrders();
 
 }

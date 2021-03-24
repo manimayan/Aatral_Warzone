@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
+import aatral.warzone.gameplay.AdvanceOrder;
+import aatral.warzone.gameplay.DeployOrder;
 import aatral.warzone.gameplay.GameEngine;
 import aatral.warzone.gameplay.GamePlayer;
+import aatral.warzone.gameplay.Order;
 import aatral.warzone.model.Continent;
 
 public class GamePlayOrderExecution extends GamePlay {
@@ -17,8 +21,8 @@ public class GamePlayOrderExecution extends GamePlay {
 
 	@Override
 	public void next() {
-		// TODO Auto-generated method stub
-		
+		gameEngine.setPhase(new GamePlayStartUp(gameEngine));
+		System.out.println(gameEngine.getGamePhase());
 	}
 
 	@Override
@@ -58,30 +62,79 @@ public class GamePlayOrderExecution extends GamePlay {
 	}
 
 	@Override
-	public void addGamePlayer(String p_playerName, String p_option, ArrayList<String> p_playerObListTempAdd,
+	public void addGamePlayer(String p_playerName, ArrayList<String> p_playerObListTempAdd,
 			List<String> p_playerList) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void removeGamePlayer(boolean p_flag, String p_playerName, String p_option,
+	public void removeGamePlayer(boolean p_flag, String p_playerName, 
 			List<String> l_playerObListTempRem, List<String> p_playerList) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public HashMap<String, GamePlayer> assignCountries(HashMap<String, GamePlayer> p_playerObjectList,
+	public HashMap<String, GamePlayer> assignCountries(
 			List<String> p_playerList) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void assignReinforcements(int p_armies, GamePlayer p_gamePlayerObject) {
+	public void assignReinforcements(int p_armiest) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void issueOrders() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void executeOrders() {
+		boolean ordersExist = true;
+		while(ordersExist) {
+			ordersExist = false;
+			for (Map.Entry l_gameplayObject : gameEngine.l_playerObjectList.entrySet()) {
+				gameEngine.l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
+				if(gameEngine.l_gamePlayerObject.orderObjects.size() >0) {
+					Order orderObj = gameEngine.l_gamePlayerObject.NextOrder();
+					if(orderObj instanceof DeployOrder)
+					{
+						System.out.println("\n\nExecueting Deployment Order for the player " + gameEngine.l_gamePlayerObject.getPlayerName());
+						DeployOrder deployOrderObj = (DeployOrder)orderObj;
+						deployOrderObj.execute(gameEngine.l_gamePlayerObject);
+						ordersExist = true;
+						System.out.println();
+					}else {
+						gameEngine.l_gamePlayerObject.pushBackOrder(orderObj);
+					}
+				}		
+			}
+		}
+		ordersExist = true;
+		while(ordersExist) {
+			ordersExist = false;
+			for (Map.Entry l_gameplayObject : gameEngine.l_playerObjectList.entrySet()) {
+				gameEngine.l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
+				if(gameEngine.l_gamePlayerObject.orderObjects.size() >0) {
+					Order orderObj = gameEngine.l_gamePlayerObject.NextOrder();
+					if(orderObj instanceof AdvanceOrder)
+					{
+						System.out.println("\n\nExecueting Advance Order for the player " + gameEngine.l_gamePlayerObject.getPlayerName());
+						AdvanceOrder advanceyOrderObj = (AdvanceOrder)orderObj;
+						advanceyOrderObj.execute(gameEngine.l_playerObjectList, gameEngine.l_gamePlayerObject);
+						ordersExist = true;
+						System.out.println();
+					}else {
+						gameEngine.l_gamePlayerObject.pushBackOrder(orderObj);
+					}
+				}		
+			}
+		}
 	}
 
 }

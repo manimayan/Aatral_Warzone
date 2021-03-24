@@ -63,7 +63,7 @@ public class GamePlayStartUp extends GamePlay {
 		return masterMap;
 	}
 
-	public void addGamePlayer(String l_playerName, String p_option, ArrayList<String> p_playerObListTempAdd,
+	public void addGamePlayer(String l_playerName, ArrayList<String> p_playerObListTempAdd,
 			List<String> p_playerList) {
 
 		if (p_playerObListTempAdd.contains(l_playerName) || p_playerList.contains(l_playerName)) {
@@ -73,11 +73,9 @@ public class GamePlayStartUp extends GamePlay {
 		}
 	}
 	
-	public void removeGamePlayer(boolean p_flag, String p_playerName, String p_option, List<String> p_playerObListTempRem,
+	public void removeGamePlayer(boolean p_flag, String p_playerName, List<String> p_playerObListTempRem,
 			List<String> p_playerList) {
 		String l_removeName = "";
-		p_playerName = p_option.substring(6).trim();
-		p_playerName = p_playerName.trim();
 		if (!p_playerList.contains(p_playerName)) {
 			l_removeName = p_playerName;
 			p_flag = false;
@@ -91,8 +89,8 @@ public class GamePlayStartUp extends GamePlay {
 		
 	}
 	
-	public HashMap<String, GamePlayer> assignCountries(HashMap<String, GamePlayer> p_playerObjectList, List<String> p_playerList) {
-		p_playerObjectList = new HashMap<>();
+	public HashMap<String, GamePlayer> assignCountries(List<String> p_playerList) {
+		HashMap<String, GamePlayer> l_playerObjectList = new HashMap<>();
 		int l_totalNoOfCountry = gameEngine.totalCountries();
 		List<Countries> totalCountries = gameEngine.listOfCountries();
 		boolean l_isCountryAssigned[] = new boolean[l_totalNoOfCountry];
@@ -104,14 +102,14 @@ public class GamePlayStartUp extends GamePlay {
 					break;
 				}
 				int l_countryID = gameEngine.getCountryID(l_totalNoOfCountry, l_isCountryAssigned);
-				if (!p_playerObjectList.containsKey(str)) {
-					p_playerObjectList.put(str, new GamePlayer(str, new ArrayList<Countries>(), 0));
+				if (!l_playerObjectList.containsKey(str)) {
+					l_playerObjectList.put(str, new GamePlayer(str, new ArrayList<Countries>(), 0));
 				}
-				p_playerObjectList.get(str).getListOfCountries().add(totalCountries.get(l_countryID));
+				l_playerObjectList.get(str).getListOfCountries().add(totalCountries.get(l_countryID));
 				l_isCountryAssigned[l_countryID] = true;
 			}
 		}
-		return p_playerObjectList;
+		return l_playerObjectList;
 	}
 	
 	/**
@@ -120,9 +118,9 @@ public class GamePlayStartUp extends GamePlay {
 	 * @param p_object object of gameplayer class
 	 * @param p_armies integer of armies
 	 */
-	public void assignReinforcements(int p_armies, GamePlayer p_gamePlayerObject) {
-		p_gamePlayerObject.setReinforcementArmies(p_armies);
-		System.out.println("The player " + p_gamePlayerObject.getPlayerName() + " has been reinforced with " + p_armies+" armies");
+	public void assignReinforcements(int p_armies) {
+		gameEngine.l_gamePlayerObject.setReinforcementArmies(p_armies);
+		System.out.println("The player " + gameEngine.l_gamePlayerObject.getPlayerName() + " has been reinforced with " + p_armies+" armies");
 	}
 
 	@Override
@@ -154,4 +152,17 @@ public class GamePlayStartUp extends GamePlay {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void issueOrders() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void executeOrders() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
