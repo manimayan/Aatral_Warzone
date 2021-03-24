@@ -40,7 +40,12 @@ public class GamePlayer implements Comparator<Countries> {
 	public List<Order> orderObjects;
 
 	public boolean advanceInput;
-
+/**
+ * GamePlayer method is used to assign the player values for the game
+ * @param playerName player name
+ * @param listOfCountries list of countries
+ * @param armies number of armies
+ */
 	public GamePlayer(String playerName, List<Countries> listOfCountries, int armies) {
 		this.orderObjects = new ArrayList<>();
 		this.playerName = playerName;
@@ -70,11 +75,17 @@ public class GamePlayer implements Comparator<Countries> {
 		return getListOfCountries();
 	}
 
-	
+	/**
+	 * setAdvanceInput method is used to set the advance input value
+	 * @param value values
+	 */
 	public void setAdvanceInput(boolean value) {
 		this.advanceInput = value;
 	}
-
+/**
+ * getAdvanceInput method is used to get the advance input value
+ * @return advance input
+ */
 	public boolean getAdvanceInput() {
 		return advanceInput;
 	}
@@ -89,7 +100,10 @@ public class GamePlayer implements Comparator<Countries> {
 		this.orderObjects.remove(0);
 		return orderObj;
 	}
-
+/**
+ * pushBackOrder method is used to push the order of the game
+ * @param p_orderObject order object
+ */
 	public void pushBackOrder(Order p_orderObject) {
 		this.orderObjects.add(0, p_orderObject);
 	}

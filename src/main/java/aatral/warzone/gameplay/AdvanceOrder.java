@@ -21,7 +21,12 @@ public class AdvanceOrder extends Order{
 	private String countryFromName;
 	private String countryToName;
 	private String numArmies;
-	
+/**
+ * execute method is used to execute the game	
+ * @param l_playerObjectList player object list
+ * @param l_gamePlayerObject game player object
+ * 
+ */
 	public void execute(HashMap<String, GamePlayer> l_playerObjectList, GamePlayer l_gamePlayerObject)
 	{
 		int attackerArmies = getAttackerArmy(l_gamePlayerObject, this.countryFromName);
@@ -58,7 +63,12 @@ public class AdvanceOrder extends Order{
 		setDefenderArmy(this.countryToName, defenderArmies);
 		System.out.println(l_gamePlayerObject.getPlayerName()+" advance "+this.countryFromName+"->"+this.countryToName+" done ");
 	}
-
+/**
+ * isAttack method is used attack
+ * @param l_gamePlayerObject game player object
+ * @param countryToName country to name
+ * @return false
+ */
 	public boolean isAttack(GamePlayer l_gamePlayerObject, String countryToName) {
 		for(Countries l_countryObject : l_gamePlayerObject.getListOfCountries()) {
 			if(l_countryObject.getCountryName().equals(countryToName)) {
@@ -67,7 +77,12 @@ public class AdvanceOrder extends Order{
 		}
 		return true;
 	}
-
+/**
+ * setAttackerArmy is used to set the army for attack
+ * @param countryFromName country from name
+ * @param armies number of armies
+ * 
+ */
 	public void setAttackerArmy(String countryFromName,int armies) {
 		for(Entry<String, Continent> l_mapEntry : GameEngine.l_masterMap.entrySet()) {
 			for(Countries l_countryObject : ((Continent)l_mapEntry.getValue()).getContinentOwnedCountries()) {
@@ -78,7 +93,11 @@ public class AdvanceOrder extends Order{
 			}
 		}
 	}
-
+/**
+ * setDefenderArmy method is used to set the defender army 
+ * @param p_countryToName country name
+ * @param armies number of armies
+ */
 	public void setDefenderArmy(String p_countryToName, int armies) {
 		for(Entry<String, Continent> l_mapEntry : GameEngine.l_masterMap.entrySet()) {
 			for(Countries l_countryObject : ((Continent)l_mapEntry.getValue()).getContinentOwnedCountries()) {
@@ -90,6 +109,14 @@ public class AdvanceOrder extends Order{
 		}
 	}
 
+	
+	/**
+	 * getAttackerArmy method is used to get attacker army
+	 * @param l_gamePlayerObject game player object
+	 * @param countryFromName country from name
+	 * @return getArmies
+	 * 
+	 */
 	public int getAttackerArmy(GamePlayer l_gamePlayerObject, String countryFromName) {
 		for(Countries countryObject : l_gamePlayerObject.getListOfCountries()) {
 			if(countryObject.getCountryName().equals(countryFromName)) {
@@ -99,6 +126,12 @@ public class AdvanceOrder extends Order{
 		return 0;
 	}
 
+/**
+ * getDefenderArmy method is used to get the defender army
+ * @param p_countryToName country to name
+ * @return getArmies
+ * 
+ */
 	public int getDefenderArmy(String p_countryToName) {
 		for(Entry<String, Continent> l_mapEntry : GameEngine.l_masterMap.entrySet()) {
 			if(((Continent)l_mapEntry.getValue()).getContinentOwnedCountries().contains(p_countryToName)) {
@@ -112,11 +145,20 @@ public class AdvanceOrder extends Order{
 		return 0;
 	}
 
+	/**
+	 * attackerCalc method is used to calculate the attacker value
+	 * @param value attacker value
+	 * @return mathround value
+	 */
 	public int attackerCalc(String value) {
 		int armies = Integer.parseInt(value);
 		return (int) Math.round(armies*0.6);
 	}
-
+/**
+ * defenderCal is used to calculate the defender value
+ * @param value defender value
+ * @return mathround value
+ */
 	public int defenderCalc(String value) {
 		int armies = Integer.parseInt(value);
 		return (int) Math.round(armies*0.7);

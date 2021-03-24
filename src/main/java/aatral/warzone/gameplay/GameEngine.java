@@ -324,7 +324,10 @@ public class GameEngine {
 			} while (l_flag);
 		}
 	}
-
+/**
+ * totalCountries method is used to calculate the total countries
+ * @return total country value
+ */
 	public int totalCountries() {
 		int count = 0;
 		for (Entry<String, Continent> mapEntry : l_masterMap.entrySet()) {
@@ -333,7 +336,11 @@ public class GameEngine {
 		}
 		return count;
 	}
-
+	
+/**
+ * listOfCountries method is used to calculate the list of temporary countries
+ * @return temporary country value
+ */
 	public List<Countries> listOfCountries() {
 		List<Countries> tempCountries = new ArrayList<>();
 		for (Entry<String, Continent> mapEntry : l_masterMap.entrySet()) {
@@ -341,7 +348,12 @@ public class GameEngine {
 		}
 		return tempCountries;
 	}
-
+	
+/**
+ * allCountriesAssigned method is used to assign the all countries
+ * @param p_isCountryAssigned country assigned
+ * @return false
+ */
 	public boolean allCountriesAssigned(boolean p_isCountryAssigned[]) {
 		for (int i = 0; i < p_isCountryAssigned.length; i++) {
 			if (!p_isCountryAssigned[i])
@@ -349,7 +361,12 @@ public class GameEngine {
 		}
 		return true;
 	}
-
+/**
+ * getCountryID method is used to get the country ID 
+ * @param p_totalCountryNumber total country number
+ * @param p_isCountryAssigned country assigned
+ * @return country ID
+ */
 	public int getCountryID(int p_totalCountryNumber, boolean[] p_isCountryAssigned) {
 		int l_countryID = new Random().nextInt(p_totalCountryNumber);
 		while (p_isCountryAssigned[l_countryID]) {
@@ -375,7 +392,12 @@ public class GameEngine {
 		}
 		return l_continentName;
 	}
-
+	
+/**
+ * calAssignReinforcements is used to assign the reinforcements
+ * @param p_player game player
+ * @return reinforcement count
+ */
 	public int calAssignReinforcements(GamePlayer p_player) {
 		List<Countries> l_listOfCountries = p_player.getListOfCountries();
 		int l_reinforcementCount = Math.round(l_listOfCountries.size() / 3);
@@ -398,6 +420,11 @@ public class GameEngine {
 		return l_reinforcementCount < 3 ? 3 : l_reinforcementCount;
 	}
 
+	/**
+	 * countriesUnderPlayerAsString method is used to display the countries assigned under a player
+	 * @param p_countryObject
+	 * @return bordering countries
+	 */
 	public String countriesUnderPlayerAsString(Countries p_countryObject) {
 		String borderingCountries = "";
 		if (p_countryObject.getCountryOwnedBorders().size() > 0) {
