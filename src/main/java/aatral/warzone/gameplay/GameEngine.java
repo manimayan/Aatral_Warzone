@@ -467,7 +467,7 @@ public class GameEngine {
 
 	/**
 	 * countriesUnderPlayerAsString method is used to display the countries assigned under a player
-	 * @param p_countryObject
+	 * @param p_countryObject country object
 	 * @return bordering countries
 	 */
 	public String countriesUnderPlayerAsString(Countries p_countryObject) {

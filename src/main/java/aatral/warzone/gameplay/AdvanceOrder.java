@@ -43,9 +43,6 @@ public class AdvanceOrder extends Order{
 	}
 /**
  * execute method is used to execute the game	
- * @param l_playerObjectList player object list
- * @param l_gamePlayerObject game player object
- * 
  */
 	public void execute()
 	{

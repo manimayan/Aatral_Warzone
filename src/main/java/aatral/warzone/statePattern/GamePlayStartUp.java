@@ -131,7 +131,6 @@ public class GamePlayStartUp extends GamePlay {
 	/**
 	 * assignReinforcements method is used to assign the armies to the game player
 	 * 
-	 * @param p_gamePlayerObject object of gameplayer class
 	 * @param p_armies integer of armies
 	 */
 	public void assignReinforcements(int p_armies) {
