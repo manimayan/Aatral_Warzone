@@ -70,9 +70,10 @@ public class GamePlayOrderExecution extends GamePlay {
 	}
 
 	@Override
-	public void removeGamePlayer(boolean p_flag, String p_playerName, 
+	public boolean removeGamePlayer(boolean p_flag, String p_playerName, 
 			List<String> l_playerObListTempRem, List<String> p_playerList) {
 		// TODO Auto-generated method stub
+		return false;
 		
 	}
 
@@ -107,7 +108,8 @@ public class GamePlayOrderExecution extends GamePlay {
 					{
 						System.out.println("\n\nExecueting Deployment Order for the player " + gameEngine.l_gamePlayerObject.getPlayerName());
 						DeployOrder deployOrderObj = (DeployOrder)orderObj;
-						deployOrderObj.execute(gameEngine.l_gamePlayerObject);
+						deployOrderObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
+						deployOrderObj.execute();
 						ordersExist = true;
 						System.out.println();
 					} else {
@@ -127,8 +129,10 @@ public class GamePlayOrderExecution extends GamePlay {
 					if(orderObj instanceof AdvanceOrder)
 					{
 						System.out.println("\n\nExecueting Advance Order for the player " + gameEngine.l_gamePlayerObject.getPlayerName());
-						AdvanceOrder advanceyOrderObj = (AdvanceOrder)orderObj;
-						advanceyOrderObj.execute(gameEngine.l_playerObjectList, gameEngine.l_gamePlayerObject);
+						AdvanceOrder advanceOrderObj = (AdvanceOrder)orderObj;
+						advanceOrderObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
+						advanceOrderObj.playerObjectList =  gameEngine.l_playerObjectList;
+						advanceOrderObj.execute();
 						ordersExist = true;
 						System.out.println();
 					} else {
@@ -136,13 +140,13 @@ public class GamePlayOrderExecution extends GamePlay {
 					}
 				}		
 			}
-//			if(gameEngine.checkIfPlayerConqueredContinent(gameEngine.l_gamePlayerObject)) {
-//				int randomCardValue = new Random().nextInt(4);
-//				GamePlayer object = gameEngine.l_gamePlayerObject;
-//				List<String> stringCardNames = (List<String>) object.getSpecialCards().keySet();
-//				object.getSpecialCards().replace(stringCardNames.get(randomCardValue), 
-//						object.getSpecialCards().get(stringCardNames.get(randomCardValue))+1);
-//			}
+			if(gameEngine.l_gamePlayerObject.hasConqueredInTurn) {
+				int randomCardValue = new Random().nextInt(4);
+				GamePlayer object = gameEngine.l_gamePlayerObject;
+				List<String> stringCardNames = (List<String>) object.getSpecialCards().keySet();
+				object.getSpecialCards().replace(stringCardNames.get(randomCardValue), 
+						object.getSpecialCards().get(stringCardNames.get(randomCardValue))+1);
+			}
 		}
 	}
 

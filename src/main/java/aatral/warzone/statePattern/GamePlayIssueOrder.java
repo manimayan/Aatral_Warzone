@@ -71,9 +71,10 @@ public class GamePlayIssueOrder extends GamePlay {
 	}
 
 	@Override
-	public void removeGamePlayer(boolean p_flag, String p_playerName,
+	public boolean removeGamePlayer(boolean p_flag, String p_playerName,
 			List<String> l_playerObListTempRem, List<String> p_playerList) {
 		// TODO Auto-generated method stub
+		return false;
 		
 	}
 
@@ -106,7 +107,7 @@ public class GamePlayIssueOrder extends GamePlay {
 			boolean l_wrongIP = true;
 			while(l_wrongIP) {
 				System.out.println("\nPlayer - "+p_gameplayerObj.playerName+"\nRemaining number of armies in hand is "
-						+ p_gameplayerObj.getReinforcementArmies() + "\n\nDeploy Format : deploy countryID1 numArmies, countryID2 numArmies");
+						+ p_gameplayerObj.getReinforcementArmies() + "\n\nDeploy Format : deploy countryID numArmies");
 				l_issueCommand = l_input.nextLine();
 				l_deployInput = validateDeployInput(l_issueCommand);
 				l_armies = calculateInputArmies(l_deployInput);
@@ -190,17 +191,18 @@ public class GamePlayIssueOrder extends GamePlay {
 	
 	public String validateDeployInput(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
-		while (!p_issueCommand.split(" ")[0].equalsIgnoreCase("deploy")) {
+		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("deploy") && p_issueCommand.split(" ").length ==3)) {
 			System.out.println("\n\nYour entered input type is invalid...try again");
-			System.out.println("\nDeploy Format : deploy countryID1 numArmies, countryID2 numArmies\n");
+			System.out.println("\nDeploy Format : deploy countryID numArmies\n");
 			p_issueCommand = l_input.nextLine();
 		}
+		
 		return p_issueCommand.substring(6);
 	}
 
 	public String validateAdvanceInput(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
-		while (!p_issueCommand.split(" ")[0].equalsIgnoreCase("advance")) {
+		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("advance") && p_issueCommand.split(" ").length ==4)) {
 			System.out.println("\n\nYour entered input type is invalid...try again");
 			System.out.println("Advance Order format for attack/transfer : "
 					+ "\n advance countrynamefrom countynameto numarmies\n");
@@ -279,21 +281,28 @@ public class GamePlayIssueOrder extends GamePlay {
 	}
 
 	public boolean validateNumArimes(String countryFromName, String numArimes) {
-		List<DeployOrder> advOrdersList = new ArrayList<DeployOrder>();
+		List<DeployOrder> deployOrdersList = new ArrayList<DeployOrder>();
 		for(Order object : gameEngine.l_gamePlayerObject.getOrderObjects()) {
 			if(object instanceof DeployOrder) {
-				advOrdersList.add((DeployOrder) object);
+				deployOrdersList.add((DeployOrder) object);
 			}
 		}
-		for(Countries countryObject : gameEngine.l_gamePlayerObject.getListOfCountries()) {
-			for(DeployOrder order : advOrdersList) {
-				if(order.getCountryID().equals(countryObject.getCountryId()) && countryObject.getCountryName().equals(countryFromName) && 
-						(countryObject.getArmies()+Integer.parseInt(order.getArmies()))>=Integer.parseInt(numArimes)) {
-					return true;
+		int l_totArmiesUnderCountry=0;
+		for(Countries countryObject : gameEngine.l_gamePlayerObject.getListOfCountries())
+		{
+			if(countryObject.getCountryName().equals(countryFromName)) {
+			l_totArmiesUnderCountry += countryObject.getArmies();
+			for(DeployOrder order : deployOrdersList) {
+				if(order.getCountryID().equals(countryObject.getCountryId()))
+				{
+					l_totArmiesUnderCountry+= Integer.parseInt(order.getArmies());
 				}
 			}
+			break;
+			}	
+			
 		}
-		return false;
+		return l_totArmiesUnderCountry >= Integer.parseInt(numArimes);
 	}
 
 

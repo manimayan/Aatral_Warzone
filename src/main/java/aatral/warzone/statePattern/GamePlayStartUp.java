@@ -75,7 +75,7 @@ public class GamePlayStartUp extends GamePlay {
 		}
 	}
 	
-	public void removeGamePlayer(boolean p_flag, String p_playerName, List<String> p_playerObListTempRem,List<String> p_playerList) 
+	public boolean removeGamePlayer(boolean p_flag, String p_playerName, List<String> p_playerObListTempRem,List<String> p_playerList) 
 	{
 		String l_removeName = "";
 		if (!p_playerList.contains(p_playerName)) {
@@ -88,7 +88,7 @@ public class GamePlayStartUp extends GamePlay {
 		} else {
 			p_playerObListTempRem.add(p_playerName);
 		}
-		
+		return p_flag;
 	}
 	
 	public HashMap<String, GamePlayer> assignCountries(List<String> p_playerList) {

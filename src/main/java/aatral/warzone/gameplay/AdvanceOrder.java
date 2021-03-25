@@ -21,17 +21,26 @@ public class AdvanceOrder extends Order{
 	private String countryFromName;
 	private String countryToName;
 	private String numArmies;
+	public GamePlayer gamePlayerObject;
+	public HashMap<String,GamePlayer> playerObjectList;
+	
+	public AdvanceOrder(String countryFromName, String countryToName, String numArmies)
+	{
+		this.countryFromName = countryFromName;
+		this.countryToName = countryToName;
+		this.numArmies = numArmies;
+	}
 /**
  * execute method is used to execute the game	
  * @param l_playerObjectList player object list
  * @param l_gamePlayerObject game player object
  * 
  */
-	public void execute(HashMap<String, GamePlayer> l_playerObjectList, GamePlayer l_gamePlayerObject)
+	public void execute()
 	{
-		int attackerArmies = getAttackerArmy(l_gamePlayerObject, this.countryFromName);
+		int attackerArmies = getAttackerArmy(this.gamePlayerObject, this.countryFromName);
 		int defenderArmies = getDefenderArmy(this.countryToName);
-		if(isAttack(l_gamePlayerObject, this.countryToName)) {
+		if(isAttack(this.gamePlayerObject, this.countryToName)) {
 			int attackerCanKill = attackerCalc(this.numArmies);
 			int defenderCanKill = defenderCalc(this.numArmies);
 
@@ -39,10 +48,10 @@ public class AdvanceOrder extends Order{
 				attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
 				defenderArmies = defenderArmies==0?Integer.parseInt(this.numArmies):(Integer.parseInt(this.numArmies) - attackerCanKill);
 				boolean flag=true;
-				for(Entry<String, GamePlayer> l_mapEntry : l_playerObjectList.entrySet()) {
+				for(Entry<String, GamePlayer> l_mapEntry : this.playerObjectList.entrySet()) {
 					for(Countries l_countryObject : ((GamePlayer)l_mapEntry.getValue()).getListOfCountries()) {
 						if(l_countryObject.getCountryName().equals(this.countryToName)) {
-							l_gamePlayerObject.getListOfCountries().add(l_countryObject);
+							this.gamePlayerObject.getListOfCountries().add(l_countryObject);
 							((GamePlayer)l_mapEntry.getValue()).getListOfCountries().remove(l_countryObject);
 							flag=false;
 							break;
@@ -61,7 +70,7 @@ public class AdvanceOrder extends Order{
 		}
 		setAttackerArmy(this.countryFromName, attackerArmies);
 		setDefenderArmy(this.countryToName, defenderArmies);
-		System.out.println(l_gamePlayerObject.getPlayerName()+" has executed advance order for the country "+this.countryFromName+" to "+this.countryToName+ " successfully with the armies " +this.numArmies);
+		System.out.println(this.gamePlayerObject.getPlayerName()+" has executed advance order for the country "+this.countryFromName+" to "+this.countryToName+ " successfully with the armies " +this.numArmies);
 	}
 /**
  * isAttack method is used attack

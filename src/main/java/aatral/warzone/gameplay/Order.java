@@ -8,7 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class Order  {
+public class Order {
 	
-    
+	public void execute() {
+    	System.out.println("Execute Orders in Order Class");
+    }
 }

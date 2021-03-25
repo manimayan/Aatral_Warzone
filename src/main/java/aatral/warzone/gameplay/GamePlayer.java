@@ -30,7 +30,7 @@ import lombok.Setter;
  * @version 1.0
  * @since 24-02-2021
  */
-public class GamePlayer{
+public class GamePlayer extends GameEngine{
 
 	public String playerName;
 
@@ -41,6 +41,8 @@ public class GamePlayer{
 	public List<Order> orderObjects;
 	
 	public HashMap<String, Integer> specialCards;
+	
+	public boolean hasConqueredInTurn;
 
 	public boolean advanceInput;
 /**
@@ -52,10 +54,7 @@ public class GamePlayer{
 	public GamePlayer(String playerName, List<Countries> listOfCountries, int armies) {
 		this.orderObjects = new ArrayList<>();
 		this.specialCards = new HashMap<>();
-		this.specialCards.put("bomb", 0);
-		this.specialCards.put("blockade", 0);
-		this.specialCards.put("airlift", 0);
-		this.specialCards.put("negotiate", 0);
+		setSpecialCardValues();
 		this.playerName = playerName;
 		this.listOfCountries=listOfCountries;
 		this.reinforcementArmies=armies;
@@ -67,6 +66,12 @@ public class GamePlayer{
 		});
 	}
 	
+	public void setSpecialCardValues() {
+		this.specialCards.put("bomb", 0);
+		this.specialCards.put("blockade", 0);
+		this.specialCards.put("airlift", 0);
+		this.specialCards.put("negotiate", 0);
+	}
 
 	/**
 	 * ownedCountries method is used to get the list of countries owned by the

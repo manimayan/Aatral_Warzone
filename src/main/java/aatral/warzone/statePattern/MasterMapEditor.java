@@ -230,10 +230,10 @@ public class MasterMapEditor extends MapEditor {
 	}
 
 	@Override
-	public void removeGamePlayer(boolean p_flag, String p_playerName, 
+	public boolean removeGamePlayer(boolean p_flag, String p_playerName, 
 			List<String> l_playerObListTempRem, List<String> p_playerList) {
 		// TODO Auto-generated method stub
-
+		return false;
 	}
 
 	@Override

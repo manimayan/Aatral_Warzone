@@ -56,3 +56,17 @@
 2021-03-24T22:37:46.949  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
 2021-03-24T23:05:24.217  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
 2021-03-25T07:17:48.559  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-25T08:09:35.675  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-25T08:25:27.928  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-25T08:30:27.073  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-25T08:46:38.198  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-25T08:49:48.090  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-25T08:56:24.330  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-25T09:00:24.886  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-25T09:12:53.956  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-25T09:23:12.272  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-25T09:59:21.122  GamePhase: MapEditor Command: "loadmap india" Status: india map loaded
+2021-03-25T10:10:41.439  GamePhase: MapEditor Command: "loadmap india" Status: india map loaded
+2021-03-25T10:14:57.727  GamePhase: MapEditor Command: "loadmap india" Status: india map loaded
+2021-03-25T10:15:32.406  GamePhase: MapEditor Command: "loadmap india" Status: india map loaded
+2021-03-25T10:17:33.174  GamePhase: MapEditor Command: "loadmap india" Status: india map loaded

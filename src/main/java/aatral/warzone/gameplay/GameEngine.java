@@ -176,7 +176,7 @@ public class GameEngine {
 					case "remove":
 						l_playerName = l_option.substring(6).trim();
 						l_playerName = l_playerName.trim();
-						gamePhase.removeGamePlayer(l_flag, l_playerName, l_playerObListTempRem, l_playerList);
+						l_flag = gamePhase.removeGamePlayer(l_flag, l_playerName, l_playerObListTempRem, l_playerList);
 						break;
 					default:
 						System.out.println("Different input has been read...Try again");
@@ -262,6 +262,7 @@ public class GameEngine {
 			do {
 				for (Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
 					l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
+					l_gamePlayerObject.hasConqueredInTurn=false;
 					System.out.println("\n\nAssinging reinforcement for the Player " + l_gameplayObject.getKey());
 					if (l_isFirst) {
 						gamePhase.assignReinforcements(5);
