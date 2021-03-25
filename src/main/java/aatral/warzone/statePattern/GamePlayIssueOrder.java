@@ -10,6 +10,7 @@ import aatral.warzone.gameplay.AdvanceOrder;
 import aatral.warzone.gameplay.DeployOrder;
 import aatral.warzone.gameplay.GameEngine;
 import aatral.warzone.gameplay.GamePlayer;
+import aatral.warzone.gameplay.Order;
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
 
@@ -145,21 +146,37 @@ public class GamePlayIssueOrder extends GamePlay {
 		String l_advanceInput;
 		boolean l_wrongIP = true;
 		while(l_wrongIP) {
-			System.out.println("\nPlayer - "+gameEngine.l_gamePlayerObject.playerName+"\nAdvance Order format for attack/transfer or commit : "
-					+ "\n advance countrynamefrom countynameto numarmies"
-					+ "\n commit");
+			System.out.print("\nPlayer - "+gameEngine.l_gamePlayerObject.playerName+"\nAdvance/Special Order format for attack/transfer or commit : "
+					+ "\n advance countrynamefrom countynameto numarmies");
+			String printOut = gameEngine.checkIfPlayerHasAnyCards(gameEngine.l_gamePlayerObject);
+			if(!printOut.equals("")) {
+				System.out.print(printOut);
+			}
+			System.out.println("\n commit");
 			l_issueCommand = l_input.nextLine();
 			if(l_issueCommand.equals("commit")) {
 				gameEngine.l_gamePlayerObject.advanceInput=true;
 				break;
+			} else if(l_issueCommand.startsWith("bomb")){
+				
+			} else if(l_issueCommand.startsWith("blockade")){
+				
+			} else if(l_issueCommand.startsWith("airlift")){
+				
+			} else if(l_issueCommand.startsWith("negotiate")){
+				
 			} else {
 				l_advanceInput = validateAdvanceInput(l_issueCommand);
 				String l_countryFromName = l_advanceInput.split(" ")[0];
 				String l_countryToName = l_advanceInput.split(" ")[1];
 				String l_numArmies = l_advanceInput.split(" ")[2];
 				if(validatefromName(l_countryFromName) && validateToName(l_countryFromName,l_countryToName)) {
-					gameEngine.l_gamePlayerObject.orderObjects.add(new AdvanceOrder(l_countryFromName, l_countryToName, l_numArmies));
-					l_wrongIP = false;
+					if(validateNumArimes(l_countryFromName, l_numArmies)) {
+						gameEngine.l_gamePlayerObject.orderObjects.add(new AdvanceOrder(l_countryFromName, l_countryToName, l_numArmies));
+						l_wrongIP = false;
+					} else {
+						System.out.println("The given no.of armies is more than the present+deployment army size to perform the action");
+					}
 				} else {
 					if(!validatefromName(l_countryFromName)) {
 						System.out.println("CountryFromName is not under player "+gameEngine.l_gamePlayerObject.playerName);
@@ -258,14 +275,22 @@ public class GamePlayIssueOrder extends GamePlay {
 				break;
 			}
 		}
-
 		return false;
 	}
 
 	public boolean validateNumArimes(String countryFromName, String numArimes) {
+		List<DeployOrder> advOrdersList = new ArrayList<DeployOrder>();
+		for(Order object : gameEngine.l_gamePlayerObject.getOrderObjects()) {
+			if(object instanceof DeployOrder) {
+				advOrdersList.add((DeployOrder) object);
+			}
+		}
 		for(Countries countryObject : gameEngine.l_gamePlayerObject.getListOfCountries()) {
-			if(countryObject.getCountryName().equals(countryFromName) && countryObject.getArmies()>=Integer.parseInt(numArimes)) {
-				return true;
+			for(DeployOrder order : advOrdersList) {
+				if(order.getCountryID().equals(countryObject.getCountryId()) && countryObject.getCountryName().equals(countryFromName) && 
+						(countryObject.getArmies()+Integer.parseInt(order.getArmies()))>=Integer.parseInt(numArimes)) {
+					return true;
+				}
 			}
 		}
 		return false;

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Random;
 
 import aatral.warzone.gameplay.AdvanceOrder;
 import aatral.warzone.gameplay.DeployOrder;
@@ -109,8 +110,9 @@ public class GamePlayOrderExecution extends GamePlay {
 						deployOrderObj.execute(gameEngine.l_gamePlayerObject);
 						ordersExist = true;
 						System.out.println();
-					}else {
+					} else {
 						gameEngine.l_gamePlayerObject.pushBackOrder(orderObj);
+						continue;
 					}
 				}		
 			}
@@ -129,11 +131,18 @@ public class GamePlayOrderExecution extends GamePlay {
 						advanceyOrderObj.execute(gameEngine.l_playerObjectList, gameEngine.l_gamePlayerObject);
 						ordersExist = true;
 						System.out.println();
-					}else {
+					} else {
 						gameEngine.l_gamePlayerObject.pushBackOrder(orderObj);
 					}
 				}		
 			}
+//			if(gameEngine.checkIfPlayerConqueredContinent(gameEngine.l_gamePlayerObject)) {
+//				int randomCardValue = new Random().nextInt(4);
+//				GamePlayer object = gameEngine.l_gamePlayerObject;
+//				List<String> stringCardNames = (List<String>) object.getSpecialCards().keySet();
+//				object.getSpecialCards().replace(stringCardNames.get(randomCardValue), 
+//						object.getSpecialCards().get(stringCardNames.get(randomCardValue))+1);
+//			}
 		}
 	}
 

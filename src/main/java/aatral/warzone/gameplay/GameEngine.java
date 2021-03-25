@@ -2,6 +2,7 @@ package aatral.warzone.gameplay;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -43,6 +44,7 @@ public class GameEngine {
 	public GamePlayer l_gamePlayerObject;
 	public String l_gameIssueOrder;
 	private boolean l_gamePlayPopulateFlag;
+	private boolean l_isFirst = true;
 
 	LogEntryBuffer log = new LogEntryBuffer();
 	LogWriter logWriter = new LogWriter(log);
@@ -68,7 +70,6 @@ public class GameEngine {
 
 		// Main running block of game
 		while (proceed) {
-
 			// showing the available maps
 			System.out.println("\nThe below are the available maps\n");
 			InputProcessor l_ip = new InputProcessor();
@@ -107,6 +108,7 @@ public class GameEngine {
 						gamePhase.next();
 						l_gamePlayerObject = new GamePlayer();
 						l_masterMap = gamePhase.loadMap(l_warZoneMaps);
+//						l_PastmasterMapCopy.putAll(l_masterMap);
 						gameUserMenu();
 					} else {
 						log.info("MapEditor", "\"loadmap " + l_warZoneMaps + "\"",
@@ -147,7 +149,7 @@ public class GameEngine {
 		boolean l_gamePlayFlag = true;
 		while (l_gamePlayFlag) {
 			System.out.println("\n\nGameplay Format : " + "\n showmap"
-					+ "\n gameplayer -add playerName1,playerName2 -remove playerName" + "\n startgame" + "\n exitgame");
+					+ "\n gameplayer -add playerName -remove playerName" + "\n startgame" + "\n exitgame");
 			String l_playOption = l_input.nextLine();
 			switch (l_playOption.split(" ")[0]) {
 			case "startgame":
@@ -188,6 +190,7 @@ public class GameEngine {
 					l_playOption = l_input.nextLine();
 					switch (l_playOption) {
 					case "assigncountries":
+						l_isFirst=true;
 						l_playerList.addAll(l_playerObListTempAdd);
 						l_playerList.removeAll(l_playerObListTempRem);
 						l_playerObjectList = gamePhase.assignCountries(l_playerList);
@@ -238,6 +241,7 @@ public class GameEngine {
 						l_readInput = l_input.nextLine();
 						switch (l_readInput) {
 						case "startnewgame":
+							l_isFirst = true;
 							l_playerObjectList=gamePhase.assignCountries(l_playerList);
 							l_innerLoopflag = false;
 							break;
@@ -255,7 +259,6 @@ public class GameEngine {
 				l_gamePlayPopulateFlag = false;
 			}
 
-			boolean l_isFirst = true;
 			do {
 				for (Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
 					l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
@@ -301,6 +304,7 @@ public class GameEngine {
 
 				gamePhase.next();
 				gamePhase.executeOrders();
+				
 				
 				l_innerLoopflag = true;
 				while (l_innerLoopflag) {
@@ -357,6 +361,67 @@ public class GameEngine {
 		}
 		return l_countryID;
 	}
+	
+	public String checkIfPlayerHasAnyCards(GamePlayer playerObj) {
+		String value = "";
+		for(Map.Entry playerCard : playerObj.getSpecialCards().entrySet()) {
+			if((int)playerCard.getValue()!=0)
+			{
+				switch((String)playerCard.getKey()) {
+				case "bomb":
+					value+="\n bomb countryID";
+					break;
+				case "blockade":
+					value+="\n blockade countryID";
+					break;
+				case "airlift":
+					value+="\n airlift sourcecountryID targetcountryID numarmies";
+					break;
+				case "negotiate":
+					value+="\n negotiate playerID";
+					break;
+				}
+			}
+		}
+		return value;
+	}
+	
+//	public boolean checkIfPlayerConqueredContinent(GamePlayer playerObj)
+//	{
+//		for (Map.Entry mapEntry : l_masterMap.entrySet()) {
+//			ArrayList<String> currentCountryIds = new ArrayList<String>();
+//			ArrayList<String> pastCountryIds = new ArrayList<String>();
+//			Set<Countries> currentSet = ((Continent) mapEntry.getValue()).getContinentOwnedCountries();
+//			Set<Countries> pastSet = l_PastmasterMapCopy.get(( mapEntry.getKey())).getContinentOwnedCountries();
+//		    currentCountryIds = (ArrayList<String>)countryIdsFromObjectsList(currentSet);
+//		    pastCountryIds = (ArrayList<String>)countryIdsFromObjectsList(pastSet);
+//		    ArrayList<String> currentCountryIdsCopy = new ArrayList<String>();
+//		    currentCountryIds.removeAll(pastCountryIds);
+//			if(currentCountryIds.size()!=0)
+//			{
+//				ArrayList<Countries> playerOwnedCountries = (ArrayList<Countries>) playerObj.listOfCountries;
+//				ArrayList<String> playerCountryIds =  (ArrayList<String>)countryIdsFromObjectsList(new HashSet<>(playerOwnedCountries));
+//				currentCountryIdsCopy.removeAll(playerCountryIds);
+//				if(currentCountryIdsCopy.size()==0)
+//					return true;
+//			}
+//		}
+//		
+//		return false;
+//		
+//	}
+//	
+//	public List<String> countryIdsFromObjectsList(Set<Countries> countriesList)
+//	{
+//		List<String> countryIds = new ArrayList<String>();
+//		for (Countries i : countriesList)  
+//		{
+//			 countryIds.add(i.getCountryId());
+//		}
+//		
+//		return countryIds;
+//		
+//	}
 
 	/**
 	 * getContinentName method is used to get the continent name using continent id
@@ -397,6 +462,8 @@ public class GameEngine {
 		}
 		return l_reinforcementCount < 3 ? 3 : l_reinforcementCount;
 	}
+	
+	
 
 	public String countriesUnderPlayerAsString(Countries p_countryObject) {
 		String borderingCountries = "";
@@ -415,6 +482,9 @@ public class GameEngine {
 		}
 		return borderingCountries.substring(2);
 	}
+	
+	
+	
 
 	/**
 	 * showMapPlayer method is used to show the map corresponds to game player name

@@ -3,6 +3,7 @@ package aatral.warzone.gameplay;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -29,7 +30,7 @@ import lombok.Setter;
  * @version 1.0
  * @since 24-02-2021
  */
-public class GamePlayer implements Comparator<Countries> {
+public class GamePlayer{
 
 	public String playerName;
 
@@ -38,11 +39,18 @@ public class GamePlayer implements Comparator<Countries> {
 	public int reinforcementArmies;
 
 	public List<Order> orderObjects;
+	
+	public HashMap<String, Integer> specialCards;
 
 	public boolean advanceInput;
 
 	public GamePlayer(String playerName, List<Countries> listOfCountries, int armies) {
 		this.orderObjects = new ArrayList<>();
+		this.specialCards = new HashMap<>();
+		this.specialCards.put("bomb", 0);
+		this.specialCards.put("blockade", 0);
+		this.specialCards.put("airlift", 0);
+		this.specialCards.put("negotiate", 0);
 		this.playerName = playerName;
 		this.listOfCountries=listOfCountries;
 		this.reinforcementArmies=armies;
@@ -53,12 +61,7 @@ public class GamePlayer implements Comparator<Countries> {
 			}
 		});
 	}
-
-	@Override
-	public int compare(Countries o1, Countries o2) {
-		// TODO Auto-generated method stub
-		return Integer.parseInt(o1.getCountryId()) - Integer.parseInt(o2.getCountryId());
-	}
+	
 
 	/**
 	 * ownedCountries method is used to get the list of countries owned by the
