@@ -41,18 +41,18 @@ public class GameplayIssueOrderTest {
 	{
 		GameEngine obj= new GameEngine();
 		GamePlayIssueOrder gp = new  GamePlayIssueOrder(obj);
-		String actual = gp.validateDeployInput("deploy 24 4, 23 3");
+		String actual = gp.validateDeployInput("deploy 24 4");
 		//System.out.println(" 24 4, 23 3");
-		String expected = " 24 4, 23 3";
+		String expected = " 24 4";
 		assertTrue(actual.equals(expected));
 	}
 	public void validateDeployInputTestNegative()
 	{
 		GameEngine obj= new GameEngine();
 		GamePlayIssueOrder gp = new GamePlayIssueOrder(obj);
-		String actual = gp.validateDeployInput("deploy 24 4, 23 3");
+		String actual = gp.validateDeployInput("deploy 24 4");
 		//System.out.println(" 24 4, 23 3");
-		String expected = " 24 4, 23 3";
+		String expected = " 24 4";
 		assertTrue(actual.equals(expected));
 	}
 	@Test
