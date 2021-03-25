@@ -11,13 +11,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Continent {
-	
+
 	public Continent(InputContinent l_continent, Set<Countries> continentOwnedCountries) {
-		
+
 		this.ContinentId = l_continent.getContinentId();
 		this.ContinentName = l_continent.getContinentName();
 		this.ContinentValue = l_continent.getContinentValue();
-		this.continentOwnedCountries= continentOwnedCountries;
+		this.continentOwnedCountries = continentOwnedCountries;
 	}
 
 	private String ContinentId;
@@ -25,6 +25,6 @@ public class Continent {
 	private String ContinentName;
 
 	private String ContinentValue;
-	
-    Set<Countries> continentOwnedCountries =  new HashSet<>();
+
+	Set<Countries> continentOwnedCountries = new HashSet<>();
 }

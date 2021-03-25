@@ -45,7 +45,7 @@ public class GameEngine {
 	public String l_gameIssueOrder;
 	private boolean l_gamePlayPopulateFlag;
 	private boolean l_isFirst = true;
-
+	public static List<Countries> l_neutralCountries = new ArrayList<>();
 	LogEntryBuffer log = new LogEntryBuffer();
 	LogWriter logWriter = new LogWriter(log);
 
@@ -176,7 +176,7 @@ public class GameEngine {
 					case "remove":
 						l_playerName = l_option.substring(6).trim();
 						l_playerName = l_playerName.trim();
-						gamePhase.removeGamePlayer(l_flag, l_playerName, l_playerObListTempRem, l_playerList);
+						l_flag = gamePhase.removeGamePlayer(l_flag, l_playerName, l_playerObListTempRem, l_playerList);
 						break;
 					default:
 						System.out.println("Different input has been read...Try again");
@@ -404,6 +404,42 @@ public class GameEngine {
 		return value;
 	}
 	
+//	public boolean checkIfPlayerConqueredContinent(GamePlayer playerObj)
+//	{
+//		for (Map.Entry mapEntry : l_masterMap.entrySet()) {
+//			ArrayList<String> currentCountryIds = new ArrayList<String>();
+//			ArrayList<String> pastCountryIds = new ArrayList<String>();
+//			Set<Countries> currentSet = ((Continent) mapEntry.getValue()).getContinentOwnedCountries();
+//			Set<Countries> pastSet = l_PastmasterMapCopy.get(( mapEntry.getKey())).getContinentOwnedCountries();
+//		    currentCountryIds = (ArrayList<String>)countryIdsFromObjectsList(currentSet);
+//		    pastCountryIds = (ArrayList<String>)countryIdsFromObjectsList(pastSet);
+//		    ArrayList<String> currentCountryIdsCopy = new ArrayList<String>();
+//		    currentCountryIds.removeAll(pastCountryIds);
+//			if(currentCountryIds.size()!=0)
+//			{
+//				ArrayList<Countries> playerOwnedCountries = (ArrayList<Countries>) playerObj.listOfCountries;
+//				ArrayList<String> playerCountryIds =  (ArrayList<String>)countryIdsFromObjectsList(new HashSet<>(playerOwnedCountries));
+//				currentCountryIdsCopy.removeAll(playerCountryIds);
+//				if(currentCountryIdsCopy.size()==0)
+//					return true;
+//			}
+//		}
+//		
+//		return false;
+//		
+//	}
+//	
+//	public List<String> countryIdsFromObjectsList(Set<Countries> countriesList)
+//	{
+//		List<String> countryIds = new ArrayList<String>();
+//		for (Countries i : countriesList)  
+//		{
+//			 countryIds.add(i.getCountryId());
+//		}
+//		
+//		return countryIds;
+//		
+//	}
 
 	/**
 	 * getContinentName method is used to get the continent name using continent id

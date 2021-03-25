@@ -45,6 +45,9 @@ public class GamePlayer extends GameEngine{
 	public boolean hasConqueredInTurn;
 
 	public boolean advanceInput;
+	
+	public List<String> diplomacyCountries = new ArrayList<>();
+	
 /**
  * GamePlayer method is used to assign the player values for the game
  * @param playerName player name

@@ -139,27 +139,7 @@ public class GamePlayOrderExecution extends GamePlay {
 						advanceOrderObj.execute();
 						ordersExist = true;
 						System.out.println();
-					} else {
-						gameEngine.l_gamePlayerObject.pushBackOrder(orderObj);
-					}
-				}		
-			}
-		}
-		if(gameEngine.l_gamePlayerObject.hasConqueredInTurn) {
-			int randomCardValue = new Random().nextInt(4);
-			GamePlayer object = gameEngine.l_gamePlayerObject;
-			List<String> stringCardNames = (List<String>) object.getSpecialCards().keySet();
-			object.getSpecialCards().replace(stringCardNames.get(randomCardValue), object.getSpecialCards().get(stringCardNames.get(randomCardValue))+1);
-		}
-		
-		ordersExist = true;
-		while(ordersExist) {
-			ordersExist = false;
-			for (Map.Entry l_gameplayObject : gameEngine.l_playerObjectList.entrySet()) {
-				gameEngine.l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
-				if(gameEngine.l_gamePlayerObject.orderObjects.size() >0) {
-					Order orderObj = gameEngine.l_gamePlayerObject.NextOrder();
-					if(orderObj instanceof BombCard)
+					}else if(orderObj instanceof BombCard)
 					{
 						System.out.println("\n\nExecueting Special Order for the player " + gameEngine.l_gamePlayerObject.getPlayerName());
 						BombCard bombObj = (BombCard)orderObj;
@@ -193,6 +173,12 @@ public class GamePlayOrderExecution extends GamePlay {
 					}
 				}		
 			}
+		}
+		if(gameEngine.l_gamePlayerObject.hasConqueredInTurn) {
+			int randomCardValue = new Random().nextInt(4);
+			GamePlayer object = gameEngine.l_gamePlayerObject;
+			List<String> stringCardNames = (List<String>) object.getSpecialCards().keySet();
+			object.getSpecialCards().replace(stringCardNames.get(randomCardValue), object.getSpecialCards().get(stringCardNames.get(randomCardValue))+1);
 		}
 	}
 
