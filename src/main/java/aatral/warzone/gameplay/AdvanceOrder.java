@@ -7,6 +7,8 @@ import java.util.Set;
 
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
+import aatral.warzone.observerPattern.LogEntryBuffer;
+import aatral.warzone.observerPattern.LogWriter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +25,9 @@ public class AdvanceOrder extends Order{
 	private String numArmies;
 	public GamePlayer gamePlayerObject;
 	public HashMap<String,GamePlayer> playerObjectList;
-	
+//	LogEntryBuffer log = new LogEntryBuffer();
+//	LogWriter logWriter = new LogWriter(log);
+
 	public AdvanceOrder(String countryFromName, String countryToName, String numArmies)
 	{
 		this.countryFromName = countryFromName;
@@ -40,13 +44,13 @@ public class AdvanceOrder extends Order{
 	{
 		int attackerArmies = getAttackerArmy(this.gamePlayerObject, this.countryFromName);
 		int defenderArmies = getDefenderArmy(this.countryToName);
+		System.out.println("Before attack "+attackerArmies+" "+defenderArmies);
 		if(isAttack(this.gamePlayerObject, this.countryToName)) {
 			int attackerCanKill = attackerCalc(this.numArmies);
-			int defenderCanKill = defenderCalc(this.numArmies);
-
-			if(attackerCanKill>defenderArmies) {
-				attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
-				defenderArmies = defenderArmies==0?Integer.parseInt(this.numArmies):(Integer.parseInt(this.numArmies) - attackerCanKill);
+			int defenderCanKill = defenderCalc(defenderArmies+"");
+			attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
+			if(defenderArmies <= attackerCanKill) {
+				defenderArmies = defenderArmies==0?Integer.parseInt(this.numArmies): (Integer.parseInt(this.numArmies) - defenderCanKill);
 				boolean flag=true;
 				for(Entry<String, GamePlayer> l_mapEntry : this.playerObjectList.entrySet()) {
 					for(Countries l_countryObject : ((GamePlayer)l_mapEntry.getValue()).getListOfCountries()) {
@@ -60,17 +64,16 @@ public class AdvanceOrder extends Order{
 					if(!flag)
 						break;
 				}
-			}else {
-				attackerArmies = attackerArmies - defenderCanKill;
+				gamePlayerObject.hasConqueredInTurn=true;
+			} else {
+				attackerArmies = Math.max(0, attackerArmies + Integer.parseInt(this.numArmies) - defenderCanKill);
 				defenderArmies = defenderArmies - attackerCanKill;
 			}
-		}else {
-			attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
-			defenderArmies = defenderArmies + Integer.parseInt(this.numArmies);
+			setAttackerArmy(this.countryFromName, attackerArmies);
+			setDefenderArmy(this.countryToName, defenderArmies);
+			System.out.println("After attack "+attackerArmies+" "+defenderArmies+" ");
+			System.out.println(this.gamePlayerObject.getPlayerName()+" has executed advance order for the country "+this.countryFromName+" to "+this.countryToName+ " successfully with the armies " +this.numArmies);
 		}
-		setAttackerArmy(this.countryFromName, attackerArmies);
-		setDefenderArmy(this.countryToName, defenderArmies);
-		System.out.println(this.gamePlayerObject.getPlayerName()+" has executed advance order for the country "+this.countryFromName+" to "+this.countryToName+ " successfully with the armies " +this.numArmies);
 	}
 /**
  * isAttack method is used attack
@@ -143,11 +146,9 @@ public class AdvanceOrder extends Order{
  */
 	public int getDefenderArmy(String p_countryToName) {
 		for(Entry<String, Continent> l_mapEntry : GameEngine.l_masterMap.entrySet()) {
-			if(((Continent)l_mapEntry.getValue()).getContinentOwnedCountries().contains(p_countryToName)) {
-				for(Countries l_countryObject : ((Continent)l_mapEntry.getValue()).getContinentOwnedCountries()) {
-					if(l_countryObject.getCountryName().equals(p_countryToName)) {
-						return l_countryObject.getArmies();
-					}
+			for(Countries l_countryObject : ((Continent)l_mapEntry.getValue()).getContinentOwnedCountries()) {
+				if(l_countryObject.getCountryName().equals(p_countryToName)) {
+					return l_countryObject.getArmies();
 				}
 			}
 		}

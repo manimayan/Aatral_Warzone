@@ -22,3 +22,14 @@
 2021-03-21T15:26:06.294  GamePhase: MapEditor Command: editNeighbor add 32 31  Status: borders added successfully
 2021-03-21T15:26:20.999  GamePhase: MapEditor Command: editNeighbor add 32 33  Status: The countryId or Neighboring countryId is invalid
 2021-03-25T09:54:57.766  GamePhase: MapEditor Command: "loadmap india" Status: india map loaded
+2021-03-25T12:02:27.650  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-25T12:17:12.975  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-25T12:57:45.114  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-25T13:05:29.898  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-25T13:07:54.184  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-25T13:11:24.882  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-25T13:17:03.209  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-25T13:17:39.345  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-25T13:28:54.794  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-25T13:32:37.872  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-25T13:46:25.811  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
