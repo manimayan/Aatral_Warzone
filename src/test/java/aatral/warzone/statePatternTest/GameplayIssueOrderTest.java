@@ -1,6 +1,9 @@
-package aatral.warzone.gameplayTest;
+package aatral.warzone.statePatternTest;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -9,9 +12,11 @@ import java.util.Scanner;
 import org.junit.Before;
 import org.junit.Test;
 
+import aatral.warzone.gameplay.GameEngine;
 import aatral.warzone.gameplay.GamePlayer;
+import aatral.warzone.statePattern.GamePlayIssueOrder;
 
-public class GamePlayerTest {
+public class GameplayIssueOrderTest {
 	@Before
 	public void constructor()
 	{
@@ -34,7 +39,8 @@ public class GamePlayerTest {
 	@Test
 	public void validateDeployInputTest()
 	{
-		GamePlayer gp = new GamePlayer();
+		GameEngine obj= new GameEngine();
+		GamePlayIssueOrder gp = new  GamePlayIssueOrder(obj);
 		String actual = gp.validateDeployInput("deploy 24 4, 23 3");
 		//System.out.println(" 24 4, 23 3");
 		String expected = " 24 4, 23 3";
@@ -42,7 +48,8 @@ public class GamePlayerTest {
 	}
 	public void validateDeployInputTestNegative()
 	{
-		GamePlayer gp = new GamePlayer();
+		GameEngine obj= new GameEngine();
+		GamePlayIssueOrder gp = new GamePlayIssueOrder(obj);
 		String actual = gp.validateDeployInput("deploy 24 4, 23 3");
 		//System.out.println(" 24 4, 23 3");
 		String expected = " 24 4, 23 3";
@@ -51,7 +58,8 @@ public class GamePlayerTest {
 	@Test
 	public void calculateInputArmiesTest()
 	{
-		GamePlayer gp = new GamePlayer();
+		GameEngine obj= new GameEngine();
+		GamePlayIssueOrder gp = new GamePlayIssueOrder(obj);
 		int actual = gp.calculateInputArmies("deploy 23");
 		int expected=23;
 		assertEquals(expected,actual);
@@ -60,7 +68,8 @@ public class GamePlayerTest {
 	@Test
 	public void validateInputArmies()
 	{
-		GamePlayer gp = new GamePlayer();
+		GameEngine obj= new GameEngine();
+		GamePlayIssueOrder gp = new GamePlayIssueOrder(obj);
 		boolean actual = gp.validateInputArmies(21,24);
 		boolean expected = true;
 		assertEquals(expected,actual);
@@ -68,7 +77,8 @@ public class GamePlayerTest {
 	@Test
 	public void validateInputArmiesNegative()
 	{
-		GamePlayer gp = new GamePlayer();
+		GameEngine obj= new GameEngine();
+		GamePlayIssueOrder gp = new GamePlayIssueOrder(obj);
 		boolean actual = gp.validateInputArmies(24,21);
 		boolean expected = false;
 		assertEquals(expected,actual);
@@ -76,27 +86,30 @@ public class GamePlayerTest {
 	@Test
 	public void validateCountryValueTest()
 	{
-		GamePlayer gp = new GamePlayer();
+		GameEngine obj= new GameEngine();
+		GamePlayIssueOrder gp = new GamePlayIssueOrder(obj);
 	boolean actual =	gp.validateCountryValue("india");
 		assertEquals(false,actual);
 	}
 	@Test
 	public void validateCountryValueTestNegative()
 	{
-		GamePlayer gp = new GamePlayer();
+		GameEngine obj= new GameEngine();
+		GamePlayIssueOrder gp = new GamePlayIssueOrder(obj);
 	boolean actual =	gp.validateCountryValue("");
 		assertEquals(true,actual);
 	}
 	/*@Test
 	public void validateCountryInputTest()
 	{
-		GamePlayer gp = new GamePlayer();
+		GameEngine ge=new GameEngine();
+		GamePlayIssueOrder gp = new GamePlayIssueOrder(ge);
 		GamePlayer gp1 = new GamePlayer();
 		String actual=gp.validateCountryInput(" 23 4",gp1);
-		
-	assertTrue(actual.length()!=0);
+		String expected="";
+	assertNotEquals(actual,expected);
 		
 	}
 */
-}
 
+}

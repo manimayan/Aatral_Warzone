@@ -4,12 +4,15 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import aatral.warzone.gameplayTest.AdvanceOrderTest;
 import aatral.warzone.gameplayTest.GameEngineTest;
-import aatral.warzone.gameplayTest.GamePlayerTest;
+//import aatral.warzone.gameplayTest.GamePlayerTest;
 import aatral.warzone.mapeditorTest.ComposeGraphImplTest;
 import aatral.warzone.mapeditorTest.EditMapTest;
 import aatral.warzone.mapeditorTest.MapEditorTest;
 import aatral.warzone.mapeditorTest.ValidateMapImplTest;
+import aatral.warzone.statePatternTest.GameplayIssueOrderTest;
+import aatral.warzone.statePatternTest.MasterMapEditorTest;
 import aatral.warzone.utilitiesTest.ContinentMapReaderTest;
 import aatral.warzone.utilitiesTest.CountryBorderReaderTest;
 import aatral.warzone.utilitiesTest.GraphTest;
@@ -25,7 +28,9 @@ import aatral.warzone.utilitiesTest.InputProcessorTest;
 	GraphTest.class,
 	GameEngineTest.class,
 	InputProcessorTest.class,
-	GamePlayerTest.class,
+	GameplayIssueOrderTest.class,
+	MasterMapEditorTest.class,
+	AdvanceOrderTest.class,
 	
 
 	})
