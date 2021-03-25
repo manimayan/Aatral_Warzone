@@ -28,7 +28,7 @@ public class GamePlayStartUp extends GamePlay {
 	 * LoadMap method is used to Load the map and convert into continent,countries
 	 * and borders
 	 * 
-	 * @param p_warZoneMap
+	 * @param p_warZoneMap war zone map
 	 * @return masterMap 
 	 */
 	@Override
@@ -63,6 +63,8 @@ public class GamePlayStartUp extends GamePlay {
 		return masterMap;
 	}
 
+	
+
 	public void addGamePlayer(String l_playerName, ArrayList<String> p_playerObListTempAdd,
 			List<String> p_playerList) {
 
@@ -73,8 +75,8 @@ public class GamePlayStartUp extends GamePlay {
 		}
 	}
 	
-	public void removeGamePlayer(boolean p_flag, String p_playerName, List<String> p_playerObListTempRem,
-			List<String> p_playerList) {
+	public void removeGamePlayer(boolean p_flag, String p_playerName, List<String> p_playerObListTempRem,List<String> p_playerList) 
+	{
 		String l_removeName = "";
 		if (!p_playerList.contains(p_playerName)) {
 			l_removeName = p_playerName;

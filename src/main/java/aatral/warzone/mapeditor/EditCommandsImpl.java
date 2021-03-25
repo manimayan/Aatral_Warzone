@@ -309,7 +309,7 @@ public class EditCommandsImpl {
 	}
 
 	/**
-	 * editNeighboutMap method is used to add or remove the neighbor
+	 * editNeighbourMap method is used to add or remove the neighbor
 	 * 
 	 * @param warZoneMap:     map of warzone.
 	 * @param neighborString: neighbour.
