@@ -1,0 +1,6 @@
+1 Chennai 1
+2 Coimbatore 1
+3 Hyderabad 2
+4 Guntur 2
+5 Kochin 3
+6 Trivandram 3

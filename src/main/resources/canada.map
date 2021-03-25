@@ -6,6 +6,7 @@
 4 Western_Provinces-North 2
 5 Nunavut 3
 6 Northwestern_Territories 2
+7 addedContinent 3
 
  
  [Countries]
@@ -40,6 +41,7 @@
 29 NT-Victoria_Island-West 6
 30 Northwest_Territories-Continental 6
 31 Yukon_Territory 6
+32 addedCountry 7
 
  
  [Borders]
@@ -74,3 +76,4 @@
 29 24 27 28 30
 30 17 28 18 29 19 31 21
 31 17 30 32
+32 31
