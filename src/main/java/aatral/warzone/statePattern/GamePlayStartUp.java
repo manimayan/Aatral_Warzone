@@ -20,6 +20,15 @@ import aatral.warzone.utilities.ContinentMapReader;
 import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
 
+
+
+/**
+ * <h1>GamePlayStartUp</h1> This abstract class implements the state pattern for Game Play StartUp phase
+ *
+ * @author Tejeswini
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class GamePlayStartUp extends GamePlay {
 
 	LogEntryBuffer log = new LogEntryBuffer();
@@ -69,7 +78,6 @@ public class GamePlayStartUp extends GamePlay {
 	}
 
 	
-
 	public void addGamePlayer(String l_playerName, ArrayList<String> p_playerObListTempAdd,
 			List<String> p_playerList) {
 

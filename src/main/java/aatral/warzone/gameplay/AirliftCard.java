@@ -16,7 +16,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+/**
+ * <h1>AirliftCard</h1> The Class is the transfer the armies under the same player without having the restriction of adjacency 
+ *
+ * @author Tejeswini
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class AirliftCard extends Order{
 	public String sourceCountryID;
 	public String targetCountryID;
@@ -31,7 +37,9 @@ public class AirliftCard extends Order{
 		this.targetCountryID = targetCountryID;
 		this.numArmies = numArmies;
 	}
-	
+/**
+ * execute method is used to execute the game play	
+ */
 	public void execute() {
 		
 		for(Entry<String, Continent> l_mapEntry : GameEngine.l_masterMap.entrySet()) {

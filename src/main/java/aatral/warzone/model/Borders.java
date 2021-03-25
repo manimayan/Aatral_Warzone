@@ -8,6 +8,15 @@ import lombok.Setter;
 
 @Getter
 @Setter
+
+
+/**
+ * <h1>Borders</h1> The Class has border values of dependency map
+ *
+ * @author Vignesh
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class Borders {
 
 	public Borders(InputBorders l_Borders) {

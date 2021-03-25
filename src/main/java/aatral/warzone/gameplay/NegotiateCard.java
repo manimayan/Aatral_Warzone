@@ -12,7 +12,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+/**
+ * <h1>NegotiateCard</h1> The Class is used to prevents allied players from attacking each other 
+ *
+ * @author Manimaran
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class NegotiateCard extends Order{
 	public String playerID;
 	public GamePlayer gamePlayerObject;
@@ -20,7 +26,9 @@ public class NegotiateCard extends Order{
 	public NegotiateCard(String playerID) {
 		this.playerID = playerID;
 	}
-	
+/**
+ * execute method is used to execute the negotiate card function
+ */
 	public void execute() {
 		
 		gamePlayerObject.diplomacyCountries.add(this.playerID);

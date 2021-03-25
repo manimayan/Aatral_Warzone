@@ -20,6 +20,15 @@ import aatral.warzone.model.Countries;
 import aatral.warzone.observerPattern.LogEntryBuffer;
 import aatral.warzone.observerPattern.LogWriter;
 
+
+
+/**
+ * <h1>GamePlayIssueOrder</h1> This abstract class implements the state pattern for game play issue order
+ *
+ * @author Vignesh
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class GamePlayIssueOrder extends GamePlay {
 
 	LogEntryBuffer log = new LogEntryBuffer();
@@ -105,7 +114,9 @@ public class GamePlayIssueOrder extends GamePlay {
 			break;
 		}
 	}
-
+/**
+ * deployOrder method is used to deploy the order of gameplay
+ */
 	public void deployOrder() {
 		GamePlayer p_gameplayerObj = gameEngine.l_gamePlayerObject;
 		Scanner l_input = new Scanner(System.in);
@@ -151,7 +162,9 @@ public class GamePlayIssueOrder extends GamePlay {
 			}
 		}
 	}
-
+/**
+ * advanceOrder method is used to execute the advance order function
+ */
 	public void advanceOrder() {
 		Scanner l_input = new Scanner(System.in);
 		String l_issueCommand;
@@ -249,7 +262,11 @@ public class GamePlayIssueOrder extends GamePlay {
 			}
 		}
 	}
-	
+/**
+ * validateCard method is used to validate the card using name
+ * @param cardName name of the card
+ * @return true
+ */
 	public boolean validateCard(String cardName) {
 		for(Map.Entry cardList : gameEngine.l_gamePlayerObject.getSpecialCards().entrySet()) {
 			if(cardList.getKey().equals(cardName) && (int)cardList.getValue()>0) {
@@ -259,14 +276,22 @@ public class GamePlayIssueOrder extends GamePlay {
 		return false;
 	}
 	
-	
+/**
+ * validatePlayerID method is used to validate the player ID
+ * @param playerID player ID
+ * @return true
+ */
 	public boolean validatePlayerID(String playerID) {
 		if( gameEngine.getL_playerList().contains(playerID)) {
 			return true;
 		}
 		return false;
 	}
-	
+/**
+ * 	validateNegotiateCommand method is used to validate the negotiate input command
+ * @param p_issueCommand issue command
+ * @return substring of input value
+ */
 	public String validateNegotiateCommand(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("negotiate") && p_issueCommand.split(" ").length ==2)) {
@@ -277,7 +302,11 @@ public class GamePlayIssueOrder extends GamePlay {
 		}
 		return p_issueCommand.substring(10);
 	}
-	
+/**
+ * validateAirliftCommand method is used to validate the air lift input command
+ * @param p_issueCommand issue command
+ * @return substring of input value
+ */
 	public String validateAirliftCommand(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("airlift") && p_issueCommand.split(" ").length ==4)) {
@@ -288,7 +317,11 @@ public class GamePlayIssueOrder extends GamePlay {
 		}
 		return p_issueCommand.substring(8);
 	}
-	
+	/**
+	 * validateBlockadeCommand method is used to validate the validateBlockadeCommand
+	 * @param p_issueCommand issue command
+	 * @return substring of input value
+	 */	
 	public String validateBlockadeCommand(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("blockade") && p_issueCommand.split(" ").length ==2)) {
@@ -300,7 +333,11 @@ public class GamePlayIssueOrder extends GamePlay {
 		return p_issueCommand.substring(9);
 	}
 	
-	
+	/**
+	 * validateBombCommand method is used to validate the validateBombCommand
+	 * @param p_issueCommand issue command
+	 * @return substring of input value
+	 */		
 	public String validateBombCommand(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("bomb") && p_issueCommand.split(" ").length ==2)) {
@@ -311,7 +348,11 @@ public class GamePlayIssueOrder extends GamePlay {
 		}
 		return p_issueCommand.substring(5);
 	}
-	
+	/**
+	 * validateDeployInput method is used to validate the validateDeployInput
+	 * @param p_issueCommand issue command
+	 * @return substring of input value
+	 */			
 	public String validateDeployInput(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("deploy") && p_issueCommand.split(" ").length ==3)) {
@@ -323,7 +364,11 @@ public class GamePlayIssueOrder extends GamePlay {
 		
 		return p_issueCommand.substring(6);
 	}
-
+	/**
+	 * validateAdvanceInput method is used to validate the validateAdvanceInput
+	 * @param p_issueCommand issue command
+	 * @return substring of input value
+	 */	
 	public String validateAdvanceInput(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("advance") && p_issueCommand.split(" ").length ==4)) {
@@ -346,11 +391,20 @@ public class GamePlayIssueOrder extends GamePlay {
 	public int calculateInputArmies(String p_deployInput) {
 		return Integer.parseInt(p_deployInput.trim().split(" ")[1]);
 	}
-
+/**
+ * validateInputArmies method is used to verify the greatest army value
+ * @param p_inputArmies input army
+ * @param p_availableArmies available army
+ * @return greater armies value
+ */
 	public boolean validateInputArmies(int p_inputArmies, int p_availableArmies) {
 		return p_inputArmies <= p_availableArmies;
 	}
-
+/**
+ * validateAdjCountry method is used to validate the adjacency
+ * @param countryID country ID
+ * @return true
+ */
 	public boolean validateAdjCountry(String countryID) {
 		for(Countries countryObj : gameEngine.l_gamePlayerObject.getListOfCountries()) {
 			for(String adjCountryID : countryObj.getCountryOwnedBorders()) {
@@ -361,7 +415,11 @@ public class GamePlayIssueOrder extends GamePlay {
 		}
 		return false;
 	}
-	
+/**
+ * validatePlayerCountryID method is used to validate the player country ID
+ * @param countryID country ID
+ * @return true
+ */
 	public boolean validatePlayerCountryID(String countryID) {
 		for(Countries countryObj : gameEngine.l_gamePlayerObject.getListOfCountries()) {
 			if(countryObj.getCountryId().equals(countryID))
@@ -395,11 +453,20 @@ public class GamePlayIssueOrder extends GamePlay {
 		}
 		return l_countryNorPresent;
 	}
-
+/**
+ * validateCountryValue method is used to validate country is null or not
+ * @param p_countryNorPresent country not present
+ * @return boolean true
+ */ 
 	public boolean validateCountryValue(String p_countryNorPresent) {
 		return p_countryNorPresent.equals("");
 	}
-	
+
+/**
+ * validatefromName method is used to validate the country from name
+ * @param p_countryFromName country from name
+ * @return boolean value true
+ */
 	public boolean validatefromName(String p_countryFromName) {
 		for(Countries l_countryObject : gameEngine.l_gamePlayerObject.getListOfCountries()) {
 			if(l_countryObject.getCountryName().equalsIgnoreCase(p_countryFromName.trim())) {
@@ -408,7 +475,12 @@ public class GamePlayIssueOrder extends GamePlay {
 		}
 		return false;
 	}
-
+/**
+ * validateToName method is used to validate the name and country from name
+ * @param countryFromName country from name
+ * @param countryToName country to name
+ * @return boolean true value
+ */
 	public boolean validateToName(String countryFromName,String countryToName) {
 		for(Countries country : gameEngine.l_gamePlayerObject.getListOfCountries()) {
 			if(country.getCountryName().equals(countryFromName)) {
@@ -424,7 +496,13 @@ public class GamePlayIssueOrder extends GamePlay {
 		}
 		return false;
 	}
-	
+/**
+ * validateNumArimesBasedOnID method is used to validate the number of
+ * armies based on the country ID
+ * @param countryID ID of the country 
+ * @param numArimes number of armies
+ * @return larger value
+ */
 	public boolean validateNumArimesBasedOnID(String countryID, String numArimes) {
 		List<DeployOrder> deployOrdersList = new ArrayList<DeployOrder>();
 		for(Order object : gameEngine.l_gamePlayerObject.getOrderObjects()) {
@@ -450,6 +528,13 @@ public class GamePlayIssueOrder extends GamePlay {
 		return l_totArmiesUnderCountry >= Integer.parseInt(numArimes);
 	}
 
+	
+/**
+ * validateNumArimes method is used to validate the number of armies
+ * @param countryFromName country from name
+ * @param numArimes number of armies
+ * @return greater value
+ */
 	public boolean validateNumArimes(String countryFromName, String numArimes) {
 		List<DeployOrder> deployOrdersList = new ArrayList<DeployOrder>();
 		for(Order object : gameEngine.l_gamePlayerObject.getOrderObjects()) {

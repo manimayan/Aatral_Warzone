@@ -15,7 +15,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+/**
+ * <h1>BombCard</h1> The Class is to attack the opponent countries and make their army count into half 
+ *
+ * @author Tejeswini
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class BombCard extends Order {
 	public String countryID;
 	public GamePlayer gamePlayerObject;
@@ -27,7 +33,9 @@ public class BombCard extends Order {
 	public BombCard(String countryID) {
 		this.countryID = countryID;
 	}
-
+/**
+ * execute method is used to execute the game play
+ */
 	public void execute() {
 
 		for (Entry<String, GamePlayer> l_mapEntry : this.playerObjectList.entrySet()) {

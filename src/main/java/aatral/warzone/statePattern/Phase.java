@@ -15,6 +15,15 @@ import lombok.Setter;
 
 @Getter
 @Setter
+
+
+/**
+ * <h1>Phase</h1> This abstract class is the parent class that implements the state pattern
+ *
+ * @author William
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public abstract class Phase {
 
 	protected GameEngine gameEngine;

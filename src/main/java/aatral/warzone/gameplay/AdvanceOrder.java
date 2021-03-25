@@ -18,7 +18,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+/**
+ * <h1>Advance Order</h1> This class is used to execute the advance attack or transfer order
 
+ * @author William Moses
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class AdvanceOrder extends Order{
 	private String countryFromName;
 	private String countryToName;

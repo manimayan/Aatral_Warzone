@@ -388,7 +388,11 @@ public class GameEngine {
 		}
 		return l_countryID;
 	}
-	
+	/**
+	 * checkIfPlayerHasAnyCards method is used to check whether the player has any card or not
+	 * @param playerObj player object
+	 * @return It returns a value
+	 */
 	public String checkIfPlayerHasAnyCards(GamePlayer playerObj) {
 		String value = "";
 		for(Map.Entry playerCard : playerObj.getSpecialCards().entrySet()) {

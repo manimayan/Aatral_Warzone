@@ -11,6 +11,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+
+
+/**
+ * <h1>Country</h1> The Class has country values of dependency map
+ *
+ * @author Tejeswini
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class Countries implements Comparator<Countries>{
 
 	private String countryId;

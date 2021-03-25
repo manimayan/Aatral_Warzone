@@ -18,6 +18,15 @@ import aatral.warzone.gameplay.NegotiateCard;
 import aatral.warzone.gameplay.Order;
 import aatral.warzone.model.Continent;
 
+
+
+/**
+ * <h1>GamePlayOrderExecution</h1> This abstract class implements the state pattern for game play order execution
+ *
+ * @author Tejeswini
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class GamePlayOrderExecution extends GamePlay {
 
 	public GamePlayOrderExecution(GameEngine gameEngine) {
@@ -99,7 +108,9 @@ public class GamePlayOrderExecution extends GamePlay {
 		// TODO Auto-generated method stub
 		
 	}
-	
+/**
+ * executeOrders method is used to execute the game play
+ */
 	public void executeOrders() {
 		boolean ordersExist = true;
 		while(ordersExist) {

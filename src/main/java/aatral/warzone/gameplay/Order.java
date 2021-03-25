@@ -7,9 +7,17 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
+/**
+ * <h1>Order</h1> The Class is the parent class of all the orders
+ *
+ * @author Vignesh
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class Order {
-	
+	/**
+	 * execute method is used to execute the orders in order class
+	 */
 	public void execute() {
     	System.out.println("Execute Orders in Order Class");
     }

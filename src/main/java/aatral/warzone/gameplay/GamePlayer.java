@@ -27,8 +27,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @Record
 /**
- * 
- * @author William Moses
+ * <h1>GamePlayer</h1> The Class is contains the player parameter or attributes 
+ *
+ * @author Manimaran
  * @version 1.0
  * @since 24-02-2021
  */
@@ -73,7 +74,9 @@ public class GamePlayer extends GameEngine{
 			}
 		});
 	}
-	
+	/**
+	 * setSpecialCardValues method is used to set the special value cards
+	 */
 	public void setSpecialCardValues() {
 		this.specialCards.put("bomb", 0);
 		this.specialCards.put("blockade", 0);

@@ -16,7 +16,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+/**
+ * <h1>DeployOrder</h1> The Class is to used to deploy the reinforced armies into their owned countries 
+ *
+ * @author Manimaran
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class DeployOrder extends Order{
 	
 	private String CountryID;
@@ -35,7 +41,6 @@ public class DeployOrder extends Order{
 	}
 /**
  * execute method is used to execute the game play
- * @param l_gamePlayerObject game player object
  */
 	public void execute()
 	{

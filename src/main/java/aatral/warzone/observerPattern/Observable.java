@@ -3,7 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * <h1>Observable</h1> The Class implements the observable pattern
  *
+ * @author William
+ * @version 1.0
+ * @since 24-02-2021
  */
 public class Observable {
 	private List<Observer> observers = new ArrayList<Observer>();

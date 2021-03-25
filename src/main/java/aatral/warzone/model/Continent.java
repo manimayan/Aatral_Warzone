@@ -10,6 +10,15 @@ import lombok.Setter;
 
 @Getter
 @Setter
+
+
+/**
+ * <h1>Continent</h1> The Class has continent values of dependency map
+ *
+ * @author Vikram
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class Continent {
 
 	public Continent(InputContinent l_continent, Set<Countries> continentOwnedCountries) {

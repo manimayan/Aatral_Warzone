@@ -5,6 +5,14 @@ import java.util.Map;
 import aatral.warzone.gameplay.GamePlayer;
 import aatral.warzone.model.Countries;
 
+
+/**
+ * <h1>GamePlay</h1> This abstract class implements the state pattern for game play
+ *
+ * @author Vignesh
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public abstract class GamePlay extends Phase {
 	
 	/**

@@ -15,7 +15,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+/**
+ * <h1>BlockadeCard</h1> The Class is to increase the armies thrice and making the teritory into neutral 
+ *
+ * @author Tejeswini
+ * @version 1.0
+ * @since 24-02-2021
+ */
 public class BlockadeCard extends Order{
 	public String countryID;
 	public GamePlayer gamePlayerObject;
@@ -27,7 +33,9 @@ public class BlockadeCard extends Order{
 	public BlockadeCard(String countryID) {
 		this.countryID = countryID;
 	}
-	
+/**
+ * execute method is used to execute the game play
+ */
 	public void execute() {
 	
 		for(Entry<String, GamePlayer> l_mapEntry : this.playerObjectList.entrySet()) {
