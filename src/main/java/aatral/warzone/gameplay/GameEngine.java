@@ -154,6 +154,7 @@ public class GameEngine {
 			switch (l_playOption.split(" ")[0]) {
 			case "startgame":
 				System.out.println("Game Play has started\n\n");
+				log.info("GamePlay",l_playOption, "game started");	
 				startGame();
 				break;
 			case "gameplayer":
@@ -171,18 +172,20 @@ public class GameEngine {
 						l_playerName = l_playerName.trim();
 						if (l_playerName.isEmpty())
 							continue;
-						gamePhase.addGamePlayer(l_playerName, l_playerObListTempAdd, l_playerList);
+						gamePhase.addGamePlayer(l_playerName, l_playerObListTempAdd, l_playerList);	
 						break;
 					case "remove":
 						l_playerName = l_option.substring(6).trim();
 						l_playerName = l_playerName.trim();
-						l_flag = gamePhase.removeGamePlayer(l_flag, l_playerName, l_playerObListTempRem, l_playerList);
+						gamePhase.removeGamePlayer(l_flag, l_playerName, l_playerObListTempRem, l_playerList);
 						break;
 					default:
+						log.info("GamePlay",l_playOption, "invalid option command");	
 						System.out.println("Different input has been read...Try again");
 						l_flag = false;
 						break;
 					}
+					log.info("GamePlay",l_playOption, "gameplayer command");	
 				}
 				while (l_flag) {
 					System.out.println("Give assigncountries to assign it! or 'cancel' to ignore" + "\nFormat : "
@@ -196,12 +199,15 @@ public class GameEngine {
 						l_playerObjectList = gamePhase.assignCountries(l_playerList);
 						l_gamePlayPopulateFlag = true;
 						l_flag = false;
+						log.info("GamePlay",l_playOption, "command executed");	
 						break;
 					case "cancel":
+						log.info("GamePlay",l_playOption, "command aborted");	
 						System.out.println("Player's modification are aborted!");
 						l_flag = false;
 						break;
 					default:
+						log.info("GamePlay",l_playOption, "invalid command");	
 						System.out.println("You have entered wrong input...Try again");
 						break;
 					}
@@ -214,6 +220,7 @@ public class GameEngine {
 				System.exit(0);
 				break;
 			default:
+				log.info("GamePlay",l_playOption, "Input command mismatching");	
 				System.out.println("Input format is not matching... Try again/nCheck again/n");
 				break;
 			}
@@ -249,6 +256,7 @@ public class GameEngine {
 							l_innerLoopflag = false;
 							break;
 						default:
+							log.info("StartUp",l_readInput, "Input command mismatching");	
 							System.out.println("Input is mismatching...Kindly Try again...");
 							break;
 						}
@@ -269,6 +277,7 @@ public class GameEngine {
 					} else {
 						gamePhase.assignReinforcements(calAssignReinforcements(l_gamePlayerObject));
 					}
+					log.info("StartUp", "For all players", "Reinforcement Assigned");	
 					showMapPlayer(l_gamePlayerObject);
 				}
 				gamePhase.next();
@@ -404,42 +413,6 @@ public class GameEngine {
 		return value;
 	}
 	
-//	public boolean checkIfPlayerConqueredContinent(GamePlayer playerObj)
-//	{
-//		for (Map.Entry mapEntry : l_masterMap.entrySet()) {
-//			ArrayList<String> currentCountryIds = new ArrayList<String>();
-//			ArrayList<String> pastCountryIds = new ArrayList<String>();
-//			Set<Countries> currentSet = ((Continent) mapEntry.getValue()).getContinentOwnedCountries();
-//			Set<Countries> pastSet = l_PastmasterMapCopy.get(( mapEntry.getKey())).getContinentOwnedCountries();
-//		    currentCountryIds = (ArrayList<String>)countryIdsFromObjectsList(currentSet);
-//		    pastCountryIds = (ArrayList<String>)countryIdsFromObjectsList(pastSet);
-//		    ArrayList<String> currentCountryIdsCopy = new ArrayList<String>();
-//		    currentCountryIds.removeAll(pastCountryIds);
-//			if(currentCountryIds.size()!=0)
-//			{
-//				ArrayList<Countries> playerOwnedCountries = (ArrayList<Countries>) playerObj.listOfCountries;
-//				ArrayList<String> playerCountryIds =  (ArrayList<String>)countryIdsFromObjectsList(new HashSet<>(playerOwnedCountries));
-//				currentCountryIdsCopy.removeAll(playerCountryIds);
-//				if(currentCountryIdsCopy.size()==0)
-//					return true;
-//			}
-//		}
-//		
-//		return false;
-//		
-//	}
-//	
-//	public List<String> countryIdsFromObjectsList(Set<Countries> countriesList)
-//	{
-//		List<String> countryIds = new ArrayList<String>();
-//		for (Countries i : countriesList)  
-//		{
-//			 countryIds.add(i.getCountryId());
-//		}
-//		
-//		return countryIds;
-//		
-//	}
 
 	/**
 	 * getContinentName method is used to get the continent name using continent id

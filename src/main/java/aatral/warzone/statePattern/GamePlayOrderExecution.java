@@ -130,8 +130,7 @@ public class GamePlayOrderExecution extends GamePlay {
 				gameEngine.l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
 				if(gameEngine.l_gamePlayerObject.orderObjects.size() >0) {
 					Order orderObj = gameEngine.l_gamePlayerObject.NextOrder();
-					if(orderObj instanceof AdvanceOrder)
-					{
+					if(orderObj instanceof AdvanceOrder){
 						System.out.println("\n\nExecueting Advance Order for the player " + gameEngine.l_gamePlayerObject.getPlayerName());
 						AdvanceOrder advanceOrderObj = (AdvanceOrder)orderObj;
 						advanceOrderObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
@@ -145,6 +144,7 @@ public class GamePlayOrderExecution extends GamePlay {
 						BombCard bombObj = (BombCard)orderObj;
 						bombObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
 						bombObj.execute();
+						gameEngine.l_gamePlayerObject.getSpecialCards().put("bomb",gameEngine.l_gamePlayerObject.getSpecialCards().get("bomb")-1);
 						ordersExist = true;
 						System.out.println();
 					} else if(orderObj instanceof BlockadeCard) {
@@ -152,6 +152,7 @@ public class GamePlayOrderExecution extends GamePlay {
 						BlockadeCard blockObj = (BlockadeCard)orderObj;
 						blockObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
 						blockObj.execute();
+						gameEngine.l_gamePlayerObject.getSpecialCards().put("blockade",gameEngine.l_gamePlayerObject.getSpecialCards().get("blockade")-1);
 						ordersExist = true;
 						System.out.println();
 					} else if(orderObj instanceof AirliftCard) {
@@ -159,6 +160,7 @@ public class GamePlayOrderExecution extends GamePlay {
 						AirliftCard airliftObj = (AirliftCard)orderObj;
 						airliftObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
 						airliftObj.execute();
+						gameEngine.l_gamePlayerObject.getSpecialCards().put("airlift",gameEngine.l_gamePlayerObject.getSpecialCards().get("airlift")-1);
 						ordersExist = true;
 						System.out.println();
 					} else if(orderObj instanceof NegotiateCard) {
@@ -166,6 +168,7 @@ public class GamePlayOrderExecution extends GamePlay {
 						NegotiateCard negotiateObj = (NegotiateCard)orderObj;
 						negotiateObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
 						negotiateObj.execute();
+						gameEngine.l_gamePlayerObject.getSpecialCards().put("negotiate",gameEngine.l_gamePlayerObject.getSpecialCards().get("negotiate")-1);
 						ordersExist = true;
 						System.out.println();
 					} else{

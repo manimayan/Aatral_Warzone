@@ -5,6 +5,8 @@ import java.util.Set;
 
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
+import aatral.warzone.observerPattern.LogEntryBuffer;
+import aatral.warzone.observerPattern.LogWriter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +24,9 @@ public class DeployOrder extends Order{
 	private String armies;
 	
 	public GamePlayer gamePlayerObject;
+	
+	LogEntryBuffer log = new LogEntryBuffer();
+	LogWriter logWriter = new LogWriter(log);
 	
 	public DeployOrder(String CountryID, String armies)
 	{
@@ -41,6 +46,7 @@ public class DeployOrder extends Order{
 				break;
 			}
 		}
+		log.info("deployOrderExecution",gamePlayerObject.getPlayerName(),"deploy "+this.CountryID+" "+this.armies, "executed");	
 	}
 	
 }

@@ -14,12 +14,17 @@ import aatral.warzone.model.Countries;
 import aatral.warzone.model.InputBorders;
 import aatral.warzone.model.InputContinent;
 import aatral.warzone.model.InputCountry;
+import aatral.warzone.observerPattern.LogEntryBuffer;
+import aatral.warzone.observerPattern.LogWriter;
 import aatral.warzone.utilities.ContinentMapReader;
 import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
 
 public class GamePlayStartUp extends GamePlay {
 
+	LogEntryBuffer log = new LogEntryBuffer();
+	LogWriter logWriter = new LogWriter(log);
+	
 	public GamePlayStartUp(GameEngine gameEngine) {
 		this.gameEngine = gameEngine;
 	}
@@ -69,6 +74,7 @@ public class GamePlayStartUp extends GamePlay {
 			List<String> p_playerList) {
 
 		if (p_playerObListTempAdd.contains(l_playerName) || p_playerList.contains(l_playerName)) {
+			log.info("StartUp", gameEngine.l_gamePlayerObject.getPlayerName(), l_playerName, "Player already exist");
 			System.out.println("Player name " + l_playerName + " already existing...try this alone again...");
 		} else {
 			p_playerObListTempAdd.add(l_playerName);
@@ -83,8 +89,8 @@ public class GamePlayStartUp extends GamePlay {
 			p_flag = false;
 		}
 		if (!p_flag) {
-			System.out.println("Player names " + l_removeName.substring(1)
-			+ " doesn't exist/nTry again with valid player names to remove");
+			log.info("StartUp", gameEngine.l_gamePlayerObject.getPlayerName(), l_removeName, "Player name doesn't exist");
+			System.out.println("Player names " + l_removeName.substring(1)+ " doesn't exist\nTry again with valid player names to remove");
 		} else {
 			p_playerObListTempRem.add(p_playerName);
 		}
@@ -122,6 +128,7 @@ public class GamePlayStartUp extends GamePlay {
 	 */
 	public void assignReinforcements(int p_armies) {
 		gameEngine.l_gamePlayerObject.setReinforcementArmies(p_armies);
+		log.info("StartUp", gameEngine.l_gamePlayerObject.getPlayerName(), p_armies+"", "Reinforcement Assigned");
 		System.out.println("The player " + gameEngine.l_gamePlayerObject.getPlayerName() + " has been reinforced with " + p_armies+" armies");
 	}
 

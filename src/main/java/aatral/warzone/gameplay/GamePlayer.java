@@ -14,6 +14,8 @@ import org.beanio.annotation.Record;
 
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
+import aatral.warzone.observerPattern.LogEntryBuffer;
+import aatral.warzone.observerPattern.LogWriter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -47,6 +49,9 @@ public class GamePlayer extends GameEngine{
 	public boolean advanceInput;
 	
 	public List<String> diplomacyCountries = new ArrayList<>();
+	
+	LogEntryBuffer log = new LogEntryBuffer();
+	LogWriter logWriter = new LogWriter(log);
 	
 /**
  * GamePlayer method is used to assign the player values for the game

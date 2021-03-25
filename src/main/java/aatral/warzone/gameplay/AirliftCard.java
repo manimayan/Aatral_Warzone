@@ -5,6 +5,8 @@ import java.util.Map.Entry;
 
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
+import aatral.warzone.observerPattern.LogEntryBuffer;
+import aatral.warzone.observerPattern.LogWriter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +22,10 @@ public class AirliftCard extends Order{
 	public String targetCountryID;
 	public String numArmies;
 	public GamePlayer gamePlayerObject;
+	
+	LogEntryBuffer log = new LogEntryBuffer();
+	LogWriter logWriter = new LogWriter(log);
+	
 	public AirliftCard(String sourceCountryID, String targetCountryID, String numArmies) {
 		this.sourceCountryID = sourceCountryID;
 		this.targetCountryID = targetCountryID;
@@ -38,6 +44,7 @@ public class AirliftCard extends Order{
 				}
 			}
 		}
+		log.info("specialOrderExecution",gamePlayerObject.getPlayerName(),"airlift "+this.sourceCountryID+" "+this.targetCountryID+" "+this.numArmies, "executed");	
 	}
 	
 

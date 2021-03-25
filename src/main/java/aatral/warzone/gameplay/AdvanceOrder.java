@@ -7,6 +7,8 @@ import java.util.Set;
 
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
+import aatral.warzone.observerPattern.LogEntryBuffer;
+import aatral.warzone.observerPattern.LogWriter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +25,9 @@ public class AdvanceOrder extends Order{
 	private String numArmies;
 	public GamePlayer gamePlayerObject;
 	public HashMap<String,GamePlayer> playerObjectList;
+	
+	LogEntryBuffer log = new LogEntryBuffer();
+	LogWriter logWriter = new LogWriter(log);
 	
 	public AdvanceOrder(String countryFromName, String countryToName, String numArmies)
 	{
@@ -70,6 +75,7 @@ public class AdvanceOrder extends Order{
 		}
 		setAttackerArmy(this.countryFromName, attackerArmies);
 		setDefenderArmy(this.countryToName, defenderArmies);
+		log.info("advanceOrderExecution",gamePlayerObject.getPlayerName(),"advance "+this.countryFromName+" "+this.countryToName+" "+this.numArmies, "executed");	
 		System.out.println(this.gamePlayerObject.getPlayerName()+" has executed advance order for the country "+this.countryFromName+" to "+this.countryToName+ " successfully with the armies " +this.numArmies);
 	}
 /**

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import aatral.warzone.model.Countries;
+import aatral.warzone.observerPattern.LogEntryBuffer;
+import aatral.warzone.observerPattern.LogWriter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +20,9 @@ public class BlockadeCard extends Order{
 	public String countryID;
 	public GamePlayer gamePlayerObject;
 	public HashMap<String,GamePlayer> playerObjectList;
+	
+	LogEntryBuffer log = new LogEntryBuffer();
+	LogWriter logWriter = new LogWriter(log);
 	
 	public BlockadeCard(String countryID) {
 		this.countryID = countryID;
@@ -39,7 +44,7 @@ public class BlockadeCard extends Order{
 			if(flag)
 				break;
 		}
-	
-}
+		log.info("specialOrderExecution",gamePlayerObject.getPlayerName(),"blockade "+this.countryID, "executed");	
+	}
 
 }

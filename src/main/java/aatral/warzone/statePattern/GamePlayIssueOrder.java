@@ -17,9 +17,14 @@ import aatral.warzone.gameplay.NegotiateCard;
 import aatral.warzone.gameplay.Order;
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
+import aatral.warzone.observerPattern.LogEntryBuffer;
+import aatral.warzone.observerPattern.LogWriter;
 
 public class GamePlayIssueOrder extends GamePlay {
 
+	LogEntryBuffer log = new LogEntryBuffer();
+	LogWriter logWriter = new LogWriter(log);
+	
 	public GamePlayIssueOrder(GameEngine gameEngine) {
 		this.gameEngine = gameEngine;
 	}
@@ -134,10 +139,12 @@ public class GamePlayIssueOrder extends GamePlay {
 							}
 						}
 					} else {
+						log.info("IssueOrder-Deploy", gameEngine.l_gamePlayerObject.getPlayerName(), l_issueCommand, "Country is not under this player ");
 						System.out.println("The countries entered " + l_countryNorPresent
 								+ " are not under player " + p_gameplayerObj.playerName);
 					}
 				} else {
+					log.info("IssueOrder-Deploy", gameEngine.l_gamePlayerObject.getPlayerName(), l_issueCommand, "Deployment army is more than the reinforcement");
 					System.out.println("Can't deploy " + l_armies + " armies by the player - " + p_gameplayerObj.getPlayerName()
 					+ " as he has only " + p_gameplayerObj.getReinforcementArmies());
 				}
@@ -169,6 +176,7 @@ public class GamePlayIssueOrder extends GamePlay {
 					gameEngine.l_gamePlayerObject.orderObjects.add(new BombCard(l_specialInput));
 					l_wrongIP = false;
 				}else {
+					log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The country ID given for bomb is not adjacent to the player");
 					System.out.println("The country ID given for bomb is not adjacent to the player "+gameEngine.l_gamePlayerObject.getPlayerName());
 				}
 			} else if(l_issueCommand.startsWith("blockade") && validateCard("blockade")){
@@ -177,6 +185,7 @@ public class GamePlayIssueOrder extends GamePlay {
 					gameEngine.l_gamePlayerObject.orderObjects.add(new BlockadeCard(l_specialInput));
 					l_wrongIP = false;
 				}else {
+					log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The country ID given for blockade is not under the player");
 					System.out.println("The country ID given for blockade is not under the player "+gameEngine.l_gamePlayerObject.getPlayerName());
 				}
 			} else if(l_issueCommand.startsWith("airlift") && validateCard("airlift")){
@@ -188,10 +197,13 @@ public class GamePlayIssueOrder extends GamePlay {
 					l_wrongIP = false;
 				}else {
 					if(!validatePlayerCountryID(l_specialInput.split(" ")[1])) {
+						log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The source country ID is not belonging to the player");
 						System.out.println("The source country ID is not belonging to the player - "+gameEngine.l_gamePlayerObject.getPlayerName());
 					}else if(!validatePlayerCountryID(l_specialInput.split(" ")[2])) {
+						log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The destination country ID is not belonging to the player");
 						System.out.println("The destination country ID is not belonging to the player - "+gameEngine.l_gamePlayerObject.getPlayerName());
 					}else {
+						log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The armies given for airlift is more than the curreny+deployment army");
 						System.out.println("The armies given for airlift is more than the curreny+deployment army - "+gameEngine.l_gamePlayerObject.getPlayerName());
 					}
 				}
@@ -202,9 +214,11 @@ public class GamePlayIssueOrder extends GamePlay {
 						gameEngine.l_gamePlayerObject.orderObjects.add(new NegotiateCard(l_specialInput));
 						l_wrongIP = false;
 					}else {
+						log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The given player ID doesn't exist");
 						System.out.println("The given player ID doesn't exist");
 					}
 				}else {
+					log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The entered input ID is same as the current player");
 					System.out.println("The entered input ID is same as the current player");
 				}
 			} else if(l_issueCommand.startsWith("advance")){
@@ -217,16 +231,20 @@ public class GamePlayIssueOrder extends GamePlay {
 						gameEngine.l_gamePlayerObject.orderObjects.add(new AdvanceOrder(l_countryFromName, l_countryToName, l_numArmies));
 						l_wrongIP = false;
 					} else {
+						log.info("IssueOrder-Advance", gameEngine.l_gamePlayerObject.getPlayerName(), l_advanceInput, "The given no.of armies is more than the present+deployment army size to perform the action");
 						System.out.println("The given no.of armies is more than the present+deployment army size to perform the action");
 					}
 				} else {
 					if(!validatefromName(l_countryFromName)) {
+						log.info("IssueOrder-Advance", gameEngine.l_gamePlayerObject.getPlayerName(), l_advanceInput, "CountryFromName is not under player");
 						System.out.println("CountryFromName is not under player "+gameEngine.l_gamePlayerObject.playerName);
 					} else {
+						log.info("IssueOrder-Advance", gameEngine.l_gamePlayerObject.getPlayerName(), l_advanceInput, "CountryToName is not an adjacent country of any countries under the player");
 						System.out.println("CountryToName is not an adjacent country of any countries under the player "+gameEngine.l_gamePlayerObject.playerName);
 					}
 				}
 			}else {
+				log.info("IssueOrder", gameEngine.l_gamePlayerObject.getPlayerName(), l_issueCommand, "Invalid Command");
 				System.out.println("\nInput is wrong try again...");
 			}
 		}
@@ -252,6 +270,7 @@ public class GamePlayIssueOrder extends GamePlay {
 	public String validateNegotiateCommand(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("negotiate") && p_issueCommand.split(" ").length ==2)) {
+			log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), p_issueCommand, "Invalid Command");
 			System.out.println("\n\nYour entered input type is invalid...try again");
 			System.out.println("\nNegotiate Format : negotiate playerID\n");
 			p_issueCommand = l_input.nextLine();
@@ -262,6 +281,7 @@ public class GamePlayIssueOrder extends GamePlay {
 	public String validateAirliftCommand(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("airlift") && p_issueCommand.split(" ").length ==4)) {
+			log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), p_issueCommand, "Invalid Command");
 			System.out.println("\n\nYour entered input type is invalid...try again");
 			System.out.println("\nAirlift Format : airlift sourcecountryID targetcountryID numarmies\n");
 			p_issueCommand = l_input.nextLine();
@@ -272,6 +292,7 @@ public class GamePlayIssueOrder extends GamePlay {
 	public String validateBlockadeCommand(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("blockade") && p_issueCommand.split(" ").length ==2)) {
+			log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), p_issueCommand, "Invalid Command");
 			System.out.println("\n\nYour entered input type is invalid...try again");
 			System.out.println("\nBlockade Format : blockade countryID\n");
 			p_issueCommand = l_input.nextLine();
@@ -283,6 +304,7 @@ public class GamePlayIssueOrder extends GamePlay {
 	public String validateBombCommand(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("bomb") && p_issueCommand.split(" ").length ==2)) {
+			log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), p_issueCommand, "Invalid Command");
 			System.out.println("\n\nYour entered input type is invalid...try again");
 			System.out.println("\nBomb Format : bomb countryID\n");
 			p_issueCommand = l_input.nextLine();
@@ -293,6 +315,7 @@ public class GamePlayIssueOrder extends GamePlay {
 	public String validateDeployInput(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("deploy") && p_issueCommand.split(" ").length ==3)) {
+			log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), p_issueCommand, "Invalid Command");
 			System.out.println("\n\nYour entered input type is invalid...try again");
 			System.out.println("\nDeploy Format : deploy countryID numArmies\n");
 			p_issueCommand = l_input.nextLine();
@@ -304,6 +327,7 @@ public class GamePlayIssueOrder extends GamePlay {
 	public String validateAdvanceInput(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("advance") && p_issueCommand.split(" ").length ==4)) {
+			log.info("IssueOrder-Advance", gameEngine.l_gamePlayerObject.getPlayerName(), p_issueCommand, "Invalid Command");
 			System.out.println("\n\nYour entered input type is invalid...try again");
 			System.out.println("Advance Order format for attack/transfer : "
 					+ "\n advance countrynamefrom countynameto numarmies\n");
