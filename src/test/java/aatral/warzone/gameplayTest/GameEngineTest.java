@@ -11,7 +11,16 @@ import org.junit.Test;
 
 import aatral.warzone.gameplay.GameEngine;
 
+
+/**
+ * GameEngineTest class is the kernel of warzone game and it is used to test the
+ * warzone game
+ * @author Vignesh
+ * @since 22.03.2021
+ *
+ */
 public class GameEngineTest {
+	
 	/*@Test
 	public void totalCountriesTest()
 	{
@@ -34,6 +43,11 @@ public class GameEngineTest {
 		//Object l_expected = null;
 		assertEquals(expected,ge.totalCountries());
 	}*/
+
+	
+	/**
+	 * listOfCountriesTest method is used to test the list of countries under the continent
+	 */
 	@Test
 	public void listOfCountriesTest()
 	{

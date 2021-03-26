@@ -17,7 +17,20 @@ import org.junit.Test;
 import aatral.warzone.model.InputContinent;
 import aatral.warzone.utilities.ContinentMapReader;
 
+
+/**
+ * ContinentMapReaderTest class is used to test the methods to 
+ * read the input file
+ * @author vignesh senthilkumar
+ * @since 21.03.2021
+ * 
+ */
 public class ContinentMapReaderTest {
+	
+/**
+ * continentMapReader method is used to test the positive case of 
+ * continent map reader value
+ */
 	@Test
 	public void continentMapReader() {
 		int l_expected = 0;
@@ -45,6 +58,10 @@ public class ContinentMapReaderTest {
 
 	}
 
+	/**
+	 * continentMapReader1 method is used to test the negative case of 
+	 * continent map reader value
+	 */
 	@Test
 	public void continentMapReader1() {
 		int l_expected = 0;

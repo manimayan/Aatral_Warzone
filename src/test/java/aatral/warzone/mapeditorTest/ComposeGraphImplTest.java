@@ -16,6 +16,11 @@ import aatral.warzone.utilities.ContinentMapReader;
 import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
 
+/**
+ * ComposeGraphImplTest class is used to test the graph with inputs
+ * @author Vignesh
+ * @since 21.03.2021
+ */
 public class ComposeGraphImplTest {
 
 	@Ignore
@@ -46,7 +51,11 @@ public class ComposeGraphImplTest {
 		}
 		return l_continentMap;
 	}
-
+/**
+ *  composeGraphgetContinentMap method is used to test the map of continent
+ *  values and its respective
+ * 
+ */
 	@Test
 	public void composeGraphgetContinentMap() {
 		ComposeGraphImpl l_cg = new ComposeGraphImpl();

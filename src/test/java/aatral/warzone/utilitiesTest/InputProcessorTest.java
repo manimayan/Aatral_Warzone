@@ -17,10 +17,22 @@ import aatral.warzone.model.InputContinent;
 import aatral.warzone.model.InputCountry;
 import aatral.warzone.utilities.InputProcessor;
 
+/**
+ * InputProcessorTest class is used to test the process command line inputs
+ * @author vignesh senthilkumar
+ * @since 24.03.2021
+ *
+ */
 public class InputProcessorTest {
 
+	
+	/**
+	 * getAddContinentInputTest method is used to test the continent given by user's
+	 * input into continent list to add it in the list
+	 */
 	@Test
-	public void getAddContinentInputTest() {
+	public void getAddContinentInputTest() 
+	{
 		//boolean actual = false;
 		boolean expected = true;
 		String arr[];
@@ -42,6 +54,12 @@ public class InputProcessorTest {
 
 
 	}
+	
+	
+	/**
+	 * getAddContinentInputTest method is used to test the negative continent given by user's
+	 * input into continent list to add it in the list
+	 */
 	@Test
 	public void getAddContinentInputInstanceTest() 
 	{
@@ -56,6 +74,10 @@ public class InputProcessorTest {
 		assertEquals(expected,actual);
 	}
 
+	/**
+	 * getAddCountryInputTest method is used to test the country given by user's
+	 * input into country list to add it in the list
+	 */
 	@Test
 	public void getAddCountryInputTest()
 	{
@@ -65,6 +87,12 @@ public class InputProcessorTest {
 		assertEquals("32",actual.getContinentId());
 		assertEquals("4",actual.getCountryId());
 	}
+	
+	
+	/**
+	 * getAddCountryInputTest method is used to test the negative country given by user's
+	 * input into country list to add it in the list
+	 */
 	@Test
 	public void getAddCountryInputInstanceTest() 
 	{
@@ -79,7 +107,9 @@ public class InputProcessorTest {
 		assertEquals(expected,actual);
 	}
 
-
+/**
+ * getStringTest method is used to test the input string value matches or not
+ */
 	@Test
 	public void getStringTest()
 	{
@@ -97,6 +127,12 @@ public class InputProcessorTest {
 		//assertEquals("america 11",actualobj);
 
 	}
+	
+	
+
+/**
+ * getStringTestNull method is used to test the input string value is null or not
+ */
 	@Test
 	public void getStringTestNull()
 	{
@@ -120,6 +156,13 @@ public class InputProcessorTest {
 		assertEquals(expected,actual);
 
 	}*/
+	
+	
+	/**
+	 * getstartupPhaseNegativeTest method is used to test and identify the correct 
+	 * map which is loaded in the application
+	 * 
+	 */
 	@Test
 	public void getstartupPhaseNegativeTest()
 	{

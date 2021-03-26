@@ -32,7 +32,7 @@ public class Graph {
 	}
 
 	/**
-	 * removeVertex method is used to remove a node.vertex from a graph
+	 * removeVertex method is used to remove a node/vertex from a graph
 	 * 
 	 * @param p_countryId country Id
 	 */

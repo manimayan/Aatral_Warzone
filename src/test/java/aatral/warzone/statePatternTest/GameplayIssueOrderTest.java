@@ -16,6 +16,13 @@ import aatral.warzone.gameplay.GameEngine;
 import aatral.warzone.gameplay.GamePlayer;
 import aatral.warzone.statePattern.GamePlayIssueOrder;
 
+/**
+ * GameplayIssueOrderTest This test class tests the state pattern 
+ * for game play issue order
+ * @author vignesh senthilkumar
+ * @since 19.03.2021
+ */
+
 public class GameplayIssueOrderTest {
 	@Before
 	public void constructor()
@@ -36,6 +43,10 @@ public class GameplayIssueOrderTest {
 		}
 	}
 
+
+/**
+ * validateDeployInputTest method is used to test deploy input values
+ */
 	@Test
 	public void validateDeployInputTest()
 	{
@@ -46,6 +57,11 @@ public class GameplayIssueOrderTest {
 		String expected = " 24 4";
 		assertTrue(actual.equals(expected));
 	}
+	
+/**
+ * validateDeployInputTestNegative method is used to test the
+ * negative deploy input values
+ */
 	public void validateDeployInputTestNegative()
 	{
 		GameEngine obj= new GameEngine();
@@ -55,6 +71,10 @@ public class GameplayIssueOrderTest {
 		String expected = " 24 4";
 		assertTrue(actual.equals(expected));
 	}
+	
+/**
+ * calculateInputArmiesTest method id used to test to calculate input armies
+ */
 	@Test
 	public void calculateInputArmiesTest()
 	{
@@ -65,6 +85,9 @@ public class GameplayIssueOrderTest {
 		assertEquals(expected,actual);
 	}
 
+	/**
+	 * validateInputArmies method is used to test and validate the input armies
+	 */
 	@Test
 	public void validateInputArmies()
 	{
@@ -74,6 +97,9 @@ public class GameplayIssueOrderTest {
 		boolean expected = true;
 		assertEquals(expected,actual);
 	}
+	/**
+	 * validateInputArmies method is used to test and validate the negative input armies
+	 */
 	@Test
 	public void validateInputArmiesNegative()
 	{
@@ -83,6 +109,10 @@ public class GameplayIssueOrderTest {
 		boolean expected = false;
 		assertEquals(expected,actual);
 	}
+	
+/**
+ * validateCountryValueTest method is used to test the country values matches or not
+ */
 	@Test
 	public void validateCountryValueTest()
 	{
@@ -91,6 +121,10 @@ public class GameplayIssueOrderTest {
 	boolean actual =	gp.validateCountryValue("india");
 		assertEquals(false,actual);
 	}
+	
+	/**
+	 * validateCountryValueTest method is used to test the negative country values matches or not
+	 */
 	@Test
 	public void validateCountryValueTestNegative()
 	{

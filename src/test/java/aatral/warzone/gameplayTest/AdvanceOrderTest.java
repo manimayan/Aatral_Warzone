@@ -12,6 +12,12 @@ import aatral.warzone.gameplay.GamePlayer;
 import aatral.warzone.model.Countries;
 import aatral.warzone.statePattern.GamePlay;
 
+/**
+ * AdvanceOrderTest class is used to test the attacker and defender armies
+ * @author Vignesh
+ * @since 23.03.2021
+ *
+ */
 public class AdvanceOrderTest {
 	/*@Test
 	public void isAttackTest()
@@ -23,6 +29,11 @@ public class AdvanceOrderTest {
 		assertNotEquals(true,actual);
 		
 	}*/
+
+/**
+ * attackerCalcTestFloor method is used to test and calculate the attacker value
+ * to a floor value
+ */
 @Test
 public void attackerCalcTestFloor()
 {
@@ -31,6 +42,11 @@ public void attackerCalcTestFloor()
 	//System.out.println(ao.attackerCalc("21"));
 	 assertEquals(expected,ao.attackerCalc("19"));
 }
+
+/**
+ * attackerCalcTestCeil method is used to test and calculate the attacker value
+ * to a Ceil value
+ */
 @Test
 public void attackerCalcTestCeil()
 {
@@ -39,6 +55,11 @@ public void attackerCalcTestCeil()
 	System.out.println(ao.attackerCalc("21"));
 	 assertEquals(expected,ao.attackerCalc("21"));
 }
+
+/**
+ * defenderCalcTest method is used to test and calculate the defender value
+ * to a floor value
+ */
 @Test
 public void defenderCalcTest()
 {
@@ -49,7 +70,10 @@ public void defenderCalcTest()
 	 
 }
 @Test
-
+/**
+ * defenderCalcTestCeil method is used to test and calculate the defender value
+ * to a ceil value
+ */
 public void defenderCalcTestCeil()
 {
 	AdvanceOrder ao= new AdvanceOrder();

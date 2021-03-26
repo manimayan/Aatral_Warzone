@@ -14,9 +14,27 @@ import aatral.warzone.model.InputCountry;
 import aatral.warzone.utilities.CountryBorderReader;
 import aatral.warzone.utilities.CountryMapreader;
 
-public class CountryBorderReaderTest {
+
+
+/**
+ * CountryBorderReaderTest class is used to test the methods to 
+ * read the input file
+ * @author vignesh senthilkumar
+ * @since 21.03.2021
+ * 
+ */
+
+
+public class CountryBorderReaderTest 
+{
+
+	/**
+	 * countryBorderReader method is used to test the country border value
+	 */
+	
 	@Test
-	public void countryBorderReader() {
+	public void countryBorderReader() 
+	{
 
 		int l_expected = 0;
 

@@ -13,7 +13,22 @@ import aatral.warzone.model.InputCountry;
 import aatral.warzone.utilities.ContinentMapReader;
 import aatral.warzone.utilities.CountryMapreader;
 
-public class CountryMapReaderTest {
+
+/**
+ * CountryMapReaderTest class is used to test the methods to 
+ * read the input file
+ * @author vignesh senthilkumar
+ * @since 21.03.2021
+ * 
+ */
+
+public class CountryMapReaderTest 
+{
+
+	/**
+	 * countryMapReader method is used to test the country map value
+	 */	
+	
 	@Test
 	public void countryMapReader() {
 
