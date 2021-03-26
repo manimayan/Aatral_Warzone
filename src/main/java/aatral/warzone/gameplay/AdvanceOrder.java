@@ -81,7 +81,7 @@ public class AdvanceOrder extends Order {
 				gamePlayerObject.hasConqueredInTurn = true;
 			} else { // attack and come back
 				attackerArmies = attackerArmies + (Integer.parseInt(numArmies) - defenderCanKill);
-				defenderArmies = defenderArmies - attackerCanKill;
+				defenderArmies = Math.max(0, defenderArmies - attackerCanKill);
 			}
 		} else { // move
 			attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);

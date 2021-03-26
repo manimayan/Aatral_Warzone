@@ -81,7 +81,7 @@ public class GamePlayer extends GameEngine{
 		this.specialCards.put("bomb", 0);
 		this.specialCards.put("blockade", 0);
 		this.specialCards.put("airlift", 0);
-		this.specialCards.put("negotiate", 0);
+		this.specialCards.put("negotiate", 1);
 	}
 
 	/**

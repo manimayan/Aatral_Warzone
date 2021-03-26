@@ -215,7 +215,7 @@ public class GameEngine {
 				break;
 			default:
 				log.info("GamePlay",l_playOption, "Input command mismatching");	
-				System.out.println("Input format is not matching... Try again/nCheck again/n");
+				System.out.println("Input format is not matching... Try again\nCheck again\n");
 				break;
 			}
 		}

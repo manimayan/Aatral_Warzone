@@ -99,8 +99,11 @@ public class NegotiateCard extends Order {
 						}
 					}
 				}
+				((GamePlayer) gamePlayerObj.getValue()).getOrderObjects().removeAll(removableObjs);
+				break;
 			}
 		}
+		
 		log.info("specialOrderExecution", gamePlayerObject.getPlayerName(),"negotiate "+this.playerID, "executed");	
 
 		System.out.println(gamePlayerObject.getPlayerName()+ " has executed negotiate for the player ID "+this.playerID);
