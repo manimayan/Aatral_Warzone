@@ -33,3 +33,24 @@
 2021-03-25T13:28:54.794  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
 2021-03-25T13:32:37.872  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
 2021-03-25T13:46:25.811  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-25T18:25:00.769  GamePhase: MapEditor Command: "loadmap canada" Status: canada map loaded
+2021-03-25T18:25:08.309  GamePhase: GamePlay Command: gameplayer -add teja -add william Status: gameplayer command
+2021-03-25T18:25:08.309  GamePhase: GamePlay Command: gameplayer -add teja -add william Status: gameplayer command
+2021-03-25T18:25:12.870  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-25T18:25:16.031  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-25T18:25:16.032  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-25T18:25:16.032  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-25T18:25:16.038  GamePhase: StartUp  Player: teja Command: 5 Status: Reinforcement Assigned
+2021-03-25T18:25:16.039  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-25T18:26:17.585  GamePhase: IssueOrder  Player: william Command:  Status: Invalid Command
+2021-03-25T18:27:38.035  GamePhase: deployOrderExecution  Player: william Command: deploy 1 5 Status: executed
+2021-03-25T18:27:38.035  GamePhase: deployOrderExecution  Player: teja Command: deploy 7 3 Status: executed
+2021-03-25T18:27:38.036  GamePhase: deployOrderExecution  Player: teja Command: deploy 7 2 Status: executed
+2021-03-25T18:27:38.036  GamePhase: advanceOrderExecution  Player: william Command: advance New_Brunswick Nova_Scotia 5 Status: executed
+2021-03-25T18:27:38.037  GamePhase: advanceOrderExecution  Player: teja Command: advance Quebec-Central Quebec-North 5 Status: executed
+2021-03-25T18:27:44.518  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-25T18:27:44.518  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-25T18:27:44.520  GamePhase: StartUp  Player: teja Command: 5 Status: Reinforcement Assigned
+2021-03-25T18:27:44.520  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-25T18:37:11.721  GamePhase: IssueOrder-Special  Player: teja Command: deploy  9 5 Status: Invalid Command
+2021-03-25T18:37:39.992  GamePhase: IssueOrder  Player: william Command: bomb 1 Status: Invalid Command

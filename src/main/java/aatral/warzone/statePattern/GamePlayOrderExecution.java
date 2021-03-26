@@ -186,6 +186,12 @@ public class GamePlayOrderExecution extends GamePlay {
 						gameEngine.l_gamePlayerObject.pushBackOrder(orderObj);
 					}
 				}		
+				if(gameEngine.checkIfPlayerHasWon()) {
+					System.out.println("Hurray!!! PLAYER "+gameEngine.l_gamePlayerObject.getPlayerName()+" has won the game.");
+					gameEngine.showMapPlayer(gameEngine.l_gamePlayerObject);
+					System.out.println("Game is Closing !");
+					System.exit(0);
+				}
 			}
 		}
 		if(gameEngine.l_gamePlayerObject.hasConqueredInTurn) {

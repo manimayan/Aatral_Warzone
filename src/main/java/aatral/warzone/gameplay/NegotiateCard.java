@@ -40,8 +40,6 @@ public class NegotiateCard extends Order{
 				break;
 			}
 		}
-		
-		
 	}
 	
 }

@@ -467,7 +467,7 @@ public class GameEngine {
 
 	/**
 	 * countriesUnderPlayerAsString method is used to display the countries assigned under a player
-	 * @param p_countryObject country object
+	 * @param p_countryObject
 	 * @return bordering countries
 	 */
 	public String countriesUnderPlayerAsString(Countries p_countryObject) {
@@ -488,6 +488,14 @@ public class GameEngine {
 		return borderingCountries.substring(2);
 	}
 	
+	public boolean checkIfPlayerHasWon() {
+		for(Map.Entry mapPlayerObj : l_playerObjectList.entrySet()) {
+			if(!mapPlayerObj.getKey().equals(l_gamePlayerObject.getPlayerName()) && ((GamePlayer)mapPlayerObj.getValue()).getListOfCountries().size()!=0) {
+				return false;
+			}
+		}
+		return true;
+	}
 	
 	
 
