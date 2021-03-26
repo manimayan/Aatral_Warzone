@@ -289,3 +289,9 @@
 2021-03-26T16:12:50.539  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
 2021-03-26T16:12:50.542  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
 2021-03-26T16:12:50.542  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T17:40:53.593  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T17:41:00.036  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T17:41:00.037  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T17:41:04.875  GamePhase: GamePlay Command: assigncoutries Status: invalid command
+2021-03-26T17:41:09.227  GamePhase: GamePlay Command: assigncoutries Status: invalid command
+2021-03-26T17:41:14.123  GamePhase: GamePlay Command: assigncountries Status: command executed
