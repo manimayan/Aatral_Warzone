@@ -54,3 +54,238 @@
 2021-03-25T18:27:44.520  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
 2021-03-25T18:37:11.721  GamePhase: IssueOrder-Special  Player: teja Command: deploy  9 5 Status: Invalid Command
 2021-03-25T18:37:39.992  GamePhase: IssueOrder  Player: william Command: bomb 1 Status: Invalid Command
+2021-03-26T12:33:05.904  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T12:33:12.047  GamePhase: GamePlay Command: gameplayer -add william -add vicky Status: gameplayer command
+2021-03-26T12:33:12.048  GamePhase: GamePlay Command: gameplayer -add william -add vicky Status: gameplayer command
+2021-03-26T12:33:17.590  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T12:45:28.437  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T12:45:40.468  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T12:45:40.469  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T12:45:43.499  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T12:45:51.429  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T12:45:51.430  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-26T12:45:51.432  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T12:45:51.433  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-03-26T12:45:51.434  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T12:54:51.793  GamePhase: deployOrderExecution  Player: william Command: deploy 2 5 Status: executed
+2021-03-26T12:54:51.796  GamePhase: deployOrderExecution  Player: moses Command: deploy 3 5 Status: executed
+2021-03-26T12:54:51.799  GamePhase: advanceOrderExecution  Player: william Command: advance Coimbatore Chennai 3 Status: executed
+2021-03-26T12:54:54.480  GamePhase: StartUp  Player: william Command: 3 Status: Reinforcement Assigned
+2021-03-26T12:54:54.481  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T12:54:54.490  GamePhase: StartUp  Player: moses Command: 3 Status: Reinforcement Assigned
+2021-03-26T12:54:54.491  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T12:55:59.920  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T12:56:07.181  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T12:56:07.182  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T12:56:10.257  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T12:56:30.067  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T12:56:30.068  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-26T12:56:30.070  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T12:56:30.075  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-03-26T12:56:30.077  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T12:57:21.379  GamePhase: deployOrderExecution  Player: william Command: deploy 1 5 Status: executed
+2021-03-26T12:57:21.380  GamePhase: deployOrderExecution  Player: moses Command: deploy 3 5 Status: executed
+2021-03-26T12:57:21.382  GamePhase: advanceOrderExecution  Player: william Command: advance Chennai Coimbatore 3 Status: executed
+2021-03-26T12:57:23.545  GamePhase: StartUp  Player: william Command: 3 Status: Reinforcement Assigned
+2021-03-26T12:57:23.547  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T12:57:23.554  GamePhase: StartUp  Player: moses Command: 3 Status: Reinforcement Assigned
+2021-03-26T12:57:23.556  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:33:03.267  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T13:33:10.283  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T13:33:10.284  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T13:33:13.491  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T13:33:17.884  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T13:33:17.885  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-26T13:33:17.885  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:33:17.888  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-03-26T13:33:17.889  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:33:57.186  GamePhase: deployOrderExecution  Player: william Command: deploy 3 5 Status: executed
+2021-03-26T13:33:57.186  GamePhase: deployOrderExecution  Player: moses Command: deploy 1 4 Status: executed
+2021-03-26T13:33:57.188  GamePhase: deployOrderExecution  Player: moses Command: deploy 1 1 Status: executed
+2021-03-26T13:33:57.189  GamePhase: advanceOrderExecution  Player: william Command: advance Hyderabad Coimbatore 5 Status: executed
+2021-03-26T13:34:03.495  GamePhase: StartUp  Player: william Command: 3 Status: Reinforcement Assigned
+2021-03-26T13:34:03.496  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:34:03.498  GamePhase: StartUp  Player: moses Command: 3 Status: Reinforcement Assigned
+2021-03-26T13:34:03.498  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:39:38.475  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T13:39:44.029  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T13:39:44.030  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T13:39:51.582  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T13:39:53.821  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T13:39:53.822  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-26T13:39:53.822  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:39:53.826  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-03-26T13:39:53.827  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:40:19.324  GamePhase: deployOrderExecution  Player: william Command: deploy 2 5 Status: executed
+2021-03-26T13:40:19.325  GamePhase: deployOrderExecution  Player: moses Command: deploy 6 5 Status: executed
+2021-03-26T13:40:19.326  GamePhase: advanceOrderExecution  Player: william Command: advance Coimbatore Chennai 3 Status: executed
+2021-03-26T13:40:21.860  GamePhase: StartUp  Player: william Command: 4 Status: Reinforcement Assigned
+2021-03-26T13:40:21.860  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:40:21.864  GamePhase: StartUp  Player: moses Command: 3 Status: Reinforcement Assigned
+2021-03-26T13:40:21.864  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:43:26.697  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T13:43:40.793  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T13:43:40.794  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T13:43:43.551  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T13:43:49.051  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T13:43:49.052  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-26T13:43:49.052  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:43:49.055  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-03-26T13:43:49.056  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:45:16.706  GamePhase: deployOrderExecution  Player: william Command: deploy 1 5 Status: executed
+2021-03-26T13:45:16.709  GamePhase: deployOrderExecution  Player: moses Command: deploy 5 5 Status: executed
+2021-03-26T13:45:16.709  GamePhase: advanceOrderExecution  Player: william Command: advance Chennai Coimbatore 4 Status: executed
+2021-03-26T13:45:18.962  GamePhase: StartUp  Player: william Command: 11 Status: Reinforcement Assigned
+2021-03-26T13:45:18.962  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:45:18.965  GamePhase: StartUp  Player: moses Command: 3 Status: Reinforcement Assigned
+2021-03-26T13:45:18.966  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:46:46.516  GamePhase: deployOrderExecution  Player: william Command: deploy 6 8 Status: executed
+2021-03-26T13:46:46.517  GamePhase: deployOrderExecution  Player: moses Command: deploy 3 3 Status: executed
+2021-03-26T13:46:46.519  GamePhase: deployOrderExecution  Player: william Command: deploy 4 3 Status: executed
+2021-03-26T13:46:46.519  GamePhase: advanceOrderExecution  Player: william Command: advance Trivandram Kochin 8 Status: executed
+2021-03-26T13:46:48.938  GamePhase: StartUp  Player: william Command: 41 Status: Reinforcement Assigned
+2021-03-26T13:46:48.939  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:46:48.940  GamePhase: StartUp  Player: moses Command: 3 Status: Reinforcement Assigned
+2021-03-26T13:46:48.941  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T13:47:59.730  GamePhase: deployOrderExecution  Player: william Command: deploy 6 41 Status: executed
+2021-03-26T13:47:59.730  GamePhase: deployOrderExecution  Player: moses Command: deploy 3 3 Status: executed
+2021-03-26T13:47:59.731  GamePhase: advanceOrderExecution  Player: william Command: advance Coimbatore Hyderabad 4 Status: executed
+2021-03-26T14:54:16.984  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T14:54:30.793  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T14:54:50.006  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T14:54:50.006  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T14:54:53.905  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T14:55:08.491  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T14:55:08.492  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-26T14:55:08.494  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T14:55:08.498  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-03-26T14:55:08.499  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T14:57:40.992  GamePhase: deployOrderExecution  Player: william Command: deploy 1 5 Status: executed
+2021-03-26T14:57:40.993  GamePhase: deployOrderExecution  Player: moses Command: deploy 3 5 Status: executed
+2021-03-26T14:58:17.416  GamePhase: advanceOrderExecution  Player: william Command: advance Chennai Coimbatore 2 Status: executed
+2021-03-26T14:58:20.504  GamePhase: StartUp  Player: william Command: 11 Status: Reinforcement Assigned
+2021-03-26T14:58:20.505  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T14:58:20.507  GamePhase: StartUp  Player: moses Command: 31 Status: Reinforcement Assigned
+2021-03-26T14:58:20.507  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T14:59:52.961  GamePhase: deployOrderExecution  Player: william Command: deploy 1 5 Status: executed
+2021-03-26T14:59:52.962  GamePhase: deployOrderExecution  Player: moses Command: deploy 3 31 Status: executed
+2021-03-26T14:59:52.964  GamePhase: deployOrderExecution  Player: william Command: deploy 2 6 Status: executed
+2021-03-26T15:08:48.262  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T15:08:55.736  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T15:08:55.736  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T15:08:58.285  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T15:09:01.391  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T15:09:01.392  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-26T15:09:01.394  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:09:01.397  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-03-26T15:09:01.397  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:09:20.790  GamePhase: deployOrderExecution  Player: william Command: deploy 6 5 Status: executed
+2021-03-26T15:09:20.791  GamePhase: deployOrderExecution  Player: moses Command: deploy 5 5 Status: executed
+2021-03-26T15:09:23.886  GamePhase: StartUp  Player: william Command: 21 Status: Reinforcement Assigned
+2021-03-26T15:09:23.887  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:09:23.888  GamePhase: StartUp  Player: moses Command: 11 Status: Reinforcement Assigned
+2021-03-26T15:09:23.889  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:09:58.138  GamePhase: deployOrderExecution  Player: william Command: deploy 6 3 Status: executed
+2021-03-26T15:09:58.139  GamePhase: deployOrderExecution  Player: moses Command: deploy 2 11 Status: executed
+2021-03-26T15:09:58.141  GamePhase: deployOrderExecution  Player: william Command: deploy 4 18 Status: executed
+2021-03-26T15:09:58.141  GamePhase: advanceOrderExecution  Player: william Command: advance Trivandram Kochin 8 Status: executed
+2021-03-26T15:09:59.836  GamePhase: StartUp  Player: william Command: 51 Status: Reinforcement Assigned
+2021-03-26T15:09:59.836  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:09:59.838  GamePhase: StartUp  Player: moses Command: 10 Status: Reinforcement Assigned
+2021-03-26T15:09:59.838  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:24:05.085  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T15:24:12.376  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T15:24:12.376  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T15:24:16.038  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T15:24:52.467  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T15:24:52.468  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-26T15:24:52.468  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:24:52.472  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-03-26T15:24:52.473  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:26:49.421  GamePhase: deployOrderExecution  Player: william Command: deploy 4 5 Status: executed
+2021-03-26T15:26:49.422  GamePhase: deployOrderExecution  Player: moses Command: deploy 1 5 Status: executed
+2021-03-26T15:27:26.445  GamePhase: advanceOrderExecution  Player: william Command: advance Guntur Hyderabad 4 Status: executed
+2021-03-26T15:27:29.805  GamePhase: StartUp  Player: william Command: 51 Status: Reinforcement Assigned
+2021-03-26T15:27:29.806  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:27:29.807  GamePhase: StartUp  Player: moses Command: 10 Status: Reinforcement Assigned
+2021-03-26T15:27:29.808  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:35:55.689  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T15:36:18.603  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T15:36:27.333  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T15:36:27.333  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T15:36:30.407  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T15:37:02.278  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T15:37:02.279  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-26T15:37:02.279  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:37:02.283  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-03-26T15:37:02.283  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:39:04.231  GamePhase: deployOrderExecution  Player: william Command: deploy 2 5 Status: executed
+2021-03-26T15:39:04.232  GamePhase: deployOrderExecution  Player: moses Command: deploy 4 5 Status: executed
+2021-03-26T15:39:41.731  GamePhase: advanceOrderExecution  Player: william Command: advance Coimbatore Hyderabad 3 Status: executed
+2021-03-26T15:41:16.339  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T15:41:23.235  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T15:41:23.236  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T15:41:28.979  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T15:41:35.019  GamePhase: GamePlay Command: stargame Status: Input command mismatching
+2021-03-26T15:41:38.571  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T15:41:38.572  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-26T15:41:38.572  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:41:38.574  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-03-26T15:41:38.574  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:42:11.171  GamePhase: deployOrderExecution  Player: william Command: deploy 2 5 Status: executed
+2021-03-26T15:42:11.172  GamePhase: deployOrderExecution  Player: moses Command: deploy 5 5 Status: executed
+2021-03-26T15:42:11.172  GamePhase: advanceOrderExecution  Player: william Command: advance Coimbatore Chennai 4 Status: executed
+2021-03-26T15:44:48.099  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T15:44:54.326  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T15:44:54.326  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T15:45:00.011  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T15:45:07.121  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T15:45:07.122  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-26T15:45:07.124  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:45:07.127  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-03-26T15:45:07.127  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:45:35.036  GamePhase: IssueOrder-Advance  Player: william Command: advance Chennai Coimbatore Status: Invalid Command
+2021-03-26T15:45:46.069  GamePhase: deployOrderExecution  Player: william Command: deploy 1 5 Status: executed
+2021-03-26T15:45:46.069  GamePhase: deployOrderExecution  Player: moses Command: deploy 3 5 Status: executed
+2021-03-26T15:45:46.070  GamePhase: advanceOrderExecution  Player: william Command: advance Chennai Coimbatore 4 Status: executed
+2021-03-26T15:45:48.036  GamePhase: StartUp  Player: william Command: 11 Status: Reinforcement Assigned
+2021-03-26T15:45:48.037  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:45:48.039  GamePhase: StartUp  Player: moses Command: 3 Status: Reinforcement Assigned
+2021-03-26T15:45:48.040  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:48:34.069  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T15:48:41.888  GamePhase: GamePlay Command: gameplayer -add 1 -add 2 Status: gameplayer command
+2021-03-26T15:48:41.889  GamePhase: GamePlay Command: gameplayer -add 1 -add 2 Status: gameplayer command
+2021-03-26T15:48:45.088  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T15:48:53.440  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T15:48:53.440  GamePhase: StartUp  Player: 1 Command: 5 Status: Reinforcement Assigned
+2021-03-26T15:48:53.442  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:48:53.444  GamePhase: StartUp  Player: 2 Command: 5 Status: Reinforcement Assigned
+2021-03-26T15:48:53.444  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:50:01.163  GamePhase: deployOrderExecution  Player: 1 Command: deploy 3 5 Status: executed
+2021-03-26T15:50:01.163  GamePhase: deployOrderExecution  Player: 2 Command: deploy 5 5 Status: executed
+2021-03-26T15:50:01.165  GamePhase: advanceOrderExecution  Player: 1 Command: advance Hyderabad Guntur 3 Status: executed
+2021-03-26T15:50:01.166  GamePhase: advanceOrderExecution  Player: 2 Command: advance Kochin Trivandram 2 Status: executed
+2021-03-26T15:50:05.410  GamePhase: StartUp  Player: 1 Command: 31 Status: Reinforcement Assigned
+2021-03-26T15:50:05.411  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:50:05.413  GamePhase: StartUp  Player: 2 Command: 30 Status: Reinforcement Assigned
+2021-03-26T15:50:05.413  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:51:46.179  GamePhase: IssueOrder-Special  Player: 1 Command: 5 Status: The country ID given for blockade is not under the player
+2021-03-26T15:54:12.261  GamePhase: deployOrderExecution  Player: 1 Command: deploy 1 31 Status: executed
+2021-03-26T15:54:12.262  GamePhase: deployOrderExecution  Player: 2 Command: deploy 5 30 Status: executed
+2021-03-26T15:54:12.262  GamePhase: advanceOrderExecution  Player: 2 Command: advance Kochin Guntur 10 Status: executed
+2021-03-26T15:54:14.374  GamePhase: StartUp  Player: 1 Command: 11 Status: Reinforcement Assigned
+2021-03-26T15:54:14.374  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T15:54:14.377  GamePhase: StartUp  Player: 2 Command: 31 Status: Reinforcement Assigned
+2021-03-26T15:54:14.378  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T16:11:39.001  GamePhase: MapEditor Command: asfa Status: No asfa map exists
+2021-03-26T16:12:10.518  GamePhase: MapEditor Command: tessdfa Status: No tessdfa map exists
+2021-03-26T16:12:28.586  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-03-26T16:12:37.387  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T16:12:37.387  GamePhase: GamePlay Command: gameplayer -add william -add moses Status: gameplayer command
+2021-03-26T16:12:42.050  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-03-26T16:12:43.791  GamePhase: GamePlay Command: adsf Status: Input command mismatching
+2021-03-26T16:12:50.538  GamePhase: GamePlay Command: startgame Status: game started
+2021-03-26T16:12:50.538  GamePhase: StartUp  Player: william Command: 5 Status: Reinforcement Assigned
+2021-03-26T16:12:50.539  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-03-26T16:12:50.542  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-03-26T16:12:50.542  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned

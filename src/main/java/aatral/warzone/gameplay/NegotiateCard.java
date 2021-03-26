@@ -31,15 +31,19 @@ public class NegotiateCard extends Order{
  */
 	public void execute() {
 		
-		gamePlayerObject.diplomacyCountries.add(this.playerID);
-		for(Map.Entry gamePlayerObj : gamePlayerObjectList.entrySet())
-		{
-			if(gamePlayerObj.getKey().equals(this.playerID))
-			{
-				((GamePlayer)gamePlayerObj.getValue()).getDiplomacyCountries().add(gamePlayerObject.getPlayerName());
-				break;
-			}
-		}
+		
+		
+		
+//		gamePlayerObject.diplomacyCountries.add(this.playerID);
+//		for(Map.Entry gamePlayerObj : gamePlayerObjectList.entrySet())
+//		{
+//			if(gamePlayerObj.getKey().equals(this.playerID))
+//			{
+//				((GamePlayer)gamePlayerObj.getValue()).getDiplomacyCountries().add(gamePlayerObject.getPlayerName());
+//				
+//				break;
+//			}
+//		}
 	}
 	
 }

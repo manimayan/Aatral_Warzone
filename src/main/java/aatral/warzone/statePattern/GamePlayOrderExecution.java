@@ -185,7 +185,7 @@ public class GamePlayOrderExecution extends GamePlay {
 					} else{
 						gameEngine.l_gamePlayerObject.pushBackOrder(orderObj);
 					}
-				}		
+				}	
 				if(gameEngine.checkIfPlayerHasWon()) {
 					System.out.println("Hurray!!! PLAYER "+gameEngine.l_gamePlayerObject.getPlayerName()+" has won the game.");
 					gameEngine.showMapPlayer(gameEngine.l_gamePlayerObject);
@@ -194,12 +194,18 @@ public class GamePlayOrderExecution extends GamePlay {
 				}
 			}
 		}
-		if(gameEngine.l_gamePlayerObject.hasConqueredInTurn) {
-			int randomCardValue = new Random().nextInt(4);
-			GamePlayer object = gameEngine.l_gamePlayerObject;
-			List<String> stringCardNames = (List<String>) object.getSpecialCards().keySet();
-			object.getSpecialCards().replace(stringCardNames.get(randomCardValue), object.getSpecialCards().get(stringCardNames.get(randomCardValue))+1);
+		for (Map.Entry l_gameplayObject : gameEngine.l_playerObjectList.entrySet()) {
+			gameEngine.l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
+			if(gameEngine.l_gamePlayerObject.hasConqueredInTurn) {
+				int randomCardValue = new Random().nextInt(4);
+				GamePlayer object = gameEngine.l_gamePlayerObject;
+				List<String> stringCardNames = new ArrayList<>();
+				for(String keyString : object.getSpecialCards().keySet())
+				{
+					stringCardNames.add(keyString);
+				}
+				object.getSpecialCards().replace(stringCardNames.get(randomCardValue), object.getSpecialCards().get(stringCardNames.get(randomCardValue))+1);
+			}
 		}
 	}
-
 }

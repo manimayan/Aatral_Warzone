@@ -391,20 +391,20 @@ public class GamePlayIssueOrder extends GamePlay {
 	public int calculateInputArmies(String p_deployInput) {
 		return Integer.parseInt(p_deployInput.trim().split(" ")[1]);
 	}
-/**
- * validateInputArmies method is used to verify the greatest army value
- * @param p_inputArmies input army
- * @param p_availableArmies available army
- * @return greater armies value
- */
+	/**
+	 * validateInputArmies method is used to verify the greatest army value
+	 * @param p_inputArmies input army
+	 * @param p_availableArmies available army
+	 * @return greater armies value
+	 */
 	public boolean validateInputArmies(int p_inputArmies, int p_availableArmies) {
 		return p_inputArmies <= p_availableArmies;
 	}
-/**
- * validateAdjCountry method is used to validate the adjacency
- * @param countryID country ID
- * @return true
- */
+	/**
+	 * validateAdjCountry method is used to validate the adjacency
+	 * @param countryID country ID
+	 * @return true
+	 */
 	public boolean validateAdjCountry(String countryID) {
 		for(Countries countryObj : gameEngine.l_gamePlayerObject.getListOfCountries()) {
 			for(String adjCountryID : countryObj.getCountryOwnedBorders()) {

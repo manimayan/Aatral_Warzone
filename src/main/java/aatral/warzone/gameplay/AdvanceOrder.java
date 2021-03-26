@@ -68,22 +68,16 @@ public class AdvanceOrder extends Order {
 					if (!flag)
 						break;
 				}
-
 				if (flag) { // neutral country
-
 					for (Countries l_countryObject : GameEngine.l_neutralCountries) {
 						if (l_countryObject.getCountryName().equals(this.countryToName)) {
 							this.gamePlayerObject.getListOfCountries().add(l_countryObject);
 							GameEngine.l_neutralCountries.remove(l_countryObject);
 							break;
 						}
-
 					}
-
 				}
-
-					gamePlayerObject.hasConqueredInTurn = true;
-				
+				gamePlayerObject.hasConqueredInTurn = true;
 			} else { // attack and come back
 				attackerArmies = attackerArmies + (Integer.parseInt(numArmies) - defenderCanKill);
 				defenderArmies = defenderArmies - attackerCanKill;
@@ -179,11 +173,9 @@ public class AdvanceOrder extends Order {
 	 */
 	public int getDefenderArmy(String p_countryToName) {
 		for (Entry<String, Continent> l_mapEntry : GameEngine.l_masterMap.entrySet()) {
-			if (((Continent) l_mapEntry.getValue()).getContinentOwnedCountries().contains(p_countryToName)) {
-				for (Countries l_countryObject : ((Continent) l_mapEntry.getValue()).getContinentOwnedCountries()) {
-					if (l_countryObject.getCountryName().equals(p_countryToName)) {
-						return l_countryObject.getArmies();
-					}
+			for (Countries l_countryObject : ((Continent) l_mapEntry.getValue()).getContinentOwnedCountries()) {
+				if (l_countryObject.getCountryName().equals(p_countryToName)) {
+					return l_countryObject.getArmies();
 				}
 			}
 		}

@@ -274,6 +274,19 @@ public class GameEngine {
 					log.info("StartUp", "For all players", "Reinforcement Assigned");	
 					showMapPlayer(l_gamePlayerObject);
 				}
+				if(l_neutralCountries.size()!=0) {
+					System.out.println(
+							"---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+					System.out.printf("%-14s%-40s%-12s%-20s%-100s\n", "Country ID", "Country Name", "Armies", "Owner",
+							"Bordering Countries");
+					System.out.println(
+							"---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+					for (Countries l_co : l_neutralCountries) {
+						System.out.printf("%-14s%-40s%-12s%-20s%-100s\n", "\n" + l_co.getCountryId(), l_co.getCountryName(),
+								l_co.getArmies(), "Neutral", countriesUnderPlayerAsString(l_co));
+					}
+					System.out.println();
+				}
 				gamePhase.next();
 				l_isFirst = false;
 
@@ -444,7 +457,7 @@ public class GameEngine {
 			if (!l_CountriesUnderContinent.isEmpty()) {
 				exists_all = true;
 				for (Countries c : l_CountriesUnderContinent) {
-					if (!l_listOfCountries.contains(c.getCountryId())) {
+					if (!l_listOfCountries.contains(c)) {
 						exists_all = false;
 						break;
 					}
