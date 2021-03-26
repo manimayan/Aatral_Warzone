@@ -29,7 +29,7 @@ import lombok.Setter;
 @NoArgsConstructor
 /**
  * <h1>GameEngine</h1> The Class is the kernel of warzone game
-
+ * 
  * @author William Moses
  * @version 1.0
  * @since 24-02-2021
@@ -49,13 +49,12 @@ public class GameEngine {
 	LogEntryBuffer log = new LogEntryBuffer();
 	LogWriter logWriter = new LogWriter(log);
 
-
 	private Phase gamePhase;
 
 	public void setPhase(Phase p_phase) {
 		gamePhase = p_phase;
 	}
-	
+
 	public void start() {
 		System.out.println("Welome to Warzone");
 		boolean proceed = true;
@@ -148,7 +147,7 @@ public class GameEngine {
 			switch (l_playOption.split(" ")[0]) {
 			case "startgame":
 				System.out.println("Game Play has started\n\n");
-				log.info("GamePlay",l_playOption, "game started");	
+				log.info("GamePlay", l_playOption, "game started");
 				startGame();
 				break;
 			case "gameplayer":
@@ -166,7 +165,7 @@ public class GameEngine {
 						l_playerName = l_playerName.trim();
 						if (l_playerName.isEmpty())
 							continue;
-						gamePhase.addGamePlayer(l_playerName, l_playerObListTempAdd, l_playerList);	
+						gamePhase.addGamePlayer(l_playerName, l_playerObListTempAdd, l_playerList);
 						break;
 					case "remove":
 						l_playerName = l_option.substring(6).trim();
@@ -174,12 +173,12 @@ public class GameEngine {
 						gamePhase.removeGamePlayer(l_flag, l_playerName, l_playerObListTempRem, l_playerList);
 						break;
 					default:
-						log.info("GamePlay",l_playOption, "invalid option command");	
+						log.info("GamePlay", l_playOption, "invalid option command");
 						System.out.println("Different input has been read...Try again");
 						l_flag = false;
 						break;
 					}
-					log.info("GamePlay",l_playOption, "gameplayer command");	
+					log.info("GamePlay", l_playOption, "gameplayer command");
 				}
 				while (l_flag) {
 					System.out.println("Give assigncountries to assign it! or 'cancel' to ignore" + "\nFormat : "
@@ -187,21 +186,21 @@ public class GameEngine {
 					l_playOption = l_input.nextLine();
 					switch (l_playOption) {
 					case "assigncountries":
-						l_isFirst=true;
+						l_isFirst = true;
 						l_playerList.addAll(l_playerObListTempAdd);
 						l_playerList.removeAll(l_playerObListTempRem);
 						l_playerObjectList = gamePhase.assignCountries(l_playerList);
 						l_gamePlayPopulateFlag = true;
 						l_flag = false;
-						log.info("GamePlay",l_playOption, "command executed");	
+						log.info("GamePlay", l_playOption, "command executed");
 						break;
 					case "cancel":
-						log.info("GamePlay",l_playOption, "command aborted");	
+						log.info("GamePlay", l_playOption, "command aborted");
 						System.out.println("Player's modification are aborted!");
 						l_flag = false;
 						break;
 					default:
-						log.info("GamePlay",l_playOption, "invalid command");	
+						log.info("GamePlay", l_playOption, "invalid command");
 						System.out.println("You have entered wrong input...Try again");
 						break;
 					}
@@ -214,14 +213,12 @@ public class GameEngine {
 				System.exit(0);
 				break;
 			default:
-				log.info("GamePlay",l_playOption, "Input command mismatching");	
+				log.info("GamePlay", l_playOption, "Input command mismatching");
 				System.out.println("Input format is not matching... Try again\nCheck again\n");
 				break;
 			}
 		}
 	}
-
-
 
 	/**
 	 * startGame method is used to start the game with user's input choice
@@ -234,7 +231,7 @@ public class GameEngine {
 			String l_readInput;
 			if (!l_gamePlayPopulateFlag) {
 				if (l_playerObjectList == null) {
-					l_playerObjectList=gamePhase.assignCountries(l_playerList);
+					l_playerObjectList = gamePhase.assignCountries(l_playerList);
 				} else {
 					while (l_innerLoopflag) {
 						System.out.println(
@@ -243,14 +240,14 @@ public class GameEngine {
 						switch (l_readInput) {
 						case "startnewgame":
 							l_isFirst = true;
-							l_playerObjectList=gamePhase.assignCountries(l_playerList);
+							l_playerObjectList = gamePhase.assignCountries(l_playerList);
 							l_innerLoopflag = false;
 							break;
 						case "continue":
 							l_innerLoopflag = false;
 							break;
 						default:
-							log.info("StartUp",l_readInput, "Input command mismatching");	
+							log.info("StartUp", l_readInput, "Input command mismatching");
 							System.out.println("Input is mismatching...Kindly Try again...");
 							break;
 						}
@@ -264,17 +261,17 @@ public class GameEngine {
 			do {
 				for (Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
 					l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
-					l_gamePlayerObject.hasConqueredInTurn=false;
+					l_gamePlayerObject.hasConqueredInTurn = false;
 					System.out.println("\n\nAssinging reinforcement for the Player " + l_gameplayObject.getKey());
 					if (l_isFirst) {
 						gamePhase.assignReinforcements(5);
 					} else {
 						gamePhase.assignReinforcements(calAssignReinforcements(l_gamePlayerObject));
 					}
-					log.info("StartUp", "For all players", "Reinforcement Assigned");	
+					log.info("StartUp", "For all players", "Reinforcement Assigned");
 					showMapPlayer(l_gamePlayerObject);
 				}
-				if(l_neutralCountries.size()!=0) {
+				if (l_neutralCountries.size() != 0) {
 					System.out.println(
 							"---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 					System.out.printf("%-14s%-40s%-12s%-20s%-100s\n", "Country ID", "Country Name", "Armies", "Owner",
@@ -282,8 +279,8 @@ public class GameEngine {
 					System.out.println(
 							"---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 					for (Countries l_co : l_neutralCountries) {
-						System.out.printf("%-14s%-40s%-12s%-20s%-100s\n", "\n" + l_co.getCountryId(), l_co.getCountryName(),
-								l_co.getArmies(), "Neutral", countriesUnderPlayerAsString(l_co));
+						System.out.printf("%-14s%-40s%-12s%-20s%-100s\n", "\n" + l_co.getCountryId(),
+								l_co.getCountryName(), l_co.getArmies(), "Neutral", countriesUnderPlayerAsString(l_co));
 					}
 					System.out.println();
 				}
@@ -295,7 +292,7 @@ public class GameEngine {
 				do {
 					flag = false;
 					for (Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
-						l_gamePlayerObject= (GamePlayer) l_gameplayObject.getValue(); 
+						l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
 						gamePhase.issueOrders();
 						l_gamePlayerObject.setAdvanceInput(false);
 						if (!flag && l_gamePlayerObject.getReinforcementArmies() > 0) {
@@ -313,7 +310,7 @@ public class GameEngine {
 							l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
 							gamePhase.issueOrders();
 						}
-							
+
 						if (!flag && !((GamePlayer) l_gameplayObject.getValue()).getAdvanceInput())
 							flag = true;
 					}
@@ -321,8 +318,7 @@ public class GameEngine {
 
 				gamePhase.next();
 				gamePhase.executeOrders();
-				
-				
+
 				l_innerLoopflag = true;
 				while (l_innerLoopflag) {
 					System.out.println("Give any of the following command to proceed the gamePlay \n continue \n back");
@@ -345,10 +341,12 @@ public class GameEngine {
 			} while (l_flag);
 		}
 	}
-/**
- * totalCountries method is used to calculate the total countries
- * @return total country value
- */
+
+	/**
+	 * totalCountries method is used to calculate the total countries
+	 * 
+	 * @return total country value
+	 */
 	public int totalCountries() {
 		int count = 0;
 		for (Entry<String, Continent> mapEntry : l_masterMap.entrySet()) {
@@ -357,11 +355,12 @@ public class GameEngine {
 		}
 		return count;
 	}
-	
-/**
- * listOfCountries method is used to calculate the list of temporary countries
- * @return temporary country value
- */
+
+	/**
+	 * listOfCountries method is used to calculate the list of temporary countries
+	 * 
+	 * @return temporary country value
+	 */
 	public List<Countries> listOfCountries() {
 		List<Countries> tempCountries = new ArrayList<>();
 		for (Entry<String, Continent> mapEntry : l_masterMap.entrySet()) {
@@ -369,12 +368,13 @@ public class GameEngine {
 		}
 		return tempCountries;
 	}
-	
-/**
- * allCountriesAssigned method is used to assign the all countries
- * @param p_isCountryAssigned country assigned
- * @return false
- */
+
+	/**
+	 * allCountriesAssigned method is used to assign the all countries
+	 * 
+	 * @param p_isCountryAssigned country assigned
+	 * @return false
+	 */
 	public boolean allCountriesAssigned(boolean p_isCountryAssigned[]) {
 		for (int i = 0; i < p_isCountryAssigned.length; i++) {
 			if (!p_isCountryAssigned[i])
@@ -382,12 +382,14 @@ public class GameEngine {
 		}
 		return true;
 	}
-/**
- * getCountryID method is used to get the country ID 
- * @param p_totalCountryNumber total country number
- * @param p_isCountryAssigned country assigned
- * @return country ID
- */
+
+	/**
+	 * getCountryID method is used to get the country ID
+	 * 
+	 * @param p_totalCountryNumber total country number
+	 * @param p_isCountryAssigned  country assigned
+	 * @return country ID
+	 */
 	public int getCountryID(int p_totalCountryNumber, boolean[] p_isCountryAssigned) {
 		int l_countryID = new Random().nextInt(p_totalCountryNumber);
 		while (p_isCountryAssigned[l_countryID]) {
@@ -395,35 +397,36 @@ public class GameEngine {
 		}
 		return l_countryID;
 	}
+
 	/**
-	 * checkIfPlayerHasAnyCards method is used to check whether the player has any card or not
+	 * checkIfPlayerHasAnyCards method is used to check whether the player has any
+	 * card or not
+	 * 
 	 * @param playerObj player object
 	 * @return It returns a value
 	 */
 	public String checkIfPlayerHasAnyCards(GamePlayer playerObj) {
 		String value = "";
-		for(Map.Entry playerCard : playerObj.getSpecialCards().entrySet()) {
-			if((int)playerCard.getValue()!=0)
-			{
-				switch((String)playerCard.getKey()) {
+		for (Map.Entry playerCard : playerObj.getSpecialCards().entrySet()) {
+			if ((int) playerCard.getValue() != 0) {
+				switch ((String) playerCard.getKey()) {
 				case "bomb":
-					value+="\n bomb countryID";
+					value += "\n bomb countryID";
 					break;
 				case "blockade":
-					value+="\n blockade countryID";
+					value += "\n blockade countryID";
 					break;
 				case "airlift":
-					value+="\n airlift sourcecountryID targetcountryID numarmies";
+					value += "\n airlift sourcecountryID targetcountryID numarmies";
 					break;
 				case "negotiate":
-					value+="\n negotiate playerID";
+					value += "\n negotiate playerID";
 					break;
 				}
 			}
 		}
 		return value;
 	}
-	
 
 	/**
 	 * getContinentName method is used to get the continent name using continent id
@@ -442,12 +445,13 @@ public class GameEngine {
 		}
 		return l_continentName;
 	}
-	
-/**
- * calAssignReinforcements is used to assign the reinforcements
- * @param p_player game player
- * @return reinforcement count
- */
+
+	/**
+	 * calAssignReinforcements is used to assign the reinforcements
+	 * 
+	 * @param p_player game player
+	 * @return reinforcement count
+	 */
 	public int calAssignReinforcements(GamePlayer p_player) {
 		List<Countries> l_listOfCountries = p_player.getListOfCountries();
 		int l_reinforcementCount = Math.round(l_listOfCountries.size() / 3);
@@ -469,11 +473,11 @@ public class GameEngine {
 		}
 		return l_reinforcementCount < 3 ? 3 : l_reinforcementCount;
 	}
-	
-	
 
 	/**
-	 * countriesUnderPlayerAsString method is used to display the countries assigned under a player
+	 * countriesUnderPlayerAsString method is used to display the countries assigned
+	 * under a player
+	 * 
 	 * @param p_countryObject
 	 * @return bordering countries
 	 */
@@ -494,17 +498,20 @@ public class GameEngine {
 		}
 		return borderingCountries.substring(2);
 	}
-	
+
+	/**
+	 * checkIfPlayerHasWon method checks if player has won the game
+	 * @return boolean true if won, else false
+	 */
 	public boolean checkIfPlayerHasWon() {
-		for(Map.Entry mapPlayerObj : l_playerObjectList.entrySet()) {
-			if(!mapPlayerObj.getKey().equals(l_gamePlayerObject.getPlayerName()) && ((GamePlayer)mapPlayerObj.getValue()).getListOfCountries().size()!=0) {
+		for (Map.Entry mapPlayerObj : l_playerObjectList.entrySet()) {
+			if (!mapPlayerObj.getKey().equals(l_gamePlayerObject.getPlayerName())
+					&& ((GamePlayer) mapPlayerObj.getValue()).getListOfCountries().size() != 0) {
 				return false;
 			}
 		}
 		return true;
 	}
-	
-	
 
 	/**
 	 * showMapPlayer method is used to show the map corresponds to game player name
@@ -523,13 +530,6 @@ public class GameEngine {
 					l_co.getArmies(), p_gamePlayer.getPlayerName(), countriesUnderPlayerAsString(l_co));
 		}
 		System.out.println();
-	}
-	
-	
-	public void randomCardGenerator() {
-		int cardID = new Random().nextInt(4);
-		List<String> keySet =(List<String>) this.l_gamePlayerObject.getSpecialCards().keySet();
-		this.l_gamePlayerObject.getSpecialCards().replace(keySet.get(cardID), this.l_gamePlayerObject.getSpecialCards().get(keySet.get(cardID)+1));
 	}
 
 }
