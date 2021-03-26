@@ -55,13 +55,7 @@ public class GameEngine {
 	public void setPhase(Phase p_phase) {
 		gamePhase = p_phase;
 	}
-
-	//	public GameEngine(String fileName, Phase p_phase) {
-	//		this.l_mapName = fileName;
-	//		GameEngine.l_gamePlayerObject = new GamePlayer();
-	//		l_masterMap = p_phase.loadMap(fileName);
-	//	}
-
+	
 	public void start() {
 		System.out.println("Welome to Warzone");
 		boolean proceed = true;
@@ -516,6 +510,13 @@ public class GameEngine {
 					l_co.getArmies(), p_gamePlayer.getPlayerName(), countriesUnderPlayerAsString(l_co));
 		}
 		System.out.println();
+	}
+	
+	
+	public void randomCardGenerator() {
+		int cardID = new Random().nextInt(4);
+		List<String> keySet =(List<String>) this.l_gamePlayerObject.getSpecialCards().keySet();
+		this.l_gamePlayerObject.getSpecialCards().replace(keySet.get(cardID), this.l_gamePlayerObject.getSpecialCards().get(keySet.get(cardID)+1));
 	}
 
 }
