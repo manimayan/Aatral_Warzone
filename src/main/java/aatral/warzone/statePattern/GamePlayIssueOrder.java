@@ -185,17 +185,24 @@ public class GamePlayIssueOrder extends GamePlay {
 				break;
 			} else if(l_issueCommand.startsWith("bomb") && validateCard("bomb")){
 				l_specialInput = validateBombCommand(l_issueCommand);
-				if(validateAdjCountry(l_specialInput)) {
+				if(validateAdjCountry(l_specialInput) && isCountryValidate(l_specialInput)) {
 					gameEngine.l_gamePlayerObject.orderObjects.add(new BombCard(l_specialInput));
+					gameEngine.l_gamePlayerObject.getSpecialCards().put("bomb",gameEngine.l_gamePlayerObject.getSpecialCards().get("bomb")-1);
 					l_wrongIP = false;
 				}else {
-					log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The country ID given for bomb is not adjacent to the player");
-					System.out.println("The country ID given for bomb is not adjacent to the player "+gameEngine.l_gamePlayerObject.getPlayerName());
+					if(!isCountryValidate(l_specialInput)) {
+						log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The country ID is invalid");
+						System.out.println("The country ID is invalid ");
+					}else {
+						log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The country ID given for bomb is not adjacent to the player");
+						System.out.println("The country ID given for bomb is not adjacent to the player "+gameEngine.l_gamePlayerObject.getPlayerName());
+					}
 				}
 			} else if(l_issueCommand.startsWith("blockade") && validateCard("blockade")){
 				l_specialInput = validateBlockadeCommand(l_issueCommand);
 				if(validatePlayerCountryID(l_specialInput)) {
 					gameEngine.l_gamePlayerObject.orderObjects.add(new BlockadeCard(l_specialInput));
+					gameEngine.l_gamePlayerObject.getSpecialCards().put("blockade",gameEngine.l_gamePlayerObject.getSpecialCards().get("blockade")-1);
 					l_wrongIP = false;
 				}else {
 					log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The country ID given for blockade is not under the player");
@@ -203,16 +210,17 @@ public class GamePlayIssueOrder extends GamePlay {
 				}
 			} else if(l_issueCommand.startsWith("airlift") && validateCard("airlift")){
 				l_specialInput = validateAirliftCommand(l_issueCommand);
-				if(validatePlayerCountryID(l_specialInput.split(" ")[1]) && 
-						validatePlayerCountryID(l_specialInput.split(" ")[2]) && 
-						validateNumArimesBasedOnID(l_specialInput.split(" ")[1], l_specialInput.split(" ")[3])){
-					gameEngine.l_gamePlayerObject.orderObjects.add(new AirliftCard(l_specialInput.split(" ")[1], l_specialInput.split(" ")[2], l_specialInput.split(" ")[3]));
+				if(validatePlayerCountryID(l_specialInput.split(" ")[0]) && 
+						validatePlayerCountryID(l_specialInput.split(" ")[1]) && 
+						validateNumArimesBasedOnID(l_specialInput.split(" ")[0], l_specialInput.split(" ")[2])){
+					gameEngine.l_gamePlayerObject.orderObjects.add(new AirliftCard(l_specialInput.split(" ")[0], l_specialInput.split(" ")[1], l_specialInput.split(" ")[2]));
+					gameEngine.l_gamePlayerObject.getSpecialCards().put("airlift",gameEngine.l_gamePlayerObject.getSpecialCards().get("airlift")-1);
 					l_wrongIP = false;
 				}else {
-					if(!validatePlayerCountryID(l_specialInput.split(" ")[1])) {
+					if(!validatePlayerCountryID(l_specialInput.split(" ")[0])) {
 						log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The source country ID is not belonging to the player");
 						System.out.println("The source country ID is not belonging to the player - "+gameEngine.l_gamePlayerObject.getPlayerName());
-					}else if(!validatePlayerCountryID(l_specialInput.split(" ")[2])) {
+					}else if(!validatePlayerCountryID(l_specialInput.split(" ")[1])) {
 						log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The destination country ID is not belonging to the player");
 						System.out.println("The destination country ID is not belonging to the player - "+gameEngine.l_gamePlayerObject.getPlayerName());
 					}else {
@@ -225,6 +233,7 @@ public class GamePlayIssueOrder extends GamePlay {
 				if(!gameEngine.l_gamePlayerObject.getPlayerName().equals(l_specialInput)) {
 					if(validatePlayerID(l_specialInput)) {
 						gameEngine.l_gamePlayerObject.orderObjects.add(new NegotiateCard(l_specialInput));
+						gameEngine.l_gamePlayerObject.getSpecialCards().put("negotiate",gameEngine.l_gamePlayerObject.getSpecialCards().get("negotiate")-1);
 						l_wrongIP = false;
 					}else {
 						log.info("IssueOrder-Special", gameEngine.l_gamePlayerObject.getPlayerName(), l_specialInput, "The given player ID doesn't exist");
@@ -262,11 +271,21 @@ public class GamePlayIssueOrder extends GamePlay {
 			}
 		}
 	}
-/**
- * validateCard method is used to validate the card using name
- * @param cardName name of the card
- * @return true
- */
+	
+	public boolean isCountryValidate(String countryID) {
+		for(Countries countryObj : gameEngine.listOfCountries()) {
+			if(countryObj.getCountryId().equals(countryID)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * validateCard method is used to validate the card using name
+	 * @param cardName name of the card
+	 * @return true
+	 */
 	public boolean validateCard(String cardName) {
 		for(Map.Entry cardList : gameEngine.l_gamePlayerObject.getSpecialCards().entrySet()) {
 			if(cardList.getKey().equals(cardName) && (int)cardList.getValue()>0) {
@@ -276,22 +295,23 @@ public class GamePlayIssueOrder extends GamePlay {
 		return false;
 	}
 	
-/**
- * validatePlayerID method is used to validate the player ID
- * @param playerID player ID
- * @return true
- */
+	/**
+	 * validatePlayerID method is used to validate the player ID
+	 * @param playerID player ID
+	 * @return true
+	 */
 	public boolean validatePlayerID(String playerID) {
 		if( gameEngine.getL_playerList().contains(playerID)) {
 			return true;
 		}
 		return false;
 	}
-/**
- * 	validateNegotiateCommand method is used to validate the negotiate input command
- * @param p_issueCommand issue command
- * @return substring of input value
- */
+	
+	/**
+	 * 	validateNegotiateCommand method is used to validate the negotiate input command
+	 * @param p_issueCommand issue command
+	 * @return substring of input value
+	 */
 	public String validateNegotiateCommand(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("negotiate") && p_issueCommand.split(" ").length ==2)) {
@@ -302,11 +322,12 @@ public class GamePlayIssueOrder extends GamePlay {
 		}
 		return p_issueCommand.substring(10);
 	}
-/**
- * validateAirliftCommand method is used to validate the air lift input command
- * @param p_issueCommand issue command
- * @return substring of input value
- */
+	
+	/**
+	 * validateAirliftCommand method is used to validate the air lift input command
+	 * @param p_issueCommand issue command
+	 * @return substring of input value
+	 */
 	public String validateAirliftCommand(String p_issueCommand) {
 		Scanner l_input = new Scanner(System.in);
 		while (!(p_issueCommand.split(" ")[0].equalsIgnoreCase("airlift") && p_issueCommand.split(" ").length ==4)) {
@@ -348,6 +369,7 @@ public class GamePlayIssueOrder extends GamePlay {
 		}
 		return p_issueCommand.substring(5);
 	}
+	
 	/**
 	 * validateDeployInput method is used to validate the validateDeployInput
 	 * @param p_issueCommand issue command
@@ -364,6 +386,7 @@ public class GamePlayIssueOrder extends GamePlay {
 		
 		return p_issueCommand.substring(6);
 	}
+	
 	/**
 	 * validateAdvanceInput method is used to validate the validateAdvanceInput
 	 * @param p_issueCommand issue command
@@ -391,6 +414,7 @@ public class GamePlayIssueOrder extends GamePlay {
 	public int calculateInputArmies(String p_deployInput) {
 		return Integer.parseInt(p_deployInput.trim().split(" ")[1]);
 	}
+	
 	/**
 	 * validateInputArmies method is used to verify the greatest army value
 	 * @param p_inputArmies input army
@@ -400,26 +424,32 @@ public class GamePlayIssueOrder extends GamePlay {
 	public boolean validateInputArmies(int p_inputArmies, int p_availableArmies) {
 		return p_inputArmies <= p_availableArmies;
 	}
+	
 	/**
 	 * validateAdjCountry method is used to validate the adjacency
 	 * @param countryID country ID
 	 * @return true
 	 */
 	public boolean validateAdjCountry(String countryID) {
+		boolean flag=true;
 		for(Countries countryObj : gameEngine.l_gamePlayerObject.getListOfCountries()) {
+			if(countryObj.getCountryId().equals(countryID)) {
+				flag=false;
+				break;
+			}
 			for(String adjCountryID : countryObj.getCountryOwnedBorders()) {
 				if(adjCountryID.equals(countryID)) {
-					return true;
+					flag=true;
 				}
 			}
 		}
-		return false;
+		return flag;
 	}
-/**
- * validatePlayerCountryID method is used to validate the player country ID
- * @param countryID country ID
- * @return true
- */
+	/**
+	 * validatePlayerCountryID method is used to validate the player country ID
+	 * @param countryID country ID
+	 * @return true
+	 */
 	public boolean validatePlayerCountryID(String countryID) {
 		for(Countries countryObj : gameEngine.l_gamePlayerObject.getListOfCountries()) {
 			if(countryObj.getCountryId().equals(countryID))

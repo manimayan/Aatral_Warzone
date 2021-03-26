@@ -48,6 +48,7 @@ public class AdvanceOrder extends Order {
 	public void execute() {
 		int attackerArmies = getAttackerArmy(this.gamePlayerObject, this.countryFromName);
 		int defenderArmies = getDefenderArmy(this.countryToName);
+		if(validateFromCountryName(this.gamePlayerObject, this.countryFromName)) {
 		if (isAttack(this.gamePlayerObject, this.countryToName)) { // attack
 			int attackerCanKill = attackerCalc(this.numArmies);
 			int defenderCanKill = defenderCalc(defenderArmies + "");
@@ -94,6 +95,12 @@ public class AdvanceOrder extends Order {
 		System.out.println(this.gamePlayerObject.getPlayerName() + " has executed advance order for the country "
 				+ this.countryFromName + " to " + this.countryToName + " successfully with the armies "
 				+ this.numArmies);
+		}else {
+			log.info("advanceOrderExecution", gamePlayerObject.getPlayerName(),
+					"advance " + this.countryFromName + " " + this.countryToName + " " + this.numArmies, "not executed- fromCountry is already captured by other player");
+			System.out.println(this.gamePlayerObject.getPlayerName() + " has not executed advance order for the country "
+					+ this.countryFromName + " to " + this.countryToName + " as its already been caputured by the other player in the game");
+		}
 	}
 
 	/**
@@ -110,6 +117,15 @@ public class AdvanceOrder extends Order {
 			}
 		}
 		return true;
+	}
+	
+	public boolean validateFromCountryName(GamePlayer l_gamePlayerObject, String countryFromName) {
+		for (Countries l_countryObject : l_gamePlayerObject.getListOfCountries()) {
+			if (l_countryObject.getCountryName().equals(countryFromName)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

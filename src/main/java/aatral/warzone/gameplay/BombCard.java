@@ -50,5 +50,6 @@ public class BombCard extends Order {
 
 		}
 		log.info("specialOrderExecution",gamePlayerObject.getPlayerName(),"bomb "+this.countryID, "executed");	
+		System.out.println(gamePlayerObject.getPlayerName()+" has executed bomb for the country "+this.countryID);
 	}
 }

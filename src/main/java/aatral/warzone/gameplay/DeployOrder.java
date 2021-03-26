@@ -47,11 +47,12 @@ public class DeployOrder extends Order{
 		for(Countries country : this.gamePlayerObject.getListOfCountries()) {
 			if(country.getCountryId().equals(this.CountryID)) {
 				country.setArmies(country.getArmies()+Integer.parseInt(this.armies));
-				System.out.println("successfully updated "+ this.CountryID+" "+this.armies);
 				break;
 			}
 		}
 		log.info("deployOrderExecution",gamePlayerObject.getPlayerName(),"deploy "+this.CountryID+" "+this.armies, "executed");	
+
+		System.out.println(gamePlayerObject.getPlayerName()+ " has executed deploy for the country ID "+this.CountryID+" with arimes "+this.armies);
 	}
 	
 }

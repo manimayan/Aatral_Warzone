@@ -153,16 +153,16 @@ public class GamePlayOrderExecution extends GamePlay {
 						System.out.println("\n\nExecueting Special Order for the player " + gameEngine.l_gamePlayerObject.getPlayerName());
 						BombCard bombObj = (BombCard)orderObj;
 						bombObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
+						bombObj.playerObjectList =  gameEngine.l_playerObjectList;
 						bombObj.execute();
-						gameEngine.l_gamePlayerObject.getSpecialCards().put("bomb",gameEngine.l_gamePlayerObject.getSpecialCards().get("bomb")-1);
 						ordersExist = true;
 						System.out.println();
 					} else if(orderObj instanceof BlockadeCard) {
 						System.out.println("\n\nExecueting Special Order for the player " + gameEngine.l_gamePlayerObject.getPlayerName());
 						BlockadeCard blockObj = (BlockadeCard)orderObj;
 						blockObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
+						blockObj.playerObjectList =  gameEngine.l_playerObjectList;
 						blockObj.execute();
-						gameEngine.l_gamePlayerObject.getSpecialCards().put("blockade",gameEngine.l_gamePlayerObject.getSpecialCards().get("blockade")-1);
 						ordersExist = true;
 						System.out.println();
 					} else if(orderObj instanceof AirliftCard) {
@@ -170,7 +170,6 @@ public class GamePlayOrderExecution extends GamePlay {
 						AirliftCard airliftObj = (AirliftCard)orderObj;
 						airliftObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
 						airliftObj.execute();
-						gameEngine.l_gamePlayerObject.getSpecialCards().put("airlift",gameEngine.l_gamePlayerObject.getSpecialCards().get("airlift")-1);
 						ordersExist = true;
 						System.out.println();
 					} else if(orderObj instanceof NegotiateCard) {
@@ -179,7 +178,6 @@ public class GamePlayOrderExecution extends GamePlay {
 						negotiateObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
 						negotiateObj.gamePlayerObjectList =  gameEngine.l_playerObjectList;
 						negotiateObj.execute();
-						gameEngine.l_gamePlayerObject.getSpecialCards().put("negotiate",gameEngine.l_gamePlayerObject.getSpecialCards().get("negotiate")-1);
 						ordersExist = true;
 						System.out.println();
 					} else{

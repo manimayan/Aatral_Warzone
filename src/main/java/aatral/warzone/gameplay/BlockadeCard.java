@@ -53,6 +53,8 @@ public class BlockadeCard extends Order{
 				break;
 		}
 		log.info("specialOrderExecution",gamePlayerObject.getPlayerName(),"blockade "+this.countryID, "executed");	
+		System.out.println(gamePlayerObject.getPlayerName()+" has executed blockade for the country ID "+this.countryID);
+		
 	}
 
 }

@@ -53,6 +53,7 @@ public class AirliftCard extends Order{
 			}
 		}
 		log.info("specialOrderExecution",gamePlayerObject.getPlayerName(),"airlift "+this.sourceCountryID+" "+this.targetCountryID+" "+this.numArmies, "executed");	
+		System.out.println(gamePlayerObject.getPlayerName()+" has executed airlift for the country ID"+this.sourceCountryID+" to"+this.targetCountryID+" with armies "+this.numArmies);
 	}
 	
 
