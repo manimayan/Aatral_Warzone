@@ -149,8 +149,7 @@ public class GamePlayOrderExecution extends GamePlay {
 						advanceOrderObj.execute();
 						ordersExist = true;
 						System.out.println();
-					}else if(orderObj instanceof BombCard)
-					{
+					}else if(orderObj instanceof BombCard){
 						System.out.println("\n\nExecueting Special Order for the player " + gameEngine.l_gamePlayerObject.getPlayerName());
 						BombCard bombObj = (BombCard)orderObj;
 						bombObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
@@ -178,6 +177,7 @@ public class GamePlayOrderExecution extends GamePlay {
 						System.out.println("\n\nExecueting Special Order for the player " + gameEngine.l_gamePlayerObject.getPlayerName());
 						NegotiateCard negotiateObj = (NegotiateCard)orderObj;
 						negotiateObj.gamePlayerObject =  gameEngine.l_gamePlayerObject;
+						negotiateObj.gamePlayerObjectList =  gameEngine.l_playerObjectList;
 						negotiateObj.execute();
 						gameEngine.l_gamePlayerObject.getSpecialCards().put("negotiate",gameEngine.l_gamePlayerObject.getSpecialCards().get("negotiate")-1);
 						ordersExist = true;
