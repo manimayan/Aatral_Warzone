@@ -35,7 +35,7 @@ public class MapReaderTest {
 
 		try {
 
-			File file = new File("src/main/resources/source/canada/canada-continents.txt");
+			File file = new File("src/main/resources/domination/canada/canada-continents.txt");
 			/// Aatral-Warzone/src/main/resources/source/canada/canada-continents.txt
 			Scanner sc = new Scanner(file);
 			while (sc.hasNextLine()) {
@@ -51,6 +51,8 @@ public class MapReaderTest {
 		MapReader mapReader = new MapReader();
 		List<InputContinent> ls = mapReader.readContinentFile("domination", "canada");
 		int l_actual = ls.size();
+		System.out.println("hii"+l_actual);
+		System.out.println("hii"+l_expected);
 		// assertThat(actual, hasSize(3));
 		assertEquals(l_expected, l_actual);
 
@@ -92,8 +94,8 @@ public class MapReaderTest {
 
 		try {
 
-			File file = new File("src/main/resources/source/canada/canada-borders1.txt");
-
+			File file = new File("src/main/resources/domination/canada/canada-borders1.txt");
+			
 			Scanner sc = new Scanner(file);
 			while (sc.hasNextLine()) {
 				sc.nextLine();
@@ -123,7 +125,7 @@ public class MapReaderTest {
 
 		try {
 
-			File file = new File("src/main/resources/source/canada/canada-countries.txt");
+			File file = new File("src/main/resources/domination/canada/canada-countries.txt");
 
 			Scanner sc = new Scanner(file);
 			while (sc.hasNextLine()) {
