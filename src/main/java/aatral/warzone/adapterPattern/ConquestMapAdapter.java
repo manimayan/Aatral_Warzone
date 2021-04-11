@@ -31,8 +31,8 @@ public class ConquestMapAdapter extends DominationMapReader {
 	 * LoadMap method is used to Load the map and convert into continent,countries
 	 * and borders
 	 * 
-	 * @param p_typeOfMap  : type of map
-	 * @param p_warZoneMap has war zone map
+	 * @param typeOfMap  : type of map
+	 * @param warZoneMap has war zone map
 	 * @return masterMap
 	 */
 	@Override
@@ -48,7 +48,8 @@ public class ConquestMapAdapter extends DominationMapReader {
 	 * file
 	 * 
 	 * @param p_typeOfMap  : type of map
-	 * @param p_warZoneMap has war zone map
+	 * @param p_mapEditorCommand has war map editor command
+	 * @param log has value of log
 	 */
 	@Override
 	public void saveMap(String p_typeOfMap, String p_mapEditorCommand, LogEntryBuffer log) {
