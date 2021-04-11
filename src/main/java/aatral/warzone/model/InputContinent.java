@@ -1,5 +1,7 @@
 package aatral.warzone.model;
 
+import java.util.Random;
+
 import org.beanio.annotation.Field;
 import org.beanio.annotation.Record;
 
@@ -24,9 +26,19 @@ import lombok.Setter;
 
 public class InputContinent {
 
+	int leftLimit = 97; // letter 'a'
+	int rightLimit = 122; // letter 'z'
+	int targetStringLength = 4;
+	Random random = new Random();
+
+	String generatedString = random.ints(leftLimit, rightLimit + 1)
+			.limit(targetStringLength)
+			.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+			.toString();
+
 	public InputContinent(String ContinentId, String ContinentValue) {
 		this.ContinentId = ContinentId;
-		this.ContinentName = "addedContinent";
+		this.ContinentName = "addContinent"+generatedString;
 		this.ContinentValue = ContinentValue;
 	}
 
@@ -34,6 +46,12 @@ public class InputContinent {
 		this.ContinentId = value.getContinentId();
 		this.ContinentName = value.getContinentName();
 		this.ContinentValue = value.getContinentValue();
+	}
+
+	public InputContinent(ConquestContinent convertConquest, int i) {
+		this.ContinentId = Integer.toString(i);
+		this.ContinentName = convertConquest.getContinentName();
+		this.ContinentValue = convertConquest.getContinentValue();
 	}
 
 	@Field

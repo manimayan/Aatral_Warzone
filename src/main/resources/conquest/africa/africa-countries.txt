@@ -1,0 +1,41 @@
+Morocco,999,999,Northern Africa,Western Sahara,Algeria
+Algeria,999,999,Northern Africa,Western Sahara,Mauritania,Morocco,Niger,Mali,Tunisia,Libya
+Tunisia,999,999,Northern Africa,Algeria,Libya
+Libya,999,999,Northern Africa,Niger,North Sudan,Egypt,Chad,Algeria,Tunisia
+Egypt,999,999,Northern Africa,North Sudan,Libya
+Western Sahara,999,999,Western Africa,Mauritania,Morocco,Algeria
+Mauritania,999,999,Western Africa,Western Sahara,Senegal,Mali,Algeria
+Senegal,999,999,Western Africa,Mauritania,Mali,Guinea
+Mali,999,999,Western Africa,Burkina Faso,Mauritania,Niger,Senegal,Guinea,Algeria,Ivory Coast
+Guinea,999,999,Western Africa,Liberia,Senegal,Mali,Sierra Leone,Ivory Coast
+Sierra Leone,999,999,Western Africa,Liberia,Guinea
+Liberia,999,999,Western Africa,Guinea,Sierra Leone,Ivory Coast
+Ivory Coast,999,999,Western Africa,Liberia,Burkina Faso,Mali,Guinea,Ghana
+Burkina Faso,999,999,Western Africa,Benin,Niger,Mali,Ghana,Ivory Coast
+Benin,999,999,Western Africa,Burkina Faso,Niger,Ghana,Nigeria
+Ghana,999,999,Western Africa,Benin,Burkina Faso,Ivory Coast
+Niger,999,999,Central Africa,Benin,Burkina Faso,Mali,Chad,Algeria,Nigeria,Libya
+Nigeria,999,999,Central Africa,Benin,Cameroon,Niger,Chad
+Chad,999,999,Central Africa,Cameroon,South Sudan,Niger,North Sudan,Nigeria,Libya,Central African Rep.
+Cameroon,999,999,Central Africa,Gabon,Rep. of the Congo,Chad,Nigeria,Central African Rep.
+Central African Rep.,999,999,Central Africa,Cameroon,D.R.O.T. Congo,South Sudan,Rep. of the Congo,Chad
+North Sudan,999,999,The Horn,Eritrea,South Sudan,Egypt,Chad,Libya,Ethiopia
+South Sudan,999,999,The Horn,D.R.O.T. Congo,North Sudan,Chad,Uganda,Kenya,Central African Rep.,Ethiopia
+Eritrea,999,999,The Horn,North Sudan,Somalia,Ethiopia
+Ethiopia,999,999,The Horn,Eritrea,South Sudan,North Sudan,Somalia,Kenya
+Somalia,999,999,The Horn,Eritrea,Kenya,Ethiopia
+Gabon,999,999,The Congo,Cameroon,Rep. of the Congo
+Rep. of the Congo,999,999,The Congo,Gabon,Cameroon,D.R.O.T. Congo,Central African Rep.
+D.R.O.T. Congo,999,999,The Congo,Angola,South Sudan,Rep. of the Congo,Tanzania,Uganda,Zambia,Central African Rep.
+Angola,999,999,The Congo,D.R.O.T. Congo,Namibia,Botswana,Zambia
+Zambia,999,999,The Congo,Mozambique,D.R.O.T. Congo,Angola,Malawi,Botswana,Tanzania,Zimbabwe
+Uganda,999,999,Eastern Africa,D.R.O.T. Congo,South Sudan,Tanzania,Kenya
+Kenya,999,999,Eastern Africa,South Sudan,Tanzania,Somalia,Uganda,Ethiopia
+Tanzania,999,999,Eastern Africa,Mozambique,D.R.O.T. Congo,Malawi,Uganda,Zambia,Kenya
+Malawi,999,999,Eastern Africa,Mozambique,Tanzania,Zambia
+Namibia,999,999,Southern Africa,Angola,Botswana,South Africa
+Botswana,999,999,Southern Africa,Angola,Namibia,Zimbabwe,South Africa,Zambia
+Zimbabwe,999,999,Southern Africa,Mozambique,Botswana,South Africa,Zambia
+Mozambique,999,999,Southern Africa,Malawi,Tanzania,Zimbabwe,South Africa,Madagascar,Zambia
+Madagascar,999,999,Southern Africa,Mozambique
+South Africa,999,999,Southern Africa,Mozambique,Namibia,Botswana,Zimbabwe

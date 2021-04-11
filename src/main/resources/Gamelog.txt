@@ -78,3 +78,251 @@
 2021-03-26T23:51:49.039  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
 2021-03-26T23:51:49.040  GamePhase: StartUp  Player: teja Command: 3 Status: Reinforcement Assigned
 2021-03-26T23:51:49.041  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-09T16:13:46.817  GamePhase: MapEditor Command:   Status: Invalid Map Type sdf
+2021-04-09T22:50:18.251  GamePhase: MapEditor Command:   Status: Invalid Map Type asds
+2021-04-10T14:19:42.643  GamePhase: MapEditor Command: "showmap africa" Status: africa map has loaded and displayed
+2021-04-10T14:32:09.383  GamePhase: MapEditor Command: "showmap africa" Status: africa map has loaded and displayed
+2021-04-10T14:39:56.302  GamePhase: MapEditor Command: "showmap africa" Status: africa map has loaded and displayed
+2021-04-10T23:25:01.301  GamePhase: MapEditor Command: "showmap africa" Status: africa map has loaded and displayed
+2021-04-10T23:25:23.456  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-10T23:26:00.067  GamePhase: MapEditor Command: editcontinent -add 8 4  Status: 8 addedContinent added successfully
+2021-04-10T23:27:21.814  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-10T23:27:32.133  GamePhase: MapEditor Command: editcontinent -add 7 4  Status: 7 addedContinent added successfully
+2021-04-10T23:29:09.055  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-10T23:29:22.286  GamePhase: MapEditor Command: editcontinent -add 4 3  Status: 4 addedContinent added successfully
+2021-04-10T23:40:17.477  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-10T23:40:28.210  GamePhase: MapEditor Command: editcontinent -add 8 4  Status: 8 addedContinent added successfully
+2021-04-10T23:42:51.872  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-10T23:43:34.983  GamePhase: MapEditor Command: editcontinent -add 7 4  Status: 7 addedContinent added successfully
+2021-04-10T23:51:36.995  GamePhase: MapEditor Command: "showmap africa" Status: africa map has loaded and displayed
+2021-04-10T23:52:22.106  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-10T23:52:31.519  GamePhase: MapEditor Command: editcontinent -add 8 5  Status: 8 addedContinent added successfully
+2021-04-11T00:05:47.088  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T00:05:55.819  GamePhase: MapEditor Command: editcontinent -add 7 9  Status: 7 addedContinent added successfully
+2021-04-11T00:14:57.119  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T00:15:04.776  GamePhase: MapEditor Command: editcontinent -add 5 3  Status: 5 addedContinent added successfully
+2021-04-11T00:16:27.681  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T00:16:34.999  GamePhase: MapEditor Command: editcontinent -add 3 2  Status: 3 addedContinent added successfully
+2021-04-11T00:25:10.111  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T00:25:53.368  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T00:26:00.814  GamePhase: MapEditor Command: editcontinent -add 3 4  Status: 3 addedContinent added successfully
+2021-04-11T00:27:41.008  GamePhase: MapEditor Command: afria Status: No afria map exists
+2021-04-11T00:27:52.511  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T00:27:59.218  GamePhase: MapEditor Command: editcontinent -add 3 2  Status: 3 addedContinent added successfully
+2021-04-11T00:36:20.457  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T00:36:29.243  GamePhase: MapEditor Command: editcontinent -add 3 2  Status: 3 addedContinent added successfully
+2021-04-11T00:37:37  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T00:37:46.370  GamePhase: MapEditor Command:   Status: Invalid Map Type @Recordconquest
+2021-04-11T00:37:58.777  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T00:38:06.006  GamePhase: MapEditor Command: editcontinent -add 3 2  Status: 3 addedContinent added successfully
+2021-04-11T00:47:17.372  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T00:47:25.061  GamePhase: MapEditor Command: editcontinent -add 3 2  Status: 3 addedContinent added successfully
+2021-04-11T00:49:32.885  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T00:49:42.611  GamePhase: MapEditor Command: editcontinent -add 2 contine3ntvalue  Status: 2 addedContinent added successfully
+2021-04-11T01:02:28.986  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T01:02:37.462  GamePhase: MapEditor Command: editcontinent -add 3 2  Status: 3 addedContinent added successfully
+2021-04-11T01:03:54.917  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T01:04:02.996  GamePhase: MapEditor Command: editcontinent -add 2 conti1nentvalue  Status: 2 addedContinent added successfully
+2021-04-11T01:04:26.312  GamePhase: MapEditor Command: editcontinent -add 2 1  Status: 2 addedContinent added successfully
+2021-04-11T01:08:23.458  GamePhase: MapEditor Command: editcontinent -add 2 2  Status: 2 addedContinent added successfully
+2021-04-11T01:12:58.430  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T01:13:05.288  GamePhase: MapEditor Command: editcontinent -add 3 contine2ntvalue  Status: 3 addedContinent added successfully
+2021-04-11T01:15:23.934  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T01:15:35.216  GamePhase: MapEditor Command: editcontinent -add 3 4  Status: 3 addedContinent added successfully
+2021-04-11T01:17:34.634  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T01:17:39.196  GamePhase: MapEditor Command: editcontinent -add 3 contine2ntvalue  Status: 3 addedContinent added successfully
+2021-04-11T01:19:09.317  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T01:19:17.031  GamePhase: MapEditor Command: editcontinent -add 2 1  Status: 2 addedContinent added successfully
+2021-04-11T01:20:47.072  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T01:20:54.437  GamePhase: MapEditor Command: editcontinent -add 3 2  Status: 3 addedContinent added successfully
+2021-04-11T01:23:15.684  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T01:23:23.242  GamePhase: MapEditor Command: editcontinent -add 2 contine3ntvalue  Status: 2 addedContinent added successfully
+2021-04-11T01:25:29.082  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T01:25:35.679  GamePhase: MapEditor Command: editcontinent -add 3 continen2tvalue  Status: 3 addedContinent added successfully
+2021-04-11T01:26:59.448  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T01:27:12.287  GamePhase: MapEditor Command: editcontinent -add 2 3  Status: 2 addedContinent added successfully
+2021-04-11T01:28:37.038  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T01:28:46.074  GamePhase: MapEditor Command: editcontinent -add 3 2  Status: 3 addedContinent added successfully
+2021-04-11T01:31:03.757  GamePhase: MapEditor Command: editcountry add 4 3  Status: The Entered country 4 is already present or continent Id 3 is not present
+2021-04-11T01:31:23.011  GamePhase: MapEditor Command: editcountry add 41 3  Status: The Entered country 41 is already present or continent Id 3 is not present
+2021-04-11T01:32:59.967  GamePhase: MapEditor Command: editcountry add 42 4  Status: The Entered country 42 is already present or continent Id 4 is not present
+2021-04-11T01:33:28.947  GamePhase: MapEditor Command: editcountry add 55 1  Status: The Entered country 55 is already present or continent Id 1 is not present
+2021-04-11T13:30:04.121  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T13:30:30.547  GamePhase: MapEditor Command: editcontinent -add 3 2  Status: 3 addedContinent is already present"
+2021-04-11T13:38:33.539  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T13:38:49.521  GamePhase: MapEditor Command: editcountry add 41 4  Status: The Entered country 41 is already present or continent Id 4 is not present
+2021-04-11T13:39:02.802  GamePhase: MapEditor Command: editcountry add 42 4  Status: 42 addedd successfully
+2021-04-11T13:43:25.963  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T13:44:00.866  GamePhase: MapEditor Command: editcountry add 42 4  Status: The Entered country 42 is already present or continent Id 4 is not present
+2021-04-11T13:46:51.393  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T13:47:10.742  GamePhase: MapEditor Command: editcountry add 42 2  Status: The Entered country 42 is already present or continent Id 2 is not present
+2021-04-11T13:49:14.095  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T13:52:35.738  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T13:53:27.672  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T13:56:04.931  GamePhase: MapEditor Command: editcountry add 42 1  Status: 42 addedd successfully
+2021-04-11T13:57:49.886  GamePhase: MapEditor Command: editcountry add 42 2  Status: 42 addedd successfully
+2021-04-11T13:58:39.072  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T13:59:03.400  GamePhase: MapEditor Command: editcountry add 42 5  Status: 42 addedd successfully
+2021-04-11T14:00:34.938  GamePhase: MapEditor Command: editcountry add 42 5  Status: 42 addedd successfully
+2021-04-11T14:08:43.215  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T14:08:52.151  GamePhase: MapEditor Command: editcountry add 32 2  Status: The Entered country 32 is already present or continent Id 2 is not present
+2021-04-11T14:10:21.376  GamePhase: MapEditor Command: editmamp africa Status: Invalid Command
+2021-04-11T14:10:43.046  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T14:10:51.547  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T14:12:13.855  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T14:12:27.502  GamePhase: MapEditor Command: editcountry add 4 3  Status: The Entered country 4 is already present or continent Id 3 is not present
+2021-04-11T14:12:52.991  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T15:10:05.734  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T15:10:16.908  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T15:14:48.261  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T15:14:57.727  GamePhase: MapEditor Command: editcountry add 3 2  Status: The Entered country 3 is already present or continent Id 2 is not present
+2021-04-11T15:15:33.924  GamePhase: MapEditor Command: editcountry add 42 2  Status: 42 addedd successfully
+2021-04-11T15:19:54.158  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T15:20:05.856  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T15:24:03.990  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T15:24:12.468  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T15:26:55.028  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T15:27:03.556  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T15:33:24.927  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T15:33:34.959  GamePhase: MapEditor Command: editcountry add 42 3  Status: The Entered country 42 is already present or continent Id 3 is not present
+2021-04-11T15:42:06.662  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T15:42:18.794  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T15:45:42.216  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T15:45:52.365  GamePhase: MapEditor Command: editcountry add 42 4  Status: 42 addedd successfully
+2021-04-11T15:54:08.634  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T15:54:19.436  GamePhase: MapEditor Command: editcountry add 42 4  Status: 42 addedd successfully
+2021-04-11T15:55:23.653  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T15:55:36.617  GamePhase: MapEditor Command: editcountry add 42 2  Status: 42 addedd successfully
+2021-04-11T15:57:36.196  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T15:57:43.829  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T15:58:34.967  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T15:58:46.859  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T16:16:36.169  GamePhase: MapEditor Command: editcountry add 42 4  Status: The Entered country 42 is already present or continent Id 4 is not present
+2021-04-11T16:26:58.398  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T16:27:15.146  GamePhase: MapEditor Command: editcountry add 42 4  Status: The Entered country 42 is already present or continent Id 4 is not present
+2021-04-11T16:28:32.310  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T16:28:43.935  GamePhase: MapEditor Command: editcountry add 43 2  Status: 43 addedd successfully
+2021-04-11T16:29:52.161  GamePhase: MapEditor Command: editcountry add 43 2  Status: 43 addedd successfully
+2021-04-11T16:30:24.206  GamePhase: MapEditor Command: editcountry add 43 4  Status: The Entered country 43 is already present or continent Id 4 is not present
+2021-04-11T16:30:29.985  GamePhase: MapEditor Command: editcountry add 44 2  Status: 44 addedd successfully
+2021-04-11T16:31:14.169  GamePhase: MapEditor Command: editcountry add 45 3  Status: 45 addedd successfully
+2021-04-11T16:31:42.731  GamePhase: MapEditor Command: editNeighbor add 44 43  Status: borders added successfully
+2021-04-11T16:43:20.909  GamePhase: MapEditor Command: "editmap afric" Status: afric map editing has started
+2021-04-11T16:43:20.939  GamePhase: MapEditor Command: "editmap afric" Status: No afric map exists, Please create one
+2021-04-11T16:43:33.814  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T16:43:43.509  GamePhase: MapEditor Command: editcontinent -add 4 3  Status: 4 addContinentdiiz is already present"
+2021-04-11T16:44:06.796  GamePhase: MapEditor Command: editcontinent -add 7 3  Status: 7 addContinentctai is already present"
+2021-04-11T16:44:17.113  GamePhase: MapEditor Command: editcontinent -add 8 3  Status: 8 addContinenteawe added successfully
+2021-04-11T16:44:46.774  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T16:48:07.672  GamePhase: MapEditor Command: afric Status: No afric map exists
+2021-04-11T16:48:18.706  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T16:48:28.152  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T16:49:07.207  GamePhase: MapEditor Command: editNeighbor add 42 41  Status: borders added successfully
+2021-04-11T16:52:07.492  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T16:52:22.735  GamePhase: MapEditor Command: editcountry add 42 1  Status: 42 addedd successfully
+2021-04-11T16:54:15.547  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T16:54:24.905  GamePhase: MapEditor Command: editcountry add 43 2  Status: 43 addedd successfully
+2021-04-11T16:55:17.366  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T16:55:24.130  GamePhase: MapEditor Command: editcountry add 42 2  Status: 42 addedd successfully
+2021-04-11T16:56:10.894  GamePhase: MapEditor Command: editcountry add 43 2  Status: 43 addedd successfully
+2021-04-11T16:59:36.509  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T17:00:05.195  GamePhase: MapEditor Command: editcountry add 42 2  Status: 42 addedd successfully
+2021-04-11T17:00:05.209  GamePhase: MapEditor Command: editcountry add 43 5  Status: 43 addedd successfully
+2021-04-11T17:00:05.223  GamePhase: MapEditor Command: editcountry add 44 3  Status: 44 addedd successfully
+2021-04-11T17:00:37.626  GamePhase: MapEditor Command: editNeighbor add 42 43  Status: borders added successfully
+2021-04-11T17:09:24.378  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T17:09:45.112  GamePhase: MapEditor Command: editcountry add 42 2  Status: 42 addedd successfully
+2021-04-11T17:09:45.122  GamePhase: MapEditor Command: editcountry add 43 4  Status: 43 addedd successfully
+2021-04-11T17:09:45.132  GamePhase: MapEditor Command: editcountry add 44 5  Status: 44 addedd successfully
+2021-04-11T17:12:55.403  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T17:13:10.635  GamePhase: MapEditor Command: editcountry add 42 3, 43 4, 44 2  Status: The Entered country 42 is already present or continent Id 3, is not present
+2021-04-11T17:13:50.194  GamePhase: MapEditor Command: editcountry add 42 3, 43 4, 44 2  Status: The Entered country 42 is already present or continent Id 3, is not present
+2021-04-11T17:14:01.858  GamePhase: MapEditor Command: editcountry add 43 4, 44 2  Status: The Entered country 43 is already present or continent Id 4, is not present
+2021-04-11T17:14:36.363  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T17:14:39.764  GamePhase: MapEditor Command: editcountry add 42 3, 43 4, 44 2  Status: The Entered country 42 is already present or continent Id 3, is not present
+2021-04-11T17:16:09.567  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T17:16:31.853  GamePhase: MapEditor Command: editcountry add 43 4, 44 2  Status: The Entered country 43 is already present or continent Id 4, is not present
+2021-04-11T17:17:02.811  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T17:18:00.661  GamePhase: MapEditor Command: editcountry add 42 3, 43 4, 44 2  Status: The Entered country 42 is already present or continent Id 3, is not present
+2021-04-11T17:18:58.922  GamePhase: MapEditor Command: editcountry add 43 4, 44 2  Status: The Entered country 43 is already present or continent Id 4, is not present
+2021-04-11T17:19:16.177  GamePhase: MapEditor Command: editcountry add 43 4  Status: 43 addedd successfully
+2021-04-11T17:19:16.696  GamePhase: MapEditor Command: editcountry add 44 2  Status: 44 addedd successfully
+2021-04-11T17:19:46.192  GamePhase: MapEditor Command: editNeighbor add 43 44  Status: borders added successfully
+2021-04-11T17:20:16.655  GamePhase: MapEditor Command:   Status: Invalid Map Type domaination
+2021-04-11T17:20:44.372  GamePhase: MapEditor Command: "showmap canada" Status: canada map has loaded and displayed
+2021-04-11T17:21:00.657  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
+2021-04-11T17:21:15.113  GamePhase: MapEditor Command: editcontinent -add 7 3  Status: 7 addContinentkjkn added successfully
+2021-04-11T17:22:14.651  GamePhase: MapEditor Command: editcountry add 32 3  Status: 32 addedd successfully
+2021-04-11T17:22:14.669  GamePhase: MapEditor Command: editcountry add 33 4  Status: 33 addedd successfully
+2021-04-11T17:22:14.673  GamePhase: MapEditor Command: editcountry add 34 4  Status: 34 addedd successfully
+2021-04-11T17:22:45.506  GamePhase: MapEditor Command: editNeighbor add 32 33  Status: The countryId or Neighboring countryId is invalid
+2021-04-11T17:23:30.397  GamePhase: MapEditor Command: editNeighbor add 32 33  Status: borders added successfully
+2021-04-11T17:23:53.294  GamePhase: MapEditor Command: editNeighbor add 33 34  Status: borders added successfully
+2021-04-11T17:26:02.397  GamePhase: MapEditor Command: editNeighbor add 32 33  Status: borders added successfully
+2021-04-11T17:26:48.596  GamePhase: MapEditor Command: editNeighbor add 32 33  Status: borders added successfully
+2021-04-11T17:28:25.871  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
+2021-04-11T17:28:34.161  GamePhase: MapEditor Command: editNeighbor add 32 33  Status: borders added successfully
+2021-04-11T17:28:43.675  GamePhase: MapEditor Command: editNeighbor add 32 1  Status: borders added successfully
+2021-04-11T17:29:48.780  GamePhase: MapEditor Command: "editmap canda" Status: canda map editing has started
+2021-04-11T17:29:48.787  GamePhase: MapEditor Command: "editmap canda" Status: No canda map exists, Please create one
+2021-04-11T17:30:03.918  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
+2021-04-11T17:30:16.567  GamePhase: MapEditor Command: editNeighbor add 31 1  Status: borders added successfully
+2021-04-11T17:31:02.506  GamePhase: MapEditor Command: editNeighbor add 31 3  Status: borders added successfully
+2021-04-11T17:46:22.941  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
+2021-04-11T17:46:31.179  GamePhase: MapEditor Command: editcontinent -add 7 3  Status: 7 addContinentgsjn added successfully
+2021-04-11T17:47:02.482  GamePhase: MapEditor Command: editcountry add 32 3  Status: 32 addedd successfully
+2021-04-11T17:47:02.493  GamePhase: MapEditor Command: editcountry add 33 5  Status: 33 addedd successfully
+2021-04-11T17:48:08.462  GamePhase: MapEditor Command: editNeighbor add 32 33  Status: borders added successfully
+2021-04-11T17:54:35.980  GamePhase: MapEditor Command: "editmap candaa" Status: candaa map editing has started
+2021-04-11T17:54:35.985  GamePhase: MapEditor Command: "editmap candaa" Status: No candaa map exists, Please create one
+2021-04-11T17:54:51.811  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
+2021-04-11T17:55:12.232  GamePhase: MapEditor Command: editcountry add 32 3  Status: 32 addedd successfully
+2021-04-11T17:55:12.253  GamePhase: MapEditor Command: editcountry add 33 5  Status: 33 addedd successfully
+2021-04-11T17:55:33.742  GamePhase: MapEditor Command: editNeighbor add 32 33  Status: borders added successfully
+2021-04-11T17:59:14.720  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
+2021-04-11T17:59:24.839  GamePhase: MapEditor Command: editcontinent -add 7 3  Status: 7 addContinentizka added successfully
+2021-04-11T18:00:04.300  GamePhase: MapEditor Command: editcountry add 32 3  Status: 32 addedd successfully
+2021-04-11T18:00:04.310  GamePhase: MapEditor Command: editcountry add 34 4  Status: 34 addedd successfully
+2021-04-11T18:00:04.317  GamePhase: MapEditor Command: editcountry add 35 4  Status: 35 addedd successfully
+2021-04-11T18:00:28.472  GamePhase: MapEditor Command: editNeighbor add 32 33  Status: The countryId or Neighboring countryId is invalid
+2021-04-11T18:01:02.891  GamePhase: MapEditor Command: editNeighbor add 32 34  Status: borders added successfully
+2021-04-11T18:01:26.976  GamePhase: MapEditor Command: editNeighbor add 32 35  Status: borders added successfully
+2021-04-11T18:01:26.985  GamePhase: MapEditor Command: editNeighbor add 34 35  Status: borders added successfully
+2021-04-11T18:01:45.051  GamePhase: MapEditor Command:   Status: Invalid Map Type conquet
+2021-04-11T18:01:54.581  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T18:02:03.623  GamePhase: MapEditor Command: editcontinent -add 8 3  Status: 8 addContinentqkbs is already present"
+2021-04-11T18:02:13.123  GamePhase: MapEditor Command: editcontinent -add 9 4  Status: 9 addContinentibmh added successfully
+2021-04-11T18:02:47.885  GamePhase: MapEditor Command: editcountry add 45 6  Status: 45 addedd successfully
+2021-04-11T18:02:47.892  GamePhase: MapEditor Command: editcountry add 46 5  Status: 46 addedd successfully
+2021-04-11T18:06:34.722  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T18:06:49.202  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T18:10:11.506  GamePhase: MapEditor Command: editcountry add 42 3  Status: The Entered country 42 is already present or continent Id 3 is not present
+2021-04-11T18:11:57.618  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T18:12:05.963  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T18:21:55.806  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T18:22:13.969  GamePhase: MapEditor Command: editcountry add 42 3  Status: The Entered country 42 is already present or continent Id 3 is not present
+2021-04-11T18:23:08.823  GamePhase: MapEditor Command: d Status: No d map exists
+2021-04-11T18:23:25.255  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T18:23:49.633  GamePhase: MapEditor Command: editcountry add 43 3  Status: 43 addedd successfully
+2021-04-11T18:25:10.194  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T18:25:18.708  GamePhase: MapEditor Command: editcountry add 42 4  Status: 42 addedd successfully
+2021-04-11T18:25:53.563  GamePhase: MapEditor Command: editNeighbor add 42 2  Status: borders added successfully
+2021-04-11T18:26:27.651  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
+2021-04-11T18:26:57.086  GamePhase: MapEditor Command: editcountry add 36 4  Status: 36 addedd successfully
+2021-04-11T18:26:57.091  GamePhase: MapEditor Command: editcountry add 37 2  Status: 37 addedd successfully
+2021-04-11T18:27:27.313  GamePhase: MapEditor Command: editNeighbor add 36 37  Status: borders added successfully
+2021-04-11T18:27:51.994  GamePhase: MapEditor Command: "showmap africa" Status: africa map has loaded and displayed
+2021-04-11T18:28:21.523  GamePhase: MapEditor Command: "editmap " Status:  map editing has started
+2021-04-11T18:28:21.529  GamePhase: MapEditor Command: "editmap " Status: No  map exists, Please create one
+2021-04-11T18:28:34.826  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T18:28:45.040  GamePhase: MapEditor Command: editcountry add 49 2  Status: 49 addedd successfully
+2021-04-11T18:30:32.930  GamePhase: MapEditor Command: "loadmap africa" Status: africa map loaded
+2021-04-11T19:04:46.205  GamePhase: MapEditor Command: "savemap tree" Status: tree map saved successfully
+2021-04-11T19:05:45.921  GamePhase: MapEditor Command: "savemap deree" Status: deree map saved successfully
+2021-04-11T19:12:59.862  GamePhase: MapEditor Command: "showmap africa" Status: africa map has loaded and displayed
+2021-04-11T19:13:18.777  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T19:13:28.150  GamePhase: MapEditor Command: editcontinent -add 7 3  Status: 7 addContinentdsvk is already present"
+2021-04-11T19:14:11.175  GamePhase: MapEditor Command: "editmap africa" Status: africa map editing has started
+2021-04-11T19:14:22.519  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
+2021-04-11T19:15:04.160  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
+2021-04-11T19:15:21.156  GamePhase: MapEditor Command: editcountry add 32 3  Status: 32 addedd successfully

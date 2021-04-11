@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import aatral.warzone.adapterPattern.DominationMapReader;
 import aatral.warzone.gameplay.GameEngine;
 import aatral.warzone.gameplay.GamePlayer;
 import aatral.warzone.model.Continent;
@@ -16,9 +17,7 @@ import aatral.warzone.model.InputContinent;
 import aatral.warzone.model.InputCountry;
 import aatral.warzone.observerPattern.LogEntryBuffer;
 import aatral.warzone.observerPattern.LogWriter;
-import aatral.warzone.utilities.ContinentMapReader;
-import aatral.warzone.utilities.CountryBorderReader;
-import aatral.warzone.utilities.CountryMapreader;
+import aatral.warzone.utilities.MapReader;
 
 
 
@@ -33,7 +32,7 @@ public class GamePlayStartUp extends GamePlay {
 
 	LogEntryBuffer log = new LogEntryBuffer();
 	LogWriter logWriter = new LogWriter(log);
-	
+
 	public GamePlayStartUp(GameEngine gameEngine) {
 		this.gameEngine = gameEngine;
 	}
@@ -42,20 +41,21 @@ public class GamePlayStartUp extends GamePlay {
 	 * LoadMap method is used to Load the map and convert into continent,countries
 	 * and borders
 	 * 
+	 * @param p_typeOfMap type of map
 	 * @param p_warZoneMap war zone map
 	 * @return masterMap 
 	 */
 	@Override
-	public Map<String, Continent> loadMap(String p_warZoneMap) {
+	public Map<String, Continent> loadMap(String p_typeOfMap, String p_warZoneMap) {
 
-		List<InputContinent> l_inputContinentList = new ContinentMapReader().readContinentFile(p_warZoneMap);
-		List<InputCountry> l_inputCountryList = new CountryMapreader().readCountryMap(p_warZoneMap);
-		List<InputBorders> l_inputBordersList = new CountryBorderReader().mapCountryBorderReader(p_warZoneMap);
+		MapReader mapReader =  new MapReader(); List<InputContinent> l_inputContinentList = mapReader.readContinentFile(p_typeOfMap, p_warZoneMap);
+		List<InputCountry> l_inputCountryList = mapReader.readCountryMap(p_typeOfMap, p_warZoneMap);
+		List<InputBorders> l_inputBordersList =mapReader.mapCountryBorderReader(p_typeOfMap, p_warZoneMap);
 
 		Map<String, Continent> masterMap = new HashMap<>();
 		for (InputContinent l_continent : l_inputContinentList) {
 
-			Set<Countries> continentOwnedCountries = new HashSet<>();
+			List<Countries> continentOwnedCountries = new ArrayList<>();
 			for (InputCountry l_Country : l_inputCountryList) {
 				if (l_continent.getContinentId().equals(l_Country.getContinentId())) {
 
@@ -77,7 +77,7 @@ public class GamePlayStartUp extends GamePlay {
 		return masterMap;
 	}
 
-	
+
 	public void addGamePlayer(String l_playerName, ArrayList<String> p_playerObListTempAdd,
 			List<String> p_playerList) {
 
@@ -88,7 +88,7 @@ public class GamePlayStartUp extends GamePlay {
 			p_playerObListTempAdd.add(l_playerName);
 		}
 	}
-	
+
 	public boolean removeGamePlayer(boolean p_flag, String p_playerName, List<String> p_playerObListTempRem,List<String> p_playerList) 
 	{
 		String l_removeName = "";
@@ -104,7 +104,7 @@ public class GamePlayStartUp extends GamePlay {
 		}
 		return p_flag;
 	}
-	
+
 	public HashMap<String, GamePlayer> assignCountries(List<String> p_playerList) {
 		HashMap<String, GamePlayer> l_playerObjectList = new HashMap<>();
 		int l_totalNoOfCountry = gameEngine.totalCountries();
@@ -127,7 +127,7 @@ public class GamePlayStartUp extends GamePlay {
 		}
 		return l_playerObjectList;
 	}
-	
+
 	/**
 	 * assignReinforcements method is used to assign the armies to the game player
 	 * 
@@ -146,39 +146,39 @@ public class GamePlayStartUp extends GamePlay {
 	}
 
 	@Override
-	public void showMap(String p_warZoneMap) {
+	public void showMap(String typeOfMap, String p_warZoneMap) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void saveMap(String p_mapEditorCommand) {
+	public void saveMap(String typeOfMap, String p_mapEditorCommand) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void editMap(String p_mapEditorCommand) {
+	public void editMap(String typeOfMap, String p_mapEditorCommand) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void validateMap(String p_warZoneMap) {
+	public void validateMap(String typeOfMap, String p_warZoneMap) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void issueOrders() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void executeOrders() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

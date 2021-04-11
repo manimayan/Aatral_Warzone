@@ -1,9 +1,7 @@
 package aatral.warzone.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import org.beanio.annotation.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +19,7 @@ import lombok.Setter;
  */
 public class Continent {
 
-	public Continent(InputContinent l_continent, Set<Countries> continentOwnedCountries) {
+	public Continent(InputContinent l_continent, List<Countries> continentOwnedCountries) {
 
 		this.ContinentId = l_continent.getContinentId();
 		this.ContinentName = l_continent.getContinentName();
@@ -35,5 +33,5 @@ public class Continent {
 
 	private String ContinentValue;
 
-	Set<Countries> continentOwnedCountries = new HashSet<>();
+	List<Countries> continentOwnedCountries = new ArrayList<>();
 }

@@ -32,15 +32,15 @@ public abstract class Phase {
 	public abstract void next();
 
 	// map editor behavior
-	public abstract void showMap(String p_warZoneMap);
+	public abstract void showMap(String l_typeOfMap, String l_warZoneMap);
 
-	public abstract Map<String, Continent> loadMap(String p_warZoneMap);
+	public abstract Map<String, Continent> loadMap(String l_typeOfMap, String l_warZoneMap);
 
-	public abstract void saveMap(String p_mapEditorCommand);
+	public abstract void saveMap(String l_typeOfMap, String mapEditorCommand);
 
-	public abstract void editMap(String p_mapEditorCommand);
+	public abstract void editMap(String p_typeOfMap, String p_mapEditorCommand);
 
-	public abstract void validateMap(String p_warZoneMap);
+	public abstract void validateMap(String p_typeOfMap, String l_warZoneMap);
 
 	// game play behavior
 	public abstract void gamePlayShowMap();

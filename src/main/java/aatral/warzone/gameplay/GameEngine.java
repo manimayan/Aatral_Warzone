@@ -12,6 +12,9 @@ import java.util.Set;
 
 import org.beanio.annotation.Record;
 
+import aatral.warzone.adapterPattern.ConquestMapAdapter;
+import aatral.warzone.adapterPattern.ConquestMapReader;
+import aatral.warzone.adapterPattern.DominationMapReader;
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
 import aatral.warzone.observerPattern.LogEntryBuffer;
@@ -50,6 +53,7 @@ public class GameEngine {
 	LogWriter logWriter = new LogWriter(log);
 
 	private Phase gamePhase;
+	private DominationMapReader mapAdapter=new ConquestMapAdapter(new ConquestMapReader());
 
 	public void setPhase(Phase p_phase) {
 		gamePhase = p_phase;
@@ -63,10 +67,19 @@ public class GameEngine {
 
 		// Main running block of game
 		while (proceed) {
+			
+			//Choose the type of map to be loaded into game
+			System.out.println("\nPlease type the variant of map to load into game");
+			System.out.println("Available Variants : "+ "\""+"conquest"+"\""+" or "+"\""+"domination"+"\"");
+		
+			Scanner l_type = new Scanner(System.in);
+			String l_typeOfMap = l_type.nextLine().toString();
+			if(l_typeOfMap.equalsIgnoreCase("conquest") || l_typeOfMap.equalsIgnoreCase("domination")) {
+				
 			// showing the available maps
-			System.out.println("\nThe below are the available maps\n");
+			System.out.println("\nThe below are the available maps of type "+l_typeOfMap+" \n");
 			InputProcessor l_ip = new InputProcessor();
-			List<String> l_folder = l_ip.getstartupPhase();
+			List<String> l_folder = l_ip.getstartupPhase(l_typeOfMap);
 			for (String l_folderName : l_folder) {
 				System.out.println(l_folderName);
 			}
@@ -78,7 +91,7 @@ public class GameEngine {
 			String l_warZoneMap = map.nextLine().toString();
 
 			if (l_folder.contains(l_warZoneMap)) {
-				gamePhase.loadMap(l_warZoneMap);
+				mapAdapter.loadMap(l_typeOfMap, l_warZoneMap);
 				// type the below commands to run map editor
 				System.out.println("\nType the below command to edit the loaded map"
 						+ "\n showmap \n savemap filename \n editmap filename \n validatemap \n loadmap filename");
@@ -86,21 +99,25 @@ public class GameEngine {
 				String mapEditorCommand = l_input.nextLine().trim();
 
 				if (mapEditorCommand.startsWith("showmap")) {
-					gamePhase.showMap(l_warZoneMap);
+					gamePhase.showMap(l_typeOfMap, l_warZoneMap);
 				} else if (mapEditorCommand.startsWith("savemap")) {
-					gamePhase.saveMap(mapEditorCommand);
+					System.out.println("\nPlease type the variant of map to save");
+					System.out.println("Type any of the below Variants : "+ "\""+"conquest"+"\""+" or "+"\""+"domination"+"\"");
+					Scanner type = new Scanner(System.in);
+					String typeOfMap = type.nextLine().toString();
+					mapAdapter.saveMap(typeOfMap, mapEditorCommand, log);
 					proceed = false;
 				} else if (mapEditorCommand.startsWith("editmap")) {
-					gamePhase.editMap(mapEditorCommand);
+					gamePhase.editMap(l_typeOfMap ,mapEditorCommand);
 				} else if (mapEditorCommand.startsWith("validatemap")) {
-					gamePhase.validateMap(l_warZoneMap);
+					gamePhase.validateMap(l_typeOfMap, l_warZoneMap);
 				} else if (mapEditorCommand.startsWith("loadmap")) {
 					String l_warZoneMaps = mapEditorCommand.split(" ")[1];
 					if (l_folder.contains(l_warZoneMaps)) {
 						log.info("MapEditor", "\"loadmap " + l_warZoneMaps + "\"", l_warZoneMaps + " map loaded");
 						gamePhase.next();
 						l_gamePlayerObject = new GamePlayer();
-						l_masterMap = gamePhase.loadMap(l_warZoneMaps);
+						l_masterMap = gamePhase.loadMap(l_typeOfMap, l_warZoneMaps);
 //						l_PastmasterMapCopy.putAll(l_masterMap);
 						gameUserMenu();
 					} else {
@@ -118,7 +135,11 @@ public class GameEngine {
 				Scanner saveMap = new Scanner(System.in);
 				String mapSaveCommand = saveMap.nextLine();
 				if (mapSaveCommand.startsWith("savemap")) {
-					gamePhase.saveMap(mapSaveCommand);
+					System.out.println("\nPlease type the variant of map to save");
+					System.out.println("Type any of the below Variants : "+ "\""+"conquest"+"\""+" or "+"\""+"domination"+"\"");
+					Scanner types = new Scanner(System.in);
+					String typeMap = types.nextLine().toString();
+					mapAdapter.saveMap(typeMap, mapSaveCommand, log);
 					proceed = false;
 				} else {
 					log.info("MapEditor", l_warZoneMap, "Invalid Command");
@@ -130,7 +151,10 @@ public class GameEngine {
 				log.info("MapEditor", l_warZoneMap, "No " + l_warZoneMap + " map exists");
 				System.out.println("No such map exists");
 			}
-
+		} else {
+			log.info("MapEditor", " ", "Invalid Map Type "+ l_typeOfMap);
+			System.out.println("Please type the appropriate map type");
+		}
 		}
 	}
 
@@ -350,7 +374,7 @@ public class GameEngine {
 	public int totalCountries() {
 		int count = 0;
 		for (Entry<String, Continent> mapEntry : l_masterMap.entrySet()) {
-			Set<Countries> set = ((Continent) mapEntry.getValue()).getContinentOwnedCountries();
+			List<Countries> set = ((Continent) mapEntry.getValue()).getContinentOwnedCountries();
 			count += set.size();
 		}
 		return count;
@@ -456,7 +480,7 @@ public class GameEngine {
 		List<Countries> l_listOfCountries = p_player.getListOfCountries();
 		int l_reinforcementCount = Math.round(l_listOfCountries.size() / 3);
 		for (Entry<String, Continent> continent : l_masterMap.entrySet()) {
-			Set<Countries> l_CountriesUnderContinent = ((Continent) continent.getValue()).getContinentOwnedCountries();
+			List<Countries> l_CountriesUnderContinent = ((Continent) continent.getValue()).getContinentOwnedCountries();
 			boolean exists_all = false;
 			if (!l_CountriesUnderContinent.isEmpty()) {
 				exists_all = true;

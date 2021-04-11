@@ -46,31 +46,31 @@ public class GamePlayIssueOrder extends GamePlay {
 	}
 
 	@Override
-	public void showMap(String p_warZoneMap) {
+	public void showMap(String p_typeOfMap, String p_warZoneMap) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Map<String, Continent> loadMap(String p_warZoneMap) {
+	public Map<String, Continent> loadMap(String p_typeOfMap, String p_warZoneMap) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void saveMap(String p_mapEditorCommand) {
+	public void saveMap(String p_typeOfMap, String p_mapEditorCommand) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void editMap(String p_mapEditorCommand) {
+	public void editMap(String p_typeOfMap, String p_mapEditorCommand) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void validateMap(String p_warZoneMap) {
+	public void validateMap(String p_typeOfMap, String p_warZoneMap) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -7,11 +7,11 @@ import org.beanio.annotation.Record;
 /**
  * <h1>HeaderContinent</h1> The Class holds the header content of continent map
  *
- * @author William
+ * @author Manimaran Palani
  * @version 1.0
- * @since 24-02-2021
+ * @since 10-04-2021
  */
-public class HeaderContinent {
+public class ConquestHeaderContinent {
 
 	@Field
 	private char space2= '\n';

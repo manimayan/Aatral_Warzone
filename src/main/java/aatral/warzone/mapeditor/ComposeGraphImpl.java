@@ -7,13 +7,12 @@ import java.util.Map;
 
 import org.springframework.util.StringUtils;
 
+import aatral.warzone.adapterPattern.DominationMapReader;
 import aatral.warzone.model.InputBorders;
 import aatral.warzone.model.InputContinent;
 import aatral.warzone.model.InputCountry;
-import aatral.warzone.utilities.ContinentMapReader;
-import aatral.warzone.utilities.CountryBorderReader;
-import aatral.warzone.utilities.CountryMapreader;
 import aatral.warzone.utilities.Graph;
+import aatral.warzone.utilities.MapReader;
 
 /**
  * <h1>Class to create Graph with inputs</h1>
@@ -33,10 +32,11 @@ public class ComposeGraphImpl {
 	 */
 	public HashMap<String, List<InputCountry>> getContinentMap(String p_map) {
 
+	
+		MapReader l_cmr = new MapReader();
 		// read continent data from text file
-		ContinentMapReader l_comr = new ContinentMapReader();
 		List<InputContinent> l_continentData = new ArrayList<>();
-		l_continentData = l_comr.readContinentFile(p_map);
+		l_continentData = l_cmr.readContinentFile("domination", p_map);
 
 		HashMap<String, List<InputCountry>> l_continentMap = new HashMap<>();
 		for (InputContinent continent : l_continentData) {
@@ -45,9 +45,8 @@ public class ComposeGraphImpl {
 		}
 
 		// read country data from text file
-		CountryMapreader l_cmr = new CountryMapreader();
 		List<InputCountry> l_countryDataList = new ArrayList<>();
-		l_countryDataList = l_cmr.readCountryMap(p_map);
+		l_countryDataList = l_cmr.readCountryMap("domination", p_map);
 
 		for (String l_continent : l_continentMap.keySet()) {
 
@@ -80,16 +79,16 @@ public class ComposeGraphImpl {
 		Graph borderGraph = new Graph();
 		Map<String, List<InputCountry>> l_mappedBorders = new HashMap<>();
 		HashMap<String, InputCountry> l_countryMap = new HashMap<>();
-
+	
+		MapReader l_cmr = new MapReader();
+		
 		// get country data
-		CountryMapreader l_cmr = new CountryMapreader();
 		List<InputCountry> l_countryDataList = new ArrayList<>();
-		l_countryDataList = l_cmr.readCountryMap(p_map);
+		l_countryDataList = l_cmr.readCountryMap("domination", p_map);
 
 		// get border data
-		CountryBorderReader l_cbr = new CountryBorderReader();
 		List<InputBorders> l_borderDataList = new ArrayList<>();
-		l_borderDataList = l_cbr.mapCountryBorderReader(p_map);
+		l_borderDataList = l_cmr.mapCountryBorderReader("domination", p_map);
 
 		for (InputCountry l_country : l_countryDataList) {
 			l_countryMap.put(l_country.getCountryId(), l_country);
@@ -109,14 +108,15 @@ public class ComposeGraphImpl {
 	 * 
 	 * @param p_map contains continent coordinates fetched from text file
 	 * 
-	
+	 * 
 	 */
 	public void printCountries(String p_map) {
 
+		MapReader l_cmr = new MapReader();
+
 		// get country data
-		CountryMapreader l_cmr = new CountryMapreader();
 		List<InputCountry> l_countryDataList = new ArrayList<>();
-		l_countryDataList = l_cmr.readCountryMap(p_map);
+		l_countryDataList = l_cmr.readCountryMap("domination", p_map);
 
 		// print countries in console
 		System.out.println("\nCOUNTRIES\n");
@@ -132,14 +132,15 @@ public class ComposeGraphImpl {
 	 * 
 	 * @param p_map contains continent coordinates fetched from text file
 	 * 
-	
+	 * 
 	 */
 	public void printBorders(String p_map) {
 
+		MapReader l_cmr = new MapReader();
+		
 		// get border data
-		CountryBorderReader l_cbr = new CountryBorderReader();
 		List<InputBorders> l_borderDataList = new ArrayList<>();
-		l_borderDataList = l_cbr.mapCountryBorderReader(p_map);
+		l_borderDataList = l_cmr.mapCountryBorderReader("domination", p_map);
 
 		// getting mappedborders object
 		Map<String, List<InputCountry>> l_countryMap = getBorderMap(p_map);

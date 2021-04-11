@@ -37,7 +37,7 @@ public class ValidateMapImplTest {
 		boolean expected=true;
 
 		ValidateMapImpl l_vci=new ValidateMapImpl();
-		boolean actual = l_vci.validateContinentID("canada","1");
+		boolean actual = l_vci.validateContinentID("domination","canada","1");
 		assertEquals(expected,actual);
 
 	}
@@ -51,7 +51,7 @@ public class ValidateMapImplTest {
 		boolean expected=true;
 
 		ValidateMapImpl l_vci=new ValidateMapImpl();
-		boolean actual = l_vci.validateContinentID("canada","88");
+		boolean actual = l_vci.validateContinentID("domination","canada","88");
 
 		assertNotEquals(expected,actual);
 	}
@@ -64,7 +64,7 @@ public class ValidateMapImplTest {
 	{ 
 		boolean expected = false;
 		String l_cid="1";
-		File file = new File("src/main/resources/source/canada/canada-continents.txt");
+		File file = new File("src/main/resources/domination/canada/canada-continents.txt");
 		List<String> l_continentid = new  ArrayList<String>();
 		//List<String> l_continentname = new  ArrayList<String>();
 
@@ -102,7 +102,7 @@ public class ValidateMapImplTest {
 
 
 		ValidateMapImpl l_vci=new ValidateMapImpl();
-		boolean actual = l_vci.validateContinentID("canada",l_cid);
+		boolean actual = l_vci.validateContinentID("domination","canada",l_cid);
 		assertEquals(expected,actual);
 
 	}
@@ -116,7 +116,7 @@ public class ValidateMapImplTest {
 		boolean expected=false;
 
 		String l_cid="Atlantic_Provinces";
-		File file = new File("src/main/resources/source/canada/canada-continents.txt");
+		File file = new File("src/main/resources/domination/canada/canada-continents.txt");
 		//List<String> l_continentid = new  ArrayList<String>();
 		List<String> l_continentname = new  ArrayList<String>();
 
@@ -148,7 +148,7 @@ public class ValidateMapImplTest {
 		}
 
 		ValidateMapImpl l_vcn = new ValidateMapImpl();
-		boolean actual = l_vcn.validateContinentName("canada",l_cid);
+		boolean actual = l_vcn.validateContinentName("domination","canada",l_cid);
 		assertEquals(expected,actual);
 
 
@@ -162,7 +162,7 @@ public class ValidateMapImplTest {
 		boolean expected=false;
 
 		String l_coid="29";
-		File file = new File("src/main/resources/source/canada/canada-countries.txt");
+		File file = new File("src/main/resources/domination/canada/canada-countries.txt");
 		List<String> l_countryid = new  ArrayList<String>();
 
 		List<String> list = new  ArrayList<String>();
@@ -193,7 +193,7 @@ public class ValidateMapImplTest {
 		}
 
 		ValidateMapImpl l_vcoi=new ValidateMapImpl();
-		boolean actual = l_vcoi.validateCountryID("canada",l_coid);
+		boolean actual = l_vcoi.validateCountryID("domination","canada",l_coid);
 		assertEquals(expected,actual);
 
 	}
@@ -205,7 +205,7 @@ public class ValidateMapImplTest {
 	{
 		boolean expected =true;
 		ValidateMapImpl l_vfm=new ValidateMapImpl();
-		boolean actual = l_vfm.validateFullMap("canada");
+		boolean actual = l_vfm.validateFullMap("domination","canada");
 		assertEquals(expected,actual);
 
 	}

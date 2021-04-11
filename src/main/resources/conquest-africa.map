@@ -1,0 +1,67 @@
+
+ [Continents]
+Northern Africa = 4
+Southern Africa = 3
+Western Africa = 7
+Eastern Africa = 3
+Central Africa = 6
+The Horn = 3
+The Congo = 5
+
+ 
+ [Territories]
+Morocco, 999, 999, Northern Africa, Western Sahara, Algeria,
+Algeria, 999, 999, Northern Africa, Mali, Niger, Western Sahara, Tunisia, Libya, Morocco, Mauritania,
+Tunisia, 999, 999, Northern Africa, Libya, Algeria,
+Libya, 999, 999, Northern Africa, Niger, Egypt, Tunisia, Chad, North Sudan, Algeria,
+Egypt, 999, 999, Northern Africa, Libya, North Sudan,
+
+
+Namibia, 999, 999, Southern Africa, Botswana, South Africa, Angola,
+Botswana, 999, 999, Southern Africa, South Africa, Zimbabwe, Angola, Zambia, Namibia,
+Zimbabwe, 999, 999, Southern Africa, Botswana, South Africa, Mozambique, Zambia,
+Mozambique, 999, 999, Southern Africa, Tanzania, South Africa, Malawi, Madagascar, Zimbabwe, Zambia,
+Madagascar, 999, 999, Southern Africa, Mozambique,
+South Africa, 999, 999, Southern Africa, Botswana, Zimbabwe, Mozambique, Namibia,
+
+
+Western Sahara, 999, 999, Western Africa, Morocco, Mauritania, Algeria,
+Mauritania, 999, 999, Western Africa, Mali, Western Sahara, Senegal, Algeria,
+Senegal, 999, 999, Western Africa, Mali, Guinea, Mauritania,
+Mali, 999, 999, Western Africa, Burkina Faso, Guinea, Niger, Ivory Coast, Senegal, Mauritania, Algeria,
+Guinea, 999, 999, Western Africa, Sierra Leone, Mali, Liberia, Ivory Coast, Senegal,
+Sierra Leone, 999, 999, Western Africa, Guinea, Liberia,
+Liberia, 999, 999, Western Africa, Sierra Leone, Guinea, Ivory Coast,
+Ivory Coast, 999, 999, Western Africa, Burkina Faso, Mali, Guinea, Liberia, Ghana,
+Burkina Faso, 999, 999, Western Africa, Mali, Niger, Ivory Coast, Ghana, Benin,
+Benin, 999, 999, Western Africa, Burkina Faso, Niger, Ghana, Nigeria,
+Ghana, 999, 999, Western Africa, Burkina Faso, Ivory Coast, Benin,
+
+
+Uganda, 999, 999, Eastern Africa, D.R.O.T. Congo, Tanzania, South Sudan, Kenya,
+Kenya, 999, 999, Eastern Africa, Tanzania, Somalia, South Sudan, Ethiopia, Uganda,
+Tanzania, 999, 999, Eastern Africa, D.R.O.T. Congo, Malawi, Mozambique, Zambia, Kenya, Uganda,
+Malawi, 999, 999, Eastern Africa, Tanzania, Mozambique, Zambia,
+
+
+Niger, 999, 999, Central Africa, Burkina Faso, Mali, Chad, Libya, Nigeria, Benin, Algeria,
+Nigeria, 999, 999, Central Africa, Niger, Chad, Cameroon, Benin,
+Chad, 999, 999, Central Africa, Niger, South Sudan, Libya, Nigeria, Central African Rep., Cameroon, North Sudan,
+Cameroon, 999, 999, Central Africa, Rep. of the Congo, Chad, Gabon, Nigeria, Central African Rep.,
+Central African Rep., 999, 999, Central Africa, Rep. of the Congo, D.R.O.T. Congo, Chad, South Sudan, Cameroon,
+
+
+North Sudan, 999, 999, The Horn, Egypt, Chad, South Sudan, Libya, Eritrea, Ethiopia,
+South Sudan, 999, 999, The Horn, D.R.O.T. Congo, Chad, Central African Rep., North Sudan, Ethiopia, Kenya, Uganda,
+Eritrea, 999, 999, The Horn, Somalia, North Sudan, Ethiopia,
+Ethiopia, 999, 999, The Horn, Somalia, South Sudan, Eritrea, North Sudan, Kenya,
+Somalia, 999, 999, The Horn, Eritrea, Ethiopia, Kenya,
+
+
+Gabon, 999, 999, The Congo, Rep. of the Congo, Cameroon,
+Rep. of the Congo, 999, 999, The Congo, D.R.O.T. Congo, Gabon, Central African Rep., Cameroon,
+D.R.O.T. Congo, 999, 999, The Congo, Rep. of the Congo, Tanzania, South Sudan, Central African Rep., Angola, Zambia, Uganda,
+Angola, 999, 999, The Congo, D.R.O.T. Congo, Botswana, Zambia, Namibia,
+Zambia, 999, 999, The Congo, D.R.O.T. Congo, Botswana, Tanzania, Malawi, Zimbabwe, Mozambique, Angola,
+
+

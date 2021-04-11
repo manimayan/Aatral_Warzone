@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -15,6 +16,9 @@ import java.util.Set;
 
 import org.springframework.util.StringUtils;
 
+import aatral.warzone.adapterPattern.ConquestMapAdapter;
+import aatral.warzone.adapterPattern.ConquestMapReader;
+import aatral.warzone.adapterPattern.DominationMapReader;
 import aatral.warzone.gameplay.GameEngine;
 import aatral.warzone.gameplay.GamePlayer;
 import aatral.warzone.mapeditor.EditCommandsImpl;
@@ -26,14 +30,8 @@ import aatral.warzone.model.InputContinent;
 import aatral.warzone.model.InputCountry;
 import aatral.warzone.observerPattern.LogEntryBuffer;
 import aatral.warzone.observerPattern.LogWriter;
-import aatral.warzone.statePattern.GamePlay;
-import aatral.warzone.statePattern.MapEditor;
-import aatral.warzone.statePattern.Phase;
-import aatral.warzone.statePattern.GamePlayStartUp;
-import aatral.warzone.utilities.ContinentMapReader;
-import aatral.warzone.utilities.CountryBorderReader;
-import aatral.warzone.utilities.CountryMapreader;
 import aatral.warzone.utilities.InputProcessor;
+import aatral.warzone.utilities.MapReader;
 import lombok.NoArgsConstructor;
 
 /**
@@ -49,7 +47,8 @@ public class MasterMapEditor extends MapEditor {
 	LogEntryBuffer log = new LogEntryBuffer();
 	LogWriter logWriter = new LogWriter(log);
 
-
+	private DominationMapReader mapAdapter=new ConquestMapAdapter(new ConquestMapReader());
+	
 	public MasterMapEditor(GameEngine gameEngine) {
 		this.gameEngine = gameEngine;
 	}
@@ -57,12 +56,13 @@ public class MasterMapEditor extends MapEditor {
 	/**
 	 * showMap method is used to print the countries and borders
 	 * 
+	 * @param p_typeOfMap  : type of map
 	 * @param p_warZoneMap map of warzone.
 	 */
 	@Override
-	public void showMap(String p_warZoneMap) {
-		log.info("MapEditor", "\"showmap "+p_warZoneMap+"\"", p_warZoneMap+" map has loaded and displayed");
-		Map<String, Continent> getMasterMap = loadMap(p_warZoneMap);
+	public void showMap(String typeOfMap, String p_warZoneMap) {
+		log.info("MapEditor", "\"showmap " + p_warZoneMap + "\"", p_warZoneMap + " map has loaded and displayed");
+		Map<String, Continent> getMasterMap = loadMap(typeOfMap, p_warZoneMap);
 		System.out.println("\nContinent and its Countries\n");
 		for (Entry<String, Continent> ContinentEntry : getMasterMap.entrySet()) {
 			System.out.println("ContinentId: " + ContinentEntry.getValue().getContinentId() + ", ContinentName: "
@@ -90,15 +90,16 @@ public class MasterMapEditor extends MapEditor {
 	 * LoadMap method is used to Load the map and convert into continent,countries
 	 * and borders
 	 * 
+	 * @param p_typeOfMap  : type of map
 	 * @param p_warZoneMap has war zone map
-	 * @return masterMap 
+	 * @return masterMap
 	 */
 	@Override
-	public Map<String, Continent> loadMap(String p_warZoneMap) {
-
-		List<InputContinent> l_inputContinentList = new ContinentMapReader().readContinentFile(p_warZoneMap);
-		List<InputCountry> l_inputCountryList = new CountryMapreader().readCountryMap(p_warZoneMap);
-		List<InputBorders> l_inputBordersList = new CountryBorderReader().mapCountryBorderReader(p_warZoneMap);
+	public Map<String, Continent> loadMap(String p_typeOfMap, String p_warZoneMap) {
+		MapReader mapReader = new MapReader();
+		List<InputContinent> l_inputContinentList = mapReader.readContinentFile(p_typeOfMap, p_warZoneMap);
+		List<InputCountry> l_inputCountryList = mapReader.readCountryMap(p_typeOfMap, p_warZoneMap);
+		List<InputBorders> l_inputBordersList = mapReader.mapCountryBorderReader(p_typeOfMap, p_warZoneMap);
 
 		Map<String, Continent> masterMap = new HashMap<>();
 		for (InputContinent l_continent : l_inputContinentList) {
@@ -116,10 +117,12 @@ public class MasterMapEditor extends MapEditor {
 					}
 					Countries addtToCountrySet = new Countries(l_Country, l_countryOwnedBorders);
 					continentOwnedCountries.add(addtToCountrySet);
+
 				}
 
 			}
-			Continent addToMaster = new Continent(l_continent, continentOwnedCountries);
+			List<Countries> sort = new ArrayList<>(continentOwnedCountries);
+			Continent addToMaster = new Continent(l_continent, sort);
 			masterMap.put(l_continent.getContinentId(), addToMaster);
 		}
 		return masterMap;
@@ -128,40 +131,42 @@ public class MasterMapEditor extends MapEditor {
 	/**
 	 * saveMap method is called once the country given in editMap is not in the list
 	 * 
+	 * @param p_typeOfMap        : type of map
 	 * @param p_mapEditorCommand command for map editor.
-
+	 * 
 	 */
-	@Override	
-	public void saveMap(String p_mapEditorCommand) {
+	@Override
+	public void saveMap(String p_typeOfMap, String p_mapEditorCommand) {
 		String getmapSaveCommand[] = p_mapEditorCommand.split(" ");
 		if (p_mapEditorCommand.startsWith("savemap")) {
 			String saveWarZoneMap = getmapSaveCommand[1];
 			InputProcessor saveIp = new InputProcessor();
-			List<String> saveFolder = saveIp.getstartupPhase();
+			List<String> saveFolder = saveIp.getstartupPhase(p_typeOfMap);
 
 			if (!saveFolder.contains(saveWarZoneMap)) {
-				//Externalize the property later by converting into spring application
-				String mapUrl = "C:\\Users\\manimaran.palani\\git\\Aatral-Warzone\\src\\main\\resources\\source\\"
-						+ saveWarZoneMap;
+				// Externalize the property later by converting into spring application
+				String mapUrl = "C:\\Users\\manimaran.palani\\git\\Aatral-Warzone\\src\\main\\resources\\" + p_typeOfMap
+						+ "\\" + saveWarZoneMap;
 				String resourceFolder = "C:\\Users\\manimaran.palani\\git\\Aatral-Warzone\\src\\main\\resources\\";
 				Path path = Paths.get(mapUrl);
 				try {
 					Files.createDirectory(path);
 					List<String> newMapFiles = new ArrayList<>();
-					newMapFiles.add(mapUrl+"\\"+saveWarZoneMap+"-continents.txt");
-					newMapFiles.add(mapUrl+"\\"+saveWarZoneMap+"-countries.txt");
-					newMapFiles.add(mapUrl+"\\"+saveWarZoneMap+"-borders1.txt");
-					newMapFiles.add(resourceFolder + saveWarZoneMap + ".map");
+					newMapFiles.add(mapUrl + "\\" + saveWarZoneMap + "-continents.txt");
+					newMapFiles.add(mapUrl + "\\" + saveWarZoneMap + "-countries.txt");
+					newMapFiles.add(mapUrl + "\\" + saveWarZoneMap + "-borders1.txt");
+					newMapFiles.add(resourceFolder + p_typeOfMap + "-" + saveWarZoneMap + ".map");
 					for (String newFiles : newMapFiles) {
 						Path newFilePath = Paths.get(newFiles);
 						Files.createFile(newFilePath);
 					}
-					log.info("MapEditor", "\"savemap "+saveWarZoneMap+"\"", saveWarZoneMap+" map saved successfully");
+					log.info("MapEditor", "\"savemap " + saveWarZoneMap + "\"",
+							saveWarZoneMap + " map saved successfully");
 				} catch (IOException e) {
 				}
 				System.out.println("Map created");
 			} else {
-				log.info("MapEditor", "\"savemap "+saveWarZoneMap+"\"", saveWarZoneMap+ " map already exists");
+				log.info("MapEditor", "\"savemap " + saveWarZoneMap + "\"", saveWarZoneMap + " map already exists");
 				System.out.println("map already exists");
 			}
 		}
@@ -172,44 +177,50 @@ public class MasterMapEditor extends MapEditor {
 	 * input If entered country is not present, then it will add the country in the
 	 * list and then it will edit
 	 * 
+	 * @param p_typeOfMap        : type of map
 	 * @param p_mapEditorCommand command for map edit.
 	 */
-	@Override	
-	public void editMap(String p_mapEditorCommand) {
+	@Override
+	public void editMap(String p_typeOfMap, String p_mapEditorCommand) {
 		String getEditmapName[] = p_mapEditorCommand.split(" ");
 		String editWarZoneMap = getEditmapName[1];
-		log.info("MapEditor", "\"editmap "+editWarZoneMap+"\"", editWarZoneMap+" map editing has started");
+		log.info("MapEditor", "\"editmap " + editWarZoneMap + "\"", editWarZoneMap + " map editing has started");
 		InputProcessor editIp = new InputProcessor();
-		List<String> editfolder = editIp.getstartupPhase();
+		List<String> editfolder = editIp.getstartupPhase(p_typeOfMap);
 
 		if (editfolder.contains(editWarZoneMap)) {
-			EditCommandsImpl editMap = new EditCommandsImpl(editWarZoneMap);
-			editMap.startEditMap(editWarZoneMap);
+			EditCommandsImpl editMap = new EditCommandsImpl(p_typeOfMap, editWarZoneMap);
+			editMap.startEditMap(p_typeOfMap, editWarZoneMap);
 		} else {
-			log.info("MapEditor", "\"editmap "+editWarZoneMap+"\"", "No "+editWarZoneMap+" map exists, Please create one");
+			log.info("MapEditor", "\"editmap " + editWarZoneMap + "\"",
+					"No " + editWarZoneMap + " map exists, Please create one");
 			System.out.println("No such map exists, Please create one");
 			System.out.println("Enter the below command to save a map\n Format: \n savemap filename");
 			Scanner map = new Scanner(System.in);
 			String mapSaveCommand = map.nextLine();
-			saveMap(mapSaveCommand);
+			System.out.println("\nPlease type the variant of map to save");
+			System.out.println("Type any of the below Variants : "+ "\""+"conquest"+"\""+" or "+"\""+"domination"+"\"");
+			Scanner l_type = new Scanner(System.in);
+			String l_typeOfMap = l_type.nextLine().toString();
+			mapAdapter.saveMap(l_typeOfMap, mapSaveCommand, log);
 		}
 	}
 
 	/**
 	 * validateMap method is used to validate the whole map
 	 * 
+	 * @param p_typeOfMap  : type of map
 	 * @param p_warZoneMap map of warzone.
 	 */
-	@Override	
-	public void validateMap(String p_warZoneMap) {
-		///invalid map
+	@Override
+	public void validateMap(String p_typeOfMap, String p_warZoneMap) {
+		/// invalid map
 		ValidateMapImpl validate = new ValidateMapImpl();
-		if(validate.validateFullMap(p_warZoneMap)){
-			System.out.println("\n"+p_warZoneMap+ " map is valid");
-			log.info("MapEditor", "\"loadMap"+p_warZoneMap+"\"", p_warZoneMap+" map is valid");
+		if (validate.validateFullMap(p_typeOfMap, p_warZoneMap)) {
+			System.out.println("\n" + p_warZoneMap + " map is valid");
+			log.info("MapEditor", "\"loadMap" + p_warZoneMap + "\"", p_warZoneMap + " map is valid");
 		}
 	}
-
 
 	@Override
 	public void next() {
@@ -223,15 +234,14 @@ public class MasterMapEditor extends MapEditor {
 	}
 
 	@Override
-	public void addGamePlayer(String p_playerName, ArrayList<String> p_playerObListTempAdd,
-			List<String> p_playerList) {
+	public void addGamePlayer(String p_playerName, ArrayList<String> p_playerObListTempAdd, List<String> p_playerList) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public boolean removeGamePlayer(boolean p_flag, String p_playerName, 
-			List<String> l_playerObListTempRem, List<String> p_playerList) {
+	public boolean removeGamePlayer(boolean p_flag, String p_playerName, List<String> l_playerObListTempRem,
+			List<String> p_playerList) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -245,18 +255,18 @@ public class MasterMapEditor extends MapEditor {
 	@Override
 	public void assignReinforcements(int p_armies) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void issueOrders() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void executeOrders() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

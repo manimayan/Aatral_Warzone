@@ -26,7 +26,7 @@ public class MasterMapEditorTest {
 	{
 		MasterMapEditor mme = new MasterMapEditor();
 		//GamePlayer gp1 = new GamePlayer();
-		Map<String, Continent> actual = mme.loadMap("canada");
+		Map<String, Continent> actual = mme.loadMap("domination","canada");
 		
 	assertNotNull(actual);
 		

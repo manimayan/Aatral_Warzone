@@ -77,12 +77,14 @@ public class InputProcessor {
 	/**
 	 * getstartupPhase method is used to identify the correct map which is loaded in
 	 * the application
-	 *  
+	 * 
+	 * @param l_typeOfMap: type of map
+	 * 
 	 * @return folder
 	 */
-	public List<String> getstartupPhase() {
+	public List<String> getstartupPhase(String l_typeOfMap) {
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
-		URL url = loader.getResource("source");
+		URL url = loader.getResource(l_typeOfMap);
 		String path = url.getPath();
 		File[] file = new File(path).listFiles();
 

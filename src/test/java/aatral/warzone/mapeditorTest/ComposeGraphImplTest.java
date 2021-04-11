@@ -1,20 +1,19 @@
 package aatral.warzone.mapeditorTest;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
-import java.util.*;
-import org.junit.Assert;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
+import aatral.warzone.adapterPattern.DominationMapReader;
 import aatral.warzone.mapeditor.ComposeGraphImpl;
 import aatral.warzone.model.InputContinent;
 import aatral.warzone.model.InputCountry;
-import aatral.warzone.utilities.ContinentMapReader;
-import aatral.warzone.utilities.CountryBorderReader;
-import aatral.warzone.utilities.CountryMapreader;
+import aatral.warzone.utilities.MapReader;
 
 /**
  * ComposeGraphImplTest class is used to test the graph with inputs
@@ -31,9 +30,9 @@ public class ComposeGraphImplTest {
 			l_continentMap.put(continent.getContinentId() + "_" + continent.getContinentName(), new ArrayList<InputCountry>());
 		}
 
-		CountryMapreader l_cmr = new CountryMapreader();
+		MapReader l_cmr = new MapReader();
 		List<InputCountry> l_countryDataList = new ArrayList<>();
-		l_countryDataList = l_cmr.readCountryMap("canada");
+		l_countryDataList = l_cmr.readCountryMap("domination","canada");
 
 		for (String continent : l_continentMap.keySet()) {
 
@@ -60,7 +59,8 @@ public class ComposeGraphImplTest {
 	public void composeGraphgetContinentMap() {
 		ComposeGraphImpl l_cg = new ComposeGraphImpl();
 
-		List<aatral.warzone.model.InputContinent> l_lc = new ContinentMapReader().readContinentFile("canada");
+		MapReader l_cmr = new MapReader();
+		List<aatral.warzone.model.InputContinent> l_lc = l_cmr.readContinentFile("domination","canada");
 		HashMap<String, List<InputCountry>> actual = l_cg.getContinentMap("canada");
 		HashMap<String, List<InputCountry>> expected = getContinentMap(l_lc);
 		assertEquals(expected.keySet(), actual.keySet());

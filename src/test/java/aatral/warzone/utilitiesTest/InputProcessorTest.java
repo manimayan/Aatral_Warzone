@@ -169,7 +169,7 @@ public class InputProcessorTest {
 		InputProcessor ip= new InputProcessor();
 		List<String> expected = new ArrayList<>();
 		expected.add("india");
-		List<String> actual=ip.getstartupPhase();
+		List<String> actual=ip.getstartupPhase("domination");
 		System.out.println(expected+""+actual);
 		assertNotEquals(expected,actual);
 
