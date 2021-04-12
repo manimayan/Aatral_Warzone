@@ -31,7 +31,7 @@ public class ConquestMapAdapter extends DominationMapReader {
 	 * LoadMap method is used to Load the map and convert into continent,countries
 	 * and borders
 	 * 
-	 * @param typeOfMap  : type of map
+	 * @param p_typeOfMap  : type of map
 	 * @param warZoneMap has war zone map
 	 * @return masterMap
 	 */
