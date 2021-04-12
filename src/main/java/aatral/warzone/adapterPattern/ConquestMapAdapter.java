@@ -36,11 +36,13 @@ public class ConquestMapAdapter extends DominationMapReader {
 	 * @return masterMap
 	 */
 	@Override
-	public Map<String, Continent> loadMap(String typeOfMap, String warZoneMap) {
-		if (typeOfMap.equalsIgnoreCase("conquest"))
-			return conquestMap.loadMap(typeOfMap, warZoneMap);
-		else
-			return super.loadMap(typeOfMap, warZoneMap);
+	public Map<String, Continent> loadMap(String p_typeOfMap, String warZoneMap) {
+		if (p_typeOfMap.equalsIgnoreCase("conquest")) {
+			return conquestMap.loadMap(p_typeOfMap, warZoneMap);
+		} if (p_typeOfMap.equalsIgnoreCase("domination")) {
+			return super.loadMap(p_typeOfMap, warZoneMap);
+		}
+		return null;
 	}
 
 	/**
@@ -53,10 +55,11 @@ public class ConquestMapAdapter extends DominationMapReader {
 	 */
 	@Override
 	public void saveMap(String p_typeOfMap, String p_mapEditorCommand, LogEntryBuffer log) {
-		if (p_typeOfMap.equalsIgnoreCase("conquest"))
+		if (p_typeOfMap.equalsIgnoreCase("conquest")) {
 			conquestMap.saveMap(p_typeOfMap, p_mapEditorCommand, log);
-		else
+		} if (p_typeOfMap.equalsIgnoreCase("domination")) {
 			super.saveMap(p_typeOfMap, p_mapEditorCommand, log);
+		}
 	}
 
 }
