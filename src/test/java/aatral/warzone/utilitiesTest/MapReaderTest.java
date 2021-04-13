@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-import aatral.warzone.adapterPattern.DominationMapReader;
 import aatral.warzone.model.InputBorders;
 import aatral.warzone.model.InputContinent;
 import aatral.warzone.model.InputCountry;

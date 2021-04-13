@@ -4,6 +4,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import aatral.warzone.adapterPatternTest.ConquestMapAdapterTest;
+import aatral.warzone.adapterPatternTest.ConquestMapReaderTest;
+import aatral.warzone.adapterPatternTest.DominationMapReaderTest;
 import aatral.warzone.gameplayTest.AdvanceOrderTest;
 import aatral.warzone.gameplayTest.GameEngineTest;
 //import aatral.warzone.gameplayTest.GamePlayerTest;
@@ -28,6 +31,9 @@ import aatral.warzone.utilitiesTest.MapReaderTest;
 	GameplayIssueOrderTest.class,
 	MasterMapEditorTest.class,
 	AdvanceOrderTest.class,
+	DominationMapReaderTest.class,
+	ConquestMapReaderTest.class,
+	ConquestMapAdapterTest.class
 	
 
 	})
