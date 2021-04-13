@@ -83,7 +83,9 @@ public class AdvanceOrder extends Order {
 				attackerArmies = attackerArmies + Math.max(0, (Integer.parseInt(numArmies) - defenderCanKill));
 				defenderArmies = Math.max(0, defenderArmies - attackerCanKill);
 			}
-		} else { // move
+		
+		} 
+		else { // move
 			attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
 			defenderArmies = defenderArmies + Integer.parseInt(this.numArmies);
 		}
@@ -95,7 +97,8 @@ public class AdvanceOrder extends Order {
 		System.out.println(this.gamePlayerObject.getPlayerName() + " has executed advance order for the country "
 				+ this.countryFromName + " to " + this.countryToName + " successfully with the armies "
 				+ this.numArmies);
-		}else {
+		}
+		else {
 			log.info("advanceOrderExecution", gamePlayerObject.getPlayerName(),
 					"advance " + this.countryFromName + " " + this.countryToName + " " + this.numArmies, "not executed- fromCountry is already captured by other player");
 			System.out.println(this.gamePlayerObject.getPlayerName() + " has not executed advance order for the country "
