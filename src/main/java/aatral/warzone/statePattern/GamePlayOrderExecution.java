@@ -90,7 +90,7 @@ public class GamePlayOrderExecution extends GamePlay {
 	}
 
 	@Override
-	public HashMap<String, GamePlayer> assignCountries(
+	public HashMap<String, GamePlayer> assignCountries(HashMap<String, GamePlayer> p_playerObjectList, 
 			List<String> p_playerList) {
 		// TODO Auto-generated method stub
 		return null;

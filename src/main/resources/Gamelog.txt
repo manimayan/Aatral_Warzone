@@ -326,3 +326,1300 @@
 2021-04-11T19:14:22.519  GamePhase: MapEditor Command: editcountry add 42 3  Status: 42 addedd successfully
 2021-04-11T19:15:04.160  GamePhase: MapEditor Command: "editmap canada" Status: canada map editing has started
 2021-04-11T19:15:21.156  GamePhase: MapEditor Command: editcountry add 32 3  Status: 32 addedd successfully
+2021-04-13T10:16:24.400  GamePhase: MapEditor Command: gameplay Status: Invalid Command
+2021-04-13T10:17:05.361  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T10:28:38.421  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T10:28:45.436  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T10:28:45.437  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T10:28:55.057  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T10:28:58.997  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T10:28:58.998  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T10:28:58.998  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T10:28:59.003  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T10:28:59.004  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T11:21:25.661  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T11:21:32.348  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T11:21:32.349  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T11:21:42.457  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T11:21:49.065  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T11:21:49.066  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T11:21:49.067  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T11:21:49.069  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T11:21:49.070  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T11:24:32.774  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T11:24:40.975  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T11:24:40.976  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T11:24:59.020  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T11:25:03.467  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T11:25:03.468  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T11:25:03.468  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T11:25:03.473  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T11:25:03.474  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T11:30:02.470  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T11:30:11.918  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T11:30:11.919  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T11:30:17.302  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T11:30:19.922  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T11:30:19.922  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T11:30:19.923  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T11:30:19.927  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T11:30:19.928  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T11:32:02.505  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T11:32:09.585  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T11:32:09.586  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T11:32:17.974  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T11:32:20.651  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T11:32:20.651  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T11:32:20.652  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T11:32:20.655  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T11:32:20.656  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T11:35:36.182  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T11:35:44.666  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T11:35:44.667  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T11:35:52.859  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T11:35:55.486  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T11:35:55.487  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T11:35:55.487  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T11:35:55.493  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T11:35:55.493  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T11:40:36.042  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T11:40:43.823  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T11:40:43.824  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T11:40:50.187  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T11:40:52.596  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T11:40:52.597  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T11:40:52.598  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T11:40:52.602  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T11:40:52.603  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:03:02.531  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T12:03:07.815  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:03:07.816  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:03:14.178  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T12:03:18.019  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T12:03:18.019  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:03:18.020  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:03:18.026  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:03:18.027  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:06:08.860  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T12:06:15.922  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:06:15.922  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:06:22.032  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T12:06:23.996  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T12:06:23.997  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:06:23.998  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:06:24.003  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:06:24.003  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:08:18.352  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T12:08:24.523  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:08:24.523  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:08:30.300  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T12:08:33.382  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T12:08:33.383  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:08:33.383  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:08:33.388  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:08:33.389  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:12:40.396  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T12:15:22.304  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:15:22.305  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:15:27.705  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T12:15:29.842  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T12:15:29.842  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:15:29.843  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:15:29.849  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:15:29.850  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:30:23.715  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T12:30:29.976  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:30:29.977  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:30:35.548  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T12:30:47.767  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T12:30:47.768  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:30:47.768  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:30:47.773  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:30:47.773  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:51:13.108  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T12:51:22.539  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:51:22.539  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:51:28.148  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T12:51:30.583  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T12:51:30.584  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:51:30.584  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:51:30.589  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:51:30.589  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:55:24.548  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T12:55:31.252  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:55:31.252  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T12:55:35.691  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T12:55:38.086  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T12:55:38.087  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:55:38.087  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T12:55:38.091  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T12:55:38.091  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:02:36.312  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T13:02:44.415  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:02:44.415  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:02:50.163  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T13:02:52.537  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T13:02:52.538  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:02:52.538  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:02:52.542  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:02:52.543  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:05:05.122  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T13:05:11.471  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:05:11.471  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:05:16.032  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T13:05:18.134  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T13:05:18.135  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:05:18.135  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:05:18.139  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:05:18.139  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:05:18.143  GamePhase: deployOrderExecution  Player: A Command: deploy 6 0 Status: executed
+2021-04-13T13:05:18.144  GamePhase: deployOrderExecution  Player: B Command: deploy 1 0 Status: executed
+2021-04-13T13:05:18.144  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:05:18.144  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:05:18.145  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Kochin 0 Status: executed
+2021-04-13T13:05:18.145  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T13:05:54.521  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:05:54.522  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:05:54.523  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:05:54.524  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:05:54.526  GamePhase: deployOrderExecution  Player: A Command: deploy 6 0 Status: executed
+2021-04-13T13:05:54.526  GamePhase: deployOrderExecution  Player: B Command: deploy 1 0 Status: executed
+2021-04-13T13:05:54.527  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T13:05:54.527  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Guntur 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T13:05:54.528  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:05:54.528  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T13:07:12.053  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T13:07:17.631  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:07:17.632  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:07:22.323  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T13:07:24.969  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T13:07:24.970  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:07:24.970  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:24.974  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:07:24.975  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:24.980  GamePhase: deployOrderExecution  Player: A Command: deploy 2 5 Status: executed
+2021-04-13T13:07:24.980  GamePhase: deployOrderExecution  Player: B Command: deploy 6 5 Status: executed
+2021-04-13T13:07:24.980  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:07:24.981  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:07:24.981  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T13:07:24.981  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Kochin 0 Status: executed
+2021-04-13T13:07:29.240  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:07:29.241  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:29.243  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:07:29.243  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:29.245  GamePhase: deployOrderExecution  Player: A Command: deploy 2 11 Status: executed
+2021-04-13T13:07:29.245  GamePhase: deployOrderExecution  Player: B Command: deploy 6 11 Status: executed
+2021-04-13T13:07:29.246  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Guntur 0 Status: executed
+2021-04-13T13:07:29.246  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T13:07:29.246  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 5 Status: executed
+2021-04-13T13:07:29.247  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 5 Status: executed
+2021-04-13T13:07:31.981  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:07:31.981  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:31.983  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:07:31.983  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:31.985  GamePhase: deployOrderExecution  Player: A Command: deploy 2 11 Status: executed
+2021-04-13T13:07:31.986  GamePhase: deployOrderExecution  Player: B Command: deploy 6 11 Status: executed
+2021-04-13T13:07:31.986  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Guntur 0 Status: executed
+2021-04-13T13:07:31.987  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 5 Status: executed
+2021-04-13T13:07:31.992  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 11 Status: executed
+2021-04-13T13:07:31.993  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 11 Status: executed
+2021-04-13T13:07:34.288  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:07:34.288  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:34.289  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:07:34.289  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:34.292  GamePhase: deployOrderExecution  Player: A Command: deploy 1 10 Status: executed
+2021-04-13T13:07:34.292  GamePhase: deployOrderExecution  Player: B Command: deploy 6 21 Status: executed
+2021-04-13T13:07:34.292  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Hyderabad 11 Status: executed
+2021-04-13T13:07:34.293  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 5 Status: not executed- fromCountry is already captured by other player
+2021-04-13T13:07:34.293  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 11 Status: executed
+2021-04-13T13:07:34.293  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 11 Status: executed
+2021-04-13T13:07:37.035  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:07:37.036  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:37.037  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:07:37.037  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:37.039  GamePhase: deployOrderExecution  Player: A Command: deploy 1 11 Status: executed
+2021-04-13T13:07:37.039  GamePhase: deployOrderExecution  Player: B Command: deploy 4 11 Status: executed
+2021-04-13T13:07:37.039  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Guntur 7 Status: executed
+2021-04-13T13:07:37.040  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 22 Status: executed
+2021-04-13T13:07:37.040  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai -11 Status: executed
+2021-04-13T13:07:37.040  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 21 Status: executed
+2021-04-13T13:07:39.552  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:07:39.553  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:39.554  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:07:39.554  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:39.556  GamePhase: deployOrderExecution  Player: A Command: deploy 1 10 Status: executed
+2021-04-13T13:07:39.556  GamePhase: deployOrderExecution  Player: B Command: deploy 4 21 Status: executed
+2021-04-13T13:07:39.557  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T13:07:39.558  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 22 Status: executed
+2021-04-13T13:07:39.558  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:07:39.559  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:07:42.388  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:07:42.389  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:42.390  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:07:42.390  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:42.391  GamePhase: deployOrderExecution  Player: A Command: deploy 1 10 Status: executed
+2021-04-13T13:07:42.392  GamePhase: deployOrderExecution  Player: B Command: deploy 4 21 Status: executed
+2021-04-13T13:07:42.392  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T13:07:42.392  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T13:07:42.393  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:07:42.394  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:07:45.346  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:07:45.346  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:45.347  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:07:45.348  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:45.349  GamePhase: deployOrderExecution  Player: A Command: deploy 1 11 Status: executed
+2021-04-13T13:07:45.349  GamePhase: deployOrderExecution  Player: B Command: deploy 4 11 Status: executed
+2021-04-13T13:07:45.350  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Guntur 0 Status: executed
+2021-04-13T13:07:45.350  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 70 Status: executed
+2021-04-13T13:07:45.350  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:07:45.350  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:07:47.699  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:07:47.700  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:47.700  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:07:47.701  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:47.702  GamePhase: deployOrderExecution  Player: A Command: deploy 1 10 Status: executed
+2021-04-13T13:07:47.703  GamePhase: deployOrderExecution  Player: B Command: deploy 3 21 Status: executed
+2021-04-13T13:07:47.703  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T13:07:47.703  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 70 Status: executed
+2021-04-13T13:07:47.704  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:07:47.704  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:07:49.661  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:07:49.662  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:49.662  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:07:49.663  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:49.664  GamePhase: deployOrderExecution  Player: A Command: deploy 1 10 Status: executed
+2021-04-13T13:07:49.664  GamePhase: deployOrderExecution  Player: B Command: deploy 3 21 Status: executed
+2021-04-13T13:07:49.665  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T13:07:49.665  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 45 Status: executed
+2021-04-13T13:07:49.666  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:07:49.666  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:07:52.247  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:07:52.247  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:52.248  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:07:52.248  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:52.249  GamePhase: deployOrderExecution  Player: A Command: deploy 1 10 Status: executed
+2021-04-13T13:07:52.250  GamePhase: deployOrderExecution  Player: B Command: deploy 3 21 Status: executed
+2021-04-13T13:07:52.250  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T13:07:52.251  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 43 Status: executed
+2021-04-13T13:07:52.251  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:07:52.252  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:07:54.316  GamePhase: StartUp  Player: A Command: 3 Status: Reinforcement Assigned
+2021-04-13T13:07:54.317  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:54.317  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:07:54.318  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:07:54.319  GamePhase: deployOrderExecution  Player: A Command: deploy 2 3 Status: executed
+2021-04-13T13:07:54.320  GamePhase: deployOrderExecution  Player: B Command: deploy 1 21 Status: executed
+2021-04-13T13:07:54.320  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:07:54.320  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Coimbatore 21 Status: executed
+2021-04-13T13:10:03.235  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T13:11:29.183  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:11:29.184  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:11:34.363  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T13:11:40.565  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T13:11:40.566  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:11:40.566  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:40.569  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:11:40.570  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:40.575  GamePhase: deployOrderExecution  Player: A Command: deploy 5 5 Status: executed
+2021-04-13T13:11:40.575  GamePhase: deployOrderExecution  Player: B Command: deploy 4 5 Status: executed
+2021-04-13T13:11:40.575  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T13:11:40.576  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T13:11:40.576  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:11:40.576  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T13:11:42.912  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:11:42.913  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:42.915  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:11:42.915  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:42.917  GamePhase: deployOrderExecution  Player: A Command: deploy 5 21 Status: executed
+2021-04-13T13:11:42.918  GamePhase: deployOrderExecution  Player: B Command: deploy 4 10 Status: executed
+2021-04-13T13:11:42.918  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:11:42.919  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 5 Status: executed
+2021-04-13T13:11:42.919  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 5 Status: executed
+2021-04-13T13:11:42.919  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 5 Status: executed
+2021-04-13T13:11:44.479  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:11:44.480  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:44.481  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:11:44.482  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:44.484  GamePhase: deployOrderExecution  Player: A Command: deploy 5 11 Status: executed
+2021-04-13T13:11:44.484  GamePhase: deployOrderExecution  Player: B Command: deploy 4 11 Status: executed
+2021-04-13T13:11:44.485  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 22 Status: executed
+2021-04-13T13:11:44.486  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Kochin 2 Status: not executed- fromCountry is already captured by other player
+2021-04-13T13:11:44.486  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 22 Status: executed
+2021-04-13T13:11:44.486  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 5 Status: executed
+2021-04-13T13:11:46.032  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:11:46.033  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:46.034  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:11:46.035  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:46.036  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:11:46.037  GamePhase: deployOrderExecution  Player: B Command: deploy 4 10 Status: executed
+2021-04-13T13:11:46.037  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:11:46.038  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 11 Status: executed
+2021-04-13T13:11:46.038  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram -11 Status: executed
+2021-04-13T13:11:46.039  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 11 Status: executed
+2021-04-13T13:11:47.524  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:11:47.524  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:47.526  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:11:47.526  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:47.528  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:11:47.528  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:11:47.528  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:11:47.529  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram -1 Status: executed
+2021-04-13T13:11:47.529  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:11:47.529  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad -1 Status: executed
+2021-04-13T13:11:48.951  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:11:48.952  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:48.953  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:11:48.953  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:48.954  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:11:48.955  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:11:48.955  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:11:48.957  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 1 Status: executed
+2021-04-13T13:11:48.957  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:11:48.958  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 1 Status: executed
+2021-04-13T13:11:50.543  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:11:50.543  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:50.545  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:11:50.545  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:50.546  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:11:50.546  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:11:50.547  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:11:50.547  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram -1 Status: executed
+2021-04-13T13:11:50.547  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:11:50.547  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad -1 Status: executed
+2021-04-13T13:11:52.468  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:11:52.469  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:52.470  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:11:52.471  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:52.472  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:11:52.473  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:11:52.473  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:11:52.473  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 1 Status: executed
+2021-04-13T13:11:52.474  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:11:52.474  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 1 Status: executed
+2021-04-13T13:11:54.214  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:11:54.214  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:54.215  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:11:54.216  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:54.217  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:11:54.218  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:11:54.218  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:11:54.219  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram -1 Status: executed
+2021-04-13T13:11:54.220  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:11:54.220  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad -1 Status: executed
+2021-04-13T13:11:55.863  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:11:55.863  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:55.864  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:11:55.865  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:55.866  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:11:55.867  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:11:55.867  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:11:55.868  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 1 Status: executed
+2021-04-13T13:11:55.868  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:11:55.868  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 1 Status: executed
+2021-04-13T13:11:58.108  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:11:58.108  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:58.109  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:11:58.110  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:11:58.111  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:11:58.111  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:11:58.111  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:11:58.112  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram -1 Status: executed
+2021-04-13T13:11:58.112  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:11:58.112  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad -1 Status: executed
+2021-04-13T13:12:00.649  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:12:00.649  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:00.650  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:12:00.650  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:00.652  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:12:00.652  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:12:00.653  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:12:00.653  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 1 Status: executed
+2021-04-13T13:12:00.653  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:12:00.654  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 1 Status: executed
+2021-04-13T13:12:02.631  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:12:02.632  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:02.633  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:12:02.633  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:02.634  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:12:02.635  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:12:02.635  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:12:02.635  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram -1 Status: executed
+2021-04-13T13:12:02.636  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:12:02.636  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad -1 Status: executed
+2021-04-13T13:12:05.098  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:12:05.099  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:05.099  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:12:05.100  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:05.101  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:12:05.101  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:12:05.102  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:12:05.102  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 1 Status: executed
+2021-04-13T13:12:05.102  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:12:05.103  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 1 Status: executed
+2021-04-13T13:12:08.995  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:12:08.996  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:08.997  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:12:08.997  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:08.998  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:12:08.998  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:12:08.999  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:12:08.999  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram -1 Status: executed
+2021-04-13T13:12:09  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:12:09  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad -1 Status: executed
+2021-04-13T13:12:10.799  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:12:10.800  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:10.800  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:12:10.801  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:10.802  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:12:10.802  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:12:10.803  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:12:10.803  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 1 Status: executed
+2021-04-13T13:12:10.803  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:12:10.803  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 1 Status: executed
+2021-04-13T13:12:13.507  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:12:13.508  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:13.508  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:12:13.509  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:13.510  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:12:13.510  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:12:13.510  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:12:13.511  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram -1 Status: executed
+2021-04-13T13:12:13.511  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:12:13.511  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad -1 Status: executed
+2021-04-13T13:12:15.059  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:12:15.059  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:15.060  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:12:15.060  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:12:15.061  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:12:15.062  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T13:12:15.062  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T13:12:15.062  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 1 Status: executed
+2021-04-13T13:12:15.062  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:12:15.063  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 1 Status: executed
+2021-04-13T13:13:50.188  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T13:13:58.973  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:13:58.974  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:14:04.316  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T13:14:08.100  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T13:14:08.100  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:14:08.101  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:08.105  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:14:08.106  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:08.110  GamePhase: deployOrderExecution  Player: A Command: deploy 6 5 Status: executed
+2021-04-13T13:14:08.110  GamePhase: deployOrderExecution  Player: B Command: deploy 2 5 Status: executed
+2021-04-13T13:14:08.110  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T13:14:08.111  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Guntur 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T13:14:08.111  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:14:08.111  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:14:10.579  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:14:10.580  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:10.582  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:14:10.583  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:10.585  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T13:14:10.585  GamePhase: deployOrderExecution  Player: B Command: deploy 2 10 Status: executed
+2021-04-13T13:14:10.586  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Chennai 0 Status: executed
+2021-04-13T13:14:10.586  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Hyderabad 5 Status: executed
+2021-04-13T13:14:10.587  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 5 Status: executed
+2021-04-13T13:14:10.587  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai 5 Status: executed
+2021-04-13T13:14:13.347  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:14:13.347  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:13.348  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:14:13.349  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:13.351  GamePhase: deployOrderExecution  Player: A Command: deploy 6 11 Status: executed
+2021-04-13T13:14:13.351  GamePhase: deployOrderExecution  Player: B Command: deploy 2 11 Status: executed
+2021-04-13T13:14:13.352  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Hyderabad 5 Status: executed
+2021-04-13T13:14:13.352  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Guntur 5 Status: executed
+2021-04-13T13:14:13.352  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 21 Status: executed
+2021-04-13T13:14:13.353  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai 5 Status: executed
+2021-04-13T13:14:16.166  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:14:16.167  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:16.168  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:14:16.169  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:16.170  GamePhase: deployOrderExecution  Player: A Command: deploy 4 11 Status: executed
+2021-04-13T13:14:16.171  GamePhase: deployOrderExecution  Player: B Command: deploy 2 11 Status: executed
+2021-04-13T13:14:16.171  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Hyderabad 18 Status: executed
+2021-04-13T13:14:16.172  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Guntur -3 Status: not executed- fromCountry is already captured by other player
+2021-04-13T13:14:16.172  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 11 Status: executed
+2021-04-13T13:14:16.173  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai 11 Status: executed
+2021-04-13T13:14:18.325  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:14:18.326  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:18.327  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:14:18.328  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:18.329  GamePhase: deployOrderExecution  Player: A Command: deploy 4 21 Status: executed
+2021-04-13T13:14:18.329  GamePhase: deployOrderExecution  Player: B Command: deploy 1 10 Status: executed
+2021-04-13T13:14:18.330  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Chennai 20 Status: executed
+2021-04-13T13:14:18.330  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Hyderabad 11 Status: executed
+2021-04-13T13:14:18.331  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:14:18.331  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai 11 Status: executed
+2021-04-13T13:14:20.501  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:14:20.502  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:20.503  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:14:20.503  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:20.505  GamePhase: deployOrderExecution  Player: A Command: deploy 4 11 Status: executed
+2021-04-13T13:14:20.505  GamePhase: deployOrderExecution  Player: B Command: deploy 1 11 Status: executed
+2021-04-13T13:14:20.505  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Hyderabad 43 Status: executed
+2021-04-13T13:14:20.506  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Guntur 11 Status: not executed- fromCountry is already captured by other player
+2021-04-13T13:14:20.506  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:14:20.507  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai -11 Status: executed
+2021-04-13T13:14:22.352  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:14:22.353  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:22.354  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:14:22.354  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:22.356  GamePhase: deployOrderExecution  Player: A Command: deploy 3 21 Status: executed
+2021-04-13T13:14:22.356  GamePhase: deployOrderExecution  Player: B Command: deploy 1 10 Status: executed
+2021-04-13T13:14:22.357  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Chennai 35 Status: executed
+2021-04-13T13:14:22.357  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T13:14:22.357  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:14:22.358  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:14:24.583  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:14:24.584  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:24.585  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:14:24.585  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:24.586  GamePhase: deployOrderExecution  Player: A Command: deploy 3 21 Status: executed
+2021-04-13T13:14:24.587  GamePhase: deployOrderExecution  Player: B Command: deploy 1 10 Status: executed
+2021-04-13T13:14:24.587  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Chennai 28 Status: executed
+2021-04-13T13:14:24.588  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T13:14:24.588  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:14:24.589  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:14:26.680  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:14:26.681  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:26.681  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:14:26.682  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:26.683  GamePhase: deployOrderExecution  Player: A Command: deploy 3 21 Status: executed
+2021-04-13T13:14:26.684  GamePhase: deployOrderExecution  Player: B Command: deploy 1 10 Status: executed
+2021-04-13T13:14:26.684  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Chennai 29 Status: executed
+2021-04-13T13:14:26.684  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T13:14:26.685  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:14:26.685  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:14:28.628  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:14:28.628  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:28.629  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T13:14:28.630  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:28.631  GamePhase: deployOrderExecution  Player: A Command: deploy 3 21 Status: executed
+2021-04-13T13:14:28.631  GamePhase: deployOrderExecution  Player: B Command: deploy 1 10 Status: executed
+2021-04-13T13:14:28.632  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Chennai 35 Status: executed
+2021-04-13T13:14:28.632  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T13:14:28.632  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:14:28.633  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:14:30.400  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T13:14:30.400  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:30.401  GamePhase: StartUp  Player: B Command: 3 Status: Reinforcement Assigned
+2021-04-13T13:14:30.402  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:14:30.403  GamePhase: deployOrderExecution  Player: A Command: deploy 1 21 Status: executed
+2021-04-13T13:14:30.403  GamePhase: deployOrderExecution  Player: B Command: deploy 2 3 Status: executed
+2021-04-13T13:14:30.404  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Coimbatore 21 Status: executed
+2021-04-13T13:25:15.384  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T13:25:22.954  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:25:22.955  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:25:28.745  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T13:25:31.237  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T13:25:31.238  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:25:31.238  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:25:31.243  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:25:31.243  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:26:07.751  GamePhase: deployOrderExecution  Player: A Command: deploy 3 5 Status: executed
+2021-04-13T13:26:07.752  GamePhase: deployOrderExecution  Player: B Command: deploy 6 5 Status: executed
+2021-04-13T13:26:07.752  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T13:26:07.753  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Kochin 0 Status: executed
+2021-04-13T13:26:19.031  GamePhase: StartUp  Player: A Command: 3 Status: Reinforcement Assigned
+2021-04-13T13:26:19.032  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:26:19.033  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:26:19.034  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:26:38.807  GamePhase: deployOrderExecution  Player: A Command: deploy 2 3 Status: executed
+2021-04-13T13:26:38.808  GamePhase: deployOrderExecution  Player: B Command: deploy 6 11 Status: executed
+2021-04-13T13:26:38.808  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T13:26:38.809  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 5 Status: executed
+2021-04-13T13:26:40.932  GamePhase: StartUp  Player: A Command: 3 Status: Reinforcement Assigned
+2021-04-13T13:26:40.933  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:26:40.934  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:26:40.934  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:26:56.554  GamePhase: deployOrderExecution  Player: A Command: deploy 3 3 Status: executed
+2021-04-13T13:26:56.555  GamePhase: deployOrderExecution  Player: B Command: deploy 6 11 Status: executed
+2021-04-13T13:26:56.556  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T13:26:56.556  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 11 Status: executed
+2021-04-13T13:27:00.007  GamePhase: StartUp  Player: A Command: 3 Status: Reinforcement Assigned
+2021-04-13T13:27:00.008  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:27:00.009  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:27:00.009  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:52:48.591  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T13:52:54.933  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:52:54.934  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T13:52:59.807  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T13:53:01.975  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T13:53:01.976  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:53:01.976  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:01.981  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T13:53:01.981  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:01.987  GamePhase: deployOrderExecution  Player: A Command: deploy 5 5 Status: executed
+2021-04-13T13:53:01.988  GamePhase: deployOrderExecution  Player: B Command: deploy 4 5 Status: executed
+2021-04-13T13:53:01.989  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:53:01.991  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 0 Status: executed
+2021-04-13T13:53:01.993  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:53:01.994  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T13:53:03.298  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:03.298  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:03.300  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:03.301  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:03.304  GamePhase: deployOrderExecution  Player: A Command: deploy 5 11 Status: executed
+2021-04-13T13:53:03.305  GamePhase: deployOrderExecution  Player: B Command: deploy 4 11 Status: executed
+2021-04-13T13:53:03.306  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:53:03.307  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 5 Status: executed
+2021-04-13T13:53:03.307  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 5 Status: executed
+2021-04-13T13:53:03.307  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 5 Status: executed
+2021-04-13T13:53:04.420  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:04.421  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:04.423  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:04.424  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:04.426  GamePhase: deployOrderExecution  Player: A Command: deploy 5 11 Status: executed
+2021-04-13T13:53:04.427  GamePhase: deployOrderExecution  Player: B Command: deploy 4 11 Status: executed
+2021-04-13T13:53:04.427  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 12 Status: executed
+2021-04-13T13:53:04.428  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 5 Status: executed
+2021-04-13T13:53:04.428  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 12 Status: executed
+2021-04-13T13:53:04.429  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 6 Status: executed
+2021-04-13T13:53:05.420  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:05.421  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:05.423  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:05.424  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:05.426  GamePhase: deployOrderExecution  Player: A Command: deploy 6 11 Status: executed
+2021-04-13T13:53:05.426  GamePhase: deployOrderExecution  Player: B Command: deploy 4 11 Status: executed
+2021-04-13T13:53:05.427  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:53:05.427  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 11 Status: executed
+2021-04-13T13:53:05.428  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram -1 Status: executed
+2021-04-13T13:53:05.429  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 11 Status: executed
+2021-04-13T13:53:06.383  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:06.383  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:06.385  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:06.386  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:06.387  GamePhase: deployOrderExecution  Player: A Command: deploy 6 11 Status: executed
+2021-04-13T13:53:06.388  GamePhase: deployOrderExecution  Player: B Command: deploy 3 11 Status: executed
+2021-04-13T13:53:06.388  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:53:06.389  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T13:53:06.389  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:53:06.390  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T13:53:12.794  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:12.795  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:12.797  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:12.797  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:12.799  GamePhase: deployOrderExecution  Player: A Command: deploy 6 11 Status: executed
+2021-04-13T13:53:12.799  GamePhase: deployOrderExecution  Player: B Command: deploy 3 11 Status: executed
+2021-04-13T13:53:12.800  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:53:12.801  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T13:53:12.801  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:53:12.802  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T13:53:14.248  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:14.249  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:14.250  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:14.251  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:14.253  GamePhase: deployOrderExecution  Player: A Command: deploy 6 11 Status: executed
+2021-04-13T13:53:14.253  GamePhase: deployOrderExecution  Player: B Command: deploy 3 11 Status: executed
+2021-04-13T13:53:14.254  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:53:14.254  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T13:53:14.254  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:53:14.255  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T13:53:15.469  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:15.469  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:15.472  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:15.472  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:15.474  GamePhase: deployOrderExecution  Player: A Command: deploy 6 11 Status: executed
+2021-04-13T13:53:15.474  GamePhase: deployOrderExecution  Player: B Command: deploy 3 11 Status: executed
+2021-04-13T13:53:15.475  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:53:15.475  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T13:53:15.476  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:53:15.478  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T13:53:17.349  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:17.350  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:17.351  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:17.351  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:17.353  GamePhase: deployOrderExecution  Player: A Command: deploy 6 11 Status: executed
+2021-04-13T13:53:17.354  GamePhase: deployOrderExecution  Player: B Command: deploy 3 11 Status: executed
+2021-04-13T13:53:17.354  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:53:17.355  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T13:53:17.355  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:53:17.355  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T13:53:18.479  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:18.480  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:18.481  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:18.481  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:18.483  GamePhase: deployOrderExecution  Player: A Command: deploy 6 11 Status: executed
+2021-04-13T13:53:18.483  GamePhase: deployOrderExecution  Player: B Command: deploy 3 11 Status: executed
+2021-04-13T13:53:18.484  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:53:18.485  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T13:53:18.485  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:53:18.485  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T13:53:20.114  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:20.114  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:20.115  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:20.116  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:20.118  GamePhase: deployOrderExecution  Player: A Command: deploy 6 11 Status: executed
+2021-04-13T13:53:20.118  GamePhase: deployOrderExecution  Player: B Command: deploy 3 11 Status: executed
+2021-04-13T13:53:20.118  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:53:20.119  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T13:53:20.119  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:53:20.119  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T13:53:24.689  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:24.690  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:24.691  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:24.692  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:24.693  GamePhase: deployOrderExecution  Player: A Command: deploy 6 11 Status: executed
+2021-04-13T13:53:24.694  GamePhase: deployOrderExecution  Player: B Command: deploy 3 11 Status: executed
+2021-04-13T13:53:24.694  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:53:24.695  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T13:53:24.695  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:53:24.696  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T13:53:26.338  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:26.338  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:26.339  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T13:53:26.341  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T13:53:26.343  GamePhase: deployOrderExecution  Player: A Command: deploy 6 11 Status: executed
+2021-04-13T13:53:26.343  GamePhase: deployOrderExecution  Player: B Command: deploy 3 11 Status: executed
+2021-04-13T13:53:26.344  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T13:53:26.344  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T13:53:26.345  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T13:53:26.345  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T14:08:30.525  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T14:08:36.547  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T14:08:36.548  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T14:09:37.553  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T14:09:40.469  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T14:09:40.470  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T14:09:40.471  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:09:40.476  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T14:09:40.476  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:09:40.481  GamePhase: deployOrderExecution  Player: A Command: deploy 3 5 Status: executed
+2021-04-13T14:09:40.482  GamePhase: deployOrderExecution  Player: B Command: deploy 5 5 Status: executed
+2021-04-13T14:09:40.482  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Coimbatore 0 Status: executed
+2021-04-13T14:09:40.482  GamePhase: advanceOrderExecution  Player: B Command: advance Kochin  0 Status: executed
+2021-04-13T14:09:40.483  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Chennai 0 Status: executed
+2021-04-13T14:09:40.484  GamePhase: advanceOrderExecution  Player: B Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T14:09:51.963  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T14:09:51.964  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:09:51.966  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T14:09:51.967  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:09:51.969  GamePhase: deployOrderExecution  Player: A Command: deploy 3 21 Status: executed
+2021-04-13T14:09:51.969  GamePhase: deployOrderExecution  Player: B Command: deploy 5 10 Status: executed
+2021-04-13T14:09:51.970  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad  5 Status: executed
+2021-04-13T14:09:51.970  GamePhase: advanceOrderExecution  Player: B Command: advance Kochin  5 Status: executed
+2021-04-13T14:09:51.971  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T14:09:51.972  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Kochin 0 Status: executed
+2021-04-13T14:10:36.283  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T14:10:47.334  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T14:10:47.335  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T14:10:57.289  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T14:11:00.040  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T14:11:00.041  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T14:11:00.041  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:11:00.045  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T14:11:00.046  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:11:00.051  GamePhase: deployOrderExecution  Player: A Command: deploy 2 5 Status: executed
+2021-04-13T14:11:00.051  GamePhase: deployOrderExecution  Player: B Command: deploy 4 5 Status: executed
+2021-04-13T14:11:00.052  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore  0 Status: executed
+2021-04-13T14:11:00.052  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T14:11:00.052  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T14:11:00.053  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T14:11:06.614  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T14:11:06.615  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:11:06.617  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T14:11:06.618  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:11:06.620  GamePhase: deployOrderExecution  Player: A Command: deploy 2 10 Status: executed
+2021-04-13T14:11:06.621  GamePhase: deployOrderExecution  Player: B Command: deploy 4 21 Status: executed
+2021-04-13T14:11:06.621  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Hyderabad 5 Status: executed
+2021-04-13T14:11:06.622  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur  5 Status: executed
+2021-04-13T14:11:06.623  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 5 Status: executed
+2021-04-13T14:11:06.623  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 5 Status: executed
+2021-04-13T14:11:13.979  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:11:13.980  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:11:13.983  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:11:13.984  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:11:13.987  GamePhase: deployOrderExecution  Player: A Command: deploy 2 11 Status: executed
+2021-04-13T14:11:13.987  GamePhase: deployOrderExecution  Player: B Command: deploy 4 11 Status: executed
+2021-04-13T14:11:13.988  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore  5 Status: executed
+2021-04-13T14:11:13.988  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 17 Status: executed
+2021-04-13T14:11:13.989  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 5 Status: executed
+2021-04-13T14:11:13.989  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 17 Status: executed
+2021-04-13T14:11:19.568  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T14:11:19.569  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:11:19.571  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T14:11:19.571  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:11:19.574  GamePhase: deployOrderExecution  Player: A Command: deploy 1 10 Status: executed
+2021-04-13T14:11:19.574  GamePhase: deployOrderExecution  Player: B Command: deploy 6 21 Status: executed
+2021-04-13T14:11:19.575  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Hyderabad 6 Status: executed
+2021-04-13T14:11:19.575  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur  -6 Status: executed
+2021-04-13T14:11:19.576  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 6 Status: executed
+2021-04-13T14:11:19.576  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 17 Status: executed
+2021-04-13T14:12:19.257  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T14:12:24.717  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T14:12:24.717  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T14:12:29.937  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T14:12:32.669  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T14:12:32.670  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T14:12:32.671  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:12:32.675  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T14:12:32.675  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:12:32.680  GamePhase: deployOrderExecution  Player: A Command: deploy 2 5 Status: executed
+2021-04-13T14:12:32.681  GamePhase: deployOrderExecution  Player: B Command: deploy 1 5 Status: executed
+2021-04-13T14:12:32.681  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T14:12:32.682  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T14:12:32.682  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T14:12:32.683  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T14:12:37.336  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:12:37.337  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:12:37.339  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:12:37.340  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:12:37.342  GamePhase: deployOrderExecution  Player: A Command: deploy 2 11 Status: executed
+2021-04-13T14:12:37.343  GamePhase: deployOrderExecution  Player: B Command: deploy 1 11 Status: executed
+2021-04-13T14:12:37.343  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 5 Status: executed
+2021-04-13T14:12:37.344  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Coimbatore 5 Status: executed
+2021-04-13T14:12:37.345  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 5 Status: executed
+2021-04-13T14:12:37.345  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Hyderabad 5 Status: executed
+2021-04-13T14:12:40.500  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:12:40.501  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:12:40.503  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:12:40.504  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:12:40.506  GamePhase: deployOrderExecution  Player: A Command: deploy 2 11 Status: executed
+2021-04-13T14:12:40.506  GamePhase: deployOrderExecution  Player: B Command: deploy 3 11 Status: executed
+2021-04-13T14:12:40.507  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 3 Status: executed
+2021-04-13T14:12:40.507  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Coimbatore 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T14:12:40.508  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 3 Status: executed
+2021-04-13T14:12:40.510  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Hyderabad 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T14:12:45.303  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T14:12:45.304  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:12:45.306  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T14:12:45.307  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:12:45.309  GamePhase: deployOrderExecution  Player: A Command: deploy 2 21 Status: executed
+2021-04-13T14:12:45.309  GamePhase: deployOrderExecution  Player: B Command: deploy 3 10 Status: executed
+2021-04-13T14:12:45.310  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Hyderabad 8 Status: executed
+2021-04-13T14:12:45.311  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T14:12:45.311  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 8 Status: executed
+2021-04-13T14:12:45.312  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T14:56:06.365  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T14:56:13.765  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T14:56:13.766  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T14:56:55.942  GamePhase: GamePlay Command: assignountries Status: invalid command
+2021-04-13T14:57:06.823  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T14:57:50.390  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T14:57:50.391  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T14:57:50.392  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:57:50.396  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T14:57:50.397  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:57:50.402  GamePhase: deployOrderExecution  Player: A Command: deploy 1 5 Status: executed
+2021-04-13T14:57:50.402  GamePhase: deployOrderExecution  Player: B Command: deploy 6 5 Status: executed
+2021-04-13T14:57:50.403  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T14:57:50.403  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T14:57:50.404  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T14:57:50.404  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T14:58:07.654  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:58:07.655  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:07.658  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:58:07.658  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:07.660  GamePhase: deployOrderExecution  Player: A Command: deploy 1 11 Status: executed
+2021-04-13T14:58:07.661  GamePhase: deployOrderExecution  Player: B Command: deploy 6 11 Status: executed
+2021-04-13T14:58:07.661  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 5 Status: executed
+2021-04-13T14:58:07.662  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Kochin 5 Status: executed
+2021-04-13T14:58:07.662  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Coimbatore 5 Status: executed
+2021-04-13T14:58:07.663  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 5 Status: executed
+2021-04-13T14:58:12.851  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:58:12.852  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:12.854  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:58:12.855  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:12.857  GamePhase: deployOrderExecution  Player: A Command: deploy 1 11 Status: executed
+2021-04-13T14:58:12.857  GamePhase: deployOrderExecution  Player: B Command: deploy 6 11 Status: executed
+2021-04-13T14:58:12.858  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Guntur 5 Status: executed
+2021-04-13T14:58:12.859  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 5 Status: executed
+2021-04-13T14:58:12.860  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Coimbatore 6 Status: executed
+2021-04-13T14:58:12.860  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 6 Status: executed
+2021-04-13T14:58:19.751  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T14:58:19.751  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:19.753  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T14:58:19.754  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:19.756  GamePhase: deployOrderExecution  Player: A Command: deploy 1 10 Status: executed
+2021-04-13T14:58:19.756  GamePhase: deployOrderExecution  Player: B Command: deploy 6 21 Status: executed
+2021-04-13T14:58:19.757  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 11 Status: executed
+2021-04-13T14:58:19.757  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 4 Status: not executed- fromCountry is already captured by other player
+2021-04-13T14:58:19.758  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Coimbatore 11 Status: executed
+2021-04-13T14:58:19.758  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 11 Status: executed
+2021-04-13T14:58:28.500  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:58:28.501  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:28.503  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:58:28.503  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:28.506  GamePhase: deployOrderExecution  Player: A Command: deploy 2 11 Status: executed
+2021-04-13T14:58:28.506  GamePhase: deployOrderExecution  Player: B Command: deploy 6 11 Status: executed
+2021-04-13T14:58:28.506  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Guntur 8 Status: executed
+2021-04-13T14:58:28.507  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 14 Status: executed
+2021-04-13T14:58:28.507  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 22 Status: executed
+2021-04-13T14:58:28.508  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 21 Status: executed
+2021-04-13T14:58:37.712  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T14:58:37.713  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:37.714  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T14:58:37.715  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:37.717  GamePhase: deployOrderExecution  Player: A Command: deploy 1 10 Status: executed
+2021-04-13T14:58:37.717  GamePhase: deployOrderExecution  Player: B Command: deploy 4 21 Status: executed
+2021-04-13T14:58:37.718  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 21 Status: executed
+2021-04-13T14:58:37.718  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 14 Status: executed
+2021-04-13T14:58:37.719  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Coimbatore 21 Status: executed
+2021-04-13T14:58:37.719  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 16 Status: executed
+2021-04-13T14:58:41.923  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T14:58:41.924  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:41.925  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T14:58:41.925  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:41.927  GamePhase: deployOrderExecution  Player: A Command: deploy 2 10 Status: executed
+2021-04-13T14:58:41.927  GamePhase: deployOrderExecution  Player: B Command: deploy 4 21 Status: executed
+2021-04-13T14:58:41.928  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Hyderabad 32 Status: executed
+2021-04-13T14:58:41.929  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 3 Status: not executed- fromCountry is already captured by other player
+2021-04-13T14:58:41.929  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 32 Status: executed
+2021-04-13T14:58:41.929  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 21 Status: executed
+2021-04-13T14:58:47.195  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:58:47.196  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:47.198  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T14:58:47.198  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:47.199  GamePhase: deployOrderExecution  Player: A Command: deploy 1 11 Status: executed
+2021-04-13T14:58:47.200  GamePhase: deployOrderExecution  Player: B Command: deploy 4 11 Status: executed
+2021-04-13T14:58:47.200  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Guntur 17 Status: executed
+2021-04-13T14:58:47.201  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 21 Status: executed
+2021-04-13T14:58:47.201  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Coimbatore 24 Status: executed
+2021-04-13T14:58:47.201  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 21 Status: executed
+2021-04-13T14:58:51.610  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T14:58:51.611  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:51.612  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T14:58:51.612  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T14:58:51.614  GamePhase: deployOrderExecution  Player: A Command: deploy 1 10 Status: executed
+2021-04-13T14:58:51.614  GamePhase: deployOrderExecution  Player: B Command: deploy 6 21 Status: executed
+2021-04-13T14:58:51.614  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 11 Status: executed
+2021-04-13T14:58:51.615  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 21 Status: executed
+2021-04-13T14:58:51.615  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Coimbatore 11 Status: not executed- fromCountry is already captured by other player
+2021-04-13T14:58:51.616  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 32 Status: executed
+2021-04-13T15:54:05.247  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T15:54:10.888  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T15:54:10.889  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T15:54:15.738  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T15:54:18.939  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T15:54:18.940  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T15:54:18.940  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T15:54:18.944  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T15:54:18.944  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T15:54:18.950  GamePhase: deployOrderExecution  Player: A Command: deploy 5 5 Status: executed
+2021-04-13T15:54:18.950  GamePhase: deployOrderExecution  Player: B Command: deploy 1 5 Status: executed
+2021-04-13T15:54:18.950  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T15:54:18.951  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T15:54:18.951  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T15:54:18.951  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Hyderabad 0 Status: executed
+2021-04-13T15:54:25.704  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T15:54:25.704  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T15:54:25.706  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T15:54:25.707  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T15:54:25.709  GamePhase: deployOrderExecution  Player: A Command: deploy 5 11 Status: executed
+2021-04-13T15:54:25.709  GamePhase: deployOrderExecution  Player: B Command: deploy 1 11 Status: executed
+2021-04-13T15:54:25.710  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T15:54:25.710  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Guntur 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T15:54:25.711  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 5 Status: executed
+2021-04-13T15:54:25.711  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Coimbatore 5 Status: executed
+2021-04-13T15:54:28.390  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T15:54:28.391  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T15:54:28.393  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T15:54:28.393  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T15:54:28.395  GamePhase: deployOrderExecution  Player: A Command: deploy 5 21 Status: executed
+2021-04-13T15:54:28.395  GamePhase: deployOrderExecution  Player: B Command: deploy 1 10 Status: executed
+2021-04-13T15:54:28.395  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Chennai 0 Status: executed
+2021-04-13T15:54:28.396  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Hyderabad 11 Status: executed
+2021-04-13T15:54:28.396  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 11 Status: executed
+2021-04-13T15:54:28.397  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Coimbatore 11 Status: executed
+2021-04-13T15:54:29.721  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T15:54:29.722  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T15:54:29.723  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T15:54:29.723  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T15:54:29.725  GamePhase: deployOrderExecution  Player: A Command: deploy 5 11 Status: executed
+2021-04-13T15:54:29.726  GamePhase: deployOrderExecution  Player: B Command: deploy 2 11 Status: executed
+2021-04-13T15:54:29.726  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T15:54:29.726  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Guntur 11 Status: executed
+2021-04-13T15:54:29.727  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 21 Status: executed
+2021-04-13T15:54:29.727  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai 16 Status: executed
+2021-04-13T15:54:31.113  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T15:54:31.114  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T15:54:31.114  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T15:54:31.115  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T15:54:31.117  GamePhase: deployOrderExecution  Player: A Command: deploy 6 10 Status: executed
+2021-04-13T15:54:31.117  GamePhase: deployOrderExecution  Player: B Command: deploy 1 21 Status: executed
+2021-04-13T15:54:31.118  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 37 Status: executed
+2021-04-13T15:54:31.118  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 11 Status: not executed- fromCountry is already captured by other player
+2021-04-13T15:54:31.119  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Kochin 37 Status: executed
+2021-04-13T15:54:31.119  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Coimbatore 15 Status: executed
+2021-04-13T16:30:50.231  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T16:30:56.857  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T16:30:56.858  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T16:31:01.706  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T16:31:04.090  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T16:31:04.091  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T16:31:04.091  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:31:04.095  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T16:31:04.096  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:31:04.101  GamePhase: deployOrderExecution  Player: A Command: deploy 1 5 Status: executed
+2021-04-13T16:31:04.102  GamePhase: deployOrderExecution  Player: B Command: deploy 6 5 Status: executed
+2021-04-13T16:31:04.103  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T16:31:04.104  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Kochin 0 Status: executed
+2021-04-13T16:31:04.104  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:31:04.104  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T16:31:58.276  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T16:31:58.277  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:31:58.278  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:31:58.279  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:31:58.281  GamePhase: deployOrderExecution  Player: A Command: deploy 1 10 Status: executed
+2021-04-13T16:31:58.282  GamePhase: deployOrderExecution  Player: B Command: deploy 6 21 Status: executed
+2021-04-13T16:31:58.282  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Hyderabad 5 Status: executed
+2021-04-13T16:31:58.283  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:31:58.283  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T16:31:58.284  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad  0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:32:01.301  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T16:32:01.301  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:32:01.303  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T16:32:01.304  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:32:01.306  GamePhase: deployOrderExecution  Player: A Command: deploy 1 11 Status: executed
+2021-04-13T16:32:01.306  GamePhase: deployOrderExecution  Player: B Command: deploy 6 11 Status: executed
+2021-04-13T16:32:01.307  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Guntur 5 Status: executed
+2021-04-13T16:32:01.308  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:32:01.309  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad  5 Status: executed
+2021-04-13T16:32:01.309  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur  0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:32:04.017  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:32:04.018  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:32:04.019  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T16:32:04.020  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:32:04.021  GamePhase: deployOrderExecution  Player: A Command: deploy 1 21 Status: executed
+2021-04-13T16:32:04.022  GamePhase: deployOrderExecution  Player: B Command: deploy 6 10 Status: executed
+2021-04-13T16:32:04.022  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Trivandram 5 Status: executed
+2021-04-13T16:32:04.023  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 37 Status: executed
+2021-04-13T16:32:04.023  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur  5 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:32:04.024  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram  37 Status: executed
+2021-04-13T16:35:36.085  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T16:35:42.877  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T16:35:42.878  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T16:35:47.754  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T16:35:50.110  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T16:35:50.110  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T16:35:50.111  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:35:50.114  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T16:35:50.114  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:35:50.139  GamePhase: deployOrderExecution  Player: A Command: deploy 4 5 Status: executed
+2021-04-13T16:35:50.139  GamePhase: deployOrderExecution  Player: B Command: deploy 2 5 Status: executed
+2021-04-13T16:35:50.139  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Chennai 0 Status: executed
+2021-04-13T16:35:50.140  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T16:35:50.140  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Kochin 0 Status: executed
+2021-04-13T16:35:50.140  GamePhase: advanceOrderExecution  Player: B Command: advance Kochin Trivandram 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:35:50.141  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:35:50.142  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:37:11.661  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T16:37:18.093  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T16:37:18.094  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T16:37:22.768  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T16:37:26.483  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T16:37:26.484  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T16:37:26.484  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:37:26.488  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T16:37:26.488  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:37:26.494  GamePhase: deployOrderExecution  Player: A Command: deploy 3 5 Status: executed
+2021-04-13T16:37:26.494  GamePhase: deployOrderExecution  Player: B Command: deploy 4 5 Status: executed
+2021-04-13T16:37:26.495  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Coimbatore 0 Status: executed
+2021-04-13T16:37:26.495  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T16:37:26.495  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T16:37:26.496  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:37:26.496  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:37:26.496  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:37:26.498  GamePhase: StartUp  Player: B Command: 3 Status: Reinforcement Assigned
+2021-04-13T16:37:26.498  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:37:26.500  GamePhase: deployOrderExecution  Player: A Command: deploy 3 21 Status: executed
+2021-04-13T16:37:26.500  GamePhase: deployOrderExecution  Player: B Command: deploy 4 3 Status: executed
+2021-04-13T16:37:26.501  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Guntur 5 Status: executed
+2021-04-13T16:37:26.502  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Hyderabad 5 Status: executed
+2021-04-13T16:37:26.502  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T16:37:55.523  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T16:38:01.582  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T16:38:01.582  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T16:38:06.418  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T16:38:08.514  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T16:38:08.515  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T16:38:08.515  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.519  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T16:38:08.520  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.524  GamePhase: deployOrderExecution  Player: A Command: deploy 4 5 Status: executed
+2021-04-13T16:38:08.525  GamePhase: deployOrderExecution  Player: B Command: deploy 1 5 Status: executed
+2021-04-13T16:38:08.525  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T16:38:08.526  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T16:38:08.526  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T16:38:08.526  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:38:08.527  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:38:08.527  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.528  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T16:38:08.528  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.530  GamePhase: deployOrderExecution  Player: A Command: deploy 4 21 Status: executed
+2021-04-13T16:38:08.531  GamePhase: deployOrderExecution  Player: B Command: deploy 1 10 Status: executed
+2021-04-13T16:38:08.532  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Chennai 0 Status: executed
+2021-04-13T16:38:08.532  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Hyderabad 5 Status: executed
+2021-04-13T16:38:08.533  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad  0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:38:08.533  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T16:38:08.534  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T16:38:08.534  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.535  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T16:38:08.535  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.536  GamePhase: deployOrderExecution  Player: A Command: deploy 4 11 Status: executed
+2021-04-13T16:38:08.537  GamePhase: deployOrderExecution  Player: B Command: deploy 1 11 Status: executed
+2021-04-13T16:38:08.537  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Hyderabad 26 Status: executed
+2021-04-13T16:38:08.537  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Guntur 5 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:38:08.538  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur  26 Status: executed
+2021-04-13T16:38:08.538  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad  5 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:38:08.538  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:38:08.538  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.539  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T16:38:08.540  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.541  GamePhase: deployOrderExecution  Player: A Command: deploy 3 21 Status: executed
+2021-04-13T16:38:08.541  GamePhase: deployOrderExecution  Player: B Command: deploy 1 10 Status: executed
+2021-04-13T16:38:08.541  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad Chennai 22 Status: executed
+2021-04-13T16:38:08.542  GamePhase: advanceOrderExecution  Player: B Command: advance Chennai Hyderabad 21 Status: executed
+2021-04-13T16:38:08.542  GamePhase: advanceOrderExecution  Player: A Command: advance Hyderabad  22 Status: executed
+2021-04-13T16:38:08.542  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Hyderabad 0 Status: executed
+2021-04-13T16:38:08.543  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T16:38:08.543  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.544  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T16:38:08.544  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.545  GamePhase: deployOrderExecution  Player: A Command: deploy 5 11 Status: executed
+2021-04-13T16:38:08.546  GamePhase: deployOrderExecution  Player: B Command: deploy 3 11 Status: executed
+2021-04-13T16:38:08.546  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Hyderabad -15 Status: executed
+2021-04-13T16:38:08.546  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Guntur 10 Status: executed
+2021-04-13T16:38:08.547  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur  -15 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:38:08.547  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad  10 Status: executed
+2021-04-13T16:38:08.548  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T16:38:08.548  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.549  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:38:08.549  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.551  GamePhase: deployOrderExecution  Player: A Command: deploy 5 10 Status: executed
+2021-04-13T16:38:08.551  GamePhase: deployOrderExecution  Player: B Command: deploy 3 21 Status: executed
+2021-04-13T16:38:08.551  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T16:38:08.551  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 10 Status: executed
+2021-04-13T16:38:08.552  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram  0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:38:08.552  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur  10 Status: executed
+2021-04-13T16:38:08.552  GamePhase: StartUp  Player: A Command: 3 Status: Reinforcement Assigned
+2021-04-13T16:38:08.553  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.553  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:38:08.554  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.555  GamePhase: deployOrderExecution  Player: A Command: deploy 5 3 Status: executed
+2021-04-13T16:38:08.555  GamePhase: deployOrderExecution  Player: B Command: deploy 3 21 Status: executed
+2021-04-13T16:38:08.555  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram 21 Status: executed
+2021-04-13T16:38:08.556  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Kochin 10 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:38:08.556  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin  21 Status: executed
+2021-04-13T16:38:08.556  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram  10 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:38:08.557  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T16:38:08.557  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.558  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:38:08.558  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.559  GamePhase: deployOrderExecution  Player: A Command: deploy 6 10 Status: executed
+2021-04-13T16:38:08.559  GamePhase: deployOrderExecution  Player: B Command: deploy 3 21 Status: executed
+2021-04-13T16:38:08.560  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur 14 Status: executed
+2021-04-13T16:38:08.560  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram -10 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:38:08.560  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram  14 Status: executed
+2021-04-13T16:38:08.560  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur  -10 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:38:08.561  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T16:38:08.561  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.562  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T16:38:08.562  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.563  GamePhase: deployOrderExecution  Player: A Command: deploy 4 11 Status: executed
+2021-04-13T16:38:08.563  GamePhase: deployOrderExecution  Player: B Command: deploy 3 11 Status: executed
+2021-04-13T16:38:08.563  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Hyderabad 21 Status: executed
+2021-04-13T16:38:08.564  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Guntur 73 Status: executed
+2021-04-13T16:38:08.565  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur  21 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:38:08.565  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad  73 Status: executed
+2021-04-13T16:38:08.566  GamePhase: StartUp  Player: A Command: 10 Status: Reinforcement Assigned
+2021-04-13T16:38:08.566  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.567  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:38:08.568  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.571  GamePhase: deployOrderExecution  Player: A Command: deploy 6 10 Status: executed
+2021-04-13T16:38:08.572  GamePhase: deployOrderExecution  Player: B Command: deploy 4 21 Status: executed
+2021-04-13T16:38:08.572  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Guntur -4 Status: executed
+2021-04-13T16:38:08.573  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur Trivandram 65 Status: executed
+2021-04-13T16:38:08.573  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram  -4 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:38:08.573  GamePhase: advanceOrderExecution  Player: B Command: advance Guntur  65 Status: executed
+2021-04-13T16:38:08.574  GamePhase: StartUp  Player: A Command: 3 Status: Reinforcement Assigned
+2021-04-13T16:38:08.574  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.575  GamePhase: StartUp  Player: B Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:38:08.575  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:38:08.577  GamePhase: deployOrderExecution  Player: A Command: deploy 5 3 Status: executed
+2021-04-13T16:38:08.577  GamePhase: deployOrderExecution  Player: B Command: deploy 6 21 Status: executed
+2021-04-13T16:38:08.578  GamePhase: advanceOrderExecution  Player: A Command: advance Kochin Trivandram -18 Status: executed
+2021-04-13T16:38:08.578  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Kochin 58 Status: executed
+2021-04-13T16:42:23.940  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T16:42:30.070  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T16:42:30.071  GamePhase: GamePlay Command: gameplayer -add A -add B Status: gameplayer command
+2021-04-13T16:42:35.536  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T16:42:38.057  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T16:42:38.058  GamePhase: StartUp  Player: A Command: 5 Status: Reinforcement Assigned
+2021-04-13T16:42:38.058  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.063  GamePhase: StartUp  Player: B Command: 5 Status: Reinforcement Assigned
+2021-04-13T16:42:38.064  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.072  GamePhase: deployOrderExecution  Player: A Command: deploy 6 5 Status: executed
+2021-04-13T16:42:38.072  GamePhase: deployOrderExecution  Player: B Command: deploy 5 5 Status: executed
+2021-04-13T16:42:38.072  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Kochin 0 Status: executed
+2021-04-13T16:42:38.073  GamePhase: advanceOrderExecution  Player: B Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T16:42:38.073  GamePhase: advanceOrderExecution  Player: A Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T16:42:38.073  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Coimbatore 0 Status: executed
+2021-04-13T16:42:38.074  GamePhase: StartUp  Player: A Command: 3 Status: Reinforcement Assigned
+2021-04-13T16:42:38.074  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.075  GamePhase: StartUp  Player: B Command: 3 Status: Reinforcement Assigned
+2021-04-13T16:42:38.076  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.077  GamePhase: deployOrderExecution  Player: A Command: deploy 6 3 Status: executed
+2021-04-13T16:42:38.077  GamePhase: deployOrderExecution  Player: B Command: deploy 5 3 Status: executed
+2021-04-13T16:42:38.078  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Kochin 5 Status: executed
+2021-04-13T16:42:38.080  GamePhase: advanceOrderExecution  Player: B Command: advance Kochin Trivandram 5 Status: executed
+2021-04-13T16:42:38.081  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T16:42:38.081  GamePhase: advanceOrderExecution  Player: B Command: advance Hyderabad Chennai 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:42:38.082  GamePhase: StartUp  Player: A Command: 11 Status: Reinforcement Assigned
+2021-04-13T16:42:38.082  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.083  GamePhase: StartUp  Player: B Command: 11 Status: Reinforcement Assigned
+2021-04-13T16:42:38.084  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.085  GamePhase: deployOrderExecution  Player: A Command: deploy 4 11 Status: executed
+2021-04-13T16:42:38.085  GamePhase: deployOrderExecution  Player: B Command: deploy 6 11 Status: executed
+2021-04-13T16:42:38.085  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Trivandram 0 Status: executed
+2021-04-13T16:42:38.086  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 3 Status: executed
+2021-04-13T16:42:38.086  GamePhase: advanceOrderExecution  Player: A Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T16:42:38.086  GamePhase: advanceOrderExecution  Player: B Command: advance Coimbatore Chennai 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:42:38.087  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:42:38.087  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.088  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T16:42:38.089  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.090  GamePhase: deployOrderExecution  Player: A Command: deploy 4 21 Status: executed
+2021-04-13T16:42:38.090  GamePhase: deployOrderExecution  Player: B Command: deploy 6 10 Status: executed
+2021-04-13T16:42:38.091  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Trivandram 9 Status: executed
+2021-04-13T16:42:38.091  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 11 Status: executed
+2021-04-13T16:42:38.091  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur  9 Status: executed
+2021-04-13T16:42:38.092  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram  11 Status: executed
+2021-04-13T16:42:38.092  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:42:38.092  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.093  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T16:42:38.094  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.094  GamePhase: deployOrderExecution  Player: A Command: deploy 4 21 Status: executed
+2021-04-13T16:42:38.095  GamePhase: deployOrderExecution  Player: B Command: deploy 5 10 Status: executed
+2021-04-13T16:42:38.096  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Trivandram 5 Status: executed
+2021-04-13T16:42:38.097  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur -6 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:42:38.098  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur  5 Status: executed
+2021-04-13T16:42:38.098  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram  -6 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:42:38.098  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:42:38.099  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.101  GamePhase: StartUp  Player: B Command: 3 Status: Reinforcement Assigned
+2021-04-13T16:42:38.102  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.103  GamePhase: deployOrderExecution  Player: A Command: deploy 4 21 Status: executed
+2021-04-13T16:42:38.103  GamePhase: deployOrderExecution  Player: B Command: deploy 5 3 Status: executed
+2021-04-13T16:42:38.103  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Kochin 9 Status: executed
+2021-04-13T16:42:38.104  GamePhase: advanceOrderExecution  Player: B Command: advance Kochin Trivandram 10 Status: executed
+2021-04-13T16:42:38.104  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram  9 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:42:38.104  GamePhase: advanceOrderExecution  Player: B Command: advance Kochin  10 Status: executed
+2021-04-13T16:42:38.105  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:42:38.105  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.106  GamePhase: StartUp  Player: B Command: 10 Status: Reinforcement Assigned
+2021-04-13T16:42:38.106  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.107  GamePhase: deployOrderExecution  Player: A Command: deploy 4 21 Status: executed
+2021-04-13T16:42:38.107  GamePhase: deployOrderExecution  Player: B Command: deploy 6 10 Status: executed
+2021-04-13T16:42:38.108  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur Trivandram 37 Status: executed
+2021-04-13T16:42:38.109  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram Guntur 10 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:42:38.110  GamePhase: advanceOrderExecution  Player: A Command: advance Guntur  37 Status: executed
+2021-04-13T16:42:38.110  GamePhase: advanceOrderExecution  Player: B Command: advance Trivandram  10 Status: not executed- fromCountry is already captured by other player
+2021-04-13T16:42:38.111  GamePhase: StartUp  Player: A Command: 21 Status: Reinforcement Assigned
+2021-04-13T16:42:38.114  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.116  GamePhase: StartUp  Player: B Command: 3 Status: Reinforcement Assigned
+2021-04-13T16:42:38.116  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T16:42:38.117  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
+2021-04-13T16:42:38.118  GamePhase: deployOrderExecution  Player: B Command: deploy 5 3 Status: executed
+2021-04-13T16:42:38.118  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Kochin 23 Status: executed

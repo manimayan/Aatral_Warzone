@@ -16,6 +16,7 @@ import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
 import aatral.warzone.observerPattern.LogEntryBuffer;
 import aatral.warzone.observerPattern.LogWriter;
+import aatral.warzone.strategyPattern.PlayerStrategy;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -51,6 +52,8 @@ public class GamePlayer extends GameEngine{
 	
 	public List<String> diplomacyCountries = new ArrayList<>();
 	
+	PlayerStrategy strategy;
+	
 	LogEntryBuffer log = new LogEntryBuffer();
 	LogWriter logWriter = new LogWriter(log);
 	
@@ -74,6 +77,23 @@ public class GamePlayer extends GameEngine{
 			}
 		});
 	}
+	
+	
+
+	  public void setStrategy(PlayerStrategy p_strat) {
+	    strategy = p_strat; 
+	  }; 
+	  public boolean issueOrder() {
+	    Order order;
+	    order = strategy.createOrder();
+	    if (order != null) {
+	    	orderObjects.add(order);
+	      return true;
+	    }
+	    return false;
+	  }
+
+	
 	/**
 	 * setSpecialCardValues method is used to set the special value cards
 	 */

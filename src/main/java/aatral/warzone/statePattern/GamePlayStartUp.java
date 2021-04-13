@@ -105,11 +105,14 @@ public class GamePlayStartUp extends GamePlay {
 		return p_flag;
 	}
 
-	public HashMap<String, GamePlayer> assignCountries(List<String> p_playerList) {
-		HashMap<String, GamePlayer> l_playerObjectList = new HashMap<>();
+	public HashMap<String, GamePlayer> assignCountries(HashMap<String, GamePlayer> p_playerObjectList, List<String> p_playerList) {
 		int l_totalNoOfCountry = gameEngine.totalCountries();
 		List<Countries> totalCountries = gameEngine.listOfCountries();
 		boolean l_isCountryAssigned[] = new boolean[l_totalNoOfCountry];
+		for(Map.Entry mEntry : p_playerObjectList.entrySet()) {
+			p_playerObjectList.get(mEntry.getKey()).setListOfCountries(new ArrayList<Countries>());
+			p_playerObjectList.get(mEntry.getKey()).setReinforcementArmies(0);
+		}
 		boolean l_flag = true;
 		while (l_flag) {
 			for (String str : p_playerList) {
@@ -118,14 +121,14 @@ public class GamePlayStartUp extends GamePlay {
 					break;
 				}
 				int l_countryID = gameEngine.getCountryID(l_totalNoOfCountry, l_isCountryAssigned);
-				if (!l_playerObjectList.containsKey(str)) {
-					l_playerObjectList.put(str, new GamePlayer(str, new ArrayList<Countries>(), 0));
+				if (!p_playerObjectList.containsKey(str)) {
+					p_playerObjectList.put(str, new GamePlayer(str, new ArrayList<Countries>(), 0));
 				}
-				l_playerObjectList.get(str).getListOfCountries().add(totalCountries.get(l_countryID));
+				p_playerObjectList.get(str).getListOfCountries().add(totalCountries.get(l_countryID));
 				l_isCountryAssigned[l_countryID] = true;
 			}
 		}
-		return l_playerObjectList;
+		return p_playerObjectList;
 	}
 
 	/**

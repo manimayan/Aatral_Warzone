@@ -51,7 +51,7 @@ public abstract class Phase {
 	public abstract boolean removeGamePlayer(boolean p_flag, String p_playerName, List<String> l_playerObListTempRem,
 			List<String> p_playerList);
 
-	public abstract HashMap<String, GamePlayer> assignCountries(List<String> p_playerList);
+	public abstract HashMap<String, GamePlayer> assignCountries(HashMap<String, GamePlayer> p_playerObjectList, List<String> p_playerList);
 
 	public abstract void assignReinforcements(int p_armies);
 	

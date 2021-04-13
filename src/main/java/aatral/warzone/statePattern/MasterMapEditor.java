@@ -247,7 +247,7 @@ public class MasterMapEditor extends MapEditor {
 	}
 
 	@Override
-	public HashMap<String, GamePlayer> assignCountries(List<String> p_playerList) {
+	public HashMap<String, GamePlayer> assignCountries(HashMap<String, GamePlayer> p_playerObjectList, List<String> p_playerList) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -105,13 +105,17 @@ public class GamePlayIssueOrder extends GamePlay {
 
 	@Override
 	public void issueOrders() {
-		switch(gameEngine.l_gameIssueOrder) {
-		case "deploy":
-			deployOrder();
-			break;
-		case "advance":
-			advanceOrder();
-			break;
+		if(!gameEngine.l_gamePlayerObject.issueOrder()) {
+			switch(gameEngine.l_gameIssueOrder) {
+			case "deploy":
+				deployOrder();
+				break;
+			case "advance":
+				advanceOrder();
+				break;
+			}
+		}else {
+			System.out.println("Computer plays!!!");
 		}
 	}
 /**
@@ -599,7 +603,7 @@ public class GamePlayIssueOrder extends GamePlay {
 
 
 	@Override
-	public HashMap<String, GamePlayer> assignCountries(List<String> p_playerList) {
+	public HashMap<String, GamePlayer> assignCountries(HashMap<String, GamePlayer> p_playerObjectList, List<String> p_playerList) {
 		// TODO Auto-generated method stub
 		return null;
 	}
