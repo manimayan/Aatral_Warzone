@@ -56,7 +56,7 @@ public class MasterMapEditor extends MapEditor {
 	/**
 	 * showMap method is used to print the countries and borders
 	 * 
-	 * @param p_typeOfMap  : type of map
+	 * @param typeOfMap  : type of map
 	 * @param p_warZoneMap map of warzone.
 	 */
 	@Override

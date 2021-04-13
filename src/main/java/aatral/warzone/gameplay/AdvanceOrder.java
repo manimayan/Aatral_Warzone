@@ -122,8 +122,8 @@ public class AdvanceOrder extends Order {
 	
 	/**
 	 * validateFromCountryName will validate if country belongs to the player
-	 * @param l_gamePlayerObject
-	 * @param countryFromName
+	 * @param l_gamePlayerObject has the game player object
+	 * @param countryFromName has the country from name
 	 * @return boolean true if Valid, else false
 	 */
 	public boolean validateFromCountryName(GamePlayer l_gamePlayerObject, String countryFromName) {

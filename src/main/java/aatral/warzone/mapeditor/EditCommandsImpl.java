@@ -69,7 +69,8 @@ public class EditCommandsImpl {
 	 * startEditMap method is used to get the user's input for editing the map
 	 * options
 	 * 
-	 * @param p_warZoneMap: map of warzone.
+	 * @param p_warZoneMap : map of warzone.
+	 * @param p_typeOfMap : type of the map
 	 * 
 	 */
 	public void startEditMap(String p_typeOfMap, String p_warZoneMap) {
@@ -237,7 +238,6 @@ public class EditCommandsImpl {
 	 * @param p_typeOfMap     : type of map
 	 * @param warZoneMap      map of warzone.
 	 * @param countryString   country
-	 * @param l_countryString
 	 */
 	public void editCountryMap(String p_typeOfMap, String warZoneMap, String countryString) {
 		String listCountryCommand[] = countryString.split("-");
