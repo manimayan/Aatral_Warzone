@@ -1623,3 +1623,165 @@
 2021-04-13T16:42:38.117  GamePhase: deployOrderExecution  Player: A Command: deploy 6 21 Status: executed
 2021-04-13T16:42:38.118  GamePhase: deployOrderExecution  Player: B Command: deploy 5 3 Status: executed
 2021-04-13T16:42:38.118  GamePhase: advanceOrderExecution  Player: A Command: advance Trivandram Kochin 23 Status: executed
+2021-04-13T21:46:16.307  GamePhase: MapEditor Command: "loadmap test" Status: test map loaded
+2021-04-13T21:46:36.617  GamePhase: GamePlay Command: gameplayer -add teja -add moses Status: gameplayer command
+2021-04-13T21:46:36.618  GamePhase: GamePlay Command: gameplayer -add teja -add moses Status: gameplayer command
+2021-04-13T21:46:50.908  GamePhase: GamePlay Command: assigncountries Status: command executed
+2021-04-13T21:46:57.918  GamePhase: GamePlay Command: startgame Status: game started
+2021-04-13T21:46:57.918  GamePhase: StartUp  Player: teja Command: 5 Status: Reinforcement Assigned
+2021-04-13T21:46:57.919  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.922  GamePhase: StartUp  Player: moses Command: 5 Status: Reinforcement Assigned
+2021-04-13T21:46:57.922  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.936  GamePhase: deployOrderExecution  Player: teja Command: deploy 1 5 Status: executed
+2021-04-13T21:46:57.936  GamePhase: deployOrderExecution  Player: moses Command: deploy 3 5 Status: executed
+2021-04-13T21:46:57.937  GamePhase: advanceOrderExecution  Player: teja Command: advance Chennai Coimbatore 0 Status: executed
+2021-04-13T21:46:57.937  GamePhase: advanceOrderExecution  Player: moses Command: advance Hyderabad Chennai 0 Status: executed
+2021-04-13T21:46:57.937  GamePhase: advanceOrderExecution  Player: teja Command: advance Chennai  0 Status: executed
+2021-04-13T21:46:57.937  GamePhase: advanceOrderExecution  Player: moses Command: advance Coimbatore Hyderabad 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T21:46:57.938  GamePhase: StartUp  Player: teja Command: 11 Status: Reinforcement Assigned
+2021-04-13T21:46:57.938  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.940  GamePhase: StartUp  Player: moses Command: 3 Status: Reinforcement Assigned
+2021-04-13T21:46:57.940  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.942  GamePhase: deployOrderExecution  Player: teja Command: deploy 1 11 Status: executed
+2021-04-13T21:46:57.942  GamePhase: deployOrderExecution  Player: moses Command: deploy 3 3 Status: executed
+2021-04-13T21:46:57.942  GamePhase: advanceOrderExecution  Player: teja Command: advance Chennai Hyderabad 5 Status: executed
+2021-04-13T21:46:57.943  GamePhase: advanceOrderExecution  Player: moses Command: advance Hyderabad Chennai 5 Status: executed
+2021-04-13T21:46:57.943  GamePhase: advanceOrderExecution  Player: teja Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T21:46:57.943  GamePhase: advanceOrderExecution  Player: moses Command: advance Hyderabad  5 Status: executed
+2021-04-13T21:46:57.944  GamePhase: StartUp  Player: teja Command: 11 Status: Reinforcement Assigned
+2021-04-13T21:46:57.944  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.945  GamePhase: StartUp  Player: moses Command: 3 Status: Reinforcement Assigned
+2021-04-13T21:46:57.946  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.947  GamePhase: deployOrderExecution  Player: teja Command: deploy 1 11 Status: executed
+2021-04-13T21:46:57.948  GamePhase: deployOrderExecution  Player: moses Command: deploy 6 3 Status: executed
+2021-04-13T21:46:57.949  GamePhase: advanceOrderExecution  Player: teja Command: advance Chennai Hyderabad 8 Status: executed
+2021-04-13T21:46:57.950  GamePhase: advanceOrderExecution  Player: moses Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T21:46:57.950  GamePhase: advanceOrderExecution  Player: teja Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T21:46:57.950  GamePhase: advanceOrderExecution  Player: moses Command: advance Trivandram  0 Status: executed
+2021-04-13T21:46:57.950  GamePhase: StartUp  Player: teja Command: 11 Status: Reinforcement Assigned
+2021-04-13T21:46:57.951  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.952  GamePhase: StartUp  Player: moses Command: 3 Status: Reinforcement Assigned
+2021-04-13T21:46:57.952  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.953  GamePhase: deployOrderExecution  Player: teja Command: deploy 1 11 Status: executed
+2021-04-13T21:46:57.953  GamePhase: deployOrderExecution  Player: moses Command: deploy 6 3 Status: executed
+2021-04-13T21:46:57.954  GamePhase: advanceOrderExecution  Player: teja Command: advance Hyderabad Guntur 11 Status: executed
+2021-04-13T21:46:57.954  GamePhase: advanceOrderExecution  Player: moses Command: advance Trivandram Kochin 3 Status: executed
+2021-04-13T21:46:57.954  GamePhase: advanceOrderExecution  Player: teja Command: advance Chennai Coimbatore 11 Status: executed
+2021-04-13T21:46:57.954  GamePhase: advanceOrderExecution  Player: moses Command: advance Guntur Trivandram 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T21:46:57.955  GamePhase: StartUp  Player: teja Command: 21 Status: Reinforcement Assigned
+2021-04-13T21:46:57.955  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.956  GamePhase: StartUp  Player: moses Command: 10 Status: Reinforcement Assigned
+2021-04-13T21:46:57.956  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.957  GamePhase: deployOrderExecution  Player: teja Command: deploy 1 21 Status: executed
+2021-04-13T21:46:57.957  GamePhase: deployOrderExecution  Player: moses Command: deploy 6 10 Status: executed
+2021-04-13T21:46:57.957  GamePhase: advanceOrderExecution  Player: teja Command: advance Guntur Trivandram 11 Status: executed
+2021-04-13T21:46:57.957  GamePhase: advanceOrderExecution  Player: moses Command: advance Trivandram Guntur 3 Status: executed
+2021-04-13T21:46:57.958  GamePhase: advanceOrderExecution  Player: teja Command: advance Chennai Coimbatore 11 Status: executed
+2021-04-13T21:46:57.958  GamePhase: advanceOrderExecution  Player: moses Command: advance Kochin Trivandram 3 Status: executed
+2021-04-13T21:46:57.958  GamePhase: StartUp  Player: teja Command: 11 Status: Reinforcement Assigned
+2021-04-13T21:46:57.958  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.959  GamePhase: StartUp  Player: moses Command: 11 Status: Reinforcement Assigned
+2021-04-13T21:46:57.959  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.960  GamePhase: deployOrderExecution  Player: teja Command: deploy 2 11 Status: executed
+2021-04-13T21:46:57.961  GamePhase: deployOrderExecution  Player: moses Command: deploy 6 11 Status: executed
+2021-04-13T21:46:57.961  GamePhase: advanceOrderExecution  Player: teja Command: advance Hyderabad Guntur 0 Status: executed
+2021-04-13T21:46:57.961  GamePhase: advanceOrderExecution  Player: moses Command: advance Guntur Hyderabad 2 Status: executed
+2021-04-13T21:46:57.962  GamePhase: advanceOrderExecution  Player: teja Command: advance Coimbatore Chennai 22 Status: executed
+2021-04-13T21:46:57.962  GamePhase: advanceOrderExecution  Player: moses Command: advance Trivandram Guntur 6 Status: executed
+2021-04-13T21:46:57.962  GamePhase: StartUp  Player: teja Command: 10 Status: Reinforcement Assigned
+2021-04-13T21:46:57.962  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.963  GamePhase: StartUp  Player: moses Command: 21 Status: Reinforcement Assigned
+2021-04-13T21:46:57.964  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.966  GamePhase: deployOrderExecution  Player: teja Command: deploy 1 10 Status: executed
+2021-04-13T21:46:57.966  GamePhase: deployOrderExecution  Player: moses Command: deploy 6 21 Status: executed
+2021-04-13T21:46:57.967  GamePhase: advanceOrderExecution  Player: teja Command: advance Chennai Hyderabad 43 Status: executed
+2021-04-13T21:46:57.967  GamePhase: advanceOrderExecution  Player: moses Command: advance Hyderabad Chennai 2 Status: not executed- fromCountry is already captured by other player
+2021-04-13T21:46:57.967  GamePhase: advanceOrderExecution  Player: teja Command: advance Coimbatore Chennai 11 Status: executed
+2021-04-13T21:46:57.967  GamePhase: advanceOrderExecution  Player: moses Command: advance Trivandram Guntur 11 Status: executed
+2021-04-13T21:46:57.967  GamePhase: StartUp  Player: teja Command: 11 Status: Reinforcement Assigned
+2021-04-13T21:46:57.967  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.968  GamePhase: StartUp  Player: moses Command: 11 Status: Reinforcement Assigned
+2021-04-13T21:46:57.968  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.969  GamePhase: deployOrderExecution  Player: teja Command: deploy 3 11 Status: executed
+2021-04-13T21:46:57.969  GamePhase: deployOrderExecution  Player: moses Command: deploy 6 11 Status: executed
+2021-04-13T21:46:57.970  GamePhase: advanceOrderExecution  Player: teja Command: advance Hyderabad Guntur 42 Status: executed
+2021-04-13T21:46:57.970  GamePhase: advanceOrderExecution  Player: moses Command: advance Guntur Hyderabad 17 Status: not executed- fromCountry is already captured by other player
+2021-04-13T21:46:57.970  GamePhase: advanceOrderExecution  Player: teja Command: advance Chennai Coimbatore 21 Status: executed
+2021-04-13T21:46:57.970  GamePhase: advanceOrderExecution  Player: moses Command: advance Trivandram Guntur 21 Status: executed
+2021-04-13T21:46:57.971  GamePhase: StartUp  Player: teja Command: 21 Status: Reinforcement Assigned
+2021-04-13T21:46:57.971  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.972  GamePhase: StartUp  Player: moses Command: 10 Status: Reinforcement Assigned
+2021-04-13T21:46:57.972  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.973  GamePhase: deployOrderExecution  Player: teja Command: deploy 2 21 Status: executed
+2021-04-13T21:46:57.973  GamePhase: deployOrderExecution  Player: moses Command: deploy 6 10 Status: executed
+2021-04-13T21:46:57.974  GamePhase: advanceOrderExecution  Player: teja Command: advance Guntur Trivandram 17 Status: executed
+2021-04-13T21:46:57.974  GamePhase: advanceOrderExecution  Player: moses Command: advance Trivandram Guntur 11 Status: executed
+2021-04-13T21:46:57.974  GamePhase: advanceOrderExecution  Player: teja Command: advance Coimbatore Chennai 21 Status: executed
+2021-04-13T21:46:57.974  GamePhase: advanceOrderExecution  Player: moses Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T21:46:57.975  GamePhase: StartUp  Player: teja Command: 11 Status: Reinforcement Assigned
+2021-04-13T21:46:57.975  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.975  GamePhase: StartUp  Player: moses Command: 11 Status: Reinforcement Assigned
+2021-04-13T21:46:57.976  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.976  GamePhase: deployOrderExecution  Player: teja Command: deploy 2 11 Status: executed
+2021-04-13T21:46:57.976  GamePhase: deployOrderExecution  Player: moses Command: deploy 4 11 Status: executed
+2021-04-13T21:46:57.977  GamePhase: advanceOrderExecution  Player: teja Command: advance Hyderabad Guntur 11 Status: executed
+2021-04-13T21:46:57.977  GamePhase: advanceOrderExecution  Player: moses Command: advance Guntur Hyderabad 10 Status: executed
+2021-04-13T21:46:57.977  GamePhase: advanceOrderExecution  Player: teja Command: advance Coimbatore Chennai 21 Status: executed
+2021-04-13T21:46:57.977  GamePhase: advanceOrderExecution  Player: moses Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T21:46:57.978  GamePhase: StartUp  Player: teja Command: 10 Status: Reinforcement Assigned
+2021-04-13T21:46:57.978  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.978  GamePhase: StartUp  Player: moses Command: 21 Status: Reinforcement Assigned
+2021-04-13T21:46:57.979  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.980  GamePhase: deployOrderExecution  Player: teja Command: deploy 1 10 Status: executed
+2021-04-13T21:46:57.980  GamePhase: deployOrderExecution  Player: moses Command: deploy 3 21 Status: executed
+2021-04-13T21:46:57.981  GamePhase: advanceOrderExecution  Player: teja Command: advance Chennai Hyderabad 42 Status: executed
+2021-04-13T21:46:57.981  GamePhase: advanceOrderExecution  Player: moses Command: advance Hyderabad Chennai 10 Status: executed
+2021-04-13T21:46:57.982  GamePhase: advanceOrderExecution  Player: teja Command: advance Coimbatore Chennai 11 Status: executed
+2021-04-13T21:46:57.982  GamePhase: advanceOrderExecution  Player: moses Command: advance Guntur Hyderabad 4 Status: executed
+2021-04-13T21:46:57.982  GamePhase: StartUp  Player: teja Command: 10 Status: Reinforcement Assigned
+2021-04-13T21:46:57.983  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.983  GamePhase: StartUp  Player: moses Command: 21 Status: Reinforcement Assigned
+2021-04-13T21:46:57.983  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.984  GamePhase: deployOrderExecution  Player: teja Command: deploy 1 10 Status: executed
+2021-04-13T21:46:57.984  GamePhase: deployOrderExecution  Player: moses Command: deploy 3 21 Status: executed
+2021-04-13T21:46:57.984  GamePhase: advanceOrderExecution  Player: teja Command: advance Chennai Hyderabad 35 Status: executed
+2021-04-13T21:46:57.985  GamePhase: advanceOrderExecution  Player: moses Command: advance Hyderabad Chennai 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T21:46:57.985  GamePhase: advanceOrderExecution  Player: teja Command: advance Coimbatore Chennai 0 Status: executed
+2021-04-13T21:46:57.985  GamePhase: advanceOrderExecution  Player: moses Command: advance Guntur Hyderabad 0 Status: executed
+2021-04-13T21:46:57.985  GamePhase: StartUp  Player: teja Command: 11 Status: Reinforcement Assigned
+2021-04-13T21:46:57.986  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.986  GamePhase: StartUp  Player: moses Command: 11 Status: Reinforcement Assigned
+2021-04-13T21:46:57.986  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.987  GamePhase: deployOrderExecution  Player: teja Command: deploy 3 11 Status: executed
+2021-04-13T21:46:57.988  GamePhase: deployOrderExecution  Player: moses Command: deploy 4 11 Status: executed
+2021-04-13T21:46:57.988  GamePhase: advanceOrderExecution  Player: teja Command: advance Hyderabad Guntur 20 Status: executed
+2021-04-13T21:46:57.988  GamePhase: advanceOrderExecution  Player: moses Command: advance Guntur Hyderabad 0 Status: not executed- fromCountry is already captured by other player
+2021-04-13T21:46:57.988  GamePhase: advanceOrderExecution  Player: teja Command: advance Chennai Coimbatore 10 Status: executed
+2021-04-13T21:46:57.989  GamePhase: advanceOrderExecution  Player: moses Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T21:46:57.989  GamePhase: StartUp  Player: teja Command: 21 Status: Reinforcement Assigned
+2021-04-13T21:46:57.989  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.990  GamePhase: StartUp  Player: moses Command: 10 Status: Reinforcement Assigned
+2021-04-13T21:46:57.990  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.991  GamePhase: deployOrderExecution  Player: teja Command: deploy 4 21 Status: executed
+2021-04-13T21:46:57.991  GamePhase: deployOrderExecution  Player: moses Command: deploy 6 10 Status: executed
+2021-04-13T21:46:57.992  GamePhase: advanceOrderExecution  Player: teja Command: advance Guntur Trivandram 12 Status: executed
+2021-04-13T21:46:57.992  GamePhase: advanceOrderExecution  Player: moses Command: advance Trivandram Guntur 0 Status: executed
+2021-04-13T21:46:57.992  GamePhase: advanceOrderExecution  Player: teja Command: advance Hyderabad Chennai 11 Status: executed
+2021-04-13T21:46:57.993  GamePhase: advanceOrderExecution  Player: moses Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T21:46:57.993  GamePhase: StartUp  Player: teja Command: 21 Status: Reinforcement Assigned
+2021-04-13T21:46:57.993  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.993  GamePhase: StartUp  Player: moses Command: 10 Status: Reinforcement Assigned
+2021-04-13T21:46:57.994  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.994  GamePhase: deployOrderExecution  Player: teja Command: deploy 4 21 Status: executed
+2021-04-13T21:46:57.994  GamePhase: deployOrderExecution  Player: moses Command: deploy 6 10 Status: executed
+2021-04-13T21:46:57.995  GamePhase: advanceOrderExecution  Player: teja Command: advance Guntur Trivandram 26 Status: executed
+2021-04-13T21:46:57.995  GamePhase: advanceOrderExecution  Player: moses Command: advance Trivandram Guntur 3 Status: not executed- fromCountry is already captured by other player
+2021-04-13T21:46:57.995  GamePhase: advanceOrderExecution  Player: teja Command: advance Chennai Coimbatore 11 Status: executed
+2021-04-13T21:46:57.995  GamePhase: advanceOrderExecution  Player: moses Command: advance Kochin Trivandram 0 Status: executed
+2021-04-13T21:46:57.996  GamePhase: StartUp  Player: teja Command: 21 Status: Reinforcement Assigned
+2021-04-13T21:46:57.996  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.996  GamePhase: StartUp  Player: moses Command: 3 Status: Reinforcement Assigned
+2021-04-13T21:46:57.997  GamePhase: StartUp Command: For all players Status: Reinforcement Assigned
+2021-04-13T21:46:57.998  GamePhase: deployOrderExecution  Player: teja Command: deploy 4 21 Status: executed
+2021-04-13T21:46:57.998  GamePhase: deployOrderExecution  Player: moses Command: deploy 5 3 Status: executed
+2021-04-13T21:46:57.998  GamePhase: advanceOrderExecution  Player: teja Command: advance Trivandram Kochin 17 Status: executed
