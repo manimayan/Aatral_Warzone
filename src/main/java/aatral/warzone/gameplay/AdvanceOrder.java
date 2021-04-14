@@ -48,8 +48,8 @@ public class AdvanceOrder extends Order {
 	public void execute() { //need to modify this
 		int attackerArmies = getAttackerArmy(this.gamePlayerObject, this.countryFromName);
 		int defenderArmies = getDefenderArmy(this.countryToName);
-		if(validateFromCountryName(this.gamePlayerObject, this.countryFromName)) {
-		if (isAttack(this.gamePlayerObject, this.countryToName)) { // attack
+		if(validateFromCountryName(this.gamePlayerObject, this.countryFromName, this.numArmies)) {
+		if (isAttack(this.gamePlayerObject, this.countryToName) ) { // attack
 			int attackerCanKill = attackerCalc(this.numArmies);
 			int defenderCanKill = defenderCalc(defenderArmies + "");
 			attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
@@ -100,9 +100,10 @@ public class AdvanceOrder extends Order {
 		}
 		else {
 			log.info("advanceOrderExecution", gamePlayerObject.getPlayerName(),
-					"advance " + this.countryFromName + " " + this.countryToName + " " + this.numArmies, "not executed- fromCountry is already captured by other player");
+					"advance " + this.countryFromName + " " + this.countryToName + " " + this.numArmies, "not executed- as fromCountry is already captured by other player or"
+							+ "from countryCountry does not have enough armies as mentioned in the issueOrder");
 			System.out.println(this.gamePlayerObject.getPlayerName() + " has not executed advance order for the country "
-					+ this.countryFromName + " to " + this.countryToName + " as its already been caputured by the other player in the game");
+					+ this.countryFromName + " to " + this.countryToName + " as its already been caputured by the other player in the game or from countryCountry does not have enough armies as mentioned in the issueOrder");
 		}
 	}
 
@@ -129,9 +130,9 @@ public class AdvanceOrder extends Order {
 	 * @param countryFromName has the country from name
 	 * @return boolean true if Valid, else false
 	 */
-	public boolean validateFromCountryName(GamePlayer l_gamePlayerObject, String countryFromName) {
+	public boolean validateFromCountryName(GamePlayer l_gamePlayerObject, String countryFromName, String numArmies) {
 		for (Countries l_countryObject : l_gamePlayerObject.getListOfCountries()) {
-			if (l_countryObject.getCountryName().equals(countryFromName)) {
+			if (l_countryObject.getCountryName().equals(countryFromName) && (l_countryObject.getArmies() >= Integer.parseInt(numArmies) && Integer.parseInt(numArmies)>0)) {
 				return true;
 			}
 		}
@@ -229,5 +230,7 @@ public class AdvanceOrder extends Order {
 		int armies = Integer.parseInt(value);
 		return (int) Math.round(armies * 0.7);
 	}
+	
+
 
 }

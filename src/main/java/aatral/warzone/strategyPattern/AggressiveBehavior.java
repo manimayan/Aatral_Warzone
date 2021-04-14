@@ -26,6 +26,7 @@ class SortbyArmies implements Comparator<Countries>
 public class AggressiveBehavior extends PlayerStrategy {
 	public String flag="deploy";
 	private Countries countryOb;
+	private int deploy_count = 0;
 	public AggressiveBehavior(GamePlayer p_player) {
 		super(p_player);
 	}
@@ -43,6 +44,7 @@ public class AggressiveBehavior extends PlayerStrategy {
 			gamePlayerObject.advanceInput=false; 
 			String numArmies = gamePlayerObject.getReinforcementArmies()+"";
 			gamePlayerObject.setReinforcementArmies(0);
+			this.deploy_count = Integer.parseInt(numArmies);
 			return new DeployOrder(countryOb.getCountryId(), numArmies);
 		}else if(flag.equals("advance") && GameEngine.l_gameIssueOrder.equals("advance")) {	
 			String countryFromName=countryOb.getCountryName(), countryToName="", countryID = "",  numArmies =countryOb.getArmies()+"";
@@ -57,15 +59,16 @@ public class AggressiveBehavior extends PlayerStrategy {
 				}
 			}
 			if(!attackFound) {
+				countryFromName = "";
 				List<Countries>countryObjectList = gamePlayerObject.getListOfCountries();
 				Collections.sort(countryObjectList, new SortbyArmies());
 				for(Countries countryObject : countryObjectList) {
 					System.out.print(countryObject.getArmies()+" ");
 					for(String countStr : countryObject.getCountryOwnedBorders()) {
-						if(isAttack(countStr)) {
+						if(countryObject.getArmies()+this.deploy_count >0 && isAttack(countStr)) {
 							countryOb = countryObject;
 							countryFromName = countryObject.getCountryName(); 
-							numArmies = countryObject.getArmies()+"";
+							numArmies = (countryObject.getArmies()+this.deploy_count)+"";
 							countryID = countStr;
 							attackFound = true;
 							break;
@@ -82,7 +85,7 @@ public class AggressiveBehavior extends PlayerStrategy {
 				}
 			}
 			flag="move";
-			System.out.println("ADVANCE");
+			System.out.println("ADVANCE"+countryFromName+"  "+countryToName+" "+numArmies);
 			return new AdvanceOrder(countryFromName, countryToName, numArmies);
 		}else if(flag.equals("move") && GameEngine.l_gameIssueOrder.equals("advance")) {
 			String fromCountryName="";
@@ -101,9 +104,18 @@ public class AggressiveBehavior extends PlayerStrategy {
 						  if(countryObject.getArmies() + country.getArmies()>max)
 						  {
 							  max = countryObject.getArmies() + country.getArmies();
-							  fromCountryName = countryObject.getCountryName();
-							  toCountryName = country.getCountryName();
-							  numArmies = countryObject.getArmies();
+							  if((country.getArmies() > 0 && countryObject.getArmies() >0 ) || country.getArmies() > 0) {
+							  toCountryName = countryObject.getCountryName();
+							  fromCountryName = country.getCountryName();
+							  numArmies = country.getArmies();
+							  }
+							  else if(countryObject.getArmies() > 0 )
+							  {
+								  fromCountryName = countryObject.getCountryName();
+								  toCountryName = country.getCountryName();
+								  numArmies = countryObject.getArmies();
+								  
+							  }
 						  }
 						   
 					   }
