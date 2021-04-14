@@ -45,7 +45,7 @@ import lombok.Setter;
 public class GameEngine {
 
 	private Scanner l_input = new Scanner(System.in);
-	public List<String> l_playerList = new ArrayList<>();
+	public static List<String> l_playerList = new ArrayList<>();
 	public HashMap<String, GamePlayer> l_playerObjectList = new HashMap<>();
 	public static Map<String, Continent> l_masterMap = new HashMap<>();
 	private String l_mapName;
@@ -364,7 +364,7 @@ public class GameEngine {
 			System.out.println("Tournament Mode Format :"
 					+ "\n tournament -M listofmapfiles -P listofplayerstrategies -G numberofgames -D maxnumberofturns");
 			l_inputLine = l_input.nextLine();
-
+ 
 		}
 	}
 
@@ -407,6 +407,20 @@ public class GameEngine {
 			}
 
 			do {
+				List<String> removePlayer = new ArrayList<>();
+				for(Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
+					if(l_gameplayObject.getValue().getListOfCountries().size()==0) {
+						removePlayer.add(l_gameplayObject.getKey());
+					}
+				}
+				if(removePlayer.size()>0) {
+					for(String playerName : removePlayer) {
+						System.out.println("Player "+playerName+" has lost all its countries, so it can't play the further rounds");
+						log.info("StartUp", "Player - "+playerName, "Lost all countries. So, removed from gamePlay");
+						l_playerObjectList.remove(playerName);
+						l_playerList.remove(playerName);
+					}
+				}
 				for (Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
 					l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
 					l_gamePlayerObject.hasConqueredInTurn = false;
@@ -442,7 +456,7 @@ public class GameEngine {
 					for (Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
 						l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
 						gamePhase.issueOrders();
-						l_gamePlayerObject.setAdvanceInput(false);
+						l_gamePlayerObject.setCommit(false);
 						if (!flag && l_gamePlayerObject.getReinforcementArmies() > 0) {
 							flag = true;
 						}
@@ -454,12 +468,12 @@ public class GameEngine {
 				do {
 					flag = false;
 					for (Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
-						if (!((GamePlayer) l_gameplayObject.getValue()).getAdvanceInput()) {
+						if (!((GamePlayer) l_gameplayObject.getValue()).getCommit()) {
 							l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
 							gamePhase.issueOrders();
 						}
 
-						if (!flag && !((GamePlayer) l_gameplayObject.getValue()).getAdvanceInput())
+						if (!flag && !((GamePlayer) l_gameplayObject.getValue()).getCommit())
 							flag = true;
 					}
 				} while (flag);

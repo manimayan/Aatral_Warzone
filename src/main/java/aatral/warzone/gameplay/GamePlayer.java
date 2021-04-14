@@ -48,7 +48,7 @@ public class GamePlayer extends GameEngine{
 	
 	public boolean hasConqueredInTurn;
 
-	public boolean advanceInput;
+	public boolean commit;
 	
 	public List<String> diplomacyCountries = new ArrayList<>();
 	
@@ -118,15 +118,15 @@ public class GamePlayer extends GameEngine{
 	 * setAdvanceInput method is used to set the advance input value
 	 * @param value values
 	 */
-	public void setAdvanceInput(boolean value) {
-		this.advanceInput = value;
+	public void setCommit(boolean value) {
+		this.commit = value;
 	}
 /**
  * getAdvanceInput method is used to get the advance input value
  * @return advance input
  */
-	public boolean getAdvanceInput() {
-		return advanceInput;
+	public boolean getCommit() {
+		return commit;
 	}
 
 	/**

@@ -48,63 +48,73 @@ public class AdvanceOrder extends Order {
 	public void execute() { //need to modify this
 		int attackerArmies = getAttackerArmy(this.gamePlayerObject, this.countryFromName);
 		int defenderArmies = getDefenderArmy(this.countryToName);
-		if(validateFromCountryName(this.gamePlayerObject, this.countryFromName, this.numArmies)) {
-		if (isAttack(this.gamePlayerObject, this.countryToName) ) { // attack
-			int attackerCanKill = attackerCalc(this.numArmies);
-			int defenderCanKill = defenderCalc(defenderArmies + "");
-			attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
-			if (defenderArmies <= attackerCanKill) { // conquer
-				defenderArmies = defenderArmies == 0 ? Integer.parseInt(this.numArmies)
-						: (Integer.parseInt(this.numArmies) - defenderCanKill);
-				boolean flag = true;
-				for (Entry<String, GamePlayer> l_mapEntry : this.playerObjectList.entrySet()) {
-					for (Countries l_countryObject : ((GamePlayer) l_mapEntry.getValue()).getListOfCountries()) {
-						if (l_countryObject.getCountryName().equals(this.countryToName)) {
-							this.gamePlayerObject.getListOfCountries().add(l_countryObject);
-							((GamePlayer) l_mapEntry.getValue()).getListOfCountries().remove(l_countryObject);
-							flag = false;
-							break;
-						}
-					}
-					if (!flag)
-						break;
-				}
-				if (flag) { // neutral country
-					for (Countries l_countryObject : GameEngine.l_neutralCountries) {
-						if (l_countryObject.getCountryName().equals(this.countryToName)) {
-							this.gamePlayerObject.getListOfCountries().add(l_countryObject);
-							GameEngine.l_neutralCountries.remove(l_countryObject);
-							break;
-						}
-					}
-				}
-				gamePlayerObject.hasConqueredInTurn = true;
-			} else { // attack but dont conquer
-				attackerArmies = attackerArmies + Math.max(0, (Integer.parseInt(numArmies) - defenderCanKill));
-				defenderArmies = Math.max(0, defenderArmies - attackerCanKill);
+		if(this.countryToName.equals("")) {
+			if(this.countryFromName.equals("advance")) {
+				log.info("advanceOrderExecution", gamePlayerObject.getPlayerName(),
+						"No country is eligible for attack", "not executed");
+				System.out.println(this.gamePlayerObject.getPlayerName() + " No country is eligible for attack");			
+			}else {
+				log.info("advanceOrderExecution", gamePlayerObject.getPlayerName(),
+						"No country is eligible for transfer", "not executed");
+				System.out.println(this.gamePlayerObject.getPlayerName() + " No country is eligible for transfer");
 			}
+		}else {
+			if(validateFromCountryName(this.gamePlayerObject, this.countryFromName, this.numArmies)) {
+				if (isAttack(this.gamePlayerObject, this.countryToName) ) { // attack
+					int attackerCanKill = attackerCalc(this.numArmies);
+					int defenderCanKill = defenderCalc(defenderArmies + "");
+					attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
+					if (defenderArmies <= attackerCanKill) { // conquer
+						defenderArmies = defenderArmies == 0 ? Integer.parseInt(this.numArmies)
+								: (Integer.parseInt(this.numArmies) - defenderCanKill);
+						boolean flag = true;
+						for (Entry<String, GamePlayer> l_mapEntry : this.playerObjectList.entrySet()) {
+							for (Countries l_countryObject : ((GamePlayer) l_mapEntry.getValue()).getListOfCountries()) {
+								if (l_countryObject.getCountryName().equals(this.countryToName)) {
+									this.gamePlayerObject.getListOfCountries().add(l_countryObject);
+									((GamePlayer) l_mapEntry.getValue()).getListOfCountries().remove(l_countryObject);
+									flag = false;
+									break; 
+								}
+							}
+							if (!flag)
+								break;
+						}
+						if (flag) { // neutral country
+							for (Countries l_countryObject : GameEngine.l_neutralCountries) {
+								if (l_countryObject.getCountryName().equals(this.countryToName)) {
+									this.gamePlayerObject.getListOfCountries().add(l_countryObject);
+									GameEngine.l_neutralCountries.remove(l_countryObject);
+									break;
+								}
+							}
+						}
+						gamePlayerObject.hasConqueredInTurn = true;
+					} else { // attack but dont conquer
+						attackerArmies = attackerArmies + Math.max(0, (Integer.parseInt(numArmies) - defenderCanKill));
+						defenderArmies = Math.max(0, defenderArmies - attackerCanKill);
+					}
+				} else { // move
+					attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
+					defenderArmies = defenderArmies + Integer.parseInt(this.numArmies);
+				}
 		
-		} 
-		else { // move
-			attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
-			defenderArmies = defenderArmies + Integer.parseInt(this.numArmies);
+				setAttackerArmy(this.countryFromName, attackerArmies);
+				setDefenderArmy(this.countryToName, defenderArmies);
+				log.info("advanceOrderExecution", gamePlayerObject.getPlayerName(),
+						"advance " + this.countryFromName + " " + this.countryToName + " " + this.numArmies, "executed");
+				System.out.println(this.gamePlayerObject.getPlayerName() + " has executed advance order for the country "
+						+ this.countryFromName + " to " + this.countryToName + " successfully with the armies "
+						+ this.numArmies);
+			} else {
+				log.info("advanceOrderExecution", gamePlayerObject.getPlayerName(),
+						"advance " + this.countryFromName + " " + this.countryToName + " " + this.numArmies, "not executed- as fromCountry is already captured by other player or"
+								+ "from countryCountry does not have enough armies as mentioned in the issueOrder");
+				System.out.println(this.gamePlayerObject.getPlayerName() + " has not executed advance order for the country "
+						+ this.countryFromName + " to " + this.countryToName + " as its already been caputured by the other player in the game or from countryCountry does not have enough armies as mentioned in the issueOrder");
+			}
 		}
-
-		setAttackerArmy(this.countryFromName, attackerArmies);
-		setDefenderArmy(this.countryToName, defenderArmies);
-		log.info("advanceOrderExecution", gamePlayerObject.getPlayerName(),
-				"advance " + this.countryFromName + " " + this.countryToName + " " + this.numArmies, "executed");
-		System.out.println(this.gamePlayerObject.getPlayerName() + " has executed advance order for the country "
-				+ this.countryFromName + " to " + this.countryToName + " successfully with the armies "
-				+ this.numArmies);
-		}
-		else {
-			log.info("advanceOrderExecution", gamePlayerObject.getPlayerName(),
-					"advance " + this.countryFromName + " " + this.countryToName + " " + this.numArmies, "not executed- as fromCountry is already captured by other player or"
-							+ "from countryCountry does not have enough armies as mentioned in the issueOrder");
-			System.out.println(this.gamePlayerObject.getPlayerName() + " has not executed advance order for the country "
-					+ this.countryFromName + " to " + this.countryToName + " as its already been caputured by the other player in the game or from countryCountry does not have enough armies as mentioned in the issueOrder");
-		}
+		
 	}
 
 	/**

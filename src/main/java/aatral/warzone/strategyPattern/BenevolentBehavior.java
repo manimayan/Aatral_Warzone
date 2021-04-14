@@ -38,7 +38,7 @@ public class BenevolentBehavior extends PlayerStrategy{
 			}
 			flag="advance";
 			System.out.println("DEPLOY");
-			gamePlayerObject.advanceInput=false; 
+			gamePlayerObject.commit=false; 
 			String numArmies = gamePlayerObject.getReinforcementArmies()+"";
 			gamePlayerObject.setReinforcementArmies(0);
 			this.deploy_count = Integer.parseInt(numArmies);

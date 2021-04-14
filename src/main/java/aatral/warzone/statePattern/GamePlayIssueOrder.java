@@ -114,8 +114,6 @@ public class GamePlayIssueOrder extends GamePlay {
 				advanceOrder();
 				break;
 			}
-		}else {
-			System.out.println("Computer plays!!!");
 		}
 	}
 /**
@@ -185,7 +183,7 @@ public class GamePlayIssueOrder extends GamePlay {
 			System.out.println("\n commit");
 			l_issueCommand = l_input.nextLine();
 			if(l_issueCommand.equals("commit")) {
-				gameEngine.l_gamePlayerObject.advanceInput=true;
+				gameEngine.l_gamePlayerObject.commit=true;
 				break;
 			} else if(l_issueCommand.startsWith("bomb") && validateCard("bomb")){
 				l_specialInput = validateBombCommand(l_issueCommand);
@@ -305,7 +303,7 @@ public class GamePlayIssueOrder extends GamePlay {
 	 * @return true
 	 */
 	public boolean validatePlayerID(String playerID) {
-		if( gameEngine.getL_playerList().contains(playerID)) {
+		if(GameEngine.l_playerList.contains(playerID)) {
 			return true;
 		}
 		return false;

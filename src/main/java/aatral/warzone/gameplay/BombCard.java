@@ -37,17 +37,13 @@ public class BombCard extends Order {
  * execute method is used to execute the game play
  */
 	public void execute() {
-
 		for (Entry<String, GamePlayer> l_mapEntry : this.playerObjectList.entrySet()) {
-
 			for (Countries l_countryObject : ((GamePlayer) l_mapEntry.getValue()).getListOfCountries()) {
 				if (l_countryObject.getCountryId().equals(this.countryID)) {
 					l_countryObject.setArmies(l_countryObject.getArmies() / 2);
 					break;
 				}
-
 			}
-
 		}
 		log.info("specialOrderExecution",gamePlayerObject.getPlayerName(),"bomb "+this.countryID, "executed");	
 		System.out.println(gamePlayerObject.getPlayerName()+" has executed bomb for the country "+this.countryID);
