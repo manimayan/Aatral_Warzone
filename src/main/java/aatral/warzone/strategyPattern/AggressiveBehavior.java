@@ -52,7 +52,7 @@ public class AggressiveBehavior extends PlayerStrategy {
 			for(String countStr : countryOb.getCountryOwnedBorders()) {
 				if(isAttack(countStr)) {
 					countryFromName = countryOb.getCountryName(); 
-					numArmies = countryOb.getArmies()+"";
+					numArmies = (countryOb.getArmies() +this.deploy_count)+"";
 					countryID = countStr;
 					attackFound = true;
 					break;
@@ -68,7 +68,7 @@ public class AggressiveBehavior extends PlayerStrategy {
 						if(countryObject.getArmies()+this.deploy_count >0 && isAttack(countStr)) {
 							countryOb = countryObject;
 							countryFromName = countryObject.getCountryName(); 
-							numArmies = (countryObject.getArmies()+this.deploy_count)+"";
+							numArmies = (countryObject.getArmies())+"";
 							countryID = countStr;
 							attackFound = true;
 							break;
