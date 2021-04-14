@@ -187,7 +187,7 @@ public class GamePlayOrderExecution extends GamePlay {
 					System.out.println("Hurray!!! PLAYER "+gameEngine.l_gamePlayerObject.getPlayerName()+" has won the game.");
 					gameEngine.showMapPlayer(gameEngine.l_gamePlayerObject);
 					System.out.println("Game is Closing !");
-					System.exit(0);
+					return;
 				}
 			}
 		}

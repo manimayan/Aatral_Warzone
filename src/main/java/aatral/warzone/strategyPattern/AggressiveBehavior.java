@@ -44,7 +44,6 @@ public class AggressiveBehavior extends PlayerStrategy {
 				}
 			}
 			flag = "advance";
-			System.out.println("DEPLOY");
 			gamePlayerObject.commit = false;
 			String numArmies = gamePlayerObject.getReinforcementArmies() + "";
 			gamePlayerObject.setReinforcementArmies(0);
@@ -68,7 +67,6 @@ public class AggressiveBehavior extends PlayerStrategy {
 				List<Countries> countryObjectList = gamePlayerObject.getListOfCountries();
 				Collections.sort(countryObjectList, new SortbyArmies());
 				for (Countries countryObject : countryObjectList) {
-					System.out.print(countryObject.getArmies() + " ");
 					for (String countStr : countryObject.getCountryOwnedBorders()) {
 						if (countryObject.getArmies() > 0 && isAttack(countStr)) {
 							countryOb = countryObject;
@@ -117,7 +115,6 @@ public class AggressiveBehavior extends PlayerStrategy {
 									fromCountryName = countryObject.getCountryName();
 									toCountryName = country.getCountryName();
 									numArmies = countryObject.getArmies();
-
 								}
 							}
 

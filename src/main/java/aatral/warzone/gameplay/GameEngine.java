@@ -46,7 +46,7 @@ public class GameEngine {
 
 	private Scanner l_input = new Scanner(System.in);
 	public static List<String> l_playerList = new ArrayList<>();
-	public HashMap<String, GamePlayer> l_playerObjectList = new HashMap<>();
+	public static HashMap<String, GamePlayer> l_playerObjectList = new HashMap<>();
 	public static Map<String, Continent> l_masterMap = new HashMap<>();
 	private String l_mapName;
 	public GamePlayer l_gamePlayerObject;
@@ -54,6 +54,8 @@ public class GameEngine {
 	private boolean l_gamePlayPopulateFlag;
 	private boolean l_isFirst = true;
 	public static List<Countries> l_neutralCountries = new ArrayList<>();
+	private int maxTurns = 0;
+	
 	LogEntryBuffer log = new LogEntryBuffer();
 	LogWriter logWriter = new LogWriter(log);
 
@@ -172,6 +174,9 @@ public class GameEngine {
 			String l_playOption = l_input.nextLine();
 			switch (l_playOption.split(" ")[0]) {
 				case "1":
+					l_playerObjectList = new HashMap<String, GamePlayer>();
+					l_playerList = new ArrayList<String>();
+					l_neutralCountries = new ArrayList<Countries>();
 					//Choose the type of map to be loaded into game
 					System.out.println("\nPlease type the variant of map to load into game");
 					System.out.println("Available Variants : "+ "\""+"conquest"+"\""+" or "+"\""+"domination"+"\"");
@@ -195,7 +200,7 @@ public class GameEngine {
 							String l_warZoneMaps = l_playOption.split(" ")[1];
 							if (l_folder.contains(l_warZoneMaps)) {
 								log.info("MapEditor", "\"loadmap " + l_warZoneMaps + "\"", l_warZoneMaps + " map loaded");
-								l_gamePlayerObject = new GamePlayer();
+//								l_gamePlayerObject = new GamePlayer();
 								l_masterMap = gamePhase.loadMap(l_typeOfMap, l_warZoneMaps);
 								l_gamePlayFlag=false;
 							} else {
@@ -214,7 +219,7 @@ public class GameEngine {
 								+ "\n gameplayer -add playerName -remove playerName"
 								+ "\n showmap"
 								+ "\n startgame"
-								+ "\n go back");
+								+ "\n goback");
 						l_playOption = l_input.nextLine();
 						switch (l_playOption.split(" ")[0]) {
 							case "gameplayer":
@@ -329,7 +334,7 @@ public class GameEngine {
 								log.info("GamePlay",l_playOption, "game started");	
 								startGame();
 								break;
-							case "go back":
+							case "goback":
 								l_gamePlayFlag=false;
 								break;
 							default:
@@ -360,11 +365,68 @@ public class GameEngine {
 	public void tournamentMode() {
 		boolean modeFlag = true;
 		String l_inputLine;
-		while (modeFlag) {
-			System.out.println("Tournament Mode Format :"
-					+ "\n tournament -M listofmapfiles -P listofplayerstrategies -G numberofgames -D maxnumberofturns");
-			l_inputLine = l_input.nextLine();
- 
+		System.out.println("Tournament Mode Format :"
+				+ "\n tournament -M listofmapfiles -P listofplayerstrategies -G numberofgames -D maxnumberofturns");
+		l_inputLine = validateTournamentInput(l_input.nextLine());
+		System.out.println("1"+l_inputLine);
+		System.out.println(l_inputLine.split("-")[1].split(" ")[1]);
+		String MapFileNames[]=l_inputLine.split("-")[1].split(" ")[1].split(",");
+		String PlayerStrategies[]=l_inputLine.split("-")[2].split(" ")[1].split(",");
+		int numberOfGames = Integer.parseInt(l_inputLine.split("-")[3].split(" ")[1]);
+		int maxNoOfTurns = Integer.parseInt(l_inputLine.split("-")[4].split(" ")[1]);
+		String tournamentModeResult[][]=new String[MapFileNames.length+1][numberOfGames+1];
+		int index=0;
+		for(String mapName : MapFileNames) {
+			tournamentModeResult[++index][0] = mapName;
+		}
+		tournamentModeResult[0][0]="Aatral";
+		for(int i=0;i<numberOfGames;i++) {
+			tournamentModeResult[0][i+1]="Game-"+(i+1);
+		}
+		maxTurns = maxNoOfTurns;
+		for(int i=0;i<MapFileNames.length;i++) {
+			log.info("MapEditor", "\"loadmap " + MapFileNames[i] + "\"", MapFileNames[i] + " map loaded");
+			l_masterMap = gamePhase.loadMap("domination", MapFileNames[i].trim());
+			System.out.println("Map name "+MapFileNames[i]);
+			for(int j=0;j<numberOfGames;j++) {
+				setPlayers(PlayerStrategies);
+				l_playerObjectList = gamePhase.assignCountries(l_playerObjectList, l_playerList);
+				startGame();
+				String winnerName = winnerPlayer();
+				tournamentModeResult[i+1][j+1]=winnerName;
+			}
+		}
+		for(int i=0;i<tournamentModeResult.length;i++) {
+			for(int j=0;j<tournamentModeResult[i].length;j++) {
+				System.out.printf("%-20s", tournamentModeResult[i][j]);
+			}System.out.println();
+		}
+	}
+	
+	
+	public void setPlayers(String[] PlayerStrategies) {
+		l_playerObjectList = new HashMap<String, GamePlayer>();
+		l_playerList = new ArrayList<String>();
+		for(String playerStrategy : PlayerStrategies) {
+			l_playerList.add(playerStrategy);
+			switch(playerStrategy) {
+			case "aggressive":
+				l_playerObjectList.put(playerStrategy, new GamePlayer(playerStrategy, new ArrayList<Countries>(), 0));
+				l_playerObjectList.get(playerStrategy).setStrategy(new AggressiveBehavior(l_playerObjectList.get(playerStrategy)));
+				break;
+			case "benevolent":
+				l_playerObjectList.put(playerStrategy, new GamePlayer(playerStrategy, new ArrayList<Countries>(), 0));
+				l_playerObjectList.get(playerStrategy).setStrategy(new BenevolentBehavior(l_playerObjectList.get(playerStrategy)));
+				break;
+			case "random":
+				l_playerObjectList.put(playerStrategy, new GamePlayer(playerStrategy, new ArrayList<Countries>(), 0));
+				l_playerObjectList.get(playerStrategy).setStrategy(new RandomBehavior(l_playerObjectList.get(playerStrategy)));
+				break;
+			case "cheater":
+				l_playerObjectList.put(playerStrategy, new GamePlayer(playerStrategy, new ArrayList<Countries>(), 0));
+				l_playerObjectList.get(playerStrategy).setStrategy(new CheaterBehavior(l_playerObjectList.get(playerStrategy)));
+				break;
+			}
 		}
 	}
 
@@ -372,39 +434,40 @@ public class GameEngine {
 	 * startGame method is used to start the game with user's input choice
 	 */
 	public void startGame() {
+		int currentTurn = 0;
 		if (l_playerList.isEmpty()) {
 			System.out.println("\nNo player has been created to start the game\n");
 		} else {
 			boolean l_flag = true, l_innerLoopflag = true;
-			String l_readInput;
-			if (!l_gamePlayPopulateFlag) {
-				if (l_playerObjectList == null) {
-					l_playerObjectList = gamePhase.assignCountries(l_playerObjectList, l_playerList);
-				} else {
-					while (l_innerLoopflag) {
-						System.out.println(
-								"Give any of the following command to proceed the gamePlay \n startnewgame \n continue");
-						l_readInput = l_input.nextLine();
-						switch (l_readInput) {
-						case "startnewgame":
-							l_isFirst = true;
-							l_playerObjectList = gamePhase.assignCountries(l_playerObjectList, l_playerList);
-							l_innerLoopflag = false;
-							break;
-						case "continue":
-							l_innerLoopflag = false;
-							break;
-						default:
-							log.info("StartUp", l_readInput, "Input command mismatching");
-							System.out.println("Input is mismatching...Kindly Try again...");
-							break;
-						}
-					}
-					l_innerLoopflag = true;
-				}
-			} else {
-				l_gamePlayPopulateFlag = false;
-			}
+//			String l_readInput;
+//			if (!l_gamePlayPopulateFlag) {
+//				if (l_playerObjectList == null) {
+//					l_playerObjectList = gamePhase.assignCountries(l_playerObjectList, l_playerList);
+//				} else {
+//					while (l_innerLoopflag) {
+//						System.out.println(
+//								"Give any of the following command to proceed the gamePlay \n startnewgame \n continue");
+//						l_readInput = l_input.nextLine();
+//						switch (l_readInput) {
+//						case "startnewgame":
+//							l_isFirst = true;
+//							l_playerObjectList = gamePhase.assignCountries(l_playerObjectList, l_playerList);
+//							l_innerLoopflag = false;
+//							break;
+//						case "continue":
+//							l_innerLoopflag = false;
+//							break;
+//						default:
+//							log.info("StartUp", l_readInput, "Input command mismatching");
+//							System.out.println("Input is mismatching...Kindly Try again...");
+//							break;
+//						}
+//					}
+//					l_innerLoopflag = true;
+//				}
+//			} else {
+//				l_gamePlayPopulateFlag = false;
+//			}
 
 			do {
 				List<String> removePlayer = new ArrayList<>();
@@ -472,15 +535,20 @@ public class GameEngine {
 							l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
 							gamePhase.issueOrders();
 						}
-
 						if (!flag && !((GamePlayer) l_gameplayObject.getValue()).getCommit())
+						{
 							flag = true;
+						}
 					}
 				} while (flag);
 
 				gamePhase.next();
 				gamePhase.executeOrders();
-
+				if(checkIfPlayerHasWon()) {
+					l_flag=false;
+					gamePhase.next();
+					return;
+				}
 				l_innerLoopflag = true;
 				while (l_innerLoopflag) {
 //					System.out.println("Give any of the following command to proceed the gamePlay \n continue \n back");
@@ -500,8 +568,16 @@ public class GameEngine {
 //						break;
 //					}
 				}
+				currentTurn++;
+				if(currentTurn>maxTurns && maxTurns!=0) {
+					return;
+				}
 			} while (l_flag);
 		}
+	}
+	
+	public String validateTournamentInput(String input) {
+		return input.substring(11);
 	}
 
 	/**
@@ -659,6 +735,21 @@ public class GameEngine {
 			borderingCountries = ", No Bordering Countries exist";
 		}
 		return borderingCountries.substring(2);
+	}
+	
+	/**
+	 * winnerPlayer method returns the playerName who won
+	 * 
+	 * @return string winner playerName
+	 */
+	public String winnerPlayer() {
+		for (Map.Entry mapPlayerObj : l_playerObjectList.entrySet()) {
+			if (!mapPlayerObj.getKey().equals(l_gamePlayerObject.getPlayerName())
+					&& ((GamePlayer) mapPlayerObj.getValue()).getListOfCountries().size() != 0) {
+				return "draw";
+			}
+		}
+		return l_gamePlayerObject.getPlayerName();
 	}
 
 	/**

@@ -87,8 +87,8 @@ public class GamePlayer extends GameEngine{
 	    Order order;
 	    order = strategy.createOrder();
 	    if (order != null) {
-	    	orderObjects.add(order);
-	      return true;
+	    	orderObjects.add(order);	
+	    	return true;
 	    }
 	    return false;
 	  }

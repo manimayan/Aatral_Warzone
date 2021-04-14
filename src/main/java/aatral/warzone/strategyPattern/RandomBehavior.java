@@ -19,109 +19,99 @@ import aatral.warzone.gameplay.Order;
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
 
-public class RandomBehavior extends PlayerStrategy{
-	public String flag="deploy";
+public class RandomBehavior extends PlayerStrategy {
+	public String flag = "deploy";
 	private Countries countryOb;
-	
+	private int deploy_count = 0;
+	private int MaxRandom = 100;
+
 	public RandomBehavior(GamePlayer p_player) {
 		super(p_player);
 	}
 
 	public Order createOrder() {
-		if(flag.equals("deploy") && GameEngine.l_gameIssueOrder.equals("deploy")) {
-			countryOb = gamePlayerObject.getListOfCountries().get(new Random().nextInt(gamePlayerObject.getListOfCountries().size()));
-			for(Countries countryObject : gamePlayerObject.getListOfCountries()) {
-				if(countryObject.getArmies()>countryOb.getArmies()) {
-					countryOb = countryObject;
-				}
-			}
-			flag="advance";
-			System.out.println("DEPLOY");
-			gamePlayerObject.commit=false; 
-			String numArmies = gamePlayerObject.getReinforcementArmies()+"";
+		if (flag.equals("deploy") && GameEngine.l_gameIssueOrder.equals("deploy")) {
+			countryOb = gamePlayerObject.getListOfCountries()
+					.get(new Random().nextInt(gamePlayerObject.getListOfCountries().size()));
+			flag = "advance";
+			gamePlayerObject.commit = false;
+			String numArmies = gamePlayerObject.getReinforcementArmies() + "";
+			this.deploy_count = Integer.parseInt(numArmies);
 			gamePlayerObject.setReinforcementArmies(0);
 			return new DeployOrder(countryOb.getCountryId(), numArmies);
-		}else if(flag.equals("advance") && GameEngine.l_gameIssueOrder.equals("advance")) {	
-			countryOb = gamePlayerObject.getListOfCountries().get(new Random().nextInt(gamePlayerObject.getListOfCountries().size()));
-			String countryFromName=countryOb.getCountryName(), countryToName="", countryID = "",  numArmies =countryOb.getArmies()+"";
+		} else if (flag.equals("advance") && GameEngine.l_gameIssueOrder.equals("advance")) {
+			String countryFromName = "", countryToName = "", countryID = "", numArmies = "";
 			boolean attackFound = false;
-			for(String countStr : countryOb.getCountryOwnedBorders()) {
-				if(isAttack(countStr)) {
-					countryFromName = countryOb.getCountryName(); 
-					numArmies = countryOb.getArmies()+"";
-					countryID = countStr;
-					attackFound = true;
-					break;
-				}
-			}
-			if(!attackFound) {
-				List<Countries>countryObjectList = gamePlayerObject.getListOfCountries();
-				Collections.sort(countryObjectList, new SortbyArmies());
-				for(Countries countryObject : countryObjectList) {
-					if(countryObject.getCountryId().equals(countryOb.getCountryId())) {
-						continue;
-					}
-					for(String countStr : countryObject.getCountryOwnedBorders()) {
-						if(isAttack(countStr)) {
-							countryFromName = countryObject.getCountryName(); 
-							numArmies = countryObject.getArmies()+"";
-							countryID = countStr;
-							attackFound = true;
-							break;
-						}
-					}
-					if(attackFound) {
+			Countries countryObject = gamePlayerObject.getListOfCountries()
+					.get(new Random().nextInt(gamePlayerObject.getListOfCountries().size()));
+			for (int i = 0; i < MaxRandom && !attackFound; i++) {
+				for (String countStr : countryObject.getCountryOwnedBorders()) {
+					if (countryObject.getCountryId().equals(countryOb.getCountryId()) && isAttack(countStr)) {
+						countryFromName = countryObject.getCountryName();
+						numArmies = (countryOb.getArmies() + this.deploy_count / 2) + "";
+						countryID = countStr;
+						attackFound = true;
+						break;
+					} else if (countryObject.getArmies() > 0 && isAttack(countStr)) {
+						countryFromName = countryObject.getCountryName();
+						numArmies = (countryObject.getArmies()) + "";
+						countryID = countStr;
+						attackFound = true;
 						break;
 					}
 				}
-			}
-			for(Countries countryObject : listOfCountries()) {
-				if(countryObject.getCountryId().equals(countryID)) {
-					countryToName = countryObject.getCountryName();
+				if (!attackFound) {
+					countryObject = gamePlayerObject.getListOfCountries()
+							.get(new Random().nextInt(gamePlayerObject.getListOfCountries().size()));
 				}
 			}
-			flag="move";
+			if (countryFromName.equals("")) {
+				countryFromName = "advance";
+			}
+			for (Countries countryObjectTo : listOfCountries()) {
+				if (countryObjectTo.getCountryId().equals(countryID)) {
+					countryToName = countryObjectTo.getCountryName();
+				}
+			}
+			flag = "move";
 			return new AdvanceOrder(countryFromName, countryToName, numArmies);
-		}else if(flag.equals("move") && GameEngine.l_gameIssueOrder.equals("advance")) {
-			countryOb = gamePlayerObject.getListOfCountries().get(new Random().nextInt(gamePlayerObject.getListOfCountries().size()));
-			String countryFromName=countryOb.getCountryName(), countryToName="", countryID = "",  numArmies =countryOb.getArmies()+"";
+		} else if (flag.equals("move") && GameEngine.l_gameIssueOrder.equals("advance")) {
+			String countryFromName = "", countryToName = "", countryID = "", numArmies = "";
 			boolean transferFound = false;
-			for(String countStr : countryOb.getCountryOwnedBorders()) {
-				if(!isAttack(countStr)) {
-					countryFromName = countryOb.getCountryName(); 
-					numArmies = countryOb.getArmies()+"";
-					countryID = countStr;
-					transferFound = true;
-					break;
-				}
-			}
-			if(!transferFound) {
-				List<Countries>countryObjectList = gamePlayerObject.getListOfCountries();
-				Collections.sort(countryObjectList, new SortbyArmies());
-				for(Countries countryObject : countryObjectList) {
-					if(countryObject.getCountryId().equals(countryOb.getCountryId())) {
-						continue;
-					}
-					for(String countStr : countryObject.getCountryOwnedBorders()) {
-						if(!isAttack(countStr)) {
-							countryFromName = countryObject.getCountryName(); 
-							numArmies = countryObject.getArmies()+"";
+			if (!transferFound) {
+				Countries countryObject = gamePlayerObject.getListOfCountries()
+						.get(new Random().nextInt(gamePlayerObject.getListOfCountries().size()));
+				for (int i = 0; i < MaxRandom && !transferFound; i++) {
+					for (String countStr : countryObject.getCountryOwnedBorders()) {
+						if (countryObject.getCountryId().equals(countryOb.getCountryId()) && isAttack(countStr)) {
+							countryFromName = countryObject.getCountryName();
+							numArmies = (countryOb.getArmies() + this.deploy_count / 2) + "";
+							countryID = countStr;
+							transferFound = true;
+							break;
+						} else if (countryObject.getArmies() > 0 && isAttack(countStr)) {
+							countryFromName = countryObject.getCountryName();
+							numArmies = (countryObject.getArmies()) + "";
 							countryID = countStr;
 							transferFound = true;
 							break;
 						}
 					}
-					if(transferFound) {
-						break;
+					if (!transferFound) {
+						countryObject = gamePlayerObject.getListOfCountries()
+								.get(new Random().nextInt(gamePlayerObject.getListOfCountries().size()));
 					}
 				}
 			}
-			for(Countries countryObject : listOfCountries()) {
-				if(countryObject.getCountryId().equals(countryID)) {
+			for (Countries countryObject : listOfCountries()) {
+				if (countryObject.getCountryId().equals(countryID)) {
 					countryToName = countryObject.getCountryName();
 				}
 			}
-			
+
+			if (countryFromName.equals("")) {
+				countryToName = "move";
+			}
 			boolean specialCardPresent = false;
 			for (Map.Entry playerCard : gamePlayerObject.getSpecialCards().entrySet()) {
 				if ((int) playerCard.getValue() != 0) {
@@ -224,6 +214,7 @@ public class RandomBehavior extends PlayerStrategy{
 			return null;
 		}
 	}
+
 	/**
 	 * listOfCountries method is used to calculate the list of temporary countries
 	 * 
@@ -236,7 +227,7 @@ public class RandomBehavior extends PlayerStrategy{
 		}
 		return tempCountries;
 	}
-	
+
 	/**
 	 * isAttack method is used attack
 	 * 

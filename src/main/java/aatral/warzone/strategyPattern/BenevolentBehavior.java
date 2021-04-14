@@ -20,14 +20,6 @@ import aatral.warzone.gameplay.Order;
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
 
-class SortbyArmiesAscending implements Comparator<Countries>
-{
-    public int compare(Countries a, Countries b)
-    {
-        return a.getArmies() - b.getArmies();
-    }
-}
-
 
 public class BenevolentBehavior extends PlayerStrategy{
 	
@@ -44,12 +36,11 @@ public class BenevolentBehavior extends PlayerStrategy{
 		if(flag.equals("deploy") && GameEngine.l_gameIssueOrder.equals("deploy")) {
 			countryOb = gamePlayerObject.getListOfCountries().get(0);
 			for(Countries countryObject : gamePlayerObject.getListOfCountries()) {
-				if(countryObject.getArmies() > countryOb.getArmies()) {
+				if(countryObject.getArmies() < countryOb.getArmies()) {
 					countryOb = countryObject;
 				}
 			}
 			flag="move";
-			System.out.println("DEPLOY");
 			gamePlayerObject.commit=false; 
 			String numArmies = gamePlayerObject.getReinforcementArmies()+"";
 			gamePlayerObject.setReinforcementArmies(0);
