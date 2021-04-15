@@ -14,6 +14,7 @@ import aatral.warzone.mapeditorTest.ComposeGraphImplTest;
 import aatral.warzone.mapeditorTest.ValidateMapImplTest;
 import aatral.warzone.statePatternTest.GameplayIssueOrderTest;
 import aatral.warzone.statePatternTest.MasterMapEditorTest;
+import aatral.warzone.strategyPatternTest.SortbyArmiesTest;
 import aatral.warzone.utilitiesTest.GraphTest;
 import aatral.warzone.utilitiesTest.InputProcessorTest;
 import aatral.warzone.utilitiesTest.MapReaderTest;
@@ -33,7 +34,8 @@ import aatral.warzone.utilitiesTest.MapReaderTest;
 	AdvanceOrderTest.class,
 	DominationMapReaderTest.class,
 	ConquestMapReaderTest.class,
-	ConquestMapAdapterTest.class
+	ConquestMapAdapterTest.class,
+	SortbyArmiesTest.class
 	
 
 	})
