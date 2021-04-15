@@ -201,6 +201,7 @@ public class GamePlayOrderExecution extends GamePlay {
 				{
 					stringCardNames.add(keyString);
 				}
+				System.out.println("\nPlayer - "+gameEngine.l_gamePlayerObject.getPlayerName()+" got a special card - "+stringCardNames.get(randomCardValue));
 				object.getSpecialCards().replace(stringCardNames.get(randomCardValue), object.getSpecialCards().get(stringCardNames.get(randomCardValue))+1);
 			}
 		}

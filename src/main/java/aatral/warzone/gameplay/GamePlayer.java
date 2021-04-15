@@ -87,6 +87,7 @@ public class GamePlayer extends GameEngine{
 	    Order order;
 	    order = strategy.createOrder();
 	    if (order != null) {
+	    	if(order instanceof AdvanceOrder || order instanceof DeployOrder || order instanceof AirliftCard || order instanceof BlockadeCard || order instanceof BombCard || order instanceof NegotiateCard)
 	    	orderObjects.add(order);	
 	    	return true;
 	    }

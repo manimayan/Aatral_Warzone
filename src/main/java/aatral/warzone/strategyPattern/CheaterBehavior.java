@@ -19,6 +19,8 @@ public class CheaterBehavior extends PlayerStrategy{
 	}
 
 	public Order createOrder() {
+		gamePlayerObject.setReinforcementArmies(0);
+		
 		List<String> conquers = getAdjacentEnemyCountries();
 
 		for(String countryID : conquers) {
