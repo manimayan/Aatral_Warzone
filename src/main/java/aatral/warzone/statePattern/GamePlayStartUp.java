@@ -145,7 +145,7 @@ public class GamePlayStartUp extends GamePlay {
 	@Override
 	public void next() {
 		gameEngine.setPhase(new GamePlayIssueOrder(gameEngine));
-		System.out.println(gameEngine.getGamePhase());
+		System.out.println("\nCurrent gamePhase - GameStartup");
 	}
 
 	@Override

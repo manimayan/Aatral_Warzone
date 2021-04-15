@@ -64,6 +64,7 @@ public class AdvanceOrder extends Order {
 					int attackerCanKill = attackerCalc(this.numArmies);
 					int defenderCanKill = defenderCalc(defenderArmies + "");
 					attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
+					
 					if (defenderArmies <= attackerCanKill) { // conquer
 						defenderArmies = defenderArmies == 0 ? Integer.parseInt(this.numArmies)
 								: (Integer.parseInt(this.numArmies) - defenderCanKill);

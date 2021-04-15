@@ -42,7 +42,7 @@ public class GamePlayIssueOrder extends GamePlay {
 	@Override
 	public void next() {
 		gameEngine.setPhase(new GamePlayOrderExecution(gameEngine));
-		System.out.println(gameEngine.getGamePhase());
+		System.out.println("\nCurrent gamePhase - GameIssueOrder");
 	}
 
 	@Override

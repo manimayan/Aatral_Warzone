@@ -391,7 +391,7 @@ public class GameEngine {
 			for(String mapName : MapFileNames) {
 				tournamentModeResult[++index][0] = mapName;
 			}
-			tournamentModeResult[0][0]="Aatral";
+			tournamentModeResult[0][0]="WarZone Maps";
 			for(int i=0;i<numberOfGames;i++) {
 				tournamentModeResult[0][i+1]="Game-"+(i+1);
 			}
