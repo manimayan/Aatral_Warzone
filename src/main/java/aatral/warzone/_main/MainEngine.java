@@ -1,5 +1,7 @@
 package aatral.warzone._main;
 
+import java.io.IOException;
+
 import aatral.warzone.gameplay.GameEngine;
 
 /**
@@ -17,7 +19,7 @@ public class MainEngine {
 	 * 
 	 * @param args Unused. .
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 	    GameEngine gameEngine = new GameEngine();
 	    gameEngine.start();

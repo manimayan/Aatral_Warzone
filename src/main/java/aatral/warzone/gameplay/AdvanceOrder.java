@@ -54,6 +54,8 @@ public class AdvanceOrder extends Order {
 	{ //need to modify this
 		int attackerArmies = getAttackerArmy(this.gamePlayerObject, this.countryFromName);
 		int defenderArmies = getDefenderArmy(this.countryToName);
+		int attackerArmySum = 0;
+		int defenderArmySum = 0;
 		if(this.countryToName.equals("")) {
 			if(this.countryFromName.equals("advance")) {
 				log.info("advanceOrderExecution", gamePlayerObject.getPlayerName(),
@@ -74,7 +76,13 @@ public class AdvanceOrder extends Order {
 					int attackerCanKill = attackerCalc(this.numArmies);
 					int defenderCanKill = defenderCalc(defenderArmies + "");
 					attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
-					
+					attackerArmySum = 0;
+					defenderArmySum = 0;
+					// 1 on 1 Attack
+					for(int i=0;i<Integer.parseInt(numArmies);i++) {
+						attackerArmySum+=attackerCalc("1");
+						defenderArmySum+=defenderCalc("1");
+					}
 					if (defenderArmies <= attackerCanKill) { // conquer
 						defenderArmies = defenderArmies == 0 ? Integer.parseInt(this.numArmies)
 								: (Integer.parseInt(this.numArmies) - defenderCanKill);
@@ -116,7 +124,8 @@ public class AdvanceOrder extends Order {
 					attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
 					defenderArmies = defenderArmies + Integer.parseInt(this.numArmies);
 				}
-		
+				attackerArmySum = attackerArmies;
+				defenderArmySum = defenderArmies;
 				setAttackerArmy(this.countryFromName, attackerArmies);
 				setDefenderArmy(this.countryToName, defenderArmies);
 				log.info("advanceOrderExecution", gamePlayerObject.getPlayerName(),

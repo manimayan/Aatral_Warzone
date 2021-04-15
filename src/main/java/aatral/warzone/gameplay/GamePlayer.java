@@ -1,5 +1,6 @@
 package aatral.warzone.gameplay;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -34,7 +35,7 @@ import lombok.Setter;
  * @version 1.0
  * @since 24-02-2021
  */
-public class GamePlayer extends GameEngine{
+public class GamePlayer extends GameEngine implements Serializable{
 
 	public String playerName;
 

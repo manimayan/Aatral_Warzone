@@ -1,5 +1,6 @@
 package aatral.warzone.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import lombok.Setter;
  * @version 1.0
  * @since 24-02-2021
  */
-public class Continent {
+public class Continent  implements Serializable{
 
 	public Continent(InputContinent l_continent, List<Countries> continentOwnedCountries) {
 

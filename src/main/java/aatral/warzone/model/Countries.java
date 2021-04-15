@@ -1,5 +1,6 @@
 package aatral.warzone.model;
 
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +21,7 @@ import lombok.Setter;
  * @version 1.0
  * @since 24-02-2021
  */
-public class Countries implements Comparator<Countries>{
+public class Countries implements Comparator<Countries>, Serializable{
 
 	private String countryId;
 

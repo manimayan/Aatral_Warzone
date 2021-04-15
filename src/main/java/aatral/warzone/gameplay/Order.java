@@ -1,5 +1,7 @@
 package aatral.warzone.gameplay;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +16,7 @@ import lombok.Setter;
  * @version 1.0
  * @since 24-02-2021
  */
-public class Order {
+public class Order  implements Serializable{
 	/**
 	 * execute method is used to execute the orders in order class
 	 */

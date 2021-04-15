@@ -1,5 +1,7 @@
 package aatral.warzone.strategyPattern;
 
+import java.io.Serializable;
+
 import aatral.warzone.gameplay.GamePlayer;
 import aatral.warzone.gameplay.Order;
 
@@ -9,7 +11,7 @@ import aatral.warzone.gameplay.Order;
  * @author William
  * @since 13.04.2021
  */
-public abstract class PlayerStrategy {
+public abstract class PlayerStrategy  implements Serializable{
 	public GamePlayer gamePlayerObject; 
 	public abstract Order createOrder();
 

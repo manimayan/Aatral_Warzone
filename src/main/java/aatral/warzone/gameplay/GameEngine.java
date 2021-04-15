@@ -1,5 +1,6 @@
 package aatral.warzone.gameplay;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,6 +20,8 @@ import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
 import aatral.warzone.observerPattern.LogEntryBuffer;
 import aatral.warzone.observerPattern.LogWriter;
+import aatral.warzone.save.GameObjectHandler;
+import aatral.warzone.save.GameObjects;
 import aatral.warzone.statePattern.MasterMapEditor;
 import aatral.warzone.statePattern.Phase;
 import aatral.warzone.strategyPattern.AggressiveBehavior;
@@ -48,13 +51,15 @@ public class GameEngine {
 	public static List<String> l_playerList = new ArrayList<>();
 	public static HashMap<String, GamePlayer> l_playerObjectList = new HashMap<>();
 	public static Map<String, Continent> l_masterMap = new HashMap<>();
-	private String l_mapName;
-	public GamePlayer l_gamePlayerObject;
-	public static String l_gameIssueOrder;
-	private boolean l_gamePlayPopulateFlag;
-	private boolean l_isFirst = true;
+	public String l_mapName;
+	public GamePlayer l_gamePlayerObject =null;
+	public static String l_gameIssueOrder = "";
+	public boolean l_gamePlayPopulateFlag = false;
+	public boolean l_isFirst = true;
 	public static List<Countries> l_neutralCountries = new ArrayList<>();
-	private int maxTurns = 0;
+	public int l_maxTurns = 0;
+	public boolean l_singlePlayerMode = false;
+	public GameObjectHandler objectHandler = new GameObjectHandler();
 	
 	LogEntryBuffer log = new LogEntryBuffer();
 	LogWriter logWriter = new LogWriter(log);
@@ -65,10 +70,8 @@ public class GameEngine {
 	public void setPhase(Phase p_phase) {
 		gamePhase = p_phase;
 	}
-/**
- * start method is used to start the game
- */
-	public void start() {
+
+	public void start() throws IOException  {
 		System.out.println("Welome to Warzone");
 		boolean proceed = true;
 
@@ -76,7 +79,6 @@ public class GameEngine {
 
 		// Main running block of game
 		while (proceed) {
-
 			// Choose the type of map to be loaded into game
 			System.out.println("\nPlease type the variant of map to load into game");
 			System.out
@@ -164,8 +166,9 @@ public class GameEngine {
 	/**
 	 * gameUserMenu method allows the user to give input options and execute based
 	 * on user input
+	 * @throws IOException 
 	 */
-	public void gameUserMenu() {
+	public void gameUserMenu() throws IOException {
 		boolean l_gamePlayFlag = true;
 		//load game format
 		while(l_gamePlayFlag) {
@@ -176,183 +179,209 @@ public class GameEngine {
 			String l_playOption = l_input.nextLine();
 			switch (l_playOption.split(" ")[0]) {
 				case "1":
-					maxTurns=0;
-					l_playerObjectList = new HashMap<String, GamePlayer>();
-					l_playerList = new ArrayList<String>();
-					l_neutralCountries = new ArrayList<Countries>();
-					//Choose the type of map to be loaded into game
-					System.out.println("\nPlease type the variant of map to load into game");
-					System.out.println("Available Variants : "+ "\""+"conquest"+"\""+" or "+"\""+"domination"+"\"");
-				
-					Scanner l_type = new Scanner(System.in);
-					String l_typeOfMap = l_type.nextLine().toString();
-					if(l_typeOfMap.equalsIgnoreCase("conquest") || l_typeOfMap.equalsIgnoreCase("domination")) {
-						
-					// showing the available maps
-					System.out.println("\nThe below are the available maps of type "+l_typeOfMap+" \n");
-					InputProcessor l_ip = new InputProcessor();
-					List<String> l_folder = l_ip.getstartupPhase(l_typeOfMap);
-					for (String l_folderName : l_folder) {
-						System.out.println(l_folderName);
-					}
-					while(l_gamePlayFlag) {
-						System.out.println("\nLoadMap Format : "
-								+ "\n loadmap fileName");
-						l_playOption = l_input.nextLine();
-						if (l_playOption.startsWith("loadmap")) {
-							String l_warZoneMaps = l_playOption.split(" ")[1];
-							if (l_folder.contains(l_warZoneMaps)) {
-								log.info("MapEditor", "\"loadmap " + l_warZoneMaps + "\"", l_warZoneMaps + " map loaded");
-//								l_gamePlayerObject = new GamePlayer();
-								l_masterMap = gamePhase.loadMap(l_typeOfMap, l_warZoneMaps);
-								l_gamePlayFlag=false;
+					l_singlePlayerMode = true;
+					@SuppressWarnings("resource")
+					Scanner inputScanner = new Scanner(System.in);
+					System.out.println("Do you want load the objects from previously saved game (yes/no)?");
+					@SuppressWarnings("unused")
+					String input = inputScanner.next();
+
+					if ("yes".equalsIgnoreCase(input)) {
+						System.out.println(objectHandler.listFilesUsingDirectoryStream());
+						System.out.println("Choose a file name to load game");
+						String saveGameName = inputScanner.next();
+						GameObjects gameElements = objectHandler.loadGame(saveGameName);
+						l_playerList = gameElements.getL_playerList();
+						l_playerObjectList = gameElements.getL_playerObjectList();
+						l_masterMap = gameElements.getL_masterMap();
+						l_mapName = gameElements.getL_mapName();
+						l_gamePlayerObject = gameElements.getL_gamePlayerObject();
+						l_gameIssueOrder = gameElements.getL_gameIssueOrder();
+						l_gamePlayPopulateFlag = gameElements.l_gamePlayPopulateFlag;
+						l_isFirst = gameElements.l_isFirst;
+						l_neutralCountries = gameElements.getL_neutralCountries();
+						l_maxTurns = gameElements.getMaxTurns();
+						startGame();
+					}else {
+						l_maxTurns=0;
+						l_playerObjectList = new HashMap<String, GamePlayer>();
+						l_playerList = new ArrayList<String>();
+						l_neutralCountries = new ArrayList<Countries>();
+						//Choose the type of map to be loaded into game
+						System.out.println("\nPlease type the variant of map to load into game");
+						System.out.println("Available Variants : "+ "\""+"conquest"+"\""+" or "+"\""+"domination"+"\"");
+					
+						Scanner l_type = new Scanner(System.in);
+						String l_typeOfMap = l_type.nextLine().toString();
+						if(l_typeOfMap.equalsIgnoreCase("conquest") || l_typeOfMap.equalsIgnoreCase("domination")) {
+							
+						// showing the available maps
+						System.out.println("\nThe below are the available maps of type "+l_typeOfMap+" \n");
+						InputProcessor l_ip = new InputProcessor();
+						List<String> l_folder = l_ip.getstartupPhase(l_typeOfMap);
+						for (String l_folderName : l_folder) {
+							System.out.println(l_folderName);
+						}
+						while(l_gamePlayFlag) {
+							System.out.println("\nLoadMap Format : "
+									+ "\n loadmap fileName");
+							l_playOption = l_input.nextLine();
+							if (l_playOption.startsWith("loadmap")) {
+								String l_warZoneMaps = l_playOption.split(" ")[1];
+								if (l_folder.contains(l_warZoneMaps)) {
+									log.info("MapEditor", "\"loadmap " + l_warZoneMaps + "\"", l_warZoneMaps + " map loaded");
+//									l_gamePlayerObject = new GamePlayer();
+									l_masterMap = gamePhase.loadMap(l_typeOfMap, l_warZoneMaps);
+									l_gamePlayFlag=false;
+								} else {
+									log.info("MapEditor", "\"loadmap " + l_warZoneMaps + "\"",
+											"No " + l_warZoneMaps + " map exists");
+									System.out.println("No such map exists, Please create a new one");
+								}
 							} else {
-								log.info("MapEditor", "\"loadmap " + l_warZoneMaps + "\"",
-										"No " + l_warZoneMaps + " map exists");
-								System.out.println("No such map exists, Please create a new one");
+								log.info("MapEditor", l_playOption, "Invalid Command");
+								System.out.println("Invalid command");
 							}
-						} else {
-							log.info("MapEditor", l_playOption, "Invalid Command");
-							System.out.println("Invalid command");
 						}
-					}
-					l_gamePlayFlag=true;
-					while(l_gamePlayFlag) {
-						System.out.println("\nGameplayer Format : "
-								+ "\n gameplayer -add playerName -remove playerName"
-								+ "\n showmap"
-								+ "\n startgame"
-								+ "\n goback");
-						l_playOption = l_input.nextLine();
-						switch (l_playOption.split(" ")[0]) {
-							case "gameplayer":
-								boolean l_flag = true;
-								String l_playerOption[] = l_playOption.substring(11).split("-");
-								ArrayList<String> l_playerObListTempAdd = new ArrayList<>();
-								HashMap<String, GamePlayer> l_playerObTempAdd = new HashMap<>();
-								List<String> l_playerObListTempRem = new ArrayList<>();
-								String l_playerName = "";
-								for (String l_option : l_playerOption) {
-									if (l_option.isEmpty())
-										continue;
-									switch (l_option.split(" ")[0]) {
-									case "add":
-										l_playerName = l_option.substring(3).trim();
-										l_playerName = l_playerName.trim();
-										if (l_playerName.isEmpty())
+						l_gamePlayFlag=true;
+						while(l_gamePlayFlag) {
+							System.out.println("\nGameplayer Format : "
+									+ "\n gameplayer -add playerName -remove playerName"
+									+ "\n showmap"
+									+ "\n startgame"
+									+ "\n goback");
+							l_playOption = l_input.nextLine();
+							switch (l_playOption.split(" ")[0]) {
+								case "gameplayer":
+									boolean l_flag = true;
+									String l_playerOption[] = l_playOption.substring(11).split("-");
+									ArrayList<String> l_playerObListTempAdd = new ArrayList<>();
+									HashMap<String, GamePlayer> l_playerObTempAdd = new HashMap<>();
+									List<String> l_playerObListTempRem = new ArrayList<>();
+									String l_playerName = "";
+									for (String l_option : l_playerOption) {
+										if (l_option.isEmpty())
 											continue;
-										gamePhase.addGamePlayer(l_playerName, l_playerObListTempAdd, l_playerList);	
-										break;
-									case "remove":
-										l_playerName = l_option.substring(6).trim();
-										l_playerName = l_playerName.trim();
-										gamePhase.removeGamePlayer(l_flag, l_playerName, l_playerObListTempRem, l_playerList);
-										break;
-									default:
-										log.info("GamePlay",l_playOption, "invalid option command");	
-										System.out.println("Different input has been read...Try again");
-										l_flag = false;
-										break;
-									}
-									log.info("GamePlay",l_playOption, "gameplayer command");	
-								}
-								System.out.println();
-								if(l_playerObListTempAdd.size()>0) {
-									System.out.println("GamePlayer's Behavior :"
-											+ "\n 1-Human"
-											+ "\n 2-Aggressive"
-											+ "\n 3-Benevolent"
-											+ "\n 4-Random"
-											+ "\n 5-Cheater");
-									for(String playerName : l_playerObListTempAdd) {
-										l_playerObTempAdd.put(playerName, new GamePlayer(playerName, new ArrayList<Countries>(), 0));
-										while(l_flag) {
-											System.out.println("Select anyone behavior for the player "+playerName);
-											l_playOption = l_input.nextLine();
-											switch (l_playOption) {
-												case "1":
-													l_playerObTempAdd.get(playerName).setStrategy(new HumanBehavior(l_playerObTempAdd.get(playerName)));
-													l_flag = false;
-													break;
-												case "2":
-													l_playerObTempAdd.get(playerName).setStrategy(new AggressiveBehavior(l_playerObTempAdd.get(playerName)));
-													l_flag = false;
-													break;
-												case "3":
-													l_playerObTempAdd.get(playerName).setStrategy(new BenevolentBehavior(l_playerObTempAdd.get(playerName)));
-													l_flag = false;
-													break;
-												case "4":
-													l_playerObTempAdd.get(playerName).setStrategy(new RandomBehavior(l_playerObTempAdd.get(playerName)));
-													l_flag = false;
-													break;
-												case "5":
-													l_playerObTempAdd.get(playerName).setStrategy(new CheaterBehavior(l_playerObTempAdd.get(playerName)));
-													l_flag = false;
-													break;
-												default:
-													log.info("GamePlay",l_playOption, "invalid command");	
-													System.out.println("You have entered wrong input...Try again");
-													break;
-											}
-										}				
-										l_flag = true;
-									}			
-								}
-								while (l_flag) { 
-									System.out.println("Give assigncountries to assign it! or 'cancel' to ignore" + "\nFormat : "
-											+ "\n assigncountries" + "\n cancel");
-									l_playOption = l_input.nextLine();
-									switch (l_playOption) {
-									case "assigncountries":
-										l_isFirst=true;
-										l_playerObjectList.putAll(l_playerObTempAdd);
-										l_playerList.addAll(l_playerObListTempAdd);
-										l_playerList.removeAll(l_playerObListTempRem);
-										for(String removeName : l_playerObListTempRem) {
-											l_playerObjectList.remove(removeName);
+										switch (l_option.split(" ")[0]) {
+										case "add":
+											l_playerName = l_option.substring(3).trim();
+											l_playerName = l_playerName.trim();
+											if (l_playerName.isEmpty())
+												continue;
+											gamePhase.addGamePlayer(l_playerName, l_playerObListTempAdd, l_playerList);	
+											break;
+										case "remove":
+											l_playerName = l_option.substring(6).trim();
+											l_playerName = l_playerName.trim();
+											gamePhase.removeGamePlayer(l_flag, l_playerName, l_playerObListTempRem, l_playerList);
+											break;
+										default:
+											log.info("GamePlay",l_playOption, "invalid option command");	
+											System.out.println("Different input has been read...Try again");
+											l_flag = false;
+											break;
 										}
-										l_playerObjectList = gamePhase.assignCountries(l_playerObjectList, l_playerList);
-										l_gamePlayPopulateFlag = true;
-										l_flag = false;
-										log.info("GamePlay",l_playOption, "command executed");	
-										break;
-									case "cancel":
-										log.info("GamePlay",l_playOption, "command aborted");	
-										System.out.println("Player's modification are aborted!");
-										l_flag = false;
-										break;
-									default:
-										log.info("GamePlay",l_playOption, "invalid command");	
-										System.out.println("You have entered wrong input...Try again");
-										break;
+										log.info("GamePlay",l_playOption, "gameplayer command");	
 									}
-								}
-								break;
-							case "showmap":
-								gamePhase.gamePlayShowMap();
-								break;
-							case "startgame":
-								System.out.println("Game Play has started\n\n");
-								log.info("GamePlay",l_playOption, "game started");	
-								startGame();
-								break;
-							case "goback":
-								l_gamePlayFlag=false;
-								break;
-							default:
-								log.info("GamePlay",l_playOption, "Input command mismatching");	
-								System.out.println("Input format is not matching... Try again/nCheck again/n");
-								break;
+									System.out.println();
+									if(l_playerObListTempAdd.size()>0) {
+										System.out.println("GamePlayer's Behavior :"
+												+ "\n 1-Human"
+												+ "\n 2-Aggressive"
+												+ "\n 3-Benevolent"
+												+ "\n 4-Random"
+												+ "\n 5-Cheater");
+										for(String playerName : l_playerObListTempAdd) {
+											l_playerObTempAdd.put(playerName, new GamePlayer(playerName, new ArrayList<Countries>(), 0));
+											while(l_flag) {
+												System.out.println("Select anyone behavior for the player "+playerName);
+												l_playOption = l_input.nextLine();
+												switch (l_playOption) {
+													case "1":
+														l_playerObTempAdd.get(playerName).setStrategy(new HumanBehavior(l_playerObTempAdd.get(playerName)));
+														l_flag = false;
+														break;
+													case "2":
+														l_playerObTempAdd.get(playerName).setStrategy(new AggressiveBehavior(l_playerObTempAdd.get(playerName)));
+														l_flag = false;
+														break;
+													case "3":
+														l_playerObTempAdd.get(playerName).setStrategy(new BenevolentBehavior(l_playerObTempAdd.get(playerName)));
+														l_flag = false;
+														break;
+													case "4":
+														l_playerObTempAdd.get(playerName).setStrategy(new RandomBehavior(l_playerObTempAdd.get(playerName)));
+														l_flag = false;
+														break;
+													case "5":
+														l_playerObTempAdd.get(playerName).setStrategy(new CheaterBehavior(l_playerObTempAdd.get(playerName)));
+														l_flag = false;
+														break;
+													default:
+														log.info("GamePlay",l_playOption, "invalid command");	
+														System.out.println("You have entered wrong input...Try again");
+														break;
+												}
+											}				
+											l_flag = true;
+										}			
+									}
+									while (l_flag) { 
+										System.out.println("Give assigncountries to assign it! or 'cancel' to ignore" + "\nFormat : "
+												+ "\n assigncountries" + "\n cancel");
+										l_playOption = l_input.nextLine();
+										switch (l_playOption) {
+										case "assigncountries":
+											l_isFirst=true;
+											l_playerObjectList.putAll(l_playerObTempAdd);
+											l_playerList.addAll(l_playerObListTempAdd);
+											l_playerList.removeAll(l_playerObListTempRem);
+											for(String removeName : l_playerObListTempRem) {
+												l_playerObjectList.remove(removeName);
+											}
+											l_playerObjectList = gamePhase.assignCountries(l_playerObjectList, l_playerList);
+											l_gamePlayPopulateFlag = true;
+											l_flag = false;
+											log.info("GamePlay",l_playOption, "command executed");	
+											break;
+										case "cancel":
+											log.info("GamePlay",l_playOption, "command aborted");	
+											System.out.println("Player's modification are aborted!");
+											l_flag = false;
+											break;
+										default:
+											log.info("GamePlay",l_playOption, "invalid command");	
+											System.out.println("You have entered wrong input...Try again");
+											break;
+										}
+									}
+									break;
+								case "showmap":
+									gamePhase.gamePlayShowMap();
+									break;
+								case "startgame":
+									System.out.println("Game Play has started\n\n");
+									log.info("GamePlay",l_playOption, "game started");	
+									startGame();
+									break;
+								case "goback":
+									l_gamePlayFlag=false;
+									break;
+								default:
+									log.info("GamePlay",l_playOption, "Input command mismatching");	
+									System.out.println("Input format is not matching... Try again/nCheck again/n");
+									break;
+							}
 						}
-					}
-					l_gamePlayFlag=true;
-					} else {
-						log.info("MapEditor", " ", "Invalid Map Type " + l_typeOfMap);
-						System.out.println("Please type the appropriate map type");
+						l_gamePlayFlag=true;
+						} else {
+							log.info("MapEditor", " ", "Invalid Map Type " + l_typeOfMap);
+							System.out.println("Please type the appropriate map type");
+						}
 					}
 					break;
 				case "2":
+					l_singlePlayerMode = false;
 					boolean l_flag = true;
 					tournamentMode();
 					break;
@@ -364,9 +393,7 @@ public class GameEngine {
 			}
 		}
 	}
-/**
- * tournamentMode method is used to start the tournament mode of the game
- */
+
 	public void tournamentMode() {
 		boolean modeFlag = true;
 		//Choose the type of map to be loaded into game
@@ -399,7 +426,7 @@ public class GameEngine {
 			for(int i=0;i<numberOfGames;i++) {
 				tournamentModeResult[0][i+1]="Game-"+(i+1);
 			}
-			maxTurns = maxNoOfTurns;
+			l_maxTurns = maxNoOfTurns;
 			for(int i=0;i<MapFileNames.length;i++) {
 				log.info("MapEditor", "\"loadmap " + MapFileNames[i] + "\"", MapFileNames[i] + " map loaded");
 				l_masterMap = gamePhase.loadMap("domination", MapFileNames[i].trim());
@@ -433,10 +460,7 @@ public class GameEngine {
 		}
 	}
 	
-/**
- * setPlayers method is used to set the behaviour of the player	
- * @param PlayerStrategies : input of player startegies
- */
+	
 	public void setPlayers(String[] PlayerStrategies) {
 		l_playerObjectList = new HashMap<String, GamePlayer>();
 		l_playerList = new ArrayList<String>();
@@ -462,11 +486,7 @@ public class GameEngine {
 			}
 		}
 	}
-/**
- * validateTournamentInput method is used to validate the input for tournament 
- * @param l_typeOfMap : type of map
- * @return substring of a value
- */
+
 	public String validateTournamentInput(String l_typeOfMap) {
 		boolean flag = true;
 		String input="";
@@ -540,36 +560,6 @@ public class GameEngine {
 			System.out.println("\nNo player has been created to start the game\n");
 		} else {
 			boolean l_flag = true, l_innerLoopflag = true;
-//			String l_readInput;
-//			if (!l_gamePlayPopulateFlag) {
-//				if (l_playerObjectList == null) {
-//					l_playerObjectList = gamePhase.assignCountries(l_playerObjectList, l_playerList);
-//				} else {
-//					while (l_innerLoopflag) {
-//						System.out.println(
-//								"Give any of the following command to proceed the gamePlay \n startnewgame \n continue");
-//						l_readInput = l_input.nextLine();
-//						switch (l_readInput) {
-//						case "startnewgame":
-//							l_isFirst = true;
-//							l_playerObjectList = gamePhase.assignCountries(l_playerObjectList, l_playerList);
-//							l_innerLoopflag = false;
-//							break;
-//						case "continue":
-//							l_innerLoopflag = false;
-//							break;
-//						default:
-//							log.info("StartUp", l_readInput, "Input command mismatching");
-//							System.out.println("Input is mismatching...Kindly Try again...");
-//							break;
-//						}
-//					}
-//					l_innerLoopflag = true;
-//				}
-//			} else {
-//				l_gamePlayPopulateFlag = false;
-//			}
-
 			do {
 				for (Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
 					l_gamePlayerObject = (GamePlayer) l_gameplayObject.getValue();
@@ -649,34 +639,51 @@ public class GameEngine {
 					return;
 				}
 				l_innerLoopflag = true;
-				while (l_innerLoopflag) {
-//					System.out.println("Give any of the following command to proceed the gamePlay \n continue \n back");
-//					l_readInput = l_input.nextLine();
-//					switch (l_readInput) {
-//					case "continue":
-						l_innerLoopflag = false;
-						gamePhase.next();
-//						break;
-//					case "back":
-//						l_innerLoopflag = false;
-//						l_flag = false;
-//						gamePhase.next();
-//						break;
-//					default:
-//						System.out.println("Input is mismatching...Kindly Try again...");
-//						break;
-//					}
+				if(l_singlePlayerMode) {
+					while (l_innerLoopflag) {
+						System.out.println("Do you want save the game (yes/no)?");
+						String l_readInput = l_input.nextLine();
+						switch (l_readInput) {
+						case "no":
+							l_innerLoopflag = false;
+							gamePhase.next();
+							break;
+						case "yes":
+							GameObjects saveGameObjects = new GameObjects();
+							saveGameObjects.setL_playerList(l_playerList);
+							saveGameObjects.setL_playerObjectList(l_playerObjectList);
+							saveGameObjects.setL_masterMap(l_masterMap);
+							saveGameObjects.setL_mapName(l_mapName);
+							saveGameObjects.setL_gamePlayerObject(l_gamePlayerObject);
+							saveGameObjects.setL_gameIssueOrder(l_gameIssueOrder);
+							saveGameObjects.setL_gamePlayPopulateFlag(l_gamePlayPopulateFlag);
+							saveGameObjects.setL_isFirst(l_isFirst);
+							saveGameObjects.setL_neutralCountries(l_neutralCountries);
+							saveGameObjects.setMaxTurns(l_maxTurns);
+							System.out.println("Enter save file name");
+							String saveGameName = l_input.nextLine();
+							objectHandler.saveGame(saveGameObjects, saveGameName);
+							l_innerLoopflag = false;
+							l_flag = false;
+							gamePhase.next();
+							break;
+						default:
+							System.out.println("Input is mismatching...Kindly Try again...");
+							break;
+						}
+					}
+				}else {
+					l_innerLoopflag = false;
+					gamePhase.next();
 				}
 				currentTurn++;
-				if(currentTurn>maxTurns && maxTurns!=0) {
+				if(currentTurn>l_maxTurns && l_maxTurns!=0) {
 					return;
 				}
 			} while (l_flag);
 		}
 	}
-/**
- * playerHasCountries method is used to check whether the player has country or not
- */
+	
 	public void playerHasCountries() {
 		List<String> removePlayer = new ArrayList<>();
 		for(Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
@@ -785,7 +792,7 @@ public class GameEngine {
 	 * getContinentName method is used to get the continent name using continent id
 	 * 
 	 * @param p_continentMapKeySet Set of continent map key.
-	 * @param p_continentID Continent id.
+	 * @param p_continentID        Continent id.
 	 * @return continent name.
 	 */
 	public String getContinentName(Set<String> p_continentMapKeySet, String p_continentID) {

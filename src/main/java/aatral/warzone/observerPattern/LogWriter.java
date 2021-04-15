@@ -3,6 +3,7 @@ package aatral.warzone.observerPattern;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.io.Writer;
 import java.time.LocalDateTime;
 
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
  */
 
 
-public class LogWriter implements Observer {
+public class LogWriter implements Observer, Serializable {
 
 	private LogEntryBuffer subject;
 

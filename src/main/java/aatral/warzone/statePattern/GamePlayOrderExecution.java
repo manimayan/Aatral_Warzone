@@ -35,7 +35,7 @@ public class GamePlayOrderExecution extends GamePlay {
 	@Override
 	public void next() {
 		gameEngine.setPhase(new GamePlayStartUp(gameEngine));
-		System.out.println("\nCurrent gamePhase - GameExecuteOrder");
+		System.out.println("\nCurrent gamePhase - GameStartUp");
 	}
 
 	@Override
