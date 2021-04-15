@@ -44,7 +44,11 @@ public class ConquestCountry implements Comparator<ConquestCountry>  {
 	public int compare(ConquestCountry o1, ConquestCountry o2) {
 		return Integer.parseInt(o1.getCountryId()) - Integer.parseInt(o2.getCountryId());
 	}
-
+/**
+ * ConquestCountry method is used to conquest the country
+ * @param country country value
+ * @param matchingInputContinentId matching input continent id value
+ */
 	public ConquestCountry(InputCountry country, List<InputContinent> matchingInputContinentId) {
 		this.countryName=country.getCountryName();
 		this.x="999";

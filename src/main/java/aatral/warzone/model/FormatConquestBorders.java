@@ -36,6 +36,13 @@ public class FormatConquestBorders {
 	@Field(collection = Set.class, maxOccurs = -1,trim = true)
 	Set<String> adjacentCountries =  new HashSet<>();
 
+	/**
+	 * <h1>Borders POJO</h1>
+	 * 
+	 * @author Manimaran Palani
+	 * @version 1.0
+	 * @since 2021-02-12
+	 */
 
 	public FormatConquestBorders(ConquestBorders border) {
 		this.countryName = border.getCountryName()+",";

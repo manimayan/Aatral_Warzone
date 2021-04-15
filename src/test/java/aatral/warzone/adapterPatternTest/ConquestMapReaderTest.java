@@ -11,6 +11,12 @@ import org.junit.Test;
 import aatral.warzone.adapterPattern.DominationMapReader;
 import aatral.warzone.model.Continent;
 
+/**
+ * <h1>ConquestMapReaderTest class is used to test the conquest map</h1>
+ * @author Vignesh
+ * @since 13.04.2021
+ *
+ */
 public class ConquestMapReaderTest {
 	public static int expected=0;
 	@Test
@@ -38,6 +44,10 @@ public class ConquestMapReaderTest {
 		assertEquals(size,expected);
 	}
 	@Test
+	
+/**
+ * loadMapTestConquestNegative methos is used to test the value is negative
+ */
 	public void loadMapTestConquestNegative()
 	{
 int expected1=0;
@@ -48,6 +58,10 @@ int expected1=0;
 		assertEquals(size,expected1);
 	}
 	@Test
+	
+	/**
+	 * loadMapTestConquestNegative methos is used to test the value is negative
+	 */	
 	public void loadMapTestConquestNegativeMap()
 	{
 int expected2=0;

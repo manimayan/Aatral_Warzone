@@ -79,10 +79,17 @@ public class GamePlayer extends GameEngine{
 	}
 	
 	
-
+/**
+ * setStrategy method is used to set the startegy of the game
+ * @param p_strat input of the startegy
+ */
 	  public void setStrategy(PlayerStrategy p_strat) {
 	    strategy = p_strat; 
 	  }; 
+	  /**
+	   * issueOrder method is used to issue the startegy to the player
+	   * @return true value
+	   */
 	  public boolean issueOrder() {
 	    Order order;
 	    order = strategy.createOrder();

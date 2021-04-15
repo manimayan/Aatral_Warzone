@@ -10,6 +10,13 @@ import aatral.warzone.gameplay.Order;
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
 
+
+
+/**
+ * <h1>CheaterBehavior is used to implement behaviour strategy of Cheater</h1>
+ * @author William moses
+ * @since 15.04.2021
+ */
 public class CheaterBehavior extends PlayerStrategy{
 	public String flag = "deploy";
 	private Countries countryOb;
@@ -17,7 +24,9 @@ public class CheaterBehavior extends PlayerStrategy{
 	public CheaterBehavior(GamePlayer p_player) {
 		super(p_player);
 	}
-
+	/**
+	 * createOrder method is used to create the order of the game
+	 */
 	public Order createOrder() {
 		gamePlayerObject.setReinforcementArmies(0);
 		
@@ -53,7 +62,10 @@ public class CheaterBehavior extends PlayerStrategy{
 		gamePlayerObject.commit = true;
 		return new Order();
 	}
-	
+/**
+ * getAdjacentEnemyCountries method is used to get the adjacent enemy country values
+ * @return conquers values
+ */
 	public List<String> getAdjacentEnemyCountries(){
 		List<String> conquers = new ArrayList<>();
 		for(Countries country : gamePlayerObject.getListOfCountries()) {

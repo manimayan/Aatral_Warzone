@@ -19,9 +19,21 @@ import aatral.warzone.model.InputCountry;
 import aatral.warzone.observerPattern.LogEntryBuffer;
 import aatral.warzone.utilities.InputProcessor;
 import aatral.warzone.utilities.MapReader;
-
+/**
+ * This class is to implement the conquest map reader
+ * @author William Moses
+ * @version 1.0
+ * @since 2021-04-10
+ * 
+ */
 public class ConquestMapReader {
-
+/**
+ * loadMap method is used to load the war zone map
+ * @param p_typeOfMap : type of the map
+ * @param p_warZoneMap : war zone map
+ * @return master map 
+ * 
+ */
 		public Map<String, Continent> loadMap(String p_typeOfMap, String p_warZoneMap) {
 			MapReader mapReader = new MapReader();
 			List<InputContinent> l_inputContinentList = mapReader.readContinentFile(p_typeOfMap, p_warZoneMap);
@@ -54,7 +66,12 @@ public class ConquestMapReader {
 			}
 			return masterMap;
 		}
-
+/**
+ * saveMap method is used to save the map using map editor command
+ * @param p_typeOfMap : type of map
+ * @param p_mapEditorCommand : Map editor command
+ * @param log has a value of log
+ */
 		public void saveMap(String p_typeOfMap, String p_mapEditorCommand, LogEntryBuffer log) {
 			String getmapSaveCommand[] = p_mapEditorCommand.split(" ");
 			if (p_mapEditorCommand.startsWith("savemap")) {

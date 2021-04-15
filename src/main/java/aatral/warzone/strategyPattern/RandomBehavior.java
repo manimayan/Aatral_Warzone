@@ -19,6 +19,13 @@ import aatral.warzone.gameplay.Order;
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
 
+
+/**
+ * <h1>RandomBehavior is used to implement random behaviour strategy</h1>
+ * @author William moses
+ * @since 15.04.2021
+ */
+
 public class RandomBehavior extends PlayerStrategy {
 	public String flag = "deploy";
 	private Countries countryOb;
@@ -28,7 +35,9 @@ public class RandomBehavior extends PlayerStrategy {
 	public RandomBehavior(GamePlayer p_player) {
 		super(p_player);
 	}
-
+	/**
+	 * createOrder method is used to create the order of the game
+	 */
 	public Order createOrder() {
 		if (flag.equals("deploy") && GameEngine.l_gameIssueOrder.equals("deploy")) {
 			countryOb = gamePlayerObject.getListOfCountries()

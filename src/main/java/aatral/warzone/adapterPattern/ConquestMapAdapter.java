@@ -11,6 +11,7 @@ import aatral.warzone.observerPattern.LogEntryBuffer;
  * @author Manimaran Palani
  * @version 1.0
  * @since 2021-04-10
+ * 
  */
 
 public class ConquestMapAdapter extends DominationMapReader {
@@ -33,8 +34,9 @@ public class ConquestMapAdapter extends DominationMapReader {
 	 * 
 	 * @param p_typeOfMap  : type of map
 	 * @param warZoneMap has war zone map
-	 * @return masterMap
+	 * @return master map
 	 */
+	
 	@Override
 	public Map<String, Continent> loadMap(String p_typeOfMap, String warZoneMap) {
 		if (p_typeOfMap.equalsIgnoreCase("conquest")) {

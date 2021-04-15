@@ -10,6 +10,12 @@ import org.junit.Test;
 import aatral.warzone.adapterPattern.DominationMapReader;
 import aatral.warzone.model.Continent;
 
+/**
+ * <h1>DominationMapReaderTest class is used to test the domination map</h1>
+ * @author Vignesh
+ * @since 13.04.2021
+ *
+ */
 public class DominationMapReaderTest {
 	@Test
 	public void loadMapTestDomination()
@@ -35,6 +41,9 @@ int expected=0;
 		assertEquals(size,expected);
 	}
 	@Test
+	/**
+	 * loadMapTestDominationNegative method is used to load and test the domination map 
+	 */
 	public void loadMapTestDominationNegative()
 	{
 int expected=0;
@@ -45,6 +54,9 @@ int expected=0;
 		assertEquals(size,expected);
 	}
 	@Test
+	/**
+	 * loadMapTestDominationNegative method is used to load and test the domination map value 
+	 */
 	public void loadMapTestDominationNegativeMap()
 	{
 int expected=0;

@@ -16,7 +16,11 @@ import aatral.warzone.model.ConquestCountry;
 import aatral.warzone.model.InputBorders;
 import aatral.warzone.model.InputContinent;
 import aatral.warzone.model.InputCountry;
-
+/**
+ * <h1>MapReader reads the Map values</h1>
+ * @author Tejeswini
+ * @since 12.04.2021
+ */
 public class MapReader {
 
 	/**

@@ -35,7 +35,12 @@ public class AdvanceOrder extends Order {
 
 	LogEntryBuffer log = new LogEntryBuffer();
 	LogWriter logWriter = new LogWriter(log);
-
+/**
+ * 
+ * @param countryFromName : country from name
+ * @param countryToName : country to name
+ * @param numArmies : number of armies
+ */
 	public AdvanceOrder(String countryFromName, String countryToName, String numArmies) {
 		this.countryFromName = countryFromName;
 		this.countryToName = countryToName;
@@ -45,7 +50,8 @@ public class AdvanceOrder extends Order {
 	/**
 	 * execute method is used to execute the game
 	 */
-	public void execute() { //need to modify this
+	public void execute() 
+	{ //need to modify this
 		int attackerArmies = getAttackerArmy(this.gamePlayerObject, this.countryFromName);
 		int defenderArmies = getDefenderArmy(this.countryToName);
 		if(this.countryToName.equals("")) {
@@ -58,9 +64,13 @@ public class AdvanceOrder extends Order {
 						"No country is eligible for transfer", "not executed");
 				System.out.println(this.gamePlayerObject.getPlayerName() + " No country is eligible for transfer");
 			}
-		}else {
-			if(validateFromCountryName(this.gamePlayerObject, this.countryFromName, this.numArmies)) {
-				if (isAttack(this.gamePlayerObject, this.countryToName) ) { // attack
+		}
+		else 
+		{
+			if(validateFromCountryName(this.gamePlayerObject, this.countryFromName, this.numArmies)) 
+			{
+				if (isAttack(this.gamePlayerObject, this.countryToName) ) 
+				{ // attack
 					int attackerCanKill = attackerCalc(this.numArmies);
 					int defenderCanKill = defenderCalc(defenderArmies + "");
 					attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
@@ -81,9 +91,12 @@ public class AdvanceOrder extends Order {
 							if (!flag)
 								break;
 						}
-						if (flag) { // neutral country
-							for (Countries l_countryObject : GameEngine.l_neutralCountries) {
-								if (l_countryObject.getCountryName().equals(this.countryToName)) {
+						if (flag) 
+						{ // neutral country
+							for (Countries l_countryObject : GameEngine.l_neutralCountries) 
+							{
+								if (l_countryObject.getCountryName().equals(this.countryToName)) 
+								{
 									this.gamePlayerObject.getListOfCountries().add(l_countryObject);
 									GameEngine.l_neutralCountries.remove(l_countryObject);
 									break;
@@ -91,11 +104,15 @@ public class AdvanceOrder extends Order {
 							}
 						}
 						gamePlayerObject.hasConqueredInTurn = true;
-					} else { // attack but dont conquer
+					} 
+					else 
+					{ // attack but dont conquer
 						attackerArmies = attackerArmies + Math.max(0, (Integer.parseInt(numArmies) - defenderCanKill));
 						defenderArmies = Math.max(0, defenderArmies - attackerCanKill);
 					}
-				} else { // move
+				} 
+				else 
+				{ // move
 					attackerArmies = attackerArmies - Integer.parseInt(this.numArmies);
 					defenderArmies = defenderArmies + Integer.parseInt(this.numArmies);
 				}

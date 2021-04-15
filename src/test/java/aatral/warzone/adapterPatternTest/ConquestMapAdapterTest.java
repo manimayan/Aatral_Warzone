@@ -13,10 +13,19 @@ import aatral.warzone.adapterPattern.ConquestMapAdapter;
 import aatral.warzone.adapterPattern.ConquestMapReader;
 import aatral.warzone.adapterPattern.DominationMapReader;
 import aatral.warzone.model.Continent;
-
+/**
+ * <h1>ConquestMapAdapterTest class is used to test the Adapter map</h1>
+ * @author Vignesh
+ * @since 13.04.2021
+ *
+ */
 public class ConquestMapAdapterTest {
+
 	
 	@Test
+	/**
+	 * loadMapTest method is used to load and test the map 
+	 */
 	public void loadMapTest()
 	{
 		ConquestMapAdapter cma=new ConquestMapAdapter(null);
@@ -27,6 +36,9 @@ public class ConquestMapAdapterTest {
 		
 		}
 	@Test
+	/**
+	 * loadMapTestParent method is used to load and test the parent map 
+	 */
 	public void loadMapTestParent()
 	{
 		ConquestMapAdapter cma=new ConquestMapAdapter(null);

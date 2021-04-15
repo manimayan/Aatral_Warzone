@@ -146,7 +146,7 @@ public class EditCommandsImpl {
 	 * editContinentMap method is used to add or delete the continent
 	 * 
 	 * @param p_typeOfMap         : type of map
-	 * @param p_warZoneMap:       map of warzone.
+	 * @param p_warZoneMap		: map of warzone.
 	 * @param p_continentCommand: command for continent.
 	 * 
 	 */
@@ -237,7 +237,7 @@ public class EditCommandsImpl {
 	 * 
 	 * @param p_typeOfMap     : type of map
 	 * @param warZoneMap      map of warzone.
-	 * @param countryString   country
+	 * @param countryString   country value
 	 */
 	public void editCountryMap(String p_typeOfMap, String warZoneMap, String countryString) {
 		String listCountryCommand[] = countryString.split("-");

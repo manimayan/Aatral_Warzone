@@ -19,9 +19,17 @@ import aatral.warzone.gameplay.NegotiateCard;
 import aatral.warzone.gameplay.Order;
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
+/**
+ * <h1>AggressiveBehavior is used to implement behaviour strategy of aggressive</h1>
+ * @author William moses
+ * @since 15.04.2021
+ */
 
-class SortbyArmies implements Comparator<Countries> {
-	public int compare(Countries a, Countries b) {
+
+class SortbyArmies implements Comparator<Countries> 
+{
+	public int compare(Countries a, Countries b) 
+	{
 		return b.getArmies() - a.getArmies();
 	}
 }
@@ -34,7 +42,10 @@ public class AggressiveBehavior extends PlayerStrategy {
 	public AggressiveBehavior(GamePlayer p_player) {
 		super(p_player);
 	}
-
+	
+/**
+ * createOrder method is used to create the order of the game
+ */
 	public Order createOrder() {
 		if (flag.equals("deploy") && GameEngine.l_gameIssueOrder.equals("deploy")) {
 			countryOb = gamePlayerObject.getListOfCountries().get(0);

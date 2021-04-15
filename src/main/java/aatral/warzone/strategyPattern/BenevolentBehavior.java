@@ -20,6 +20,11 @@ import aatral.warzone.gameplay.Order;
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
 
+/**
+ * <h1>BenevolentBehavior is used to implement behaviour strategy of Benevolent</h1>
+ * @author William moses
+ * @since 15.04.2021
+ */
 
 public class BenevolentBehavior extends PlayerStrategy{
 	
@@ -31,6 +36,9 @@ public class BenevolentBehavior extends PlayerStrategy{
 		super(p_player);
 	}
 
+/**
+ * createOrder method is used to create the order of the game
+ */
 	public Order createOrder() {
 		
 		if(flag.equals("deploy") && GameEngine.l_gameIssueOrder.equals("deploy")) {

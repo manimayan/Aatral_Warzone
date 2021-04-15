@@ -72,11 +72,11 @@ public class AirliftCard extends Order {
 	}
 
 	/**
-	 * validateFromCountryName will validate if country belongs to the player
-	 * 
-	 * @param l_gamePlayerObject has the game player object
-	 * @param countryFromName    has the country from name
-	 * @return boolean true if Valid, else false
+	 * validateFromCountryName method will validate if country belongs to the player
+	 * @param l_gamePlayerObject : game player object
+	 * @param countryFromID : country from ID
+	 * @param numArmies : number of armies
+	 * @return true
 	 */
 	public boolean validateFromCountryName(GamePlayer l_gamePlayerObject, String countryFromID, String numArmies) {
 		for (Countries l_countryObject : l_gamePlayerObject.getListOfCountries()) {

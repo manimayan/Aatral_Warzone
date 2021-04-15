@@ -30,7 +30,12 @@ import aatral.warzone.utilities.MapReader;
  */
 
 public class DominationMapReader {
-
+/**
+ * loadMapMethod is used to load the warzone map
+ * @param p_typeOfMap : type of map
+ * @param p_warZoneMap : war zone map
+ * @return : master map
+ */
 	public Map<String, Continent> loadMap(String p_typeOfMap, String p_warZoneMap) {
 		MapReader mapReader = new MapReader();
 		List<InputContinent> l_inputContinentList = mapReader.readContinentFile(p_typeOfMap, p_warZoneMap);
@@ -64,6 +69,12 @@ public class DominationMapReader {
 		return masterMap;
 	}
 
+	/**
+	 * saveMap method is used to save the map using map editor command
+	 * @param p_typeOfMap : type of map
+	 * @param p_mapEditorCommand : map editor command
+	 * @param log has the values of log
+	 */
 	public void saveMap(String p_typeOfMap, String p_mapEditorCommand, LogEntryBuffer log) {
 		String getmapSaveCommand[] = p_mapEditorCommand.split(" ");
 		if (p_mapEditorCommand.startsWith("savemap")) {

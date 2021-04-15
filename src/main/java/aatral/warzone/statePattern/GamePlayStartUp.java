@@ -77,7 +77,11 @@ public class GamePlayStartUp extends GamePlay {
 		return masterMap;
 	}
 
-
+/**
+ * addGamePlayer methos is used to add the players to the player object
+ * @param l_playerName : player name
+ * @param p_playerObListTempAdd : player object value
+ */
 	public void addGamePlayer(String l_playerName, ArrayList<String> p_playerObListTempAdd,
 			List<String> p_playerList) {
 
@@ -88,7 +92,13 @@ public class GamePlayStartUp extends GamePlay {
 			p_playerObListTempAdd.add(l_playerName);
 		}
 	}
-
+/**
+ * removeGamePlayer method is used to remove the game player 
+ * @param p_flag : flag value
+ * @param p_playerName : player name
+ * @param p_playerObListTempRem : player object list value
+ * @param p_playerList : player list values
+ */
 	public boolean removeGamePlayer(boolean p_flag, String p_playerName, List<String> p_playerObListTempRem,List<String> p_playerList) 
 	{
 		String l_removeName = "";
@@ -105,6 +115,11 @@ public class GamePlayStartUp extends GamePlay {
 		return p_flag;
 	}
 
+	/**
+	 * assignCountries method is used to assign the countries to the player using player object
+	 * @param p_playerObjectList : player object list values
+	 * @param p_playerList : player list value
+	 */
 	public HashMap<String, GamePlayer> assignCountries(HashMap<String, GamePlayer> p_playerObjectList, List<String> p_playerList) {
 		int l_totalNoOfCountry = gameEngine.totalCountries();
 		List<Countries> totalCountries = gameEngine.listOfCountries();

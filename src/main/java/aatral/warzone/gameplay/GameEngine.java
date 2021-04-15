@@ -65,7 +65,9 @@ public class GameEngine {
 	public void setPhase(Phase p_phase) {
 		gamePhase = p_phase;
 	}
-
+/**
+ * start method is used to start the game
+ */
 	public void start() {
 		System.out.println("Welome to Warzone");
 		boolean proceed = true;
@@ -362,7 +364,9 @@ public class GameEngine {
 			}
 		}
 	}
-
+/**
+ * tournamentMode method is used to start the tournament mode of the game
+ */
 	public void tournamentMode() {
 		boolean modeFlag = true;
 		//Choose the type of map to be loaded into game
@@ -429,7 +433,10 @@ public class GameEngine {
 		}
 	}
 	
-	
+/**
+ * setPlayers method is used to set the behaviour of the player	
+ * @param PlayerStrategies : input of player startegies
+ */
 	public void setPlayers(String[] PlayerStrategies) {
 		l_playerObjectList = new HashMap<String, GamePlayer>();
 		l_playerList = new ArrayList<String>();
@@ -455,7 +462,11 @@ public class GameEngine {
 			}
 		}
 	}
-
+/**
+ * validateTournamentInput method is used to validate the input for tournament 
+ * @param l_typeOfMap : type of map
+ * @return substring of a value
+ */
 	public String validateTournamentInput(String l_typeOfMap) {
 		boolean flag = true;
 		String input="";
@@ -663,7 +674,9 @@ public class GameEngine {
 			} while (l_flag);
 		}
 	}
-	
+/**
+ * playerHasCountries method is used to check whether the player has country or not
+ */
 	public void playerHasCountries() {
 		List<String> removePlayer = new ArrayList<>();
 		for(Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
@@ -772,7 +785,7 @@ public class GameEngine {
 	 * getContinentName method is used to get the continent name using continent id
 	 * 
 	 * @param p_continentMapKeySet Set of continent map key.
-	 * @param p_continentID        Continent id.
+	 * @param p_continentID Continent id.
 	 * @return continent name.
 	 */
 	public String getContinentName(Set<String> p_continentMapKeySet, String p_continentID) {

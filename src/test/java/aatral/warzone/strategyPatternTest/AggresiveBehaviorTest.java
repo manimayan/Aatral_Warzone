@@ -11,9 +11,19 @@ import org.junit.Test;
 import aatral.warzone.gameplay.GamePlayer;
 import aatral.warzone.model.Countries;
 import aatral.warzone.strategyPattern.AggressiveBehavior;
-
-public class AggresiveBehaviorTest {
+/**
+ * <h1>AggresiveBehaviorTest class is used to test the aggresive behavior</h1>
+ * @author Vignesh
+ * @since 13.04.2021
+ *
+ */
+public class AggresiveBehaviorTest 
+{
 	@Test
+	
+/**
+ * listOfCountriesTest method is used to test the list of countries values
+ */
 	public void listOfCountriesTest()
 	{
 		boolean actual = false;
@@ -33,6 +43,10 @@ public class AggresiveBehaviorTest {
 
 	}
 	@Test
+	
+	/**
+	 * isAttackTest method is used to test the attack function
+	 */
 	public void isAttackTest()
 	{
 		boolean actual =false;
@@ -62,6 +76,10 @@ public class AggresiveBehaviorTest {
 		assertTrue(actual);
 	}
 	@Test
+	
+	/**
+	 * isAttackTestNegative methos is used to test attack value is negative
+	 */
 	public void isAttackTestNegative()
 	{
 		boolean actual =false;
