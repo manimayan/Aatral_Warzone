@@ -1,6 +1,7 @@
 package aatral.warzone.adapterPatternTest;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.io.File;
 import java.util.Map;
@@ -43,7 +44,7 @@ public class ConquestMapReaderTest {
 		DominationMapReader dmr=new DominationMapReader();
 		Map<String,Continent> actual=dmr.loadMap("conquest","africa");
 		int size=actual.size();
-		System.out.println(expected);
+		//System.out.println(expected);
 		assertEquals(size,expected);
 	}
 	
@@ -57,9 +58,9 @@ public class ConquestMapReaderTest {
 int expected1=0;
 		
 		DominationMapReader dmr=new DominationMapReader();
-		Map<String,Continent> actual=dmr.loadMap("conquest","china");
+		Map<String,Continent> actual=dmr.loadMap("conquest","africa");
 		int size=actual.size();
-		assertEquals(size,expected1);
+		assertFalse(size==expected1);
 	}
 	
 	
@@ -72,9 +73,8 @@ int expected1=0;
 int expected2=0;
 		
 		DominationMapReader dmr=new DominationMapReader();
-		Map<String,Continent> actual=dmr.loadMap("domination","africa");
+		Map<String,Continent> actual=dmr.loadMap("conquest","africa");
 		int size=actual.size();
-		assertEquals(size,expected2);
-	}
+		assertFalse(size==expected2);	}
 	
 }
