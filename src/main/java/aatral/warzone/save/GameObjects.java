@@ -19,6 +19,14 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
+/**
+ * <h1>GameObjects</h1> The Class is to save the Objects of the game
+ *
+ * @author Manimaran
+ * @version 1.0
+ * @since 15-04-2021
+ */
 public class GameObjects implements Serializable {
 
 	private static final long serialVersionUID = 1L;

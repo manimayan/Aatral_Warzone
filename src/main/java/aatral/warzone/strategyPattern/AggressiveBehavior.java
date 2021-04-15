@@ -20,13 +20,13 @@ import aatral.warzone.gameplay.NegotiateCard;
 import aatral.warzone.gameplay.Order;
 import aatral.warzone.model.Continent;
 import aatral.warzone.model.Countries;
+
+
 /**
- * <h1>AggressiveBehavior is used to implement behaviour strategy of aggressive</h1>
+ * <h1>SortbyArmies is used to sort the countries list</h1>
  * @author William moses
  * @since 15.04.2021
  */
-
-
 class SortbyArmies implements Comparator<Countries> 
 {
 	public int compare(Countries a, Countries b) 
@@ -34,7 +34,11 @@ class SortbyArmies implements Comparator<Countries>
 		return b.getArmies() - a.getArmies();
 	}
 }
-
+/**
+ * <h1>AggressiveBehavior is used to implement behaviour strategy of aggressive</h1>
+ * @author William moses
+ * @since 15.04.2021
+ */
 public class AggressiveBehavior extends PlayerStrategy {
 	public String flag = "deploy";
 	private Countries countryOb;

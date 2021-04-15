@@ -12,8 +12,24 @@ import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * <h1>GameObjectHandler</h1> The Class is used to create objects 
+ * for load and save game
+ *
+ * @author Manimaran
+ * @version 1.0
+ * @since 15-04-2021
+ */
 public class GameObjectHandler {
-
+	
+	
+/**
+ * saveGame method is used to save the game
+ * 
+ * @param gameElements saveGame object
+ * @param savename saveGame file name
+ * @return whether its saved or not
+ */
 	public boolean saveGame(GameObjects gameElements, String savename) {
 		boolean saved = false;
 		try {
@@ -28,7 +44,13 @@ public class GameObjectHandler {
 		}
 		return saved;
 	}
-
+/**
+ * 
+ * loadGame method is used to load the game
+ * 
+ * @param savename file name 
+ * @return the loaded gameObject
+ */
 	public GameObjects loadGame(String savename) {
 		GameObjects gameElements = new GameObjects();
 		try {
@@ -43,6 +65,12 @@ public class GameObjectHandler {
 		return gameElements;
 	}
 
+	/**
+	 * listFilesUsingDirectoryStream method used to load the saved game list
+	 * 
+	 * @return set of save game list
+	 * @throws IOException to throw the input output exception
+	 */
 	public Set<String> listFilesUsingDirectoryStream() throws IOException {
 		Set<String> fileList = new HashSet<>();
 		try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src/main/resources/savedGame"))) {

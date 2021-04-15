@@ -66,11 +66,17 @@ public class GameEngine {
 
 	private Phase gamePhase;
 	private DominationMapReader mapAdapter = new ConquestMapAdapter(new ConquestMapReader());
-
+/**
+ * setPhase method is used to set the gamePhase
+ * @param p_phase gamePhase
+ */
 	public void setPhase(Phase p_phase) {
 		gamePhase = p_phase;
 	}
-
+/**
+ * start method is used to initiate the game
+ * @throws IOException throws input output exception
+ */
 	public void start() throws IOException  {
 		System.out.println("Welome to Warzone");
 		boolean proceed = true;
@@ -393,7 +399,9 @@ public class GameEngine {
 			}
 		}
 	}
-
+	/**
+	 * tournamentMode method is used to execute the flow of tournament mode
+	 */
 	public void tournamentMode() {
 		boolean modeFlag = true;
 		//Choose the type of map to be loaded into game
@@ -460,7 +468,10 @@ public class GameEngine {
 		}
 	}
 	
-	
+	/**
+	 * setPlayers method is used to set the players for the current instance
+	 * @param PlayerStrategies list of array containing the playerNames of behavior
+	 */
 	public void setPlayers(String[] PlayerStrategies) {
 		l_playerObjectList = new HashMap<String, GamePlayer>();
 		l_playerList = new ArrayList<String>();
@@ -486,7 +497,11 @@ public class GameEngine {
 			}
 		}
 	}
-
+	/**
+	 * validateTournamentInput method is to validate the tournament input
+	 * @param l_typeOfMap map format
+	 * @return perfect input type for tournament mode
+	 */
 	public String validateTournamentInput(String l_typeOfMap) {
 		boolean flag = true;
 		String input="";
@@ -684,6 +699,9 @@ public class GameEngine {
 		}
 	}
 	
+	/**
+	 * playerHasCountries method is to find whether the player has every countries or not
+	 */
 	public void playerHasCountries() {
 		List<String> removePlayer = new ArrayList<>();
 		for(Entry<String, GamePlayer> l_gameplayObject : l_playerObjectList.entrySet()) {
