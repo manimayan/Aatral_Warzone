@@ -16,7 +16,12 @@ import aatral.warzone.model.Continent;
  * @since 13.04.2021
  *
  */
-public class DominationMapReaderTest {
+public class DominationMapReaderTest 
+{
+	
+	/**
+	 * loadMapTestDomination method is used to test the domination map
+	 */
 	@Test
 	public void loadMapTestDomination()
 	{
@@ -40,10 +45,11 @@ int expected=0;
 		int size=actual.size();
 		assertEquals(size,expected);
 	}
-	@Test
+	
 	/**
 	 * loadMapTestDominationNegative method is used to load and test the domination map 
 	 */
+	@Test
 	public void loadMapTestDominationNegative()
 	{
 int expected=0;
@@ -53,10 +59,10 @@ int expected=0;
 		int size=actual.size();
 		assertEquals(size,expected);
 	}
-	@Test
 	/**
 	 * loadMapTestDominationNegative method is used to load and test the domination map value 
 	 */
+	@Test
 	public void loadMapTestDominationNegativeMap()
 	{
 int expected=0;

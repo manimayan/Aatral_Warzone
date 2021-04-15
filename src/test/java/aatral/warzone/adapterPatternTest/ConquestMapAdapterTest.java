@@ -21,11 +21,10 @@ import aatral.warzone.model.Continent;
  */
 public class ConquestMapAdapterTest {
 
-	
-	@Test
 	/**
 	 * loadMapTest method is used to load and test the map 
-	 */
+	 */	
+	@Test
 	public void loadMapTest()
 	{
 		ConquestMapAdapter cma=new ConquestMapAdapter(null);
@@ -35,10 +34,10 @@ public class ConquestMapAdapterTest {
 		assertTrue(result);
 		
 		}
-	@Test
 	/**
 	 * loadMapTestParent method is used to load and test the parent map 
 	 */
+	@Test
 	public void loadMapTestParent()
 	{
 		ConquestMapAdapter cma=new ConquestMapAdapter(null);

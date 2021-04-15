@@ -69,11 +69,11 @@ public void defenderCalcTest()
 	 assertEquals(expected,ao.defenderCalc("19"));
 	 
 }
-@Test
 /**
  * defenderCalcTestCeil method is used to test and calculate the defender value
  * to a ceil value
  */
+@Test
 public void defenderCalcTestCeil()
 {
 	AdvanceOrder ao= new AdvanceOrder();

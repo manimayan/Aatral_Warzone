@@ -19,6 +19,9 @@ import aatral.warzone.model.Continent;
  */
 public class ConquestMapReaderTest {
 	public static int expected=0;
+	/**
+	 * loadMapTestConquest method is used to test the load map test conquest
+	 */
 	@Test
 	public void loadMapTestConquest()
 	{
@@ -43,11 +46,12 @@ public class ConquestMapReaderTest {
 		System.out.println(expected);
 		assertEquals(size,expected);
 	}
-	@Test
+	
 	
 /**
- * loadMapTestConquestNegative methos is used to test the value is negative
+ * loadMapTestConquestNegative method is used to test the value is negative
  */
+	@Test
 	public void loadMapTestConquestNegative()
 	{
 int expected1=0;
@@ -57,11 +61,12 @@ int expected1=0;
 		int size=actual.size();
 		assertEquals(size,expected1);
 	}
-	@Test
+	
 	
 	/**
-	 * loadMapTestConquestNegative methos is used to test the value is negative
+	 * loadMapTestConquestNegative method is used to test the value is negative
 	 */	
+	@Test
 	public void loadMapTestConquestNegativeMap()
 	{
 int expected2=0;
