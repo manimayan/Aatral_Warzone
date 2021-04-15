@@ -81,9 +81,7 @@ public class CheaterBehavior extends PlayerStrategy{
 	
 	/**
 	 * isAttack method is used attack
-	 * 
-	 * @param l_gamePlayerObject game player object
-	 * @param countryToName      country to name
+	 * @param countryID : Country ID value
 	 * @return false
 	 */
 	public boolean isAttack(String countryID) {

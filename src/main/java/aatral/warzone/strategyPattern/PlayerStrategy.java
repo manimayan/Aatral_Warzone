@@ -5,8 +5,7 @@ import aatral.warzone.gameplay.Order;
 
 
 /**
- * <h1>PlayerStrategy class hold the abstract values of game player object and
- * create order method</h>
+ * <h1>PlayerStrategy class hold the abstract values of game player object and create order method</h1>
  * @author William
  * @since 13.04.2021
  */
