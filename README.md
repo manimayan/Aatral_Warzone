@@ -1,5 +1,4 @@
 # Aatral-Warzone (Risk Game)
-## Soen6441- War Zone group project
 
 ### Project Description
 
